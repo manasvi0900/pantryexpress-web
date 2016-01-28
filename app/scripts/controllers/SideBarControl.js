@@ -13,11 +13,11 @@ angular.module('pantyexpressApp')
     //EDIT: cope with other path
     if(path.includes('Donor'))
     {
-      $scope.templateUrl= 'views/DonorSideBar.html'
+      $scope.templateUrl= 'Modules/Donor/views/DonorSideBar.html'
     }
     else
     {
-      $scope.templateUrl= 'views/PantryManagementSideBar.html'
+      $scope.templateUrl= 'Modules/Pantry/views/PantryManagementSideBar.html'
     }
     //$scope.templateUrl = (path==='/signin' || path==='/contact') ? 'template/header4signin.html' : 'template/header4normal.html' ;
 

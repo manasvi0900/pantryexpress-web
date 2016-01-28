@@ -21,28 +21,23 @@ angular
     $routeProvider
       //PantryManagement
       .when('/', {
-        templateUrl: 'views/AddFoodPantry.html'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'Modules/Pantry/views/AddFoodPantry.html'
       })
       .when('/AddFoodPantry', {
-        templateUrl: 'views/AddFoodPantry.html'
+        templateUrl: 'Modules/Modules/Pantry/views/AddFoodPantry.html'
       })
       .when('/DirectorInformation', {
-        templateUrl: 'views/DirectorInformation.html'
+        templateUrl: 'Modules/Pantry/views/DirectorInformation.html'
       })
       .when('/PaymentMethod', {
-        templateUrl: 'views/PaymentMethod.html'
+        templateUrl: 'Modules/Pantry/views/PaymentMethod.html'
       })
       .when('/Confirmation', {
-        templateUrl: 'views/Confirmation.html'
+        templateUrl: 'Modules/Pantry/views/Confirmation.html'
        })
       //Donor Management
       .when('/FindDonor', {
-        templateUrl: 'views/FindDonor.html'
+        templateUrl: 'Modules/Donor/views/FindDonor.html'
       })
       .otherwise({
         redirectTo: '/'
