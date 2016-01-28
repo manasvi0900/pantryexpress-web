@@ -220,7 +220,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -401,7 +401,7 @@ module.exports = function (grunt) {
         src: '{,*/}*.css'
       }
     },
-
+asd
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
