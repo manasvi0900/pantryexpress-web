@@ -220,7 +220,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -426,6 +426,11 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('git_push', 'Git push', function(){
+    execSync(execute('git', ['push'], {
+      cwd : process.cwd() + '/'
+    }), this.async());
+  });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -474,10 +479,15 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
+  grunt.registerTask('push', [
+    'newer:jshint',
+    'newer:jscs',
+    'git_push'
+  ]);
+
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
     'test',
     'build'
   ]);
-};
