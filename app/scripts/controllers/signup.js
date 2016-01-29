@@ -20,7 +20,7 @@ angular.module('pantyexpressApp')
         url: 'views/directorinfo.html'
       },
       {
-        name: "Signup Confirmation",
+        name: 'Signup Confirmation',
         url: 'views/signupconfirmation.html'
       },
     ];
