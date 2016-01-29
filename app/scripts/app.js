@@ -44,6 +44,11 @@ angular
         controller: 'PantryinfoCtrl',
         controllerAs: 'pantryinfo'
       })
+      .when('/signup', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup'
+      })
       .otherwise({
         redirectTo: '/'
       });
