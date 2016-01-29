@@ -10,23 +10,31 @@
 angular.module('pantyexpressApp')
   .controller('SignupCtrl', function ($scope) {
     var currentIndex = 0;
-    var templates = [
+    $scope.pages = [
       {
+        name: 'Pantry Information',
         url: 'views/pantryinfo.html'
       },
       {
+        name: 'Director Information',
         url: 'views/directorinfo.html'
       },
       {
+        name: "Signup Confirmation",
         url: 'views/signupconfirmation.html'
       },
     ];
-    $scope.template = templates[currentIndex];
+    $scope.template = $scope.pages[currentIndex];
+
+    $scope.goto = function (targetIndex){
+      currentIndex = targetIndex;
+      $scope.template = $scope.pages[currentIndex];
+    }
 
     $scope.next = function (){
       // TODO(Justin): Check overflow of index
       currentIndex++;
-      $scope.template = templates[currentIndex];
+      $scope.goto(currentIndex);
     }
 
   });
