@@ -29,6 +29,26 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
+      .when('/signup', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup'
+      })
+      .when('/pantryinfo', {
+        templateUrl: 'views/pantryinfo.html',
+        controller: 'PantryinfoCtrl',
+        controllerAs: 'pantryinfo'
+      })
+      .when('/signup', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup'
+      })
       .otherwise({
         redirectTo: '/'
       });
