@@ -49,6 +49,11 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
+      .when('/donor', {
+        templateUrl: 'views/donor.html',
+        controller: 'DonorCtrl',
+        controllerAs: 'donor'
+      })
       .otherwise({
         redirectTo: '/'
       });
