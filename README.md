@@ -1,5 +1,7 @@
 # PantyExpress Website
-#### Master branch build status: [![Build Status](https://snap-ci.com/J3xl57Pyi-W4qdGVdp3H5eEttub9_3N2AfZmZiAkges/build_image)](https://snap-ci.com/justonian/pantryexpress-web/branch/master)
+#### Branch build status:
+Development: [![Build Status](https://snap-ci.com/1GTlvAbHsa6VKzS_bib9k5sH1r4Mfr3yu4YYpw0JZNY/build_image)](https://snap-ci.com/justonian/pantryexpress-web/branch/development)  
+Master:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Build Status](https://snap-ci.com/J3xl57Pyi-W4qdGVdp3H5eEttub9_3N2AfZmZiAkges/build_image)](https://snap-ci.com/justonian/pantryexpress-web/branch/master)
 
 ## Installation
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
