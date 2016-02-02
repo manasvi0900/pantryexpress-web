@@ -44,10 +44,10 @@ angular
         controller: 'PantryinfoCtrl',
         controllerAs: 'pantryinfo'
       })
-      .when('/signup', {
-        templateUrl: 'views/signup.html',
-        controller: 'SignupCtrl',
-        controllerAs: 'signup'
+      .when('/donor', {
+        templateUrl: 'views/donor.html',
+        controller: 'DonorCtrl',
+        controllerAs: 'donor'
       })
       .otherwise({
         redirectTo: '/'
