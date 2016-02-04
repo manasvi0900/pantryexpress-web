@@ -24,7 +24,7 @@ angular.module('pantyexpressApp')
     $scope.template = $scope.pages[currentIndex];
 
     $scope.goto = function (targetIndex){
-      if(targetIndex == 0)
+      if(targetIndex === 0)
       {
         $location.path( '/household' );
       }
