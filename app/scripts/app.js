@@ -39,15 +39,25 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
-      .when('/pantryinfo', {
-        templateUrl: 'views/pantryinfo.html',
-        controller: 'PantryinfoCtrl',
-        controllerAs: 'pantryinfo'
-      })
       .when('/donor', {
         templateUrl: 'views/donor.html',
         controller: 'DonorCtrl',
         controllerAs: 'donor'
+      })
+      .when('/household', {
+        templateUrl: 'views/household.html',
+        controller: 'HouseholdCtrl',
+        controllerAs: 'household'
+      })
+      .when('/service', {
+        templateUrl: 'views/service.html',
+        controller: 'ServiceCtrl',
+        controllerAs: 'service'
+      })
+      .when('/client', {
+        templateUrl: 'views/client.html',
+        controller: 'ClientCtrl',
+        controllerAs: 'client'
       })
       .otherwise({
         redirectTo: '/'
