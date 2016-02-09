@@ -2,52 +2,43 @@
 
 /**
  * @ngdoc function
- * @name pantyexpressApp.controller:ServiceCtrl
+ * @name pantyexpressApp.controller:MovehouseholdCtrl
  * @description
- * # ServiceCtrl
+ * # MovehouseholdCtrl
  * Controller of the pantyexpressApp
  */
+
 angular.module('pantyexpressApp')
-  .controller('ServiceCtrl', function ($scope,$location) {
+  .controller('MovehouseholdCtrl', function ($scope,$location) {
 
     var currentIndex = 1;
-
-    $scope.NextButton = false;
     $scope.pages = [
       {
         name: 'Find Household',
-        url: 'views/household.html'
+        url: 'views/findhousehold.html',
+        visible: true
       },
       {
-         name: 'New Service',
-        url: 'views/newservice.html'
+        name: 'Move Household',
+        url: 'views/movehouseholdcode.html',
+        visible: true
       },
     ];
     $scope.template = $scope.pages[currentIndex];
 
     $scope.goto = function (targetIndex){
+      currentIndex = targetIndex;
       if(targetIndex === 0)
       {
         $location.path( '/household' );
       }
-      else
-      {
-      currentIndex = targetIndex;
       $scope.template = $scope.pages[currentIndex];
-      }
+
     }
     $scope.next = function (){
       // TODO(Mark): Copy from Justin
-
-      if(currentIndex+1<$scope.pages.length)
-      {
-        currentIndex++;
-
-        $scope.goto(currentIndex);
-      }
-
+      currentIndex++;
+      $scope.goto(currentIndex);
     }
 
   });
-
-

@@ -59,6 +59,11 @@ angular
         controller: 'ClientCtrl',
         controllerAs: 'client'
       })
+      .when('/movehousehold', {
+        templateUrl: 'views/movehousehold.html',
+        controller: 'MovehouseholdCtrl',
+        controllerAs: 'movehousehold'
+      })
       .otherwise({
         redirectTo: '/'
       });
