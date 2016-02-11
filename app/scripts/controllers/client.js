@@ -8,7 +8,8 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('ClientCtrl', function ($scope) {
+  .controller('ClientCtrl', function ($scope, api) {
+    console.log(api.getPantries());
 
     var currentIndex = 0;
     $scope.pages = [
@@ -21,6 +22,14 @@ angular.module('pantyexpressApp')
         url: 'views/newclient.html'
       },
     ];
+
+    api.getPantriesByPantryId({ pantryId: '73700642-ddb0-4446-ab53-4a82310f8d13'}).then(function (data){
+      $scope.pages[0].name = data;
+      console.log(data, 'asdfs');
+    },function(err){
+      console.log(err, 'didntwork')
+    });
+
     $scope.template = $scope.pages[currentIndex];
 
     $scope.goto = function (targetIndex){
