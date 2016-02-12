@@ -16,8 +16,8 @@ angular.module('pantyexpressApp')
         url: 'views/pantryinfo.html'
       },
       {
-        name: 'Director Information',
-        url: 'views/directorinfo.html'
+        name: 'Administrator Information',
+        url: 'views/administratorinfo.html'
       },
       {
         name: 'Signup Confirmation',

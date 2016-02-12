@@ -1,1 +1,166 @@
-householdview
+<div class="col-xs-12 col-sm-9 content">
+      <div class="text-left">
+        <h1>Find Household</h1>
+      </div>
+      <form class="form-horizontal" role="form">
+        <div class="row">
+          <div class="col-sm-3 col-lg-9">
+            <div class="form-group">
+              <label for="input 1" class="col-md-5 control-label">Household ID:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="Input 1" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 2" class="col-md-5 control-label">First Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="Input 2" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 3" class="col-md-5 control-label">Middle Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="Input 3" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 4" class="col-md-5 control-label">Last Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="input 4" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 5" class="col-md-5 control-label">Address:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="input 5" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 6" class="col-md-5 control-label">City:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="input 6" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 7" class="col-md-5 control-label">State:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="input 7" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 8" class="col-md-5 control-label">Zip code:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="input 8" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-9">
+            <div class="form-group">
+              <label for="input 9" class="col-md-5 control-label">Barcode:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="input 9" placeholder="" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="btn-group">
+            <p>
+              <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+              <label for="checkbox_id">Include Inactive</label>
+              <button class="btn-primary">Archive</button>
+            </p>
+            <p>
+              <button class="btn-primary">New Service</button>
+              <button class="btn-primary">Edit household</button>
+              <button class="btn-primary">New household</button>
+            </p>
+          </div>
+
+          <table class="table table-striped">
+            <thead class="thread-inverse">
+          <tr>
+              <th>Name</th>
+              <th>Unit</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Zipcode</th>
+              <th>Relationship</th>
+              <th>Status</th>
+              <th>Last Service</th>
+            </tr>
+          </thead>
+            <tbody>
+          <tr>
+              <th>Joe Smith</th>
+              <th>2353</th>
+              <th>29th Ave</th>
+              <th>Seattle</th>
+              <th>98101</th>
+              <th>
+                <select class="form-control" multiple="multiple">
+                <option>Head of Household</option>
+                <option>Member</option>
+              </select>
+              </th>
+              <th>
+                <select class="form-control" multiple="multiple">
+                <option>Active</option>
+                <option>Inactive</option>
+              </select></th>
+              <th><input type="checkbox" class="form-control checkbox"></th>
+            </tr>
+
+          <tr>
+              <th>Joe Smith</th>
+              <th>2353</th>
+              <th>29th Ave</th>
+              <th>Seattle</th>
+              <th>98101</th>
+              <th><select class="form-control" multiple="multiple">
+                <option>Head of Household</option>
+                <option>Member</option>
+              </select></th>
+              <th><select class="form-control" multiple="multiple">
+                <option>Active</option>
+                <option>Inactive</option>
+              </select></th>
+              <th><input type="checkbox" class="form-control checkbox"></th>
+            </tr>
+
+          <tr>
+              <th>Joe Smith</th>
+              <th>2353</th>
+              <th>29th Ave</th>
+              <th>Seattle</th>
+              <th>98101</th>
+              <th><select class="form-control" multiple="multiple">
+                <option>Head of Household</option>
+                <option>Member</option>
+              </select></th>
+              <th><select class="form-control" multiple="multiple">
+                <option>Active</option>
+                <option>Inactive</option>
+              </select></th>
+              <th><input type="checkbox" class="form-control checkbox"></th>
+            </tr>
+          </tbody>
+          </table>
+          </p>
+        </div><!-- /.row this actually does not appear to be needed with the form-horizontal -->
+      </form>
+    </div>
+</div>
