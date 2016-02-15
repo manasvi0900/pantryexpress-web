@@ -2,26 +2,31 @@
 
 /**
  * @ngdoc function
- * @name pantyexpressApp.controller:SignupCtrl
+ * @name pantyexpressApp.controller:DonorCtrl
  * @description
- * # SignupCtrl
+ * # DonorCtrl
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('SignupCtrl', function ($scope) {
+  .controller('DonorCtrl', function ($scope) {
+
     var currentIndex = 0;
     $scope.pages = [
       {
-        name: 'Pantry Information',
-        url: 'views/pantryinfo.html'
+        name: 'Find Donor',
+        url: 'views/finddonor.html'
       },
       {
-        name: 'Administrator Information',
-        url: 'views/administratorinfo.html'
+        name: 'New Donor',
+        url: 'views/newdonor.html'
       },
       {
-        name: 'Signup Confirmation',
-        url: 'views/signupconfirmation.html'
+        name: 'New Donation',
+        url: 'views/newdonation.html'
+      },
+      {
+        name: 'View Donation',
+        url: 'views/viewdonation.html'
       },
     ];
     $scope.template = $scope.pages[currentIndex];
@@ -30,11 +35,11 @@ angular.module('pantyexpressApp')
       currentIndex = targetIndex;
       $scope.template = $scope.pages[currentIndex];
     }
-
     $scope.next = function (){
-      // TODO(Justin): Check overflow of index
+      // TODO(Mark): Copy from Justin
       currentIndex++;
       $scope.goto(currentIndex);
     }
 
   });
+

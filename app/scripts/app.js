@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'peClient'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -39,15 +40,30 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
-      .when('/pantryinfo', {
-        templateUrl: 'views/pantryinfo.html',
-        controller: 'PantryinfoCtrl',
-        controllerAs: 'pantryinfo'
+      .when('/donor', {
+        templateUrl: 'views/donor.html',
+        controller: 'DonorCtrl',
+        controllerAs: 'donor'
       })
-      .when('/signup', {
-        templateUrl: 'views/signup.html',
-        controller: 'SignupCtrl',
-        controllerAs: 'signup'
+      .when('/household', {
+        templateUrl: 'views/household.html',
+        controller: 'HouseholdCtrl',
+        controllerAs: 'household'
+      })
+      .when('/service', {
+        templateUrl: 'views/service.html',
+        controller: 'ServiceCtrl',
+        controllerAs: 'service'
+      })
+      .when('/client', {
+        templateUrl: 'views/client.html',
+        controller: 'ClientCtrl',
+        controllerAs: 'client'
+      })
+      .when('/movehousehold', {
+        templateUrl: 'views/movehousehold.html',
+        controller: 'MovehouseholdCtrl',
+        controllerAs: 'movehousehold'
       })
       .otherwise({
         redirectTo: '/'
