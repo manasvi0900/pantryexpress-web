@@ -32,8 +32,6 @@ angular.module('pantyexpressApp')
     }
 
     $scope.next = function (){
-      console.log("signup");
-      // TODO(Justin): Check overflow of index
       currentIndex++;
       $scope.goto(currentIndex);
     }

@@ -9,7 +9,6 @@
  */
 angular.module('pantyexpressApp')
   .controller('DonorCtrl', function ($scope) {
-
     var currentIndex = 0;
     $scope.pages = [
       {
@@ -36,7 +35,6 @@ angular.module('pantyexpressApp')
       $scope.template = $scope.pages[currentIndex];
     }
     $scope.next = function (){
-      // TODO(Mark): Copy from Justin
       currentIndex++;
       $scope.goto(currentIndex);
     }

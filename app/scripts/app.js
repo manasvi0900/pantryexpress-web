@@ -11,24 +11,19 @@
 
 var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
   // Initialize a new promise
-  console.log("check ");
   var deferred = $q.defer();
-  // Make an AJAX call to check if the user is logged in
-  //$http.get('/loggedin').success(function (user) {
-    // Authenticated
-  //var user = '0';
-    if ($rootScope.user!==null&&$rootScope.user !== '0') {
+    if ($rootScope.user!==undefined&&$rootScope.user.name!=null)
+    {
       console.log("auth ");
+
       deferred.resolve();
     }
     // Not Authenticated
     else {
       console.log("no auth ");
-      $rootScope.message = 'You need to log in.';
       deferred.reject();
       $location.url('/login');
     }
-  //});
   return deferred.promise;
 };
 angular
@@ -61,7 +56,10 @@ angular
       .when('/signup', {
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl',
-        controllerAs: 'signup'
+        controllerAs: 'signup',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .when('/donor', {
         templateUrl: 'views/donor.html',
@@ -74,22 +72,26 @@ angular
       .when('/household', {
         templateUrl: 'views/household.html',
         controller: 'HouseholdCtrl',
-        controllerAs: 'household'
+        controllerAs: 'household',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .when('/service', {
         templateUrl: 'views/service.html',
         controller: 'ServiceCtrl',
-        controllerAs: 'service'
+        controllerAs: 'service',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .when('/client', {
         templateUrl: 'views/client.html',
         controller: 'ClientCtrl',
-        controllerAs: 'client'
-      })
-      .when('/movehousehold', {
-        templateUrl: 'views/movehousehold.html',
-        controller: 'MovehouseholdCtrl',
-        controllerAs: 'movehousehold'
+        controllerAs: 'client',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .otherwise({
         redirectTo: '/'

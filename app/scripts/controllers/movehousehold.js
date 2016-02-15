@@ -36,8 +36,6 @@ angular.module('pantyexpressApp')
 
     }
     $scope.next = function (){
-      console.log("movehousehold");
-      // TODO(Mark): Copy from Justin
       currentIndex++;
       $scope.goto(currentIndex);
     }
