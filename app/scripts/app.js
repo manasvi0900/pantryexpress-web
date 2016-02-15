@@ -8,6 +8,29 @@
  *
  * Main module of the application.
  */
+
+var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+  // Initialize a new promise
+  console.log("check ");
+  var deferred = $q.defer();
+  // Make an AJAX call to check if the user is logged in
+  //$http.get('/loggedin').success(function (user) {
+    // Authenticated
+  //var user = '0';
+    if ($rootScope.user!==null&&$rootScope.user !== '0') {
+      console.log("auth ");
+      deferred.resolve();
+    }
+    // Not Authenticated
+    else {
+      console.log("no auth ");
+      $rootScope.message = 'You need to log in.';
+      deferred.reject();
+      $location.url('/login');
+    }
+  //});
+  return deferred.promise;
+};
 angular
   .module('pantyexpressApp', [
     'ngAnimate',
@@ -43,7 +66,10 @@ angular
       .when('/donor', {
         templateUrl: 'views/donor.html',
         controller: 'DonorCtrl',
-        controllerAs: 'donor'
+        controllerAs: 'donor',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .when('/household', {
         templateUrl: 'views/household.html',

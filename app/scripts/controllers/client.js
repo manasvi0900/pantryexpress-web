@@ -37,6 +37,7 @@ angular.module('pantyexpressApp')
       $scope.template = $scope.pages[currentIndex];
     }
     $scope.next = function (){
+      console.log("client");
       // TODO(Mark): Copy from Justin
       currentIndex++;
       $scope.goto(currentIndex);

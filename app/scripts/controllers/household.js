@@ -54,7 +54,7 @@ angular.module('pantyexpressApp')
     }
     $scope.next = function (){
       // TODO(Mark): Copy from Justin
-
+      console.log("household");
       if(currentIndex<$scope.pages.length)
       {
         currentIndex++;

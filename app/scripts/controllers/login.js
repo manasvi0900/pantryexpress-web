@@ -8,10 +8,11 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('LoginCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, $location,$rootScope) {
+
+    $scope.login = function (foo){
+      console.log("here");
+      $rootScope.user = 'Joe';
+      $location.url('/');
+    }
   });
