@@ -12,15 +12,12 @@
 var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
   // Initialize a new promise
   var deferred = $q.defer();
-    if ($rootScope.user!==undefined&&$rootScope.user.name!=null)
+    if ($rootScope.user!==undefined&&$rootScope.user.name!==null)
     {
-      console.log("auth ");
-
       deferred.resolve();
     }
     // Not Authenticated
     else {
-      console.log("no auth ");
       deferred.reject();
       $location.url('/login');
     }

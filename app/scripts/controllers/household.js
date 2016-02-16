@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdCtrl', function ($scope,$location) {
+  .controller('HouseholdCtrl', function ($scope) {
 
     var currentIndex = 0;
     $scope.pages = [
@@ -18,18 +18,24 @@ angular.module('pantyexpressApp')
         visible: true
       },
       {
-        name: 'New Household',
+        name: 'Household Management',
         url: 'views/newhousehold.html',
         visible: true
-      },
-      {
-        name: 'Edit Household',
-        url: 'views/edithousehold.html',
-        visible: true
-      },
+      }
     ];
     $scope.template = $scope.pages[currentIndex];
 
+    $scope.goto = function (targetIndex){
+      currentIndex = targetIndex;
+      $scope.template = $scope.pages[currentIndex];
+    }
+    $scope.next = function (){
+      currentIndex++;
+      $scope.goto(currentIndex);
+    }
+
+  });
+    /*** old logic for pushing
     $scope.goto = function (targetIndex){
       currentIndex = targetIndex;
       if(targetIndex === 3)
@@ -62,3 +68,4 @@ angular.module('pantyexpressApp')
     }
 
   });
+     ****/
