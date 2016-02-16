@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'peClient'
+    'peClient',
+    'ngDialog'
   ])
   .config(function ($routeProvider) {
     $routeProvider

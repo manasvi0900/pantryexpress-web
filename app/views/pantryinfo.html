@@ -6,49 +6,49 @@
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputpantryname" class="col-md-5 control-label">Food Pantry Name:</label>
+          <label for="pantryName" class="col-md-5 control-label">Food Pantry Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="inputpantryname" placeholder="Food Pantry Name" type="text">
+            <input class="form-control" id="pantryName" placeholder="Food Pantry Name" type="text" ng-model="req.pantry.name">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="input1" class="col-md-5 control-label">Friendly Name:</label>
+          <label for="friendlyName" class="col-md-5 control-label">Friendly Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="input1" placeholder="Friendly Name" type="text">
+            <input class="form-control" id="friendlyName" placeholder="Friendly Name" type="text" ng-model="req.pantry.friendlyName">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputLabel2" class="col-md-5 control-label">Physical Address:</label>
+          <label for="physicalAddressLine1" class="col-md-5 control-label">Physical Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="inputLabel2" placeholder="Address" type="text">
+            <input class="form-control" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line1">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputLabel3" class="col-md-5 control-label">Physical Address:</label>
+          <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
           <div class="col-md-7">
-            <input class="form-control" id="inputLabel3" placeholder="Address" type="text">
+            <input class="form-control" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.pantry.physicalAddress.line2">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputcity" class="col-md-5 control-label">City:</label>
+          <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
           <div class="col-md-7">
-            <input class="form-control" id="inputcity" placeholder="City" type="text">
+            <input class="form-control" id="physicalAddressCity" placeholder="Physical Address City" type="text" ng-model="req.pantry.physicalAddress.city">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physical_state" class="col-md-5 control-label">State:</label>
+          <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <select class="form-control" id="physical_state">
+            <select class="form-control" id="physicalAddressState" ng-model="req.pantry.physicalAddress.state">
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -132,43 +132,44 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputzip" class="col-md-5 control-label">Zip code:</label>
+          <label for="physicalAddressZip" class="col-md-5 control-label">Zip code:</label>
           <div class="col-md-7">
-            <input class="form-control" id="inputzip" placeholder="Zip code" type="text">
-            <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
-            <label for="checkbox_id">Physical adress same as mailing address</label>
+            <input class="form-control" id="physicalAddressZip" placeholder="Physical Address Zip Code" type="number" ng-model="req.pantry.physicalAddress.zip">
+            <br>
+            <input type="checkbox" name="physicalAddressSame" id="physicalAddressSame">
+            <label for="physicalAddressSame">Physical address same as mailing address</label>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputLabel4" class="col-md-5 control-label">Mailing Address:</label>
+          <label for="mailingAddressLine1" class="col-md-5 control-label">Mailing Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="inputLabel4" placeholder="Address" type="text">
+            <input class="form-control" id="mailingAddressLine1" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line1">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="inputLabel5" class="col-md-5 control-label">Mailing Address:</label>
+          <label for="mailingAddressLine2" class="col-md-5 control-label"></label>
           <div class="col-md-7">
-            <input class="form-control" id="inputLabel5" placeholder="Address" type="text">
+            <input class="form-control" id="mailingAddressLine2" placeholder="" type="text" ng-model="req.pantry.mailingAddress.line2">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="input5" class="col-md-5 control-label">City:</label>
+          <label for="mailingAddressCity" class="col-md-5 control-label">City:</label>
           <div class="col-md-7">
-            <input class="form-control" id="input5" placeholder="City" type="text">
+            <input class="form-control" id="mailingAddressCity" placeholder="Mailing Address City" type="text" ng-model="req.pantry.mailingAddress.city">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="mailing_state" class="col-md-5 control-label">State:</label>
+          <label for="mailingAddressState" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <select class="form-control" id="mailing_state">
+            <select class="form-control" id="mailingAddressState" ng-model="req.pantry.mailingAddress.state">
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -252,32 +253,27 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="input7" class="col-md-5 control-label">Zip code:</label>
+          <label for="mailingAddressZip" class="col-md-5 control-label">Zip Code:</label>
           <div class="col-md-7">
-            <input class="form-control" id="input7" placeholder="Zip code" type="text">
+            <input class="form-control" id="mailingAddressZip" placeholder="Mailing Address Zip Code" type="number" ng-model="req.pantry.mailingAddress.zip">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="input8" class="col-md-5 control-label">Email Address:</label>
+          <label for="email" class="col-md-5 control-label">Email Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="input8" placeholder="Email" type="Email">
+            <input class="form-control" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="input9" class="col-md-5 control-label">Phone Number:</label>
+          <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-7">
-            <input class="form-control" id="input9" placeholder="Phone Number" type="number">
+            <input class="form-control" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone">
           </div>
         </div>
-      </div>
-      <div class="btn-group">
-        <button class="btn-primary">Edit</button>
-        <button class="btn-primary">Cancel</button>
-        <button class="btn-primary">Next</button>
       </div>
     </div>
   </form>
