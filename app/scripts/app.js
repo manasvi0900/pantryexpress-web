@@ -54,10 +54,7 @@ angular
       .when('/signup', {
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl',
-        controllerAs: 'signup',
-        resolve: {
-          loggedin: checkLoggedin
-        }
+        controllerAs: 'signup'
       })
       .when('/donor', {
         templateUrl: 'views/donor.html',
