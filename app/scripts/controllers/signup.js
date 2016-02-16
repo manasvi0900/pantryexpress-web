@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('SignupCtrl', function ($scope, notify, api) {
+  .controller('SignupCtrl', function ($scope, api, ngDialog) {
     $scope.currentIndex = 0;
     $scope.pages = [
       {
@@ -52,22 +52,30 @@ angular.module('pantyexpressApp')
     $scope.addDirector = function (){
       // Push tempAdminUser to users array in request object
       $scope.req.users.push($scope.tempAdminUser);
-
+      //
       // Reset temp user to blank object
       $scope.tempAdminUser = {};
     };
 
     $scope.createPantry = function (){
-      // Model data for request
+      // Write model data for request
       console.log('PantriesCreateRequest', $scope.req);
 
       // Call postPantries operation via API service
       api.postPantries({ PantriesCreateRequest: $scope.req }).then(function (data){
         console.log('Pantry: ', data);
-        notify('Pantry created with ID: ' + data.pantry.id + '!');
+        //notify();
+        ngDialog.openConfirm({
+          template:
+                '<p>Pantry created with ID: ' + data.pantry.id + '!</p>' +
+                '<div class="ngdialog-buttons">' +
+                '<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">OK</button>' +
+                '</div>',
+          plain: true
+        });
       },function(err){
         console.error('postPantries Error', err);
-        //alert(JSON.stringify(err, null, 4));
+        // TODO: Add error handling here
       });
     }
   });
