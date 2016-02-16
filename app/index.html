@@ -25,7 +25,7 @@
     <![endif]-->
 
   <!-- Add your site or application content here -->
-  <div class="header">
+  <div class="header" ng-controller="LoginCtrl">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +39,7 @@
           <a class="navbar-brand" href="#">PantryExpress</a>
 
         </div>
-        <div ng-include="'views/navbar-loggedin.html'"></div>
+        <div ng-include="topnavbar.url"></div>
       </div>
 
     </nav>
@@ -85,7 +85,6 @@
   <script src="scripts/controllers/household.js"></script>
   <script src="scripts/controllers/service.js"></script>
   <script src="scripts/controllers/client.js"></script>
-  <script src="scripts/controllers/movehousehold.js"></script>
   <script src="scripts/services/api.js"></script>
   <!-- endbuild -->
 </body>
