@@ -88,6 +88,11 @@ angular
           loggedin: checkLoggedin
         }
       })
+      .when('/households/create', {
+        templateUrl: 'views/households/create.html',
+        controller: 'HouseholdsCreateCtrl',
+        controllerAs: 'households/create'
+      })
       .otherwise({
         redirectTo: '/'
       });
