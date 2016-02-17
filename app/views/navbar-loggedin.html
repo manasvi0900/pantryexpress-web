@@ -8,11 +8,8 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
+      <li><a href="#/household">Find household</a></li>
+      <li><a href="#/household">Household Management</a></li>
     </ul>
   </div>
 
@@ -22,11 +19,7 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
+      <li><a href="#/donor">Find Donor</a></li>
     </ul>
   </div>
 
@@ -44,4 +37,10 @@
     </ul>
   </div>
   <button type="button" class="btn btn-default">Admin</button>
+</form>
+<form class="navbar-form navbar-right" ng-controller="LoginCtrl" id="loginController">
+  <div class="navbar-brand">
+       <span ng-if="loggedin">Welcome, {{user.name}}
+         <a href=javascript:angular.element(document.getElementById('loginController')).scope().logout()>logout</a></span>
+  </div>
 </form>

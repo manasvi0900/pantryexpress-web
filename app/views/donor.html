@@ -2,7 +2,7 @@
   <div class="col-xs-2">
     <nav class="nav-sidebar pull-left">
       <ul class="nav">
-        <li ng-class="{active: template.name===page.name}" ng-click="goto($index)" ng-repeat="page in pages"><a>{{ page.name }}</a></li>
+         <li ng-class="{active: template.name===page.name}" ng-click="goto($index)" ng-repeat="page in pages"><a>{{ page.name }}</a></li>
       </ul>
     </nav>
   </div>
@@ -11,10 +11,11 @@
     <div ng-include="template.url"></div>
     <div class="col-sm-8 col-lg-9">
       <div class="form-group">
-        <br>
+
         <div class="col-md-7">
-          <button class="btn btn-primary btn-sm" ng-click="next()" ng-show="currentIndex < pages.length-1">Next</button>
+          <button class="btn btn-primary btn-sm" ng-click="next()">Next</button>
         </div>
+        {{template.name}}
       </div>
     </div>
   </div>

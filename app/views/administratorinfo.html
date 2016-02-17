@@ -1,0 +1,92 @@
+<div class="text-center">
+      <h1>Administrator Information</h1>
+</div>
+  <div>
+            <table class="table table-bordered" ng-show="req.users.length>0">
+              <thead class="thread-inverse">
+            <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email Address</th>
+                  <th>Phone Number</th>
+                  <th>Job Title</th>
+              </tr>
+            </thead>
+              <tbody>
+            <tr ng-repeat="user in req.users">
+                  <td>{{ user.firstName }}</td>
+                  <td>{{ user.lastName }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.phone }}</td>
+                  <td>{{ user.jobTitle }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+<div class="text-center">
+      <h2>New Administrator</h2>
+</div>
+<form class="form-horizontal" role="form">
+      <div class="row">
+        <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                  <label for="firstName" class="col-md-5 control-label">First Name:</label>
+                  <div class="col-md-7">
+                      <input class="form-control" id="firstName" placeholder="First Name" type="text" ng-model="tempAdminUser.firstName">
+                  </div>
+              </div>
+        </div>
+        <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                  <label for="lastName" class="col-md-5 control-label">Last Name:</label>
+                  <div class="col-md-7">
+                      <input class="form-control" id="lastName" placeholder="Last Name" type="text" ng-model="tempAdminUser.lastName">
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-6 col-lg-12">
+          <div class="form-group">
+            <label for="jobTitle" class="col-md-5 control-label">Title:</label>
+            <div class="col-md-7">
+              <input class="form-control" id="jobTitle" placeholder="Job Title" type="text" ng-model="tempAdminUser.jobTitle">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                  <label for="phone" class="col-md-5 control-label">Phone Number:</label>
+                  <div class="col-md-7">
+                      <input class="form-control" id="phone" placeholder="Phone Number" type="number" ng-model="tempAdminUser.phone">
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                  <label for="email" class="col-md-5 control-label">Email Address:</label>
+                  <div class="col-md-7">
+                      <input class="form-control" id="email" placeholder="Email Address" type="text" ng-model="tempAdminUser.email">
+                  </div>
+              </div>
+        </div>
+        <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                  <label for="password1" class="col-md-5 control-label">Desired Password:</label>
+                  <div class="col-md-7">
+                      <input class="form-control" id="password1" placeholder="Desired Password" type="text">
+                  </div>
+              </div>
+          </div>
+        <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                  <label for="password2" class="col-md-5 control-label">Re-Enter Password:</label>
+                  <div class="col-md-7">
+                      <input class="form-control" id="password2" placeholder="Re-Enter Password" type="text">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <div class="col-md-7">
+      <button class="btn btn-primary btn-sm" ng-click="addDirector()">Add Director</button>
+    </div>
+  </form>
