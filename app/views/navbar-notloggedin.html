@@ -1,0 +1,5 @@
+<form class="navbar-form navbar-right" ng-controller="LoginCtrl" id="loginController">
+  <div class="navbar-brand">
+       <span ng-if="!loggedin"><a href=javascript:angular.element(document.getElementById('loginController')).scope().gotologin()>login</a></span>
+  </div>
+</form>
