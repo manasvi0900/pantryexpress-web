@@ -20,9 +20,49 @@ angular.module('pantyexpressApp')
           visible: true
         };
       }
+      if(name === 'new')
+      {
+        $scope.template = {
+          name: 'New Household',
+          url: 'views/addhousehold.html',
+          visible: true
+        };
+      }
+      if(name === 'find')
+      {
+        $scope.template = {
+          name: 'Find Household',
+          url: 'views/findhousehold.html',
+          visible: true
+        };
+      }
+      if(name === 'move')
+      {
+        $scope.template = {
+          name: 'Move Household Member',
+          url: 'views/movehousehold.html',
+          visible: true
+        };
+      }
+      if(name === 'editmember')
+      {
+        $scope.template = {
+          name: 'Edit Household Member',
+          url: 'views/householdmemberinfo.html',
+          visible: true
+        };
+      }
+      if(name === 'newservice')
+      {
+        $scope.template = {
+          name: 'New Service',
+          url: 'views/newservice.html',
+          visible: true
+        };
+      }
     }
-    var viewname = ($routeParams.householdview || "");
-    console.log("HouseholdCtrl:"+viewname);
+    var viewname = ($routeParams.householdview);
+    console.log('HouseholdCtrl:' + viewname);
     var currentIndex = 0;
     $scope.pages = [
       {
