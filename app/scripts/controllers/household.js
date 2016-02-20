@@ -8,8 +8,21 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdCtrl', function ($scope) {
+  .controller('HouseholdCtrl', function ($scope,$routeParams) {
 
+    $scope.setview = function(name)
+    {
+      if(name === 'edit')
+      {
+        $scope.template = {
+          name: 'Edit Household',
+          url: 'views/edithousehold.html',
+          visible: true
+        };
+      }
+    }
+    var viewname = ($routeParams.householdview || "");
+    console.log("HouseholdCtrl:"+viewname);
     var currentIndex = 0;
     $scope.pages = [
       {
@@ -25,6 +38,7 @@ angular.module('pantyexpressApp')
     ];
     $scope.template = $scope.pages[currentIndex];
 
+    $scope.setview(viewname);
     $scope.goto = function (targetIndex){
       currentIndex = targetIndex;
       $scope.template = $scope.pages[currentIndex];

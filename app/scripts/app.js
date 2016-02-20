@@ -93,6 +93,11 @@ angular
         controller: 'HouseholdsCreateCtrl',
         controllerAs: 'households/create'
       })
+      .when('/household/:householdview', {
+        templateUrl: 'views/household.html',
+        controller: 'HouseholdCtrl',
+        controllerAs: 'household'
+      })
       .otherwise({
         redirectTo: '/'
       });
