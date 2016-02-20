@@ -29,3 +29,10 @@ Running `grunt test` will run the unit tests with karma.
 ## Generating new Angular website components
 
 Refer to https://github.com/yeoman/generator-angular for how to use the Yeoman Angular generator.
+
+## Routing
+For Routing we have two different style
+  1. Angular Routing: These are the overall root routes that get configured with Yoeman. We have 4 mains ones: household, login, signup and Main
+      Each one of these Routes loads a default page that has tempaltes inside of it. These templates get loaded inside of the individual controllers. 
+  2. Subrouting based parameter: These routign is currenrtlty only on the household controller, but w if there is a parameter after household we look to see if there is a match, if there is we swap the  temple. 
+      Ex: /household/find will load the template viewhoushold.html inside of the houshold.html
