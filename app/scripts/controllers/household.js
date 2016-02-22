@@ -18,11 +18,24 @@ angular.module('pantyexpressApp')
         visible: true
       },
       {
-        name: 'Household Management',
+        name: 'New household',
         url: 'views/newhousehold.html',
+        visible: true
+      },
+      {
+        name: 'New Household Member',
+        url: 'views/newhouseholdmember.html',
         visible: true
       }
     ];
+
+    $scope.newHousehold= function () {
+
+      $location.path('views/newhousehold.htmlt');
+
+    };
+
+
     $scope.template = $scope.pages[currentIndex];
 
     $scope.goto = function (targetIndex){
