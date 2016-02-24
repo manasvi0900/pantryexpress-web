@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdCtrl', function ($scope) {
+  .controller('HouseholdCtrl', function ($scope, $location) {
 
     var currentIndex = 0;
     $scope.pages = [
