@@ -64,7 +64,12 @@ angular
           loggedin: checkLoggedin
         }
       })
-      .when('/household', {
+      .when('/households/create', {
+        templateUrl: 'views/households/create.html',
+        controller: 'HouseholdsCreateCtrl',
+        controllerAs: 'households/create'
+      })
+      .when('/households', {
         templateUrl: 'views/household.html',
         controller: 'HouseholdCtrl',
         controllerAs: 'household',
@@ -72,12 +77,7 @@ angular
           loggedin: checkLoggedin
         }
       })
-      .when('/households/create', {
-        templateUrl: 'views/households/create.html',
-        controller: 'HouseholdsCreateCtrl',
-        controllerAs: 'households/create'
-      })
-      .when('/household/:householdview', {
+      .when('/households/:householdview', {
         templateUrl: 'views/household.html',
         controller: 'HouseholdCtrl',
         controllerAs: 'household'
