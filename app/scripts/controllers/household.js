@@ -19,14 +19,6 @@ angular.module('pantyexpressApp')
           visible: true
         };
       }
-      if(name === 'new')
-      {
-        $scope.template = {
-          name: 'New Household',
-          url: 'views/addhousehold.html',
-          visible: true
-        };
-      }
       if(name === 'find')
       {
         $scope.template = {
