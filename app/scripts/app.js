@@ -72,26 +72,15 @@ angular
           loggedin: checkLoggedin
         }
       })
-      .when('/service', {
-        templateUrl: 'views/service.html',
-        controller: 'ServiceCtrl',
-        controllerAs: 'service',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })
-      .when('/client', {
-        templateUrl: 'views/client.html',
-        controller: 'ClientCtrl',
-        controllerAs: 'client',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })
       .when('/households/create', {
         templateUrl: 'views/households/create.html',
         controller: 'HouseholdsCreateCtrl',
         controllerAs: 'households/create'
+      })
+      .when('/household/:householdview', {
+        templateUrl: 'views/household.html',
+        controller: 'HouseholdCtrl',
+        controllerAs: 'household'
       })
       .otherwise({
         redirectTo: '/'
