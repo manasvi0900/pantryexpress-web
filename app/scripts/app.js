@@ -65,7 +65,7 @@ angular
         }
       })
       .when('/households/create', {
-        templateUrl: 'views/households/create.html',
+        templateUrl: 'views/households/create/create.html',
         controller: 'HouseholdsCreateCtrl',
         controllerAs: 'households/create'
       })

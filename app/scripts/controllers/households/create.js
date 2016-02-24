@@ -13,15 +13,15 @@ angular.module('pantyexpressApp')
     $scope.pages = [
       {
         name: 'Household Information',
-        url: 'views/households/householdcreateinfo.html'
+        url: 'views/households/create/householdcreateinfo.html'
       },
       {
         name: 'Household Members',
-        url: 'views/households/householdmembers.html'
+        url: 'views/households/create/householdmembers.html'
       },
       {
         name: 'Household Confirmation',
-        url: 'views/households/householdconfirmation.html'
+        url: 'views/households/create/householdconfirmation.html'
       },
     ];
     $scope.template = $scope.pages[$scope.currentIndex];

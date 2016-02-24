@@ -1,0 +1,105 @@
+<div class="col-xs-12 col-sm-9 content">
+  <div class="text-left">
+    <h1>New Household</h1>
+  </div>
+  <form class="form-horizontal" role="form">
+    <div class="row">
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member First Name" class="col-md-5 control-label">First Name:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="Member First Name" placeholder="" type="text" ng-model="req.householdmember.first.name">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member Middle Name" class="col-md-5 control-label">Middle Name:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="Member Middle Name" placeholder="" type="text" ng-model="req.householdmember.middle.name">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member Last Name" class="col-md-5 control-label">Last Name:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="Member Last Name" placeholder="" type="text" ng-model="req.householdmember.last.name">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member Email" class="col-md-5 control-label">Email:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="Member Email" placeholder="" type="email">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member Phone Number" class="col-md-5 control-label">Phone Number:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="Member Phone Number" placeholder="" type="number">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member Birthday" class="col-md-5 control-label">Birthday:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="Member Birthday" placeholder="" type="date">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Gender" class="col-md-5 control-label">Gender:</label>
+          <div class="col-md-7">
+            <select class="form-control" id="Gender" ng-model="req.householdmember.type">
+              <option></option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="Member Type" class="col-md-5 control-label">Member Type:</label>
+          <div class="col-md-7">
+            <select class="form-control" id="Member Type" ng-model="req.householdmember.type">
+              <option></option>
+              <option value="1">Head of Household</option>
+              <option value="2">HouseholdMember</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+      <div class="form-group">
+        <label for="Validation Date" class="col-md-5 control-label">Validation Date:</label>
+        <div class="col-md-7">
+          <input class="form-control" id="Validation Date" placeholder="" type="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Validation Type" class="col-md-5 control-label">Validation Date:</label>
+        <div class="col-md-7">
+          <input class="form-control" id="Validation Type" placeholder="" type="text">
+        </div>
+      </div>
+        <div class="btn-group2">
+          <p>
+            <input type="checkbox" name="checkbox" id="checkbox_id1" value="value">
+            <label for="checkbox_id1">Disabled</label>
+            <input type="checkbox" name="checkbox" id="checkbox_id2" value="value">
+            <label for="checkbox_id2">Hispanic</label>
+            <input type="checkbox" name="checkbox" id="checkbox_id3" value="value">
+            <label for="checkbox_id3">Special needs</label>
+          </p>
+        </div>
+    </div>
+    </div>
+  </form>
+</div>
