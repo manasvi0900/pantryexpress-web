@@ -8,7 +8,10 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('SignupCtrl', function ($scope, api, ngDialog) {
+  .controller('SignupCtrl', function ($scope,$rootScope, api, ngDialog) {
+
+    //Regex pattern for email, need @.something for schema validation
+    $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.currentIndex = 0;
     $scope.pages = [
       {
@@ -22,7 +25,7 @@ angular.module('pantyexpressApp')
       {
         name: 'Signup Confirmation',
         url: 'views/signupconfirmation.html'
-      },
+      }
     ];
     $scope.template = $scope.pages[$scope.currentIndex];
 
@@ -34,12 +37,35 @@ angular.module('pantyexpressApp')
       users: []
     };
 
+    $scope.CheckDirectorExists = function(form)
+    {
+      //this allows for skipping validatiion once we have a director created
+      if($scope.req.users.length === 0 ||
+        form.adminEmailFormInput.$touched ||
+        form.adminFirstNameFormInput.$touched ||
+        form.adminLastNameFormInput.$touched ||
+        form.adminTitleFormInput.$touched ||
+        form.adminPhoneFormInput.$touched)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+
+    }
+
     $scope.goto = function (targetIndex){
       $scope.currentIndex = targetIndex;
       $scope.template = $scope.pages[$scope.currentIndex];
     };
 
-    $scope.next = function (){
+    $scope.next = function (form){
+      if(form.$invalid === true)
+      {
+       return;
+      }
       $scope.currentIndex++;
       $scope.goto($scope.currentIndex);
     };
@@ -49,9 +75,20 @@ angular.module('pantyexpressApp')
       $scope.goto($scope.currentIndex);
     };
 
-    $scope.addDirector = function (){
+    $scope.addDirector = function (form){
+      //check form state before adding
+      if(form.$invalid === true)
+      {
+        return;
+      }
       // Push tempAdminUser to users array in request object
       $scope.req.users.push($scope.tempAdminUser);
+      //resets required form states
+      form.adminEmailFormInput.$touched = false;
+      form.adminFirstNameFormInput.$touched = false;
+      form.adminLastNameFormInput.$touched = false;
+      form.adminTitleFormInput.$touched = false;
+      form.adminPhoneFormInput.$touched = false;
       //
       // Reset temp user to blank object
       $scope.tempAdminUser = {};

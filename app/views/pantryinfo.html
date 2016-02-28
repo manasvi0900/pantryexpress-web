@@ -2,13 +2,14 @@
 <div class="text-center">
     <h1>Food Pantry Signup</h1>
 </div>
-  <form class="form-horizontal" role="form">
+  <form class="form-horizontal" role="form" name="pantryInformForm">
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="pantryName" class="col-md-5 control-label">Food Pantry Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="pantryName" placeholder="Food Pantry Name" type="text" ng-model="req.pantry.name">
+            <input class="form-control" name="pantryNameFormInput" id="pantryName" placeholder="Food Pantry Name" type="text" ng-model="req.pantry.name" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryNameFormInput.$touched && pantryInformForm.pantryNameFormInput.$invalid">Pantry name is required.</span>
           </div>
         </div>
       </div>
@@ -24,7 +25,8 @@
         <div class="form-group">
           <label for="physicalAddressLine1" class="col-md-5 control-label">Physical Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line1">
+            <input class="form-control" name="pantryPhysicalAddressL1FormInput" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line1" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalAddressL1FormInput.$touched && pantryInformForm.pantryPhysicalAddressL1FormInput.$invalid">Address line 1 is required.</span>
           </div>
         </div>
       </div>
@@ -40,7 +42,8 @@
         <div class="form-group">
           <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
           <div class="col-md-7">
-            <input class="form-control" id="physicalAddressCity" placeholder="Physical Address City" type="text" ng-model="req.pantry.physicalAddress.city">
+            <input class="form-control" name="pantryPhysicalCityFormInput" id="physicalAddressCity" placeholder="Physical Address City" type="text" ng-model="req.pantry.physicalAddress.city" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalCityFormInput.$touched && pantryInformForm.pantryPhysicalCityFormInput.$invalid">City is required.</span>
           </div>
         </div>
       </div>
@@ -48,7 +51,7 @@
         <div class="form-group">
           <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <select class="form-control" id="physicalAddressState" ng-model="req.pantry.physicalAddress.state">
+            <select class="form-control" name="pantryPhysicalStateFormInput" id="physicalAddressState" ng-model="req.pantry.physicalAddress.state" required>
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -127,6 +130,7 @@
               <option value="YT">YT - Yukon</option>
               <option value="None">None</option>
             </select>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalStateFormInput.$touched && pantryInformForm.pantryPhysicalStateFormInput.$invalid">State is required.</span>
           </div>
         </div>
       </div>
@@ -134,7 +138,8 @@
         <div class="form-group">
           <label for="physicalAddressZip" class="col-md-5 control-label">Zip code:</label>
           <div class="col-md-7">
-            <input class="form-control" id="physicalAddressZip" placeholder="Physical Address Zip Code" type="number" ng-model="req.pantry.physicalAddress.zip">
+            <input class="form-control" name="pantryPhysicalZipFormInput" id="physicalAddressZip" placeholder="Physical Address Zip Code" type="number" ng-model="req.pantry.physicalAddress.zip" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalZipFormInput.$touched && pantryInformForm.pantryPhysicalZipFormInput.$invalid">Zipcode is required.</span>
             <br>
             <input type="checkbox" name="physicalAddressSame" id="physicalAddressSame">
             <label for="physicalAddressSame">Physical address same as mailing address</label>
@@ -145,7 +150,8 @@
         <div class="form-group">
           <label for="mailingAddressLine1" class="col-md-5 control-label">Mailing Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="mailingAddressLine1" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line1">
+            <input class="form-control" name="pantryMailingAddressLine1FormInput" id="mailingAddressLine1" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line1" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingAddressLine1FormInput.$touched && pantryInformForm.pantryMailingAddressLine1FormInput.$invalid">Address line1 is required.</span>
           </div>
         </div>
       </div>
@@ -161,7 +167,8 @@
         <div class="form-group">
           <label for="mailingAddressCity" class="col-md-5 control-label">City:</label>
           <div class="col-md-7">
-            <input class="form-control" id="mailingAddressCity" placeholder="Mailing Address City" type="text" ng-model="req.pantry.mailingAddress.city">
+            <input class="form-control" name="pantryMailingCityFormInput" id="mailingAddressCity" placeholder="Mailing Address City" type="text" ng-model="req.pantry.mailingAddress.city" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingCityFormInput.$touched && pantryInformForm.pantryMailingCityFormInput.$invalid">City is required.</span>
           </div>
         </div>
       </div>
@@ -169,7 +176,7 @@
         <div class="form-group">
           <label for="mailingAddressState" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <select class="form-control" id="mailingAddressState" ng-model="req.pantry.mailingAddress.state">
+            <select class="form-control" name="pantryMailingStateFormInput" id="mailingAddressState" ng-model="req.pantry.mailingAddress.state" required>
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -248,6 +255,7 @@
               <option value="YT">YT - Yukon</option>
               <option value="None">None</option>
             </select>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingStateFormInput.$touched && pantryInformForm.pantryMailingStateFormInput.$invalid">State is required.</span>
           </div>
         </div>
       </div>
@@ -255,7 +263,8 @@
         <div class="form-group">
           <label for="mailingAddressZip" class="col-md-5 control-label">Zip Code:</label>
           <div class="col-md-7">
-            <input class="form-control" id="mailingAddressZip" placeholder="Mailing Address Zip Code" type="number" ng-model="req.pantry.mailingAddress.zip">
+            <input class="form-control" name="pantryMailingZipFormInput" id="mailingAddressZip" placeholder="Mailing Address Zip Code" type="number" ng-model="req.pantry.mailingAddress.zip" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingZipFormInput.$touched && pantryInformForm.pantryMailingZipFormInput.$invalid">Zipcode is required.</span>
           </div>
         </div>
       </div>
@@ -263,7 +272,8 @@
         <div class="form-group">
           <label for="email" class="col-md-5 control-label">Email Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email">
+            <input class="form-control" name="pantryEmailFormInput" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email" ng-pattern="emailPattern" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryEmailFormInput.$touched && pantryInformForm.pantryEmailFormInput.$invalid">Email is required.</span>
           </div>
         </div>
       </div>
@@ -271,10 +281,12 @@
         <div class="form-group">
           <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-7">
-            <input class="form-control" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone">
+            <input class="form-control" name="pantryOfficeNumberFormInput" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryOfficeNumberFormInput.$touched && pantryInformForm.pantryOfficeNumberFormInput.$invalid">Office number is required.</span>
           </div>
         </div>
       </div>
     </div>
+    <button class="btn btn-primary btn-sm" data-ng-click="next(pantryInformForm)" ng-show="currentIndex < pages.length-1">Next</button>
   </form>
 

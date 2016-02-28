@@ -26,13 +26,14 @@
 <div class="text-center">
       <h2>New Administrator</h2>
 </div>
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" name="pantryAdministrationForm">
       <div class="row">
         <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                   <label for="firstName" class="col-md-5 control-label">First Name:</label>
                   <div class="col-md-7">
-                      <input class="form-control" id="firstName" placeholder="First Name" type="text" ng-model="tempAdminUser.firstName">
+                      <input class="form-control" name="adminFirstNameFormInput" id="firstName" placeholder="First Name" type="text" ng-model="tempAdminUser.firstName" ng-required="CheckDirectorExists(pantryAdministrationForm)">
+                    <span class="form-validation-error" ng-show="pantryAdministrationForm.adminFirstNameFormInput.$touched && pantryAdministrationForm.adminFirstNameFormInput.$invalid">First name is required.</span>
                   </div>
               </div>
         </div>
@@ -40,7 +41,8 @@
               <div class="form-group">
                   <label for="lastName" class="col-md-5 control-label">Last Name:</label>
                   <div class="col-md-7">
-                      <input class="form-control" id="lastName" placeholder="Last Name" type="text" ng-model="tempAdminUser.lastName">
+                      <input class="form-control" name="adminLastNameFormInput" id="lastName" placeholder="Last Name" type="text" ng-model="tempAdminUser.lastName" ng-required="CheckDirectorExists(pantryAdministrationForm)">
+                    <span class="form-validation-error" ng-show="pantryAdministrationForm.adminLastNameFormInput.$touched && pantryAdministrationForm.adminLastNameFormInput.$invalid">Last name is required.</span>
                   </div>
               </div>
           </div>
@@ -48,7 +50,8 @@
           <div class="form-group">
             <label for="jobTitle" class="col-md-5 control-label">Title:</label>
             <div class="col-md-7">
-              <input class="form-control" id="jobTitle" placeholder="Job Title" type="text" ng-model="tempAdminUser.jobTitle">
+              <input class="form-control" name="adminTitleFormInput" id="jobTitle" placeholder="Job Title" type="text" ng-model="tempAdminUser.jobTitle" ng-required="CheckDirectorExists(pantryAdministrationForm)">
+              <span class="form-validation-error" ng-show="pantryAdministrationForm.adminTitleFormInput.$touched && pantryAdministrationForm.adminTitleFormInput.$invalid">Title is required.</span>
             </div>
           </div>
         </div>
@@ -56,7 +59,8 @@
               <div class="form-group">
                   <label for="phone" class="col-md-5 control-label">Phone Number:</label>
                   <div class="col-md-7">
-                      <input class="form-control" id="phone" placeholder="Phone Number" type="number" ng-model="tempAdminUser.phone">
+                      <input class="form-control" name="adminPhoneFormInput" id="phone" placeholder="Phone Number" type="number" ng-model="tempAdminUser.phone" ng-required="CheckDirectorExists(pantryAdministrationForm)">
+                    <span class="form-validation-error" ng-show="pantryAdministrationForm.adminPhoneFormInput.$touched && pantryAdministrationForm.adminPhoneFormInput.$invalid">Phone number is required.</span>
                   </div>
               </div>
           </div>
@@ -64,7 +68,8 @@
               <div class="form-group">
                   <label for="email" class="col-md-5 control-label">Email Address:</label>
                   <div class="col-md-7">
-                      <input class="form-control" id="email" placeholder="Email Address" type="text" ng-model="tempAdminUser.email">
+                      <input class="form-control" name="adminEmailFormInput" id="email" placeholder="Email Address" type="email" ng-model="tempAdminUser.email" ng-pattern="emailPattern" ng-required="CheckDirectorExists(pantryAdministrationForm)">
+                    <span class="form-validation-error" ng-show="pantryAdministrationForm.adminEmailFormInput.$touched && pantryAdministrationForm.adminEmailFormInput.$invalid">Email is required.</span>
                   </div>
               </div>
         </div>
@@ -87,6 +92,7 @@
       </div>
 
     <div class="col-md-7">
-      <button class="btn btn-primary btn-sm" ng-click="addDirector()">Add Director</button>
+      <button class="btn btn-primary btn-sm" ng-click="addDirector(pantryAdministrationForm)">Add Director</button>
+      <button class="btn btn-primary btn-sm" data-ng-click="next(pantryAdministrationForm)" ng-show="currentIndex < pages.length-1">Next</button>
     </div>
   </form>
