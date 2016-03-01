@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdsCreateCtrl', function ($scope, api, ngDialog) {
+  .controller('HouseholdsCreateCtrl', function ($scope, $location, api, ngDialog) {
     $scope.currentIndex = 0;
     $scope.pages = [
       {
@@ -26,6 +26,14 @@ angular.module('pantyexpressApp')
     ];
     $scope.template = $scope.pages[$scope.currentIndex];
 
+    // Create temp user to handle model for current user being added
+    $scope.tempHousehold = {};
+
+    // Create blank request object for PantriesCreateRequest parameters
+    $scope.req = {
+      users: []
+    };
+
     $scope.goto = function (targetIndex){
       $scope.currentIndex = targetIndex;
       $scope.template = $scope.pages[$scope.currentIndex];
@@ -40,4 +48,15 @@ angular.module('pantyexpressApp')
       $scope.currentIndex--;
       $scope.goto($scope.currentIndex);
     };
+
+    $scope.addHouseholdMember = function (){
+      //$location.path( '/householdmembers.html' );
+      //alert("Note Saved");
+      // Push tempAdminUser to users array in request object
+      $scope.req.users.push($scope.tempHousehold);
+      //
+      // Reset temp user to blank object
+      $scope.tempHousehold = {};
+    };
+
   });
