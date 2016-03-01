@@ -22,7 +22,7 @@ angular.module('pantyexpressApp')
       {
         name: 'Signup Confirmation',
         url: 'views/signupconfirmation.html'
-      },
+      }
     ];
     $scope.template = $scope.pages[$scope.currentIndex];
 
