@@ -15,7 +15,7 @@ angular.module('pantyexpressApp')
       {
         $scope.template = {
           name: 'Edit Household',
-          url: 'views/edithousehold.html',
+          url: 'views/households/edithousehold.html',
           visible: true
         };
       }
@@ -23,7 +23,7 @@ angular.module('pantyexpressApp')
       {
         $scope.template = {
           name: 'Find Household',
-          url: 'views/findhousehold.html',
+          url: 'views/households/findhousehold.html',
           visible: true
         };
       }
@@ -31,7 +31,7 @@ angular.module('pantyexpressApp')
       {
         $scope.template = {
           name: 'Move Household Member',
-          url: 'views/movehousehold.html',
+          url: 'views/households/movehousehold.html',
           visible: true
         };
       }
@@ -39,7 +39,7 @@ angular.module('pantyexpressApp')
       {
         $scope.template = {
           name: 'Edit Household Member',
-          url: 'views/householdmemberinfo.html',
+          url: 'views/households/householdmemberinfo.html',
           visible: true
         };
       }
@@ -47,7 +47,7 @@ angular.module('pantyexpressApp')
       {
         $scope.template = {
           name: 'New Service',
-          url: 'views/newservice.html',
+          url: 'views/households/newservice.html',
           visible: true
         };
       }
@@ -58,24 +58,24 @@ angular.module('pantyexpressApp')
     $scope.pages = [
       {
         name: 'Find Household',
-        url: 'views/findhousehold.html',
+        url: 'views/households/findhousehold.html',
         visible: true
       },
       {
-        name: 'New household',
-        url: 'views/newhousehold.html',
+        name: 'Edit household',
+        url: 'views/households/edithousehold.html',
         visible: true
       },
       {
         name: 'New Household Member',
-        url: 'views/newhouseholdmember.html',
+        url: 'views/households/newhouseholdmember.html',
         visible: true
       }
     ];
 
     $scope.newHousehold= function () {
 
-      $location.path('views/newhousehold.htmlt');
+      $location.path('views/households/newhousehold.htmlt');
 
     };
 
