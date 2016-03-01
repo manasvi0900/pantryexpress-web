@@ -468,7 +468,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
-    'uglify',
+    // 'uglify', --disabling for now to have clear visibility to any broken references
     'filerev',
     'usemin',
     'htmlmin'
