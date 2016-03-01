@@ -1,92 +1,125 @@
 <div class="col-xs-12 col-sm-9 content">
   <div class="text-left">
-    <h1>New Household</h1>
+    <h1>New Household Member</h1>
+  </div>
+  <div>
+    <table class="table table-bordered" ng-show="req.users.length>0">
+      <thead class="thread-inverse">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Middle Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th>Birthday</th>
+        <th>Gender</th>
+        <th>Member Type</th>
+        <th>Validation Date</th>
+        <th>Validation Type</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="user in req.users">
+        <td>{{ user.MemberFirstName }}</td>
+        <td>{{ user.MemberMiddleName }}</td>
+        <td>{{ user.MemberLastName }}</td>
+        <td>{{ user.MemberEmail }}</td>
+        <td>{{ user.MemberPhoneNumber }}</td>
+        <td>{{ user.MemberBirthday }}</td>
+        <td>{{ user.MemberGender }}</td>
+        <td>{{ user.MemberType }}</td>
+        <td>{{ user.ValidationDate }}</td>
+        <td>{{ user.ValidationType }}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
   <form class="form-horizontal" role="form">
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member First Name" class="col-md-5 control-label">First Name:</label>
+          <label for="MemberFirstName" class="col-md-5 control-label">First Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member First Name" placeholder="" type="text" ng-model="req.householdmember.first.name">
+            <input class="form-control" id="MemberFirstName" placeholder="" type="text" ng-model="tempHousehold.MemberFirstName">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member Middle Name" class="col-md-5 control-label">Middle Name:</label>
+          <label for="MemberMiddleName" class="col-md-5 control-label">Middle Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Middle Name" placeholder="" type="text" ng-model="req.householdmember.middle.name">
+            <input class="form-control" id="MemberMiddleName" placeholder="" type="text" ng-model="tempHousehold.MemberMiddleName">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member Last Name" class="col-md-5 control-label">Last Name:</label>
+          <label for="MemberLastName" class="col-md-5 control-label">Last Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Last Name" placeholder="" type="text" ng-model="req.householdmember.last.name">
+            <input class="form-control" id="MemberLastName" placeholder="" type="text" ng-model="tempHousehold.MemberLastName">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member Email" class="col-md-5 control-label">Email:</label>
+          <label for="MemberEmail" class="col-md-5 control-label">Email:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Email" placeholder="" type="email">
+            <input class="form-control" id="MemberEmail" placeholder="" type="email" ng-model="tempHousehold.MemberEmail">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member Phone Number" class="col-md-5 control-label">Phone Number:</label>
+          <label for="MemberPhoneNumber" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Phone Number" placeholder="" type="number">
+            <input class="form-control" id="MemberPhoneNumber" placeholder="" type="number" ng-model="tempHousehold.MemberPhoneNumber">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member Birthday" class="col-md-5 control-label">Birthday:</label>
+          <label for="MemberBirthday" class="col-md-5 control-label">Birthday:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Birthday" placeholder="" type="date">
+            <input class="form-control" id="MemberBirthday" placeholder="" type="text" ng-model="tempHousehold.MemberBirthday">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
+         <div class="form-group">
+           <label for="MemberGender" class="col-md-5 control-label">Gender:</label>
+           <div class="col-md-7">
+             <select class="form-control" id="MemberGender" ng-model="tempHousehold.MemberGender">
+               <option></option>
+               <option value="Male">Male</option>
+               <option value="Female">Female</option>
+             </select>
+           </div>
+         </div>
+       </div>
+       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Gender" class="col-md-5 control-label">Gender:</label>
+          <label for="MemberType" class="col-md-5 control-label">Member Type:</label>
           <div class="col-md-7">
-            <select class="form-control" id="Gender" ng-model="req.householdmember.type">
+            <select class="form-control" id="MemberType" ng-model="tempHousehold.MemberType">
               <option></option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
+              <option value="Head of Household">Head of Household</option>
+              <option value="HouseholdMember">HouseholdMember</option>
             </select>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="Member Type" class="col-md-5 control-label">Member Type:</label>
+          <label for="ValidationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
-            <select class="form-control" id="Member Type" ng-model="req.householdmember.type">
-              <option></option>
-              <option value="1">Head of Household</option>
-              <option value="2">HouseholdMember</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="Validation Date" class="col-md-5 control-label">Validation Date:</label>
-          <div class="col-md-7">
-            <input class="form-control" id="Validation Date" placeholder="" type="date">
+            <input class="form-control" id="ValidationDate" placeholder="" type="text" ng-model="tempHousehold.ValidationDate">
           </div>
         </div>
         <div class="form-group">
-          <label for="Validation Type" class="col-md-5 control-label">Validation Date:</label>
+          <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Validation Type" placeholder="" type="text">
+            <input class="form-control" id="ValidationType" placeholder="" type="text" ng-model="tempHousehold.ValidationType">
           </div>
         </div>
         <div class="btn-group2">
@@ -100,6 +133,12 @@
           </p>
         </div>
       </div>
+    </div>
+    <div class="col-md-7">
+      <button class="btn btn-primary btn-sm" ng-click="addHouseholdMember()">Add Member</button>
+    </div>
+    <div class="col-md-9">
+      <button class="btn btn-primary btn-sm" ng-click="previous()" ng-show="currentIndex < pages.length+1">Back</button>
     </div>
   </form>
 </div>
