@@ -12,20 +12,20 @@ angular.module('pantyexpressApp')
     var currentIndex = 0;
     $scope.pages = [
       {
-        name: 'Find Donor',
-        url: 'views/finddonor.html'
+        name: 'Find donors',
+        url: 'views/donors/finddonor.html'
       },
       {
-        name: 'New Donor',
-        url: 'views/newdonor.html'
+        name: 'New donors',
+        url: 'views/donors/newdonor.html'
       },
       {
         name: 'New Donation',
-        url: 'views/newdonation.html'
+        url: 'views/donors/newdonation.html'
       },
       {
         name: 'View Donation',
-        url: 'views/viewdonation.html'
+        url: 'views/donors/viewdonation.html'
       },
     ];
     $scope.template = $scope.pages[currentIndex];
