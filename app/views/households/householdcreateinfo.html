@@ -1,57 +1,58 @@
-
-<div class="text-center">
-    <h1>Food Pantry Signup</h1>
-</div>
-  <form class="form-horizontal" role="form" name="pantryInformForm">
+<div class="col-xs-12 col-sm-9 content">
+  <div class="text-left">
+    <h1>New Household</h1>
+  </div>
+  <form class="form-horizontal" role="form">
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="pantryName" class="col-md-5 control-label">Food Pantry Name:</label>
+          <label for="New Household First Name" class="col-md-5 control-label">First Name:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryNameFormInput" id="pantryName" placeholder="Food Pantry Name" type="text" ng-model="req.pantry.name" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryNameFormInput.$touched && pantryInformForm.pantryNameFormInput.$invalid">Pantry name is required.</span>
+            <input class="form-control" id="New Household First Name" placeholder="" type="text">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="friendlyName" class="col-md-5 control-label">Friendly Name:</label>
+          <label for="New Household Middle Name" class="col-md-5 control-label">Middle Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="friendlyName" placeholder="Friendly Name" type="text" ng-model="req.pantry.friendlyName">
+            <input class="form-control" id="New Household Middle Name" placeholder="" type="text">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressLine1" class="col-md-5 control-label">Physical Address:</label>
+          <label for="New Household Last Name" class="col-md-5 control-label">Last Name:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryPhysicalAddressL1FormInput" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line1" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalAddressL1FormInput.$touched && pantryInformForm.pantryPhysicalAddressL1FormInput.$invalid">Address line 1 is required.</span>
+            <input class="form-control" id="New Household Last Name" placeholder="" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="text-left">
+        <h4>Address 1</h4>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="New Household Address" class="col-md-5 control-label">Address:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="New Household Address" placeholder="" type="text">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="City 1" class="col-md-5 control-label">City:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="City 1" placeholder="" type="text">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
+          <label for="State 1" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <input class="form-control" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.pantry.physicalAddress.line2">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="pantryPhysicalCityFormInput" id="physicalAddressCity" placeholder="Physical Address City" type="text" ng-model="req.pantry.physicalAddress.city" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalCityFormInput.$touched && pantryInformForm.pantryPhysicalCityFormInput.$invalid">City is required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
-          <div class="col-md-7">
-            <select class="form-control" name="pantryPhysicalStateFormInput" id="physicalAddressState" ng-model="req.pantry.physicalAddress.state" required>
+            <select class="form-control" id="State 1" >
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -130,53 +131,42 @@
               <option value="YT">YT - Yukon</option>
               <option value="None">None</option>
             </select>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalStateFormInput.$touched && pantryInformForm.pantryPhysicalStateFormInput.$invalid">State is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressZip" class="col-md-5 control-label">Zip code:</label>
+          <label for="Zip code 1" class="col-md-5 control-label">Zip code:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryPhysicalZipFormInput" id="physicalAddressZip" placeholder="Physical Address Zip Code" type="number" ng-model="req.pantry.physicalAddress.zip" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalZipFormInput.$touched && pantryInformForm.pantryPhysicalZipFormInput.$invalid">Zipcode is required.</span>
-            <br>
-            <input type="checkbox" name="physicalAddressSame" id="physicalAddressSame" ng-click="matchMailingToPhysicalAddress()">
-            <label for="physicalAddressSame">Physical address same as mailing address</label>
+            <input class="form-control" id="Zip code 1" placeholder="" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="text-left">
+        <h4>Address 2</h4>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="New Household Address 2" class="col-md-5 control-label">Address:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="New Household Address 2" placeholder="" type="text">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="City 2" class="col-md-5 control-label">City:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="City 2" placeholder="" type="text">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="mailingAddressLine1" class="col-md-5 control-label">Mailing Address:</label>
+          <label for="State 2" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryMailingAddressLine1FormInput" id="mailingAddressLine1" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line1" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingAddressLine1FormInput.$touched && pantryInformForm.pantryMailingAddressLine1FormInput.$invalid">Address line1 is required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="mailingAddressLine2" class="col-md-5 control-label"></label>
-          <div class="col-md-7">
-            <input class="form-control" id="mailingAddressLine2" placeholder="" type="text" ng-model="req.pantry.mailingAddress.line2">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="mailingAddressCity" class="col-md-5 control-label">City:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="pantryMailingCityFormInput" id="mailingAddressCity" placeholder="Mailing Address City" type="text" ng-model="req.pantry.mailingAddress.city" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingCityFormInput.$touched && pantryInformForm.pantryMailingCityFormInput.$invalid">City is required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="mailingAddressState" class="col-md-5 control-label">State:</label>
-          <div class="col-md-7">
-            <select class="form-control" name="pantryMailingStateFormInput" id="mailingAddressState" ng-model="req.pantry.mailingAddress.state" required>
+            <select class="form-control" id="State 2" placeholder="" type="text">
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -255,37 +245,34 @@
               <option value="YT">YT - Yukon</option>
               <option value="None">None</option>
             </select>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingStateFormInput.$touched && pantryInformForm.pantryMailingStateFormInput.$invalid">State is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="mailingAddressZip" class="col-md-5 control-label">Zip Code:</label>
+          <label for="Zip code 2" class="col-md-5 control-label">Zip code:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryMailingZipFormInput" id="mailingAddressZip" placeholder="Mailing Address Zip Code" type="number" ng-model="req.pantry.mailingAddress.zip" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingZipFormInput.$touched && pantryInformForm.pantryMailingZipFormInput.$invalid">Zipcode is required.</span>
+            <input class="form-control" id="Zip code 2" placeholder="" type="text">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="email" class="col-md-5 control-label">Email Address:</label>
+          <label for="Address Validation" class="col-md-5 control-label">Address Validation:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryEmailFormInput" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email" ng-pattern="emailPattern" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryEmailFormInput.$touched && pantryInformForm.pantryEmailFormInput.$invalid">Email is required.</span>
+            <input class="form-control" id="Address Validation" placeholder="" type="text">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
+          <label for="Service Date" class="col-md-5 control-label">Service Date:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryOfficeNumberFormInput" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryOfficeNumberFormInput.$touched && pantryInformForm.pantryOfficeNumberFormInput.$invalid">Office number is required.</span>
+            <input class="form-control" id="Service Date" placeholder="" type="date">
           </div>
         </div>
       </div>
     </div>
-    <button class="btn btn-primary btn-sm" data-ng-click="next(pantryInformForm)" ng-show="currentIndex < pages.length-1">Next</button>
   </form>
+</div>
+</div>

@@ -8,6 +8,21 @@
  *
  * Main module of the application.
  */
+
+var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+  // Initialize a new promise
+  var deferred = $q.defer();
+    if ($rootScope.user!==undefined&&$rootScope.user.name!==null)
+    {
+      deferred.resolve();
+    }
+    // Not Authenticated
+    else {
+      deferred.reject();
+      $location.url('/login');
+    }
+  return deferred.promise;
+};
 angular
   .module('pantyexpressApp', [
     'ngAnimate',
@@ -16,7 +31,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'peClient'
+    'peClient',
+    'ngDialog'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -40,30 +56,37 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
-      .when('/donor', {
-        templateUrl: 'views/donor.html',
+      .when('/donors', {
+        templateUrl: 'views/donors/donor.html',
         controller: 'DonorCtrl',
-        controllerAs: 'donor'
+        controllerAs: 'donor',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
-      .when('/household', {
-        templateUrl: 'views/household.html',
+      .when('/households/create', {
+        templateUrl: 'views/households/create/create.html',
+        controller: 'HouseholdsCreateCtrl',
+        controllerAs: 'households/create',
+        resolve: {
+          loggedin: checkLoggedin
+        }
+      })
+      .when('/households', {
+        templateUrl: 'views/households/household.html',
         controller: 'HouseholdCtrl',
-        controllerAs: 'household'
+        controllerAs: 'household',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
-      .when('/service', {
-        templateUrl: 'views/service.html',
-        controller: 'ServiceCtrl',
-        controllerAs: 'service'
-      })
-      .when('/client', {
-        templateUrl: 'views/client.html',
-        controller: 'ClientCtrl',
-        controllerAs: 'client'
-      })
-      .when('/movehousehold', {
-        templateUrl: 'views/movehousehold.html',
-        controller: 'MovehouseholdCtrl',
-        controllerAs: 'movehousehold'
+      .when('/households/:householdview', {
+        templateUrl: 'views/households/household.html',
+        controller: 'HouseholdCtrl',
+        controllerAs: 'household',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .otherwise({
         redirectTo: '/'
