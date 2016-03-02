@@ -53,7 +53,7 @@ angular.module('pantyexpressApp')
       }
     }
     var viewname = ($routeParams.householdview);
-    console.log('HouseholdCtrl:' + viewname);
+    // console.log('HouseholdCtrl:' + viewname);
     var currentIndex = 0;
     $scope.pages = [
       {
