@@ -37,6 +37,10 @@ angular.module('pantyexpressApp')
       users: []
     };
 
+     $scope.matchMailingToPhysicalAddress = function() {
+       $scope.req.pantry.mailingAddress = angular.copy($scope.req.pantry.physicalAddress);
+     };
+
     $scope.CheckDirectorExists = function(form)
     {
       //this allows for skipping validatiion once we have a director created
