@@ -42,9 +42,9 @@ angular.module('pantyexpressApp')
       $scope.req.pantry.mailingAddress = angular.copy($scope.req.pantry.physicalAddress);
     };
     // signup confirmation read only
-    
+  
       $scope.isReadOnly = function() {
-      $scope.req.pantry = "true";
+      $scope.req.pantry = "isReadOnly";
     };
   
     $scope.CheckDirectorExists = function(form)
