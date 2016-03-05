@@ -56,8 +56,8 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
-      .when('/donor', {
-        templateUrl: 'views/donor.html',
+      .when('/donors', {
+        templateUrl: 'views/donors/donor.html',
         controller: 'DonorCtrl',
         controllerAs: 'donor',
         resolve: {
@@ -67,10 +67,13 @@ angular
       .when('/households/create', {
         templateUrl: 'views/households/create/create.html',
         controller: 'HouseholdsCreateCtrl',
-        controllerAs: 'households/create'
+        controllerAs: 'households/create',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .when('/households', {
-        templateUrl: 'views/household.html',
+        templateUrl: 'views/households/household.html',
         controller: 'HouseholdCtrl',
         controllerAs: 'household',
         resolve: {
@@ -78,9 +81,12 @@ angular
         }
       })
       .when('/households/:householdview', {
-        templateUrl: 'views/household.html',
+        templateUrl: 'views/households/household.html',
         controller: 'HouseholdCtrl',
-        controllerAs: 'household'
+        controllerAs: 'household',
+        resolve: {
+          loggedin: checkLoggedin
+        }
       })
       .otherwise({
         redirectTo: '/'
