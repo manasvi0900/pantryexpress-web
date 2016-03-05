@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-9 content">
+<div class="col-xs-12 col-sm-10 content">
   <div class="text-left">
     <h1>New Household Member</h1>
   </div>
@@ -69,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-8 col-lg-12">
         <div class="form-group">
           <label for="MemberPhoneNumber" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-7">
@@ -79,9 +79,9 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberBirthday" class="col-md-5 control-label">Birthday:</label>
+          <label for="MemberBirthday" class="col-md-5 control-label">Birthday/Age:</label>
           <div class="col-md-7">
-            <input class="form-control" id="MemberBirthday" placeholder="" type="text" ng-model="tempHousehold.MemberBirthday">
+            <input class="form-control" id="MemberBirthday" placeholder="" type="DATE" ng-model="tempHousehold.MemberBirthday">
           </div>
         </div>
       </div>
@@ -93,6 +93,7 @@
                <option></option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
+               <option value="Other">Female</option>
              </select>
            </div>
          </div>
@@ -116,10 +117,19 @@
             <input class="form-control" id="ValidationDate" placeholder="" type="text" ng-model="tempHousehold.ValidationDate">
           </div>
         </div>
-        <div class="form-group">
-          <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
-          <div class="col-md-7">
-            <input class="form-control" id="ValidationType" placeholder="" type="text" ng-model="tempHousehold.ValidationType">
+      </div>
+        <div class="col-sm-6 col-lg-12">
+          <div class="form-group">
+            <label for="ValidationType" class="col-md-5 control-label">Validation Type</label>
+            <div class="col-md-7">
+              <select class="form-control" id="ValidationType" ng-model="tempHousehold.ValidationType">
+                <option></option>
+                <option value="Driving License">Birth certificate </option>
+                <option value="Physical mail">Driver's license  </option>
+                <option value="Rental agreement">ID Card </option>
+                <option value="Utility bill">Passport</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="btn-group2">
@@ -133,7 +143,6 @@
           </p>
         </div>
       </div>
-    </div>
     <div class="col-md-7">
       <button class="btn btn-primary btn-sm" ng-click="addHouseholdMember()">Add Member</button>
     </div>
