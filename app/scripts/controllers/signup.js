@@ -44,7 +44,7 @@ angular.module('pantyexpressApp')
     // signup confirmation read only
     
       $scope.isReadOnly = function() {
-      $scope.req.pantry = "isReadOnly";
+      $scope.req.pantry = "true";
     };
   
     $scope.CheckDirectorExists = function(form)
