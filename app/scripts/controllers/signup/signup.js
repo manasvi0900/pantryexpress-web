@@ -16,15 +16,15 @@ angular.module('pantyexpressApp')
     $scope.pages = [
       {
         name: 'Pantry Information',
-        url: 'views/pantryinfo.html'
+        url: 'views/signup/pantryinfo.html'
       },
       {
         name: 'Administrator Information',
-        url: 'views/administratorinfo.html'
+        url: 'views/signup/administratorinfo.html'
       },
       {
         name: 'Signup Confirmation',
-        url: 'views/signupconfirmation.html'
+        url: 'views/signup/signupconfirmation.html'
       }
     ];
     $scope.template = $scope.pages[$scope.currentIndex];
@@ -36,26 +36,21 @@ angular.module('pantyexpressApp')
     $scope.req = {
       users: []
     };
-    
+
     //matches mailing address to phyical address on clicking checkbox
       $scope.matchMailingToPhysicalAddress = function() {
       $scope.req.pantry.mailingAddress = angular.copy($scope.req.pantry.physicalAddress);
     };
     // signup confirmation read only
-  
+
       $scope.isReadOnly = function() {
       $scope.req.pantry = "isReadOnly";
     };
-  
+
     $scope.CheckDirectorExists = function(form)
     {
       //this allows for skipping validatiion once we have a director created
-      if($scope.req.users.length === 0 ||
-        form.adminEmailFormInput.$touched ||
-        form.adminFirstNameFormInput.$touched ||
-        form.adminLastNameFormInput.$touched ||
-        form.adminTitleFormInput.$touched ||
-        form.adminPhoneFormInput.$touched)
+      if($scope.req.users.length === 0)
       {
         return true;
       }
@@ -72,7 +67,7 @@ angular.module('pantyexpressApp')
     };
 
     $scope.next = function (form){
-      if(form.$invalid === true)
+      if($scope.CheckDirectorExists()||form.$invalid)
       {
        return;
       }
