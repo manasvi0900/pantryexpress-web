@@ -43,16 +43,14 @@
   <div class="navbar-brand">
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pantry 1
+        {{ selectedPantry.name }}
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu">
-        <li><a href="#/">pantry 1</a></li>
-        <li><a href="#/">pantry 2</a></li>
-        <li><a href="#/">pantry 3</a></li>
+      <ul class="dropdown-menu" id="pantrySelected" ng-model="pantrySelected">
+        <li ng-repeat="item in pantries.items" value="{{ item.id }}"><a href="#/" ng-click="setSelectedPantry(item)">{{ item.name }}</a></li>
       </ul>
     </div>
        <span ng-if="loggedin">Welcome, {{user.name}}
-         <a href=javascript:angular.element(document.getElementById('loginController')).scope().logout()>logout</a></span>
+         <a href=javascript:angular.element(document.getElementById('loginController')).scope().logout()>Logout</a></span>
   </div>
 </form>
