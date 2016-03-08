@@ -3,7 +3,7 @@
     <h1>New Household</h1>
   </div>
 
-  <form class="form-horizontal" role="form">
+  <form class="form-horizontal" role="form" name="householdCreateForm">
     <div class="row">
       <div class="text-left">
         <h4>Physical Address</h4>
@@ -12,7 +12,8 @@
         <div class="form-group">
           <label for="NewHouseholdAddress" class="col-md-5 control-label">Address:</label>
           <div class="col-md-7">
-            <input class="form-control" id="NewHouseholdAddress" placeholder="" type="text">
+            <input class="form-control" name="householdAddressFormInput" id="NewHouseholdAddress" placeholder="" type="text" ng-model="req.household.physicalAddress.line1" required>
+            <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput.$touched && householdCreateForm.householdAddressFormInput.$invalid">Address is required.</span>
           </div>
         </div>
       </div>
@@ -21,7 +22,8 @@
         <div class="form-group">
           <label for="City1" class="col-md-5 control-label">City:</label>
           <div class="col-md-7">
-            <input class="form-control" id="City1" placeholder="" type="text">
+            <input class="form-control" name="householdCityFormInput" id="City1" placeholder="" type="text" ng-model="req.household.physicalAddress.city" required>
+            <span class="form-validation-error" ng-show="householdCreateForm.householdCityFormInput.$touched && householdCreateForm.householdCityFormInput.$invalid">City is required.</span>
           </div>
         </div>
       </div>
@@ -29,7 +31,7 @@
         <div class="form-group">
           <label for="State1" class="col-md-5 control-label">State:</label>
           <div class="col-md-7">
-            <select class="form-control" id="State1" >
+            <select class="form-control" name="householdStateFormInput" id="State1" ng-model="req.household.physicalAddress.state" required>
               <option></option>
               <option value="AK">AK - Alaska</option>
               <option value="AL">AL - Alabama</option>
@@ -108,6 +110,7 @@
               <option value="YT">YT - Yukon</option>
               <option value="None">None</option>
             </select>
+            <span class="form-validation-error" ng-show="householdCreateForm.householdStateFormInput.$touched && householdCreateForm.householdStateFormInput.$invalid">State is required.</span>
           </div>
         </div>
       </div>
@@ -115,7 +118,8 @@
         <div class="form-group">
           <label for="Zipcode1" class="col-md-5 control-label">Zip code:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Zipcode1" placeholder="" type="text">
+            <input class="form-control" name="householdZipFormInput" id="Zipcode1" placeholder="Address Zip Code" type="number" ng-model="req.household.physicalAddress.zip" required>
+            <span class="form-validation-error" ng-show="householdCreateForm.householdZipFormInput.$touched && householdCreateForm.householdZipFormInput.$invalid">Zipcode is required.</span>
           </div>
         </div>
       </div>
@@ -123,25 +127,28 @@
         <div class="form-group">
           <label for="ValidationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
-            <input class="form-control" id="ValidationDate" placeholder="" type="date">
+            <input class="form-control" name="validationDate" id="ValidationDate" placeholder="" type="text" ng-model="req.household.validationDate" required>
+            <span class="form-validation-error" ng-show="householdCreateForm.validationDate.$touched && householdCreateForm.validationDate.$invalid">Validation Date is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="AddressValidation" class="col-md-5 control-label">Address Validation:</label>
+          <label for="ValidationType" class="col-md-5 control-label">Address Validation:</label>
           <div class="col-md-7">
-            <select class="form-control" id="AddressValidation" >
+            <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType" required>
               <option></option>
               <option value="Driving License">Driving license</option>
               <option value="Physical mail">Physical mail </option>
               <option value="Rental agreement">Rental agreement </option>
               <option value="Utility bill">Utility bill</option>
             </select>
+            <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.validationType.$invalid">Validation Type is required.</span>
           </div>
         </div>
       </div>
     </div>
+    <button class="btn btn-primary btn-sm" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
   </form>
 </div>
 

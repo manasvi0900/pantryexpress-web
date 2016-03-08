@@ -8,7 +8,9 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdsCreateCtrl', function ($scope, $location, api, ngDialog) {
+  .controller('HouseholdsCreateCtrl', function ($scope, api, ngDialog) {
+
+    $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.currentIndex = 0;
     $scope.pages = [
       {
@@ -22,7 +24,7 @@ angular.module('pantyexpressApp')
       {
         name: 'Household Confirmation',
         url: 'views/households/create/householdconfirmation.html'
-      },
+      }
     ];
     $scope.template = $scope.pages[$scope.currentIndex];
 
@@ -34,12 +36,39 @@ angular.module('pantyexpressApp')
       users: []
     };
 
+    $scope.isReadOnly = function() {
+      $scope.req.pantry = "isReadOnly";
+    };
+
+    $scope.CheckMemberExists = function(form)
+    {
+      //this allows for skipping validatiion once we have a director created
+      if($scope.req.users.length === 0 ||
+        form.adminEmailFormInput.$touched ||
+        form.adminFirstNameFormInput.$touched ||
+        form.adminLastNameFormInput.$touched ||
+        form.adminTitleFormInput.$touched ||
+        form.adminPhoneFormInput.$touched)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+
+    };
+
     $scope.goto = function (targetIndex){
       $scope.currentIndex = targetIndex;
       $scope.template = $scope.pages[$scope.currentIndex];
     };
 
-    $scope.next = function (){
+    $scope.next = function (form){
+      if(form.$invalid === true)
+      {
+        return;
+      }
       $scope.currentIndex++;
       $scope.goto($scope.currentIndex);
     };
@@ -49,12 +78,20 @@ angular.module('pantyexpressApp')
       $scope.goto($scope.currentIndex);
     };
 
-    $scope.addHouseholdMember = function (){
-      //$location.path( '/householdmembers.html' );
-      //alert("Note Saved");
-      // Push tempAdminUser to users array in request object
+    $scope.addHouseholdMember = function (form){
+
+      if(form.$invalid === true)
+      {
+        return;
+      }
+
       $scope.req.users.push($scope.tempHousehold);
-      //
+
+      form.adminEmailFormInput.$touched = false;
+      form.adminFirstNameFormInput.$touched = false;
+      form.adminLastNameFormInput.$touched = false;
+      form.adminTitleFormInput.$touched = false;
+      form.adminPhoneFormInput.$touched = false;
       // Reset temp user to blank object
       $scope.tempHousehold = {};
     };
