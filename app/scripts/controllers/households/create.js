@@ -98,8 +98,12 @@ angular.module('pantyexpressApp')
       // form.adminTitleFormInput.$touched = false;
       // form.adminPhoneFormInput.$touched = false;
       
-      // Reset temp member to blank object
-      $scope.tempMember = {};
+      // Reset temp member to default empty object
+      $scope.tempMember = {
+        isDisabled: false,
+        isHispanic: false,
+        isSpecialNeeds: false
+      };
     };
     
     $scope.createHousehold = function (){
