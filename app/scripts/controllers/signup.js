@@ -36,20 +36,20 @@ angular.module('pantyexpressApp')
     $scope.req = {
       users: []
     };
-    
+
     //matches mailing address to phyical address on clicking checkbox
       $scope.matchMailingToPhysicalAddress = function() {
       $scope.req.pantry.mailingAddress = angular.copy($scope.req.pantry.physicalAddress);
     };
     // signup confirmation read only
-  
+
       $scope.isReadOnly = function() {
       $scope.req.pantry = "isReadOnly";
     };
-  
+
     $scope.CheckDirectorExists = function(form)
     {
-      //this allows for skipping validatiion once we have a director created
+      //this allows for skipping validation once we have a director created
       if($scope.req.users.length === 0 ||
         form.adminEmailFormInput.$touched ||
         form.adminFirstNameFormInput.$touched ||

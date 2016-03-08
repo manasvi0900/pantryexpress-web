@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdsCreateCtrl', function ($scope, $location, api, ngDialog) {
+  .controller('HouseholdsCreateCtrl', function ($scope, api, ngDialog) {
 
     $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.currentIndex = 0;
@@ -24,7 +24,7 @@ angular.module('pantyexpressApp')
       {
         name: 'Household Confirmation',
         url: 'views/households/create/householdconfirmation.html'
-      },
+      }
     ];
     $scope.template = $scope.pages[$scope.currentIndex];
 
@@ -34,6 +34,10 @@ angular.module('pantyexpressApp')
     // Create blank request object for PantriesCreateRequest parameters
     $scope.req = {
       users: []
+    };
+
+    $scope.isReadOnly = function() {
+      $scope.req.pantry = "isReadOnly";
     };
 
     $scope.CheckMemberExists = function(form)
@@ -53,14 +57,14 @@ angular.module('pantyexpressApp')
         return false;
       }
 
-    }
+    };
 
     $scope.goto = function (targetIndex){
       $scope.currentIndex = targetIndex;
       $scope.template = $scope.pages[$scope.currentIndex];
     };
 
-    $scope.next = function (){
+    $scope.next = function (form){
       if(form.$invalid === true)
       {
         return;
@@ -74,7 +78,7 @@ angular.module('pantyexpressApp')
       $scope.goto($scope.currentIndex);
     };
 
-    $scope.addHouseholdMember = function (){
+    $scope.addHouseholdMember = function (form){
 
       if(form.$invalid === true)
       {

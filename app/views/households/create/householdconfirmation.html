@@ -4,13 +4,13 @@
 <div class="text-center">
   <h2>{{yourName}} Household Information</h2>
 </div>
-<div class="form-horizontal" role="form">
+<div class="form-horizontal" role="form" name="householdCreateForm">
   <div class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="HeadOfHousehold" class="col-md-5 control-label">Head of Household:</label>
         <div class="col-md-7">
-          <input class="form-control" id="HeadOfHousehold" placeholder="Head of Household" type="text" ng-model = "yourName">
+          <input class="form-control" id="HeadOfHousehold" placeholder="Head of Household" type="text" ng-model = "yourName" >
         </div>
       </div>
     </div>
@@ -19,15 +19,7 @@
       <div class="form-group">
         <label for="PhysicalAddress" class="col-md-5 control-label">Physical Address:</label>
         <div class="col-md-7">
-          <input class="form-control" id="PhysicalAddress" placeholder="Address" type="text">
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="MailingAddress" class="col-md-5 control-label">Mailing Address:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="MailingAddress" placeholder="Address" type="text">
+          <input class="form-control" id="PhysicalAddress" placeholder="Address" type="text" ng-model="req.household.physicalAddress.line1" ng-readonly="isReadOnly" >
         </div>
       </div>
     </div>
@@ -35,7 +27,7 @@
       <div class="form-group">
         <label for="City" class="col-md-5 control-label">City:</label>
         <div class="col-md-7">
-          <input class="form-control" id="City" placeholder="City" type="text">
+          <input class="form-control" id="City" placeholder="City" type="text" ng-model="req.household.physicalAddress.city" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
@@ -43,7 +35,7 @@
       <div class="form-group">
         <label for="state" class="col-md-5 control-label">State:</label>
         <div class="col-md-7">
-          <select class="form-control" id="state">
+          <select class="form-control" id="state" ng-model="req.household.physicalAddress.state" ng-readonly="isReadOnly">
             <option></option>
             <option value="AK">AK - Alaska</option>
             <option value="AL">AL - Alabama</option>
@@ -129,7 +121,7 @@
       <div class="form-group">
         <label for="input7" class="col-md-5 control-label">Zip code:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input7" placeholder="Zip code" type="text">
+          <input class="form-control" id="input7" placeholder="Zip code" type="text" ng-model="req.household.physicalAddress.zip" ng-readonly="isReadOnly" >
         </div>
       </div>
     </div>
@@ -137,7 +129,7 @@
       <div class="form-group">
         <label for="input8" class="col-md-5 control-label">Email Address:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input8" placeholder="Email" type="Email">
+          <input class="form-control" id="input8" placeholder="Email" type="Email" >
         </div>
       </div>
     </div>
