@@ -49,7 +49,6 @@ angular.module('pantyexpressApp')
 
     $scope.CheckDirectorExists = function(form)
     {
-<<<<<<< HEAD:app/scripts/controllers/signup.js
       //this allows for skipping validation once we have a director created
       if($scope.req.users.length === 0 ||
         form.adminEmailFormInput.$touched ||
@@ -57,10 +56,6 @@ angular.module('pantyexpressApp')
         form.adminLastNameFormInput.$touched ||
         form.adminTitleFormInput.$touched ||
         form.adminPhoneFormInput.$touched)
-=======
-      //this allows for skipping validatiion once we have a director created
-      if($scope.req.users.length === 0)
->>>>>>> d8713834e7bef1eceded358e32bcd3353655b2cb:app/scripts/controllers/signup/signup.js
       {
         return true;
       }
