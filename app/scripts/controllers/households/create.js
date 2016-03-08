@@ -113,7 +113,7 @@ angular.module('pantyexpressApp')
         //notify();
         ngDialog.openConfirm({
           template:
-                '<p>Household created with ID: ' + data.household.id + '!</p>' +
+                '<p>Household created with ID: ' + data.household.householdId + '!</p>' +
                 '<div class="ngdialog-buttons">' +
                 '<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">OK</button>' +
                 '</div>',
