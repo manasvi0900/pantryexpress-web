@@ -50,12 +50,7 @@ angular.module('pantyexpressApp')
     $scope.CheckDirectorExists = function(form)
     {
       //this allows for skipping validation once we have a director created
-      if($scope.req.users.length === 0 ||
-        form.adminEmailFormInput.$touched ||
-        form.adminFirstNameFormInput.$touched ||
-        form.adminLastNameFormInput.$touched ||
-        form.adminTitleFormInput.$touched ||
-        form.adminPhoneFormInput.$touched)
+      if($scope.req.users.length === 0)
       {
         return true;
       }
@@ -71,8 +66,8 @@ angular.module('pantyexpressApp')
       $scope.template = $scope.pages[$scope.currentIndex];
     };
 
-    $scope.next = function (form){
-      if($scope.CheckDirectorExists()||form.$invalid)
+    $scope.next = function (form,admin){
+      if((admin&&$scope.CheckDirectorExists())||form.$invalid)
       {
        return;
       }
