@@ -115,6 +115,9 @@ angular.module('pantyexpressApp')
       api.postPantriesByPantryIdHouseholds({ pantryId: $rootScope.selectedPantry.id, HouseholdsCreateRequest: $scope.req }).then(function (data){
         console.log('Household: ', data);
         //notify();
+        // Write newly created household to root scope
+        $rootScope.selectedHousehold = data.household;
+        
         ngDialog.openConfirm({
           template:
                 '<p>Household created with ID: ' + data.household.householdId + '!</p>' +
