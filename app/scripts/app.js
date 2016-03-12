@@ -52,7 +52,7 @@ angular
         controllerAs: 'login'
       })
       .when('/signup', {
-        templateUrl: 'views/signup.html',
+        templateUrl: 'views/signup/signup.html',
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })

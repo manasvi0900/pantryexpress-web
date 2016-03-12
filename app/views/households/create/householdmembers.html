@@ -1,143 +1,160 @@
-<div class="col-xs-12 col-sm-9 content">
+<div class="col-xs-12 col-sm-10 content">
   <div class="text-left">
     <h1>New Household Member</h1>
   </div>
   <div>
-    <table class="table table-bordered" ng-show="req.users.length>0">
+    <table class="table table-bordered" ng-show="req.members.length > 0">
       <thead class="thread-inverse">
       <tr>
         <th>First Name</th>
-        <th>Last Name</th>
         <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Member Type</th>
         <th>Email Address</th>
         <th>Phone Number</th>
         <th>Birthday</th>
         <th>Gender</th>
-        <th>Member Type</th>
         <th>Validation Date</th>
         <th>Validation Type</th>
 
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="user in req.users">
-        <td>{{ user.MemberFirstName }}</td>
-        <td>{{ user.MemberMiddleName }}</td>
-        <td>{{ user.MemberLastName }}</td>
-        <td>{{ user.MemberEmail }}</td>
-        <td>{{ user.MemberPhoneNumber }}</td>
-        <td>{{ user.MemberBirthday }}</td>
-        <td>{{ user.MemberGender }}</td>
-        <td>{{ user.MemberType }}</td>
-        <td>{{ user.ValidationDate }}</td>
-        <td>{{ user.ValidationType }}</td>
+      <tr ng-repeat="member in req.members">
+        <td>{{ member.firstName }}</td>
+        <td>{{ member.middleName }}</td>
+        <td>{{ member.lastName }}</td>
+        <td>{{ member.memberType }}</td>
+        <td>{{ member.email }}</td>
+        <td>{{ member.phone }}</td>
+        <td>{{ member.birthday }}</td>
+        <td>{{ member.gender }}</td>
+        <td>{{ member.validationDate }}</td>
+        <td>{{ member.validationType }}</td>
       </tr>
       </tbody>
     </table>
   </div>
-  <form class="form-horizontal" role="form">
+  <form class="form-horizontal" role="form" name="householdMemberForm">
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberFirstName" class="col-md-5 control-label">First Name:</label>
+          <label for="firstName" class="col-md-5 control-label">First Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="MemberFirstName" placeholder="" type="text" ng-model="tempHousehold.MemberFirstName">
+            <input class="form-control" name="memberFirstNameFormInput" id="firstName" placeholder="" type="text" ng-model="tempMember.firstName" ng-required="CheckMemberExists(householdMemberForm)">
+            <span class="form-validation-error" ng-show="householdMemberForm.memberFirstNameFormInput.$touched && householdMemberForm.memberFirstNameFormInput.$invalid">First name is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberMiddleName" class="col-md-5 control-label">Middle Name:</label>
+          <label for="middleName" class="col-md-5 control-label">Middle Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="MemberMiddleName" placeholder="" type="text" ng-model="tempHousehold.MemberMiddleName">
+            <input class="form-control" id="middleName" placeholder="" type="text" ng-model="tempMember.middleName">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberLastName" class="col-md-5 control-label">Last Name:</label>
+          <label for="lastName" class="col-md-5 control-label">Last Name:</label>
           <div class="col-md-7">
-            <input class="form-control" id="MemberLastName" placeholder="" type="text" ng-model="tempHousehold.MemberLastName">
+            <input class="form-control" name="memberLastNameFormInput" id="lastName" placeholder="" type="text" ng-model="tempMember.lastName" ng-required="CheckMemberExists(householdMemberForm)">
+            <span class="form-validation-error" ng-show="householdMemberForm.memberLastNameFormInput.$touched && householdMemberForm.memberLastNameFormInput.$invalid">Last name is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberEmail" class="col-md-5 control-label">Email:</label>
+          <label for="email" class="col-md-5 control-label">Email:</label>
           <div class="col-md-7">
-            <input class="form-control" id="MemberEmail" placeholder="" type="email" ng-model="tempHousehold.MemberEmail">
+            <input class="form-control" name="memberEmailFormInput" id="email" placeholder="" type="email" ng-model="tempMember.email" ng-required="CheckMemberExists(householdMemberForm)">
+            <span class="form-validation-error" ng-show="householdMemberForm.memberEmailFormInput.$touched && householdMemberForm.memberEmailFormInput.$invalid">Email is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 col-lg-12">
+        <div class="form-group">
+          <label for="phone" class="col-md-5 control-label">Phone Number:</label>
+          <div class="col-md-7">
+            <input class="form-control" name="memberPhoneNumberFormInput" id="phone" placeholder="" type="number" ng-model="tempMember.phone" ng-required="CheckMemberExists(householdMemberForm)">
+            <span class="form-validation-error" ng-show="householdMemberForm.memberPhoneNumberFormInput.$touched && householdMemberForm.memberPhoneNumberFormInput.$invalid">Phone Number is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberPhoneNumber" class="col-md-5 control-label">Phone Number:</label>
+          <label for="birthday" class="col-md-5 control-label">Birthday/Age:</label>
           <div class="col-md-7">
-            <input class="form-control" id="MemberPhoneNumber" placeholder="" type="number" ng-model="tempHousehold.MemberPhoneNumber">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="MemberBirthday" class="col-md-5 control-label">Birthday:</label>
-          <div class="col-md-7">
-            <input class="form-control" id="MemberBirthday" placeholder="" type="text" ng-model="tempHousehold.MemberBirthday">
+            <input class="form-control" name="memberBirthdayFormInput" id="birthday" placeholder="" type="date" ng-model="tempMember.birthday" ng-required="CheckMemberExists(householdMemberForm)">
+            <span class="form-validation-error" ng-show="householdMemberForm.memberBirthdayFormInput.$touched && householdMemberForm.memberBirthdayFormInput.$invalid">Birthday is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
          <div class="form-group">
-           <label for="MemberGender" class="col-md-5 control-label">Gender:</label>
+           <label for="gender" class="col-md-5 control-label">Gender:</label>
            <div class="col-md-7">
-             <select class="form-control" id="MemberGender" ng-model="tempHousehold.MemberGender">
+             <select class="form-control" name="memberGenderFormInput" id="gender" ng-model="tempMember.gender" ng-required="CheckMemberExists(householdMemberForm)">
                <option></option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
+               <option value="Other">Other</option>
              </select>
+             <span class="form-validation-error" ng-show="householdMemberForm.memberGenderFormInput.$touched && householdMemberForm.memberGenderFormInput.$invalid">Gender is required.</span>
            </div>
          </div>
        </div>
        <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="MemberType" class="col-md-5 control-label">Member Type:</label>
+          <label for="memberType" class="col-md-5 control-label">Member Type:</label>
           <div class="col-md-7">
-            <select class="form-control" id="MemberType" ng-model="tempHousehold.MemberType">
+            <select class="form-control" name="memberTypeFormInput" id="memberType" ng-model="tempMember.memberType" ng-required="CheckMemberExists(householdMemberForm)">
               <option></option>
-              <option value="Head of Household">Head of Household</option>
-              <option value="HouseholdMember">HouseholdMember</option>
+              <option value="headOfHousehold">Head of Household</option>
+              <option value="householdMember">Household Member</option>
             </select>
+            <span class="form-validation-error" ng-show="householdMemberForm.memberTypeFormInput.$touched && householdMemberForm.memberTypeFormInput.$invalid">Member type is required.</span>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="ValidationDate" class="col-md-5 control-label">Validation Date:</label>
+          <label for="validationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
-            <input class="form-control" id="ValidationDate" placeholder="" type="text" ng-model="tempHousehold.ValidationDate">
+            <input class="form-control" name="memberValidationDateFormInput" id="validationDate" placeholder="" type="date" ng-model="tempMember.validationDate" ng-required="CheckMemberExists(householdMemberForm)">
+            <span class="form-validation-error" ng-show="householdMemberForm.memberValidationDateFormInput.$touched && householdMemberForm.memberValidationDateFormInput.$invalid">Member validation date is required.</span>
           </div>
         </div>
-        <div class="form-group">
-          <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
-          <div class="col-md-7">
-            <input class="form-control" id="ValidationType" placeholder="" type="text" ng-model="tempHousehold.ValidationType">
+      </div>
+        <div class="col-sm-6 col-lg-12">
+          <div class="form-group">
+            <label for="validationType" class="col-md-5 control-label">Validation Type</label>
+            <div class="col-md-7">
+              <select class="form-control" name="memberValidationTypeFormInput" id="validationType" ng-model="tempMember.validationType" ng-required="CheckMemberExists(householdMemberForm)">
+                <option></option>
+                <option value="Driving License">Birth certificate </option>
+                <option value="Physical mail">Driver's license  </option>
+                <option value="Rental agreement">ID Card </option>
+                <option value="Utility bill">Passport</option>
+              </select>
+              <span class="form-validation-error" ng-show="householdMemberForm.memberValidationTypeFormInput.$touched && householdMemberForm.memberValidationTypeFormInput.$invalid">Member validation type is required.</span>
+            </div>
           </div>
         </div>
         <div class="btn-group2">
           <p>
-            <input type="checkbox" name="checkbox" id="checkbox_id1" value="value">
-            <label for="checkbox_id1">Disabled</label>
-            <input type="checkbox" name="checkbox" id="checkbox_id2" value="value">
-            <label for="checkbox_id2">Hispanic</label>
-            <input type="checkbox" name="checkbox" id="checkbox_id3" value="value">
-            <label for="checkbox_id3">Special needs</label>
+            <input type="checkbox" name="isDisabled" id="isDisabled" value="value" ng-model="tempMember.isDisabled">
+            <label for="isDisabled">Disabled</label>
+            <input type="checkbox" name="isHispanic" id="isHispanic" value="value" ng-model="tempMember.isHispanic">
+            <label for="isHispanic">Hispanic</label>
+            <input type="checkbox" name="isSpecialNeeds" id="isSpecialNeeds" value="value" ng-model="tempMember.isSpecialNeeds">
+            <label for="isSpecialNeeds">Special needs</label>
           </p>
         </div>
       </div>
-    </div>
     <div class="col-md-7">
-      <button class="btn btn-primary btn-sm" ng-click="addHouseholdMember()">Add Member</button>
-    </div>
-    <div class="col-md-9">
+      <button class="btn btn-primary btn-sm" ng-click="addHouseholdMember(householdMemberForm)">Add Member</button>
+      <button class="btn btn-primary btn-sm" data-ng-click="next(householdMemberForm)" ng-show="currentIndex < pages.length-1">Next</button>
       <button class="btn btn-primary btn-sm" ng-click="previous()" ng-show="currentIndex < pages.length+1">Back</button>
     </div>
   </form>
