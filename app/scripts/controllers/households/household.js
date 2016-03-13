@@ -16,7 +16,7 @@ angular.module('pantyexpressApp')
         $scope.template = {
           name: 'Edit Household',
           url: 'views/households/edithousehold.html',
-          visible: true
+          visible: true ,
         };
       }
       if(name === 'find')
@@ -95,13 +95,24 @@ angular.module('pantyexpressApp')
     }
 
 
+
     $scope.getHousehold = function () {
       // Write model data for request
       console.log('HouseholdsGetRequest', $scope.req);
 
       // Call get household operation via API service
       console.log("Selected Pantry ID: ", $rootScope.selectedPantry.id  );
-      api.getPantriesByPantryIdHouseholdsByHouseholdId({ householdId: $rootScope.selectedHousehold.id, pantryId: $rootScope.selectedPantry.id }).getHousehold()
+      api.getPantriesByPantryIdHouseholdsByHouseholdId({ householdId: $rootScope.selectedHousehold.id, pantryId: $rootScope.selectedPantry.id }).then(function (data){
+        console.log('Household: ', data);
+        //notify();
+        // Write newly created household to root scope
+        $rootScope.selectedHousehold = data.household;
+
+
+      },function(err){
+        console.error('HouseholdsGetRequest', err);
+        // TODO: Add error handling here
+      });
     }
 
   });
