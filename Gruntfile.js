@@ -1,5 +1,6 @@
 // Generated on 2016-01-07 using generator-angular 0.15.0
 'use strict';
+var fs = require('fs');
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -474,7 +475,8 @@ module.exports = function (grunt) {
     'uglify', // --disabling for now to have clear visibility to any broken references
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'update_sdk_hostname'
   ]);
 
   grunt.registerTask('default', [
@@ -483,4 +485,17 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+  
+  grunt.registerTask('update_sdk_hostname', 'This task updates the PantryExpress API SDK script reference hostname to use hostname defined by SDK_HOSTNAME env variable.', function() {
+    // Replace index.html's script reference with updated hostname if "SDK_HOSTNAME" environment variable is defined
+    var sdkDefaultHostname = "sdk-alpha.pantryexpress.org";
+    if (process.env.SDK_HOSTNAME) {
+      var indexHtml = fs.readFileSync(__dirname + '/dist/index.html', 'utf8');
+      var updatedIndexHtml = indexHtml.replace(sdkDefaultHostname, "sdk-alpha.pantryexpress.org", process.env.SDK_HOSTNAME);
+      fs.writeFileSync(__dirname + '/dist/index.html', updatedIndexHtml);
+      console.log("Updated index.html file to use SDK hostname of \"" + process.env.SDK_HOSTNAME + "\".");
+    } else {
+      console.log("Using default SDK hostname of \"" + sdkDefaultHostname + "\".");
+    }
+  });
 };
