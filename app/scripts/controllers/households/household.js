@@ -79,7 +79,9 @@ angular.module('pantyexpressApp')
 
     };
 
-
+    $scope.req = {
+      households: []
+    };
     $scope.template = $scope.pages[currentIndex];
 
     $scope.setview(viewname);
@@ -92,7 +94,18 @@ angular.module('pantyexpressApp')
       $scope.goto(currentIndex);
     }
 
+
+    $scope.getHousehold = function () {
+      // Write model data for request
+      console.log('HouseholdsGetRequest', $scope.req);
+
+      // Call get household operation via API service
+      console.log("Selected Pantry ID: ", $rootScope.selectedPantry.id  );
+      api.getPantriesByPantryIdHouseholdsByHouseholdId({ householdId: $rootScope.selectedHousehold.id, pantryId: $rootScope.selectedPantry.id }).getHousehold()
+    }
+
   });
+
     /*** old logic for pushing
     $scope.goto = function (targetIndex){
       currentIndex = targetIndex;
