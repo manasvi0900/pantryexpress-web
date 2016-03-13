@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdCtrl', function ($scope, $location, $routeParams) {
+  .controller('HouseholdCtrl', function ($scope, $rootScope, $location, $routeParams, api) {
     $scope.setview = function(name)
     {
       if(name === 'edit')
