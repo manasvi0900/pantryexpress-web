@@ -5,9 +5,9 @@
   <form class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="input 2" class="col-md-5 control-label">Name:</label>
+        <label for="input 2" class="col-md-5 control-label">Head of household:</label>
         <div class="col-md-7">
-          <input class="form-control" id="Input 2" placeholder="" type="text">
+          <input class="form-control" id="Input 2" placeholder="" type="text" ng-model="req.household.headOfHousehold">
         </div>
       </div>
     </div>
@@ -15,31 +15,39 @@
       <div class="form-group">
         <label for="input 5" class="col-md-5 control-label">Address:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 5" placeholder="" type="text">
+          <input class="form-control" id="input 5" placeholder="" type="text" ng-model="req.household.Address">
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="input 6" class="col-md-5 control-label">City:</label>
+        <label for="input 6" class="col-md-5 control-label"></label>
         <div class="col-md-7">
-          <input class="form-control" id="input 6" placeholder="" type="text">
+          <input class="form-control" id="input 6" placeholder="" type="text" ng-model="req.household.AddressLine2">
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="input 7" class="col-md-5 control-label">State:</label>
+        <label for="input 7" class="col-md-5 control-label">City:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 7" placeholder="" type="text">
+          <input class="form-control" id="input 7" placeholder="" type="text" ng-model="req.household.city">
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="input 8" class="col-md-5 control-label">Zip code:</label>
+        <label for="input 8" class="col-md-5 control-label">State:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 8" placeholder="" type="text">
+          <input class="form-control" id="input 8" placeholder="" type="text" ng-model="req.household.state">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+      <div class="form-group">
+        <label for="input 9" class="col-md-5 control-label">Zip code:</label>
+        <div class="col-md-7">
+          <input class="form-control" id="input 9" placeholder="" type="text" ng-model="req.household.zipCode">
         </div>
       </div>
     </div>
@@ -47,7 +55,7 @@
       <div class="form-group">
         <label for="ValidationType" class="col-md-5 control-label">Validation Type</label>
         <div class="col-md-7">
-          <select class="form-control" name="memberValidationTypeFormInput" id="ValidationType">
+          <select class="form-control" name="memberValidationTypeFormInput" ng-model="req.household.state" id="ValidationType">
             <option></option>
             <option value="Driving License">Birth certificate </option>
             <option value="Physical mail">Driver's license  </option>
@@ -69,7 +77,6 @@
       <button class="btn-primary">New Service</button>
       <button class="btn-primary">Add new household</button>
       <button class="btn-primary">Update Member Info</button>
-      <button class="btn-primary">New Service</button>
       <button class="btn-primary">Make head of household</button>
     </p>
     </div>
