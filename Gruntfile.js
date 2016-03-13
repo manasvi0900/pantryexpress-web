@@ -491,9 +491,9 @@ module.exports = function (grunt) {
     var sdkDefaultHostname = "sdk-alpha.pantryexpress.org";
     if (process.env.SDK_HOSTNAME) {
       var indexHtml = fs.readFileSync(__dirname + '/dist/index.html', 'utf8');
-      var updatedIndexHtml = indexHtml.replace(sdkDefaultHostname, "sdk-alpha.pantryexpress.org", process.env.SDK_HOSTNAME);
-      fs.writeFileSync(__dirname + '/dist/index.html', updatedIndexHtml);
-      console.log("Updated index.html file to use SDK hostname of \"" + process.env.SDK_HOSTNAME + "\".");
+      var updatedIndexHtml = indexHtml.replace(sdkDefaultHostname, process.env.SDK_HOSTNAME);
+      fs.writeFileSync(__dirname + '/dist/index.html', updatedIndexHtml, 'utf8');
+      console.log("Updated index.html file to use SDK hostname of \"" + process.env.SDK_HOSTNAME + "\"");
     } else {
       console.log("Using default SDK hostname of \"" + sdkDefaultHostname + "\".");
     }
