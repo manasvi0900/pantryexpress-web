@@ -52,38 +52,38 @@ angular
         controllerAs: 'login'
       })
       .when('/signup', {
-        templateUrl: 'views/signup.html',
+        templateUrl: 'views/signup/signup.html',
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
-      .when('/donor', {
-        templateUrl: 'views/donor.html',
+      .when('/donors', {
+        templateUrl: 'views/donors/donor.html',
         controller: 'DonorCtrl',
         controllerAs: 'donor',
         resolve: {
           loggedin: checkLoggedin
         }
       })
-      .when('/household', {
-        templateUrl: 'views/household.html',
+      .when('/households/create', {
+        templateUrl: 'views/households/create/create.html',
+        controller: 'HouseholdsCreateCtrl',
+        controllerAs: 'households/create',
+        resolve: {
+          loggedin: checkLoggedin
+        }
+      })
+      .when('/households', {
+        templateUrl: 'views/households/household.html',
         controller: 'HouseholdCtrl',
         controllerAs: 'household',
         resolve: {
           loggedin: checkLoggedin
         }
       })
-      .when('/service', {
-        templateUrl: 'views/service.html',
-        controller: 'ServiceCtrl',
-        controllerAs: 'service',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })
-      .when('/client', {
-        templateUrl: 'views/client.html',
-        controller: 'ClientCtrl',
-        controllerAs: 'client',
+      .when('/households/:householdview', {
+        templateUrl: 'views/households/household.html',
+        controller: 'HouseholdCtrl',
+        controllerAs: 'household',
         resolve: {
           loggedin: checkLoggedin
         }
