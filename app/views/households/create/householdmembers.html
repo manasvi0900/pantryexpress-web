@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-10 content">
   <div class="text-left">
-    <h1>New Household Member</h1>
+    <h1>New Household Members</h1>
   </div>
   <div>
     <table class="table table-bordered" ng-show="req.members.length > 0">
@@ -10,8 +10,6 @@
         <th>Middle Name</th>
         <th>Last Name</th>
         <th>Member Type</th>
-        <th>Email Address</th>
-        <th>Phone Number</th>
         <th>Birthday</th>
         <th>Gender</th>
         <th>Validation Date</th>
@@ -24,12 +22,10 @@
         <td>{{ member.firstName }}</td>
         <td>{{ member.middleName }}</td>
         <td>{{ member.lastName }}</td>
-        <td>{{ member.memberType }}</td>
-        <td>{{ member.email }}</td>
-        <td>{{ member.phone }}</td>
-        <td>{{ member.birthday }}</td>
+        <td>{{ member.memberType | householdMemberType }}</td>
+        <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
         <td>{{ member.gender }}</td>
-        <td>{{ member.validationDate }}</td>
+        <td>{{ member.validationDate | date:'MM/dd/yyyy' }}</td>
         <td>{{ member.validationType }}</td>
       </tr>
       </tbody>
@@ -133,10 +129,10 @@
             <div class="col-md-7">
               <select class="form-control" name="memberValidationTypeFormInput" id="validationType" ng-model="tempMember.validationType" >
                 <option></option>
-                <option value="Driving License">Birth certificate </option>
-                <option value="Physical mail">Driver's license  </option>
-                <option value="Rental agreement">ID Card </option>
-                <option value="Utility bill">Passport</option>
+                <option value="Birth certificate">Birth certificate </option>
+                <option value="Driver's license">Driver's license  </option>
+                <option value="Passport">Passport </option>
+                <option value="Utility bill">Utility bill</option>
               </select>
               <span class="form-validation-error" ng-show="householdMemberForm.memberValidationTypeFormInput.$touched && householdMemberForm.memberValidationTypeFormInput.$invalid">Member validation type is required.</span>
             </div>

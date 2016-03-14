@@ -105,6 +105,35 @@ angular.module('pantyexpressApp')
       {
         return;
       }
+      
+      // Check if required fields are complete
+      console.log("Temp User", $scope.tempAdminUser);
+      if (!$scope.tempAdminUser.firstName) {
+        form.adminFirstNameFormInput.$invalid = true;
+        form.adminFirstNameFormInput.$touched = true;
+        return;
+      }
+      if (!$scope.tempAdminUser.lastName) {
+        form.adminLastNameFormInput.$invalid = true;
+        form.adminLastNameFormInput.$touched = true;
+        return;
+      }
+      if (!$scope.tempAdminUser.jobTitle) {
+        form.adminTitleFormInput.$invalid = true;
+        form.adminTitleFormInput.$touched = true;
+        return;
+      }
+      if (!$scope.tempAdminUser.phone) {
+        form.adminPhoneFormInput.$invalid = true;
+        form.adminPhoneFormInput.$touched = true;
+        return;
+      }
+      if (!$scope.tempAdminUser.email) {
+        form.adminEmailFormInput.$invalid = true;
+        form.adminEmailFormInput.$touched = true;
+        return;
+      }
+      
       // Push tempAdminUser to users array in request object
       $scope.req.users.push($scope.tempAdminUser);
       //resets required form states

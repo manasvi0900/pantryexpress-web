@@ -5,160 +5,113 @@
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 1" class="col-md-5 control-label">Household ID:</label>
+              <label for="householdId" class="col-md-5 control-label">Household ID:</label>
               <div class="col-md-7">
-                <input class="form-control" id="Input 1" placeholder="" type="text">
+                <input class="form-control" id="householdId" placeholder="" type="text" ng-model="householdsFilter.householdId">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 2" class="col-md-5 control-label">First Name:</label>
+              <label for="headOfHouseholdId" class="col-md-5 control-label">Head of Household ID:</label>
               <div class="col-md-7">
-                <input class="form-control" id="Input 2" placeholder="" type="text">
+                <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHouseholdId">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 3" class="col-md-5 control-label">Middle Name:</label>
+              <label for="addressLine1" class="col-md-5 control-label">Address Line 1:</label>
               <div class="col-md-7">
-                <input class="form-control" id="Input 3" placeholder="" type="text">
+                <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 4" class="col-md-5 control-label">Last Name:</label>
+              <label for="addressLine2" class="col-md-5 control-label">Address Line 2:</label>
               <div class="col-md-7">
-                <input class="form-control" id="input 4" placeholder="" type="text">
+                <input class="form-control" id="addressLine2" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 5" class="col-md-5 control-label">Address:</label>
+              <label for="city" class="col-md-5 control-label">City:</label>
               <div class="col-md-7">
-                <input class="form-control" id="input 5" placeholder="" type="text">
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="input 6" class="col-md-5 control-label">City:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="input 6" placeholder="" type="text">
+                <input class="form-control" id="city" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.city">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 7" class="col-md-5 control-label">State:</label>
+              <label for="state" class="col-md-5 control-label">State:</label>
               <div class="col-md-7">
-                <input class="form-control" id="input 7" placeholder="" type="text">
+                <input class="form-control" id="state" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.state">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="input 8" class="col-md-5 control-label">Zip code:</label>
+              <label for="zip" class="col-md-5 control-label">Zip Code:</label>
               <div class="col-md-7">
-                <input class="form-control" id="input 8" placeholder="" type="text">
+                <input class="form-control" id="zip" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.zip">
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="input 9" class="col-md-5 control-label">Barcode:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="input 9" placeholder="" type="text">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-12">
+          <div class="col-sm-offset-4 col-lg-12">
             <div class="form-group">
               <p>
-                <input type="checkbox" name="checkbox" id="checkbox_id1" value="value">
-                <label for="checkbox_id1">Include Inactive</label>
-                <input type="checkbox" name="checkbox" id="checkbox_id2" value="value">
-                <label for="checkbox_id2">Include Archive</label>
+                <input type="checkbox" name="includeInactive" id="includeInactive" value="value">
+                <label for="includeInactive">Include Inactive</label>
+                <input type="checkbox" name="includeArchived" id="includeArchived" value="value">
+                <label for="includeArchived">Include Archived</label>
               </p>
+            </div>
+          </div>
+          <div class="col-sm-offset-9">
+            <p>
+              <button class="btn-primary" ng-click="findHouseholds()">Search</button>
+            </p>
+          </div>
+          <div>
               <p>
                 <button class="btn-primary">New Service</button>
-                <button class="btn-primary">Edit household</button>
-                <button class="btn-primary" ng-click="newHousehold()">New household</button>
-
+                <button class="btn-primary" id="editHouseholdBtn" ng-click="editHousehold" ng-disabled="findHouseholdsEditHouseholdBtnDisabled">Edit Household</button>
               </p>
-            </div>
           </div>
-          <div class="col-sm-6 col-lg-12">
+          <div class="col-sm-6 col-lg-12" ng-show="households.length > 0">
               <div class="form-group">
                 <table class="table table-bordered">
                   <thead class="thread-inverse">
-                  <tr>
-                    <th>Name</th>
-                    <th>Unit</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Zipcode</th>
-                    <th>Relationship</th>
-                    <th>Status</th>
-                    <th>Last Service</th>
-                  </tr>
+                    <tr>
+                      <th>Selection</th>
+                      <th>Household ID</th>
+                      <th>Address Line 1</th>
+                      <th>Address Line 2</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Zip Code</th>
+                      <th>Created At</th>
+                      <th>Last Updated At</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th>Joe Smith</th>
-                    <th>2353</th>
-                    <th>29th Ave</th>
-                    <th>Seattle</th>
-                    <th>98101</th>
-                    <th>
-                      <select class="form-control" multiple="multiple">
-                        <option>Head of Household</option>
-                        <option>Member</option>
-                      </select>
-                    </th>
-                    <th>
-                      <select class="form-control" multiple="multiple">
-                        <option>Active</option>
-                        <option>Inactive</option>
-                      </select></th>
-                    <th><input type="checkbox" class="form-control checkbox"></th>
-                  </tr>
-                  <tr>
-                    <th>Joe Smith</th>
-                    <th>2353</th>
-                    <th>29th Ave</th>
-                    <th>Seattle</th>
-                    <th>98101</th>
-                    <th><select class="form-control" multiple="multiple">
-                      <option>Head of Household</option>
-                      <option>Member</option>
-                    </select></th>
-                    <th><select class="form-control" multiple="multiple">
-                      <option>Active</option>
-                      <option>Inactive</option>
-                    </select></th>
-                    <th><input type="checkbox" class="form-control checkbox"></th>
-                  </tr>
-                  <tr>
-                    <th>Joe Smith</th>
-                    <th>2353</th>
-                    <th>29th Ave</th>
-                    <th>Seattle</th>
-                    <th>98101</th>
-                    <th><select class="form-control" multiple="multiple">
-                      <option>Head of Household</option>
-                      <option>Member</option>
-                    </select></th>
-                    <th><select class="form-control" multiple="multiple">
-                      <option>Active</option>
-                      <option>Inactive</option>
-                    </select></th>
-                    <th><input type="checkbox" class="form-control checkbox"></th>
-                  </tr>
+                    <tr ng-repeat="household in households | filter: householdsFilter ">
+                      <td>
+                        <label class="btn-default">
+                          <input name="householdSelection" id="householdSelection" value="{{ household }}" class="active" type="radio" ng-model="selectedHousehold" ng-change="setSelectedHousehold(household)">
+                        </label>
+                      </td>
+                      <td>{{ household.householdId }}</td>
+                      <td>{{ household.physicalAddress.line1 }}</td>
+                      <td>{{ household.physicalAddress.line2 }}</td>
+                      <td>{{ household.physicalAddress.city }}</td>
+                      <td>{{ household.physicalAddress.state }}</td>
+                      <td>{{ household.physicalAddress.zip }}</td>
+                      <td>{{ household.createdAt }}</td>
+                      <td>{{ household.updatedAt }}</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
