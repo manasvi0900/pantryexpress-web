@@ -36,9 +36,9 @@ angular
   ])
   .filter('householdMemberType', function() {
     return function(input) {
-      if (input == 'headOfHousehold') {
+      if (input === 'headOfHousehold') {
         return 'Head of Household';
-      } else if (input == 'householdMember') {
+      } else if (input === 'householdMember') {
         return 'Household Member';
       } else {
         return input;
