@@ -42,7 +42,11 @@ angular.module('pantyexpressApp')
     };
 
     $scope.isReadOnly = function() {
-      $scope.req.pantry = "isReadOnly";
+    $scope.req.pantry = "isReadOnly";
+    };
+    
+    $scope.getFullName = function () {
+          alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);
     };
 
     $scope.AddFormToScope = function(form)
