@@ -5,9 +5,17 @@
   <form class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="input 2" class="col-md-5 control-label">Head of household:</label>
+        <label for="input 2" class="col-md-5 control-label">First Name:</label>
         <div class="col-md-7">
-          <input class="form-control" id="Input 2" placeholder="" type="text" ng-model="req.household.headOfHousehold">
+          <input class="form-control" id="Input 2" placeholder="" type="text" ng-model="householdMember.items[0].firstName">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+      <div class="form-group">
+        <label for="input 2" class="col-md-5 control-label">Last Name:</label>
+        <div class="col-md-7">
+          <input class="form-control" id="Input 3" placeholder="" type="text" ng-model="householdMember.items[0].lastName">
         </div>
       </div>
     </div>
@@ -15,7 +23,7 @@
       <div class="form-group">
         <label for="input 5" class="col-md-5 control-label">Address:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 5" placeholder="" type="text" ng-model="req.household.Address">
+          <input class="form-control" id="input 5" placeholder="" type="text" ng-model="household.physicalAddress.line1">
         </div>
       </div>
     </div>
@@ -23,7 +31,7 @@
       <div class="form-group">
         <label for="input 6" class="col-md-5 control-label"></label>
         <div class="col-md-7">
-          <input class="form-control" id="input 6" placeholder="" type="text" ng-model="req.household.AddressLine2">
+          <input class="form-control" id="input 6" placeholder="" type="text" ng-model="household.physicalAddress.line2">
         </div>
       </div>
     </div>
@@ -31,7 +39,7 @@
       <div class="form-group">
         <label for="input 7" class="col-md-5 control-label">City:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 7" placeholder="" type="text" ng-model="req.household.city">
+          <input class="form-control" id="input 7" placeholder="" type="text" ng-model="household.physicalAddress.city">
         </div>
       </div>
     </div>
@@ -39,7 +47,7 @@
       <div class="form-group">
         <label for="input 8" class="col-md-5 control-label">State:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 8" placeholder="" type="text" ng-model="req.household.state">
+          <input class="form-control" id="input 8" placeholder="" type="text" ng-model="household.physicalAddress.state">
         </div>
       </div>
     </div>
@@ -47,7 +55,7 @@
       <div class="form-group">
         <label for="input 9" class="col-md-5 control-label">Zip code:</label>
         <div class="col-md-7">
-          <input class="form-control" id="input 9" placeholder="" type="text" ng-model="req.household.zipCode">
+          <input class="form-control" id="input 9" placeholder="" type="number" ng-model="household.physicalAddress.zip">
         </div>
       </div>
     </div>
@@ -55,12 +63,12 @@
       <div class="form-group">
         <label for="ValidationType" class="col-md-5 control-label">Validation Type</label>
         <div class="col-md-7">
-          <select class="form-control" name="memberValidationTypeFormInput" ng-model="req.household.state" id="ValidationType">
+          <select class="form-control" name="memberValidationTypeFormInput" ng-model="household.validationType" id="ValidationType">
             <option></option>
-            <option value="Driving License">Birth certificate </option>
-            <option value="Physical mail">Driver's license  </option>
-            <option value="Rental agreement">ID Card </option>
-            <option value="Utility bill">Passport</option>
+            <option value="Driving License">Driving License </option>
+            <option value="Physical mail">Physical mail  </option>
+            <option value="Rental agreement">Rental agreement </option>
+            <option value="Utility bill">Utility bill</option>
           </select>
         </div>
       </div>
@@ -86,10 +94,10 @@
     <thead class="thread-inverse">
     <tr>
       <th>Name</th>
-      <th>Age</th>
+      <th>Date of Birth</th>
       <th>Gender</th>
       <th>Inactive</th>
-      <th>Special diet</th>
+      <th>Special Needs</th>
       <th>Disabled</th>
       <th>Hispanic</th>
       <th>Member Type</th>
@@ -99,32 +107,52 @@
     </thead>
     <tbody>
     <tr>
-      <th>Joe Smith</th>
-      <th>40</th>
-      <th>Male</th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
+      <td>
+        <div class="left2">
+          <input type="text" ng-model="householdMember.items[0].firstName"/>
+        </div>
+      </td>
+      <td>
+        <div class="left2">
+          <input type="text" ng-model="householdMember.items[0].birthday"/>
+        </div>
+      </td>
+      <td>
+        <div class="left2">
+          <input type="text" ng-model="householdMember.items[0].gender"/>
+        </div>
+      </td>
+      <th><Input type="checkbox" class="form-control checkbox" ng-model="householdMember.items[0].isActive"></th>
+      <th><Input type="checkbox" class="form-control checkbox" ng-model="householdMember.items[0].isSpecialNeeds"></th>
+      <th><Input type="checkbox" class="form-control checkbox" ng-model="householdMember.items[0].isDisabled"></th>
+      <th><Input type="checkbox" class="form-control checkbox" ng-model="householdMember.items[0].isHispanic"></th>
       <th>Head of household</th>
-      <th> </th>
-      <th> </th>
+      <td>
+        <div class="left2">
+          <input type="text" ng-model="householdMember.items[0].validationDate"/>
+        </div>
+      </td>
+      <td>
+        <div class="left2">
+          <input type="text" ng-model="householdMember.items[0].validationType"/>
+        </div>
+      </td>
     </tr>
     </tbody>
-    <tbody>
+    <!--<tbody>
     <tr>
-      <th>Judy Smith</th>
-      <th>40</th>
-      <th>Female</th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th><Input type="checkbox" class="form-control checkbox"></th>
-      <th>Household member</th>
-      <th> </th>
-      <th> </th>
+      <td>Judy Smith</td>
+      <td>40</td>
+      <td>Female</td>
+      <td><Input type="checkbox" class="form-control checkbox"></td>
+      <td><Input type="checkbox" class="form-control checkbox"></td>
+      <td><Input type="checkbox" class="form-control checkbox"></td>
+      <td><Input type="checkbox" class="form-control checkbox"></td>
+      <td>Household member</td>
+      <td> </td>
+      <td> </td>
     </tr>
-    </tbody>
+    </tbody>-->
   </table>
 </div>
 
