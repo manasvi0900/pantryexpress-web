@@ -44,7 +44,19 @@ angular.module('pantyexpressApp')
     $scope.isReadOnly = function() {
       $scope.req.pantry = "isReadOnly";
     };
+    $scope.memberTypes =
+      [
+        "Head of Household",
+        "Household Member"
+      ];
 
+    $scope.SetHHType = function()
+    {
+        if($scope.req.members.length === 0)
+        {
+          $scope.tempMember.memberType = "headOfHousehold";
+        }
+     }
     $scope.AddFormToScope = function(form)
     {
       $rootScope.myCurrentForm = form;
@@ -115,7 +127,8 @@ angular.module('pantyexpressApp')
       $scope.tempMember = {
         isDisabled: false,
         isHispanic: false,
-        isSpecialNeeds: false
+        isSpecialNeeds: false,
+        memberType: 'householdMember'
       };
     };
 
