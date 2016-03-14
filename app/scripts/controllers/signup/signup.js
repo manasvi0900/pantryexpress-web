@@ -13,7 +13,6 @@ angular.module('pantyexpressApp')
     //Regex pattern for email, need @.something for schema validation
     $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.currentIndex = 0;
-    $scope.firstPageLoad = 0;
     $scope.pages = [
       {
         name: 'Pantry Information',

@@ -13,7 +13,6 @@ angular.module('pantyexpressApp')
     $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.datePattern = /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]((?:19|20)\d\d)/;
     $scope.currentIndex = 0;
-    $scope.firstPageLoad = 0;
     $scope.pages = [
       {
         name: 'Household Information',
@@ -49,12 +48,6 @@ angular.module('pantyexpressApp')
     $scope.getFullName = function () {
           alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);
     };
-    $scope.memberTypes =
-      [
-        "Head of Household",
-        "Household Member"
-      ];
-
     $scope.SetHHType = function()
     {
         if($scope.req.members.length === 0)
