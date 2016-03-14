@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-10 content">
   <div class="text-left">
-    <h1>New Household Member</h1>
+    <h1>New Household Members</h1>
   </div>
   <div>
     <table class="table table-bordered" ng-show="req.members.length > 0">
@@ -22,10 +22,10 @@
         <td>{{ member.firstName }}</td>
         <td>{{ member.middleName }}</td>
         <td>{{ member.lastName }}</td>
-        <td>{{ member.memberType }}</td>
-        <td>{{ member.birthday }}</td>
+        <td>{{ member.memberType | householdMemberType }}</td>
+        <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
         <td>{{ member.gender }}</td>
-        <td>{{ member.validationDate }}</td>
+        <td>{{ member.validationDate | date:'MM/dd/yyyy' }}</td>
         <td>{{ member.validationType }}</td>
       </tr>
       </tbody>
