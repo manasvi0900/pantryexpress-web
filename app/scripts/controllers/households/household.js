@@ -83,7 +83,7 @@ angular.module('pantyexpressApp')
       url: 'views/households/findhousehold.html',
       visible: true,
       init: function() {
-        console.log("Placeholder init call here!");
+        
       }
     };
     $scope.templates['move'] = {
@@ -130,8 +130,19 @@ angular.module('pantyexpressApp')
       $scope.goto(currentIndex);
       $scope.template.init();
     }
+<<<<<<< HEAD
 
+=======
+    
+    $scope.householdsFilter = {};
+>>>>>>> 3d3e64243eb91344cc77577bc712db976ac4ae85
     $scope.household = {};
+    $scope.households = [];
+    
+    $scope.findHouseholds = function (){
+      console.log("HouseholdsFilterCriteria: ", $scope.householdsFilter);
+      listHouseholds();
+    };
 
     function getHousehold() {
       // Call get household operation via API service
@@ -142,7 +153,19 @@ angular.module('pantyexpressApp')
       console.log('Household: ', $scope.household);
 
       },function(err){
-        console.error('HouseholdsGetRequest', err);
+        console.error('HouseholdsGetError', err);
+        // TODO: Add error handling here
+      });
+    }
+    
+    function listHouseholds() {
+      // Call list households operation via API service
+      console.log("Selected Pantry ID: ", $rootScope.selectedPantry.id );
+      api.getPantriesByPantryIdHouseholds({ pantryId: $rootScope.selectedPantry.id }).then(function (data){
+        $scope.households = data.items;
+        console.log('Households: ', $scope.households);
+      }, function(err){
+        console.error('HouseholdsListError', err);
         // TODO: Add error handling here
       });
     }
