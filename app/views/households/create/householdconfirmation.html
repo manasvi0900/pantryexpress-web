@@ -8,15 +8,6 @@
   <div class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="HeadOfHousehold" class="col-md-5 control-label">Head of Household: {{req.household.firstname} {req.household.middlename} {req.household.lastname}}</label>
-        <div class="col-md-7">
-          <input class="form-control" id="HeadOfHousehold" type="text" ng-readonly="isReadOnly" ng-model="getFullName">
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
         <label for="PhysicalAddress" class="col-md-5 control-label">Physical Address:</label>
         <div class="col-md-7">
           <input class="form-control" id="PhysicalAddress" placeholder="Address" type="text" ng-model="req.household.physicalAddress.line1" ng-readonly="isReadOnly" >
@@ -27,10 +18,11 @@
         <div class="form-group">
           <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
           <div class="col-md-7">
-            <input class="form-control" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" ng-readonly="isReadOnly">
+            <input class="form-control" name="householdAddressFormInput2" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" ng-readonly="isReadOnly">
+            <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput2.$touched && householdCreateForm.householdAddressFormInput2.$invalid">Address is required.</span>
           </div>
         </div>
-    </div>
+      </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="City" class="col-md-5 control-label">City:</label>
@@ -127,12 +119,63 @@
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="input7" class="col-md-5 control-label">Zip code:</label>
+        <label for="physicalAddressZip" class="col-md-5 control-label">Zip code:</label>
         <div class="col-md-7">
           <input class="form-control" id="input7" placeholder="Zip code" type="text" ng-model="req.household.physicalAddress.zip" ng-readonly="isReadOnly" >
         </div>
       </div>
     </div>
+    <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="ValidationDate" class="col-md-5 control-label">Validation Date:</label>
+          <div class="col-md-7">
+            <input class="form-control" name="validationDate" id="ValidationDate" placeholder="" type="date" ng-model="req.household.validationDate" ng-readonly="isReadOnly">
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
+          <div class="col-md-7">
+            <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType" ng-readonly=isReadOnly>
+              <option></option>
+              <option value="Driving License">Driving license</option>
+              <option value="Physical mail">Physical mail </option>
+              <option value="Rental agreement">Rental agreement </option>
+              <option value="Utility bill">Utility bill</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <div>
+    <table class="table table-bordered" ng-show="req.members.length > 0" ng-readonly="isReadOnly">
+      <thead class="thread-inverse">
+      <tr>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Member Type</th>
+        <th>Phone Number</th>
+        <th>Birthday</th>
+        <th>Gender</th>
+        <th>Validation Date</th>
+        <th>Validation Type</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="member in req.members">
+        <td>{{ member.firstName }}</td>
+        <td>{{ member.middleName }}</td>
+        <td>{{ member.lastName }}</td>
+        <td>{{ member.memberType }}</td>
+        <td>{{ member.phone }}</td>
+        <td>{{ member.birthday }}</td>
+        <td>{{ member.gender }}</td>
+        <td>{{ member.validationDate }}</td>
+        <td>{{ member.validationType }}</td>
+      </tr>
+      </tbody>
+    </table>
     <div class="btn-group">
       <button ng-click="createHousehold()" class="btn-primary">Sign Up</button>
       <button class="btn-primary">Cancel</button>
