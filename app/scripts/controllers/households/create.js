@@ -44,23 +44,23 @@ angular.module('pantyexpressApp')
     $scope.isReadOnly = function() {
     $scope.req.pantry = "isReadOnly";
     };
-    
+
     $scope.getFullName = function () {
           alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);
     };
-
+    $scope.SetHHType = function()
+    {
+        if($scope.req.members.length === 0)
+        {
+          $scope.tempMember.memberType = "headOfHousehold";
+        }
+     }
     $scope.AddFormToScope = function(form)
     {
       $rootScope.myCurrentForm = form;
     }
     $scope.CheckMemberExists = function(form)
     {
-      angular.forEach($rootScope.myCurrentForm.$error, function(type) {
-        angular.forEach(type, function(field) {
-          field.$touched = true;
-        });
-      });
-
       //this allows for skipping validatiion once we have a member created
       if($scope.template.name === 'Household Members'&&$scope.req.members.length === 0)
       {
@@ -78,6 +78,11 @@ angular.module('pantyexpressApp')
       {}
       else {
         if ($scope.CheckMemberExists() || $rootScope.myCurrentForm.$invalid) {
+          angular.forEach($rootScope.myCurrentForm.$error, function (type) {
+            angular.forEach(type, function (field) {
+              field.$touched = true;
+            });
+          });
           return;
         }
       }
@@ -119,7 +124,8 @@ angular.module('pantyexpressApp')
       $scope.tempMember = {
         isDisabled: false,
         isHispanic: false,
-        isSpecialNeeds: false
+        isSpecialNeeds: false,
+        memberType: 'householdMember'
       };
     };
 
@@ -135,7 +141,7 @@ angular.module('pantyexpressApp')
 
         // Redirect to Edit Households page for newly created household
         $location.url('/households/edit');
-        
+
       },function(err){
         console.error('HouseholdsCreateError', err);
         // TODO: Add error handling here

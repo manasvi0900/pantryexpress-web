@@ -54,11 +54,7 @@ angular.module('pantyexpressApp')
     }
     $scope.CheckDirectorExists = function(form)
     {
-      angular.forEach($rootScope.myCurrentForm.$error, function(type) {
-        angular.forEach(type, function(field) {
-          field.$touched = true;
-        });
-      });
+
 
       //this allows for skipping validation once we have a director created
       if($scope.template.name === 'Administrator Information'&&$scope.req.users.length === 0)
@@ -78,6 +74,11 @@ angular.module('pantyexpressApp')
       {}
       else {
         if ($scope.CheckDirectorExists() || $rootScope.myCurrentForm.$invalid) {
+          angular.forEach($rootScope.myCurrentForm.$error, function (type) {
+            angular.forEach(type, function (field) {
+              field.$touched = true;
+            });
+          });
           return;
         }
       }
@@ -105,7 +106,7 @@ angular.module('pantyexpressApp')
       {
         return;
       }
-      
+
       // Check if required fields are complete
       console.log("Temp User", $scope.tempAdminUser);
       if (!$scope.tempAdminUser.firstName) {
@@ -133,7 +134,7 @@ angular.module('pantyexpressApp')
         form.adminEmailFormInput.$touched = true;
         return;
       }
-      
+
       // Push tempAdminUser to users array in request object
       $scope.req.users.push($scope.tempAdminUser);
       //resets required form states
