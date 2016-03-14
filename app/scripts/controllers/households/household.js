@@ -167,11 +167,18 @@ angular.module('pantyexpressApp')
       });
     }
 
+    $scope.users = {
+      householdMembers: []
+    };
+
     $scope.householdMember = {};
 
     function getHouseholdMember() {
+
+      console.log('HouseholdMembersGetRequest');
+
       //call get householdMember operation via API service
-      console.log("Selected Household Member ID: ", $rootScope.selectedHouseholdMember.id );
+      console.log("Selected Household Member ID: ", $rootScope.selectedHouseholdMember.id);
       console.log("Selected Household ID: ", $rootScope.selectedHousehold.id );
       console.log("Selected Pantry ID: ", $rootScope.selectedPantry.id  );
       api.getPantriesByPantryIdHouseholdsByHouseholdIdMembers({ householdId: $rootScope.selectedHousehold.id, pantryId: $rootScope.selectedPantry.id }).then(function (data) {
@@ -183,6 +190,11 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
+
+
+    $scope.isReadOnly = function() {
+      $scope.users.householdMember = "isReadOnly";
+    };
 
 
   });

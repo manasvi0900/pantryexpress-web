@@ -7,7 +7,7 @@
       <div class="form-group">
         <label for="input 2" class="col-md-5 control-label">First Name:</label>
         <div class="col-md-7">
-          <input class="form-control" id="Input 2" placeholder="" type="text" ng-model="householdMember.items[0].firstName">
+          <input class="form-control" id="Input 2" placeholder="" type="text" ng-model="householdMember.items[0].firstName" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
@@ -15,7 +15,7 @@
       <div class="form-group">
         <label for="input 2" class="col-md-5 control-label">Last Name:</label>
         <div class="col-md-7">
-          <input class="form-control" id="Input 3" placeholder="" type="text" ng-model="householdMember.items[0].lastName">
+          <input class="form-control" id="Input 3" placeholder="" type="text" ng-model="householdMember.items[0].lastName" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
@@ -107,6 +107,7 @@
     </thead>
     <tbody>
     <tr>
+
       <td>
         <div class="left2">
           <input type="text" ng-model="householdMember.items[0].firstName"/>
