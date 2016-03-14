@@ -58,7 +58,7 @@ angular.module('pantyexpressApp')
     
     $scope.setSelectedPantry = function(pantry){
       console.log("Selected Pantry updated to: " + pantry.id);
-      $scope.selectedPantry = pantry;
+      $rootScope.selectedPantry = pantry;
     }
 
     $scope.setNavBar();

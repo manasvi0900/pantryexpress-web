@@ -34,6 +34,17 @@ angular
     'peClient',
     'ngDialog'
   ])
+  .filter('householdMemberType', function() {
+    return function(input) {
+      if (input == 'headOfHousehold') {
+        return 'Head of Household';
+      } else if (input == 'householdMember') {
+        return 'Household Member';
+      } else {
+        return input;
+      }
+    }
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -91,4 +102,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+    }
+  );
