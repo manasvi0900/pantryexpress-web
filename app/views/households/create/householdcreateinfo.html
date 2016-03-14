@@ -4,6 +4,7 @@
   </div>
 
   <form class="form-horizontal" role="form" name="householdCreateForm">
+    <div ng-init="AddFormToScope(householdCreateForm);"></div>
     <div class="row">
       <div class="text-left">
       </div>
@@ -47,8 +48,8 @@
         <div class="form-group">
           <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
           <div class="col-md-7">
-            <input class="form-control" name="householdAddressFormInput" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.household.physicalAddress.line2">
-            <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput.$touched && householdCreateForm.householdAddressFormInput.$invalid">Address is required.</span>
+            <input class="form-control" name="householdAddressFormInput2" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.household.physicalAddress.line2">
+            <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput2.$touched && householdCreateForm.householdAddressFormInput2.$invalid">Address is required.</span>
           </div>
         </div>
       </div>
@@ -171,7 +172,7 @@
         <div class="form-group">
           <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
           <div class="col-md-7">
-            <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType" required>
+            <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType">
               <option></option>
               <option value="Driving License">Driving license</option>
               <option value="Physical mail">Physical mail </option>

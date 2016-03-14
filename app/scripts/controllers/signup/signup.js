@@ -47,10 +47,21 @@ angular.module('pantyexpressApp')
       $scope.req.pantry = "isReadOnly";
     };
 
+    $scope.AddFormToScope = function(form)
+    {
+      console.log('setup form'+form.$valid);
+      $rootScope.myCurrentForm = form;
+    }
     $scope.CheckDirectorExists = function(form)
     {
+      angular.forEach($rootScope.myCurrentForm.$error, function(type) {
+        angular.forEach(type, function(field) {
+          field.$touched = true;
+        });
+      });
+
       //this allows for skipping validation once we have a director created
-      if($scope.req.users.length === 0)
+      if($scope.template.name === 'Administrator Information'&&$scope.req.users.length === 0)
       {
         return true;
       }
@@ -61,13 +72,21 @@ angular.module('pantyexpressApp')
 
     }
 
+
     $scope.goto = function (targetIndex){
+      if(targetIndex<$scope.currentIndex)
+      {}
+      else {
+        if ($scope.CheckDirectorExists() || $rootScope.myCurrentForm.$invalid) {
+          return;
+        }
+      }
       $scope.currentIndex = targetIndex;
       $scope.template = $scope.pages[$scope.currentIndex];
     };
 
-    $scope.next = function (form,admin){
-      if((admin&&$scope.CheckDirectorExists())||form.$invalid)
+    $scope.next = function (form){
+      if($scope.CheckDirectorExists()||form.$invalid)
       {
        return;
       }

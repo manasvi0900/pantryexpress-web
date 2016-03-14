@@ -36,6 +36,7 @@
     </table>
   </div>
   <form class="form-horizontal" role="form" name="householdMemberForm">
+    <div ng-init="AddFormToScope(householdMemberForm);"></div>
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
@@ -67,7 +68,7 @@
         <div class="form-group">
           <label for="email" class="col-md-5 control-label">Email:</label>
           <div class="col-md-7">
-            <input class="form-control" name="memberEmailFormInput" id="email" placeholder="" type="email" ng-model="tempMember.email" ng-required="CheckMemberExists(householdMemberForm)">
+            <input class="form-control" name="memberEmailFormInput" id="email" placeholder="" type="email" ng-model="tempMember.email" >
             <span class="form-validation-error" ng-show="householdMemberForm.memberEmailFormInput.$touched && householdMemberForm.memberEmailFormInput.$invalid">Email is required.</span>
           </div>
         </div>
@@ -76,7 +77,7 @@
         <div class="form-group">
           <label for="phone" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-7">
-            <input class="form-control" name="memberPhoneNumberFormInput" id="phone" placeholder="" type="number" ng-model="tempMember.phone" ng-required="CheckMemberExists(householdMemberForm)">
+            <input class="form-control" name="memberPhoneNumberFormInput" id="phone" placeholder="" type="number" ng-model="tempMember.phone" >
             <span class="form-validation-error" ng-show="householdMemberForm.memberPhoneNumberFormInput.$touched && householdMemberForm.memberPhoneNumberFormInput.$invalid">Phone Number is required.</span>
           </div>
         </div>
@@ -108,7 +109,7 @@
         <div class="form-group">
           <label for="memberType" class="col-md-5 control-label">Member Type:</label>
           <div class="col-md-7">
-            <select class="form-control" name="memberTypeFormInput" id="memberType" ng-model="tempMember.memberType" ng-required="CheckMemberExists(householdMemberForm)">
+            <select class="form-control" name="memberTypeFormInput" id="memberType" ng-model="tempMember.memberType" >
               <option></option>
               <option value="headOfHousehold">Head of Household</option>
               <option value="householdMember">Household Member</option>
@@ -121,7 +122,7 @@
         <div class="form-group">
           <label for="validationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
-            <input class="form-control" name="memberValidationDateFormInput" id="validationDate" placeholder="" type="date" ng-model="tempMember.validationDate" ng-required="CheckMemberExists(householdMemberForm)">
+            <input class="form-control" name="memberValidationDateFormInput" id="validationDate" placeholder="" type="date" ng-model="tempMember.validationDate" >
             <span class="form-validation-error" ng-show="householdMemberForm.memberValidationDateFormInput.$touched && householdMemberForm.memberValidationDateFormInput.$invalid">Member validation date is required.</span>
           </div>
         </div>
@@ -130,7 +131,7 @@
           <div class="form-group">
             <label for="validationType" class="col-md-5 control-label">Validation Type</label>
             <div class="col-md-7">
-              <select class="form-control" name="memberValidationTypeFormInput" id="validationType" ng-model="tempMember.validationType" ng-required="CheckMemberExists(householdMemberForm)">
+              <select class="form-control" name="memberValidationTypeFormInput" id="validationType" ng-model="tempMember.validationType" >
                 <option></option>
                 <option value="Driving License">Birth certificate </option>
                 <option value="Physical mail">Driver's license  </option>
