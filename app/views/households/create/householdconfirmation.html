@@ -8,9 +8,9 @@
   <div class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="HeadOfHousehold" class="col-md-5 control-label">Head of Household:</label>
+        <label for="HeadOfHousehold" class="col-md-5 control-label">Head of Household: {{req.household.firstname} {req.household.middlename} {req.household.lastname}}</label>
         <div class="col-md-7">
-          <input class="form-control" id="HeadOfHousehold" placeholder="Head of Household" type="text" ng-model = "yourName" >
+          <input class="form-control" id="HeadOfHousehold" type="text" ng-readonly="isReadOnly" ng-model="getFullName">
         </div>
       </div>
     </div>
@@ -22,6 +22,14 @@
           <input class="form-control" id="PhysicalAddress" placeholder="Address" type="text" ng-model="req.household.physicalAddress.line1" ng-readonly="isReadOnly" >
         </div>
       </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
+          <div class="col-md-7">
+            <input class="form-control" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" ng-readonly="isReadOnly">
+          </div>
+        </div>
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
@@ -122,14 +130,6 @@
         <label for="input7" class="col-md-5 control-label">Zip code:</label>
         <div class="col-md-7">
           <input class="form-control" id="input7" placeholder="Zip code" type="text" ng-model="req.household.physicalAddress.zip" ng-readonly="isReadOnly" >
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="input8" class="col-md-5 control-label">Email Address:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="input8" placeholder="Email" type="Email" >
         </div>
       </div>
     </div>
