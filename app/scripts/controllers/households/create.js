@@ -13,6 +13,7 @@ angular.module('pantyexpressApp')
     $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.datePattern = /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]((?:19|20)\d\d)/;
     $scope.currentIndex = 0;
+    $scope.firstPageLoad = 0;
     $scope.pages = [
       {
         name: 'Household Information',
@@ -44,7 +45,7 @@ angular.module('pantyexpressApp')
     $scope.isReadOnly = function() {
     $scope.req.pantry = "isReadOnly";
     };
-    
+
     $scope.getFullName = function () {
           alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);
     };
@@ -67,12 +68,6 @@ angular.module('pantyexpressApp')
     }
     $scope.CheckMemberExists = function(form)
     {
-      angular.forEach($rootScope.myCurrentForm.$error, function(type) {
-        angular.forEach(type, function(field) {
-          field.$touched = true;
-        });
-      });
-
       //this allows for skipping validatiion once we have a member created
       if($scope.template.name === 'Household Members'&&$scope.req.members.length === 0)
       {
@@ -90,6 +85,11 @@ angular.module('pantyexpressApp')
       {}
       else {
         if ($scope.CheckMemberExists() || $rootScope.myCurrentForm.$invalid) {
+          angular.forEach($rootScope.myCurrentForm.$error, function (type) {
+            angular.forEach(type, function (field) {
+              field.$touched = true;
+            });
+          });
           return;
         }
       }
@@ -148,7 +148,7 @@ angular.module('pantyexpressApp')
 
         // Redirect to Edit Households page for newly created household
         $location.url('/households/edit');
-        
+
       },function(err){
         console.error('HouseholdsCreateError', err);
         // TODO: Add error handling here
