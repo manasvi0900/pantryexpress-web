@@ -83,7 +83,7 @@ angular.module('pantyexpressApp')
       url: 'views/households/findhousehold.html',
       visible: true,
       init: function() {
-        
+
       }
     };
     $scope.templates['move'] = {
@@ -130,15 +130,12 @@ angular.module('pantyexpressApp')
       $scope.goto(currentIndex);
       $scope.template.init();
     }
-<<<<<<< HEAD
 
-=======
-    
+
     $scope.householdsFilter = {};
->>>>>>> 3d3e64243eb91344cc77577bc712db976ac4ae85
     $scope.household = {};
     $scope.households = [];
-    
+
     $scope.findHouseholds = function (){
       console.log("HouseholdsFilterCriteria: ", $scope.householdsFilter);
       listHouseholds();
@@ -157,7 +154,7 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
-    
+
     function listHouseholds() {
       // Call list households operation via API service
       console.log("Selected Pantry ID: ", $rootScope.selectedPantry.id );
