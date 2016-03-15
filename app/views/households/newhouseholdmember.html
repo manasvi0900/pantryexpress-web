@@ -32,7 +32,7 @@
         <div class="form-group">
           <label for="Member Email" class="col-md-5 control-label">Email:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Email" placeholder="" type="email">
+            <input class="form-control" id="Member Email" placeholder="" type="email" ng-model="req.householdmember.email">
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <div class="form-group">
           <label for="Member Phone Number" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Phone Number" placeholder="" type="number">
+            <input class="form-control" id="Member Phone Number" placeholder="" type="number" ng-model="req.householdmember.number">
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
         <div class="form-group">
           <label for="Member Birthday" class="col-md-5 control-label">Birthday:</label>
           <div class="col-md-7">
-            <input class="form-control" id="Member Birthday" placeholder="" type="date">
+            <input class="form-control" id="Member Birthday" placeholder="" type="date" ng-model="req.householdmember.date">
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
         <div class="form-group">
           <label for="Gender" class="col-md-5 control-label">Gender:</label>
           <div class="col-md-7">
-            <select class="form-control" id="Gender" ng-model="req.householdmember.type">
+            <select class="form-control" id="Gender" ng-model="req.householdmember.gender">
               <option></option>
               <option value="1">Male</option>
               <option value="2">Female</option>
