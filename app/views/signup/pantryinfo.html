@@ -16,6 +16,14 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="pantryWebAddress" class="col-md-5 control-label">Food Pantry WebAddress:</label>
+          <div class="col-md-7">
+            <input class="form-control" name="pantryNameFormInput" id="pantryWebAddress" placeholder="http://www.pantryexpress.org" type="text" >
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="friendlyName" class="col-md-5 control-label">Friendly Name:</label>
           <div class="col-md-7">
             <input class="form-control" id="friendlyName" placeholder="Friendly Name" type="text" ng-model="req.pantry.friendlyName">
@@ -141,6 +149,23 @@
           <div class="col-md-7">
             <input class="form-control" name="pantryPhysicalZipFormInput" id="physicalAddressZip" placeholder="Physical Address Zip Code" type="number" ng-model="req.pantry.physicalAddress.zip" required>
             <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalZipFormInput.$touched && pantryInformForm.pantryPhysicalZipFormInput.$invalid">Zipcode is required.</span>
+            </div>
+          </div>
+        <div class="col-sm-6 col-lg-12">
+          <div class="form-group">
+            <label for="email" class="col-md-5 control-label">Email Address:</label>
+            <div class="col-md-7">
+              <input class="form-control" name="pantryEmailFormInput" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email" ng-pattern="emailPattern" required>
+              <span class="form-validation-error" ng-show="pantryInformForm.pantryEmailFormInput.$touched && pantryInformForm.pantryEmailFormInput.$invalid">Email is required.</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-12">
+          <div class="form-group">
+            <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
+            <div class="col-md-7">
+              <input class="form-control" name="pantryOfficeNumberFormInput" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone" required>
+              <span class="form-validation-error" ng-show="pantryInformForm.pantryOfficeNumberFormInput.$touched && pantryInformForm.pantryOfficeNumberFormInput.$invalid">Office number is required.</span>
             <br>
             <input type="checkbox" name="physicalAddressSame" id="physicalAddressSame" ng-click="matchMailingToPhysicalAddress()">
             <label for="physicalAddressSame">Physical address same as mailing address</label>
@@ -268,23 +293,6 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="email" class="col-md-5 control-label">Email Address:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="pantryEmailFormInput" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email" ng-pattern="emailPattern" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryEmailFormInput.$touched && pantryInformForm.pantryEmailFormInput.$invalid">Email is required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="pantryOfficeNumberFormInput" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryOfficeNumberFormInput.$touched && pantryInformForm.pantryOfficeNumberFormInput.$invalid">Office number is required.</span>
-          </div>
-        </div>
       </div>
     </div>
     <button class="btn btn-primary btn-sm" data-ng-click="next(pantryInformForm)" ng-show="currentIndex < pages.length-1">Next</button>
