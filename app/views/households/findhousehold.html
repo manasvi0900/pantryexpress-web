@@ -21,9 +21,17 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="addressLine1" class="col-md-5 control-label">Address:</label>
+              <label for="physicalAddressLine1" class="col-md-5 control-label">Address:</label>
               <div class="col-md-7">
                 <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-12">
+            <div class="form-group">
+              <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.unit">
               </div>
             </div>
           </div>
@@ -79,8 +87,8 @@
                     <tr>
                       <th>Selection</th>
                       <th>Household ID</th>
-                      <th>Address Line 1</th>
-                      <th>Address Line 2</th>
+                      <th>Address</th>
+                      <th>Address Unit</th>
                       <th>City</th>
                       <th>State</th>
                       <th>Zip Code</th>
@@ -98,7 +106,7 @@
                       <td>input type = "radio"</td>
                       <td>{{ household.householdId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
-                      <td>{{ household.physicalAddress.line2 }}</td>
+                      <td>{{ household.physicalAddress.unit }}</td>
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
