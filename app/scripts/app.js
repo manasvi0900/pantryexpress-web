@@ -8,7 +8,6 @@
  *
  * Main module of the application.
  */
-
 var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
   // Initialize a new promise
   var deferred = $q.defer();

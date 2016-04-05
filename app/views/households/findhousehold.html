@@ -45,9 +45,9 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="addressLine2" class="col-md-5 control-label">Unit No:</label>
+              <label for="unitNo" class="col-md-5 control-label">Unit No:</label>
               <div class="col-md-7">
-                <input class="form-control" id="addressLine2" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
+                <input class="form-control" id="unitNo" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.unitNo">
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@
                       <th>Selection</th>
                       <th>Household ID</th>
                       <th>Address Line 1</th>
-                      <th>Address Line 2</th>
+                      <th>Unit No</th>
                       <th>City</th>
                       <th>State</th>
                       <th>Zip Code</th>
@@ -121,12 +121,12 @@
                       </td>
                       <td>{{ household.householdId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
-                      <td>{{ household.physicalAddress.line2 }}</td>
+                      <td>{{ household.physicalAddress.unitNo }}</td>
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
-                      <td>{{ household.createdAt }}</td>
-                      <td>{{ household.updatedAt }}</td>
+                      <td>{{ household.createdAt | date:'MM/dd/yyyy'  }}</td>
+                      <td>{{ household.updatedAt | date:'MM/dd/yyyy'  }}</td>
                     </tr>
                   </tbody>
                 </table>
