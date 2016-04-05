@@ -20,9 +20,9 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressUnitNo" class="col-md-5 control-label">Unit No:</label>
+          <label for="unitNo" class="col-md-5 control-label">Unit No:</label>
           <div class="col-md-9">
-            <input class="form-control" name="householdAddressFormInput2" id="physicalAddressUnitNo" placeholder="" type="text" ng-model="req.household.physicalAddress.unitNo">
+            <input class="form-control" name="householdAddressFormInput2" id="unitNo" placeholder="" type="text" ng-model="req.household.physicalAddress.unitNo">
             <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput2.$touched && householdCreateForm.householdAddressFormInput2.$invalid">Address is required.</span>
           </div>
         </div>
@@ -161,10 +161,10 @@
           <div class="col-md-9">
             <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportation">
               <option></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
+              <option value="--"></option>
+              <option value="--"></option>
+              <option value="--"></option>
+              <option value="--"></option>
              </select>
             <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.validationType.$invalid">Validation Type is required.</span>
           </div>
