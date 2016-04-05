@@ -21,17 +21,9 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="addressLine1" class="col-md-5 control-label">Address Line 1:</label>
+              <label for="addressLine1" class="col-md-5 control-label">Address:</label>
               <div class="col-md-7">
                 <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="addressLine2" class="col-md-5 control-label">Address Line 2:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="addressLine2" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
             </div>
           </div>
@@ -103,6 +95,7 @@
                           <input name="householdSelection" id="householdSelection" value="{{ household }}" class="active" type="radio" ng-model="selectedHousehold" ng-change="setSelectedHousehold(household)">
                         </label>
                       </td>
+                      <td>input type = "radio"</td>
                       <td>{{ household.householdId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
                       <td>{{ household.physicalAddress.line2 }}</td>
