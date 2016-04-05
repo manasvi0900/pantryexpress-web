@@ -5,6 +5,22 @@
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
+              <label for="firstname" class="col-md-5 control-label">First Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="firstname" placeholder="Head of Household First Name" type="text" ng-model="householdsFilter.firstname">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-12">
+            <div class="form-group">
+              <label for="lastname" class="col-md-5 control-label">Last Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="lastname" placeholder="Head of Household Last Name" type="text" ng-model="householdsFilter.lastname">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-12">
+            <div class="form-group">
               <label for="householdId" class="col-md-5 control-label">Household ID:</label>
               <div class="col-md-7">
                 <input class="form-control" id="householdId" placeholder="" type="text" ng-model="householdsFilter.householdId">
@@ -21,7 +37,7 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="addressLine1" class="col-md-5 control-label">Address Line 1:</label>
+              <label for="addressLine1" class="col-md-5 control-label">Address Line:</label>
               <div class="col-md-7">
                 <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
@@ -29,7 +45,7 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="addressLine2" class="col-md-5 control-label">Address Line 2:</label>
+              <label for="addressLine2" class="col-md-5 control-label">Unit No:</label>
               <div class="col-md-7">
                 <input class="form-control" id="addressLine2" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
