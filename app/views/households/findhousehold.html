@@ -37,17 +37,17 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="addressLine1" class="col-md-5 control-label">Address Line:</label>
+              <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
               <div class="col-md-7">
-                <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
+                <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="unitNo" class="col-md-5 control-label">Unit No:</label>
+              <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
               <div class="col-md-7">
-                <input class="form-control" id="unitNo" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.unitNo">
+                <input class="form-control" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
             </div>
           </div>
@@ -103,8 +103,8 @@
                     <tr>
                       <th>Selection</th>
                       <th>Household ID</th>
-                      <th>Address Line 1</th>
-                      <th>Unit No</th>
+                      <th>Address</th>
+                      <th>Address Unit</th>
                       <th>City</th>
                       <th>State</th>
                       <th>Zip Code</th>
@@ -119,9 +119,10 @@
                           <input name="householdSelection" id="householdSelection" value="{{ household }}" class="active" type="radio" ng-model="selectedHousehold" ng-change="setSelectedHousehold(household)">
                         </label>
                       </td>
+                      <td>input type = "radio"</td>
                       <td>{{ household.householdId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
-                      <td>{{ household.physicalAddress.unitNo }}</td>
+                      <td>{{ household.physicalAddress.unit }}</td>
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
@@ -134,4 +135,3 @@
           </div>
         </div>
       </form>
-
