@@ -13,9 +13,9 @@
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="physicalAddressLine1" class="col-md-5 control-label">Address:</label>
+        <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
         <div class="col-md-7">
-          <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="household.physicalAddress.line1">
+          <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="form-group">
           <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
           <div class="col-md-7">
-            <input class="form-control" name="householdAddressFormInput" id="physicalAddressLine1" placeholder="" type="text" ng-model="req.household.physicalAddress.unit" required>
+            <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" required>
             <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput.$touched && householdCreateForm.householdAddressFormInput.$invalid">Address is required.</span>
           </div>
         </div>
@@ -116,7 +116,6 @@
               <option value="QC">QC</option>
               <option value="SK">SK</option>
               <option value="YT">YT</option>
-              <option value="None">None</option>
             </select>
           </div>
         </div>
@@ -125,7 +124,7 @@
       <div class="form-group">
         <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
         <div class="col-md-7">
-          <input class="form-control" id="zip" placeholder="" type="number" ng-model="household.physicalAddress.zip">
+          <input class="form-control" id="physicalAddressZip" placeholder="" type="number" ng-model="household.physicalAddress.zip">
         </div>
       </div>
     </div>
@@ -133,7 +132,7 @@
       <div class="form-group">
         <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
-            <input class="form-control" name="validationDate" id="ValidationDate" placeholder="" type="text" ng-model="household.validationDate">
+            <input class="form-control" name="addressValidationDate" id="ValidationDate" placeholder="" type="text" ng-model="household.validationDate">
           </div>
       </div>
     </div>
@@ -141,7 +140,7 @@
       <div class="form-group">
         <label for="addressValidationType" class="col-md-5 control-label">Validation Type</label>
         <div class="col-md-7">
-          <select class="form-control" name="memberValidationTypeFormInput" ng-model="household.validationType" id="ValidationType">
+          <select class="form-control" name="memberValidationTypeFormInput" ng-model="household.validationType" id="addressValidationType">
             <option></option>
             <option value="Driving License">Driving License </option>
             <option value="Physical mail">Physical mail  </option>
