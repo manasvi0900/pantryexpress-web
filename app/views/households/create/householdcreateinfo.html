@@ -8,10 +8,11 @@
     <div class="row">
       <div class="text-left">
       </div>
+      </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressLine1" class="col-md-5 control-label">Physical Address:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="householdAddressFormInput" id="physicalAddressLine1" placeholder="" type="text" ng-model="req.household.physicalAddress.line1" required>
             <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput.$touched && householdCreateForm.householdAddressFormInput.$invalid">Address is required.</span>
           </div>
@@ -29,7 +30,7 @@
       <div class="col-sm-6 col-lg-6">
         <div class="form-group">
           <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="householdCityFormInput" id="physicalAddressCity" placeholder="" type="text" ng-model="req.household.physicalAddress.city" required>
             <span class="form-validation-error" ng-show="householdCreateForm.householdCityFormInput.$touched && householdCreateForm.householdCityFormInput.$invalid">City is required.</span>
           </div>
@@ -38,7 +39,7 @@
       <div class="col-sm-6 col-lg-3">
         <div class="form-group">
           <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <select class="form-control" name="householdStateFormInput" id="physicalAddressState" ng-model="req.household.physicalAddress.state" required>
               <option></option>
                       <option value="AK">AK</option>
@@ -125,7 +126,7 @@
       <div class="col-sm-6 col-lg-4">
         <div class="form-group">
           <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="householdZipFormInput" id="physicalAddressZip" placeholder="" type="number" ng-model="req.household.physicalAddress.zip" required>
             <span class="form-validation-error" ng-show="householdCreateForm.householdZipFormInput.$touched && householdCreateForm.householdZipFormInput.$invalid">Zipcode is required.</span>
           </div>
@@ -133,8 +134,13 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+<<<<<<< HEAD
           <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
+=======
+          <label for="ValidationDate" class="col-md-5 control-label">Validation Date:</label>
+          <div class="col-md-9">
+>>>>>>> 7bf4764f3b55d094abfe8d7b83c7e5e084668481
             <input class="form-control" name="validationDate" id="ValidationDate" placeholder="" type="date" ng-model="req.household.validationDate" required>
             <span class="form-validation-error" ng-show="householdCreateForm.validationDate.$touched && householdCreateForm.validationDate.$invalid">Validation Date is required.</span>
           </div>
@@ -142,8 +148,13 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+<<<<<<< HEAD
           <label for="addressValidationType" class="col-md-5 control-label">Validation Type:</label>
           <div class="col-md-7">
+=======
+          <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
+          <div class="col-md-9">
+>>>>>>> 7bf4764f3b55d094abfe8d7b83c7e5e084668481
             <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType">
               <option></option>
               <option value="Driving License">Driving license</option>
@@ -155,7 +166,43 @@
           </div>
         </div>
       </div>
-    </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="ValidationType" class="col-md-5 control-label">Transportation:</label>
+          <div class="col-md-9">
+            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportation">
+              <option></option>
+              <option value="option1">option1</option>
+              <option value="option2">option2</option>
+              <option value="option3">option3</option>
+              <option value="option4">option4</option>
+             </select>
+            <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.validationType.$invalid">Validation Type is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="ValidationType" class="col-md-5 control-label">Hud:</label>
+          <div class="col-md-9">
+            <select class="form-control" name="hud" id="hud" ng-model="req.household.hud">
+              <option></option>
+              <option value="option1">option1</option>
+              <option value="option2">option2</option>
+              <option value="option3">option3</option>
+              <option value="option4">option4</option>
+            </select>
+            <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.hud.$invalid">hud is required.</span>
+            <br>
+            <input type="checkbox" name="homeless" id="homeless">
+            <label for="homeless">Homeless</label>
+            <input type="checkbox" name="noCommodities" id="noCommodities">
+            <label for="homeless">No Commodities</label>
+            <input type="checkbox" name="singleParentHousehold" id="singleParentHousehold">
+            <label for="homeless">Single Parent Household</label>
+          </div>
+        </div>
+      </div>
     <button class="btn btn-primary btn-sm" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
   </form>
 </div>

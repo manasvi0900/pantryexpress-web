@@ -61,7 +61,7 @@ angular.module('pantyexpressApp')
     }
     $scope.CheckMemberExists = function(form)
     {
-      //this allows for skipping validatiion once we have a member created
+      //this allows for skipping validation once we have a member created
       if($scope.template.name === 'Household Members'&&$scope.req.members.length === 0)
       {
         return true;

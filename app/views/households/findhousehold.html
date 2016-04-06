@@ -5,6 +5,22 @@
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
+              <label for="firstname" class="col-md-5 control-label">First Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="firstname" placeholder="Head of Household First Name" type="text" ng-model="householdsFilter.firstname">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-12">
+            <div class="form-group">
+              <label for="lastname" class="col-md-5 control-label">Last Name:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="lastname" placeholder="Head of Household Last Name" type="text" ng-model="householdsFilter.lastname">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-12">
+            <div class="form-group">
               <label for="householdId" class="col-md-5 control-label">Household ID:</label>
               <div class="col-md-7">
                 <input class="form-control" id="householdId" placeholder="" type="text" ng-model="householdsFilter.householdId">
@@ -21,7 +37,11 @@
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
+<<<<<<< HEAD
               <label for="physicalAddressLine1" class="col-md-5 control-label">Address:</label>
+=======
+              <label for="addressLine1" class="col-md-5 control-label">Address Line:</label>
+>>>>>>> 7bf4764f3b55d094abfe8d7b83c7e5e084668481
               <div class="col-md-7">
                 <input class="form-control" id="addressLine1" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
@@ -87,8 +107,13 @@
                     <tr>
                       <th>Selection</th>
                       <th>Household ID</th>
+<<<<<<< HEAD
                       <th>Address</th>
                       <th>Address Unit</th>
+=======
+                      <th>Address Line 1</th>
+                      <th>Unit No</th>
+>>>>>>> 7bf4764f3b55d094abfe8d7b83c7e5e084668481
                       <th>City</th>
                       <th>State</th>
                       <th>Zip Code</th>
@@ -106,12 +131,16 @@
                       <td>input type = "radio"</td>
                       <td>{{ household.householdId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
+<<<<<<< HEAD
                       <td>{{ household.physicalAddress.unit }}</td>
+=======
+                      <td>{{ household.physicalAddress.unitNo }}</td>
+>>>>>>> 7bf4764f3b55d094abfe8d7b83c7e5e084668481
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
-                      <td>{{ household.createdAt }}</td>
-                      <td>{{ household.updatedAt }}</td>
+                      <td>{{ household.createdAt | date:'MM/dd/yyyy'  }}</td>
+                      <td>{{ household.updatedAt | date:'MM/dd/yyyy'  }}</td>
                     </tr>
                   </tbody>
                 </table>

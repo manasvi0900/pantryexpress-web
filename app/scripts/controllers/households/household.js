@@ -58,7 +58,7 @@ angular.module('pantyexpressApp')
         if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || !$rootScope.selectedHousehold.householdId == "") {
           $location.url('/households/find');
         }
-        
+
         if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
           console.log("Selected Household ID: ", $rootScope.selectedHousehold.householdId);
           getHousehold();
@@ -133,6 +133,7 @@ angular.module('pantyexpressApp')
       listHouseholds();
     };
 
+
     function getHousehold() {
       // Call get household operation via API service
       console.log("HouseholdsGet Household ID: ", $rootScope.selectedHousehold.householdId );
@@ -158,7 +159,7 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
-    
+
     $scope.setSelectedHousehold = function(household) {
       $rootScope.selectedHousehold = household;
       console.log("Selected Household updated to: ", household.householdId);
@@ -179,7 +180,7 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
-    
+
     var getHouseholdMemberType = function (memberId) {
       if ($rootScope.selectedHousehold.householdId === memberId) {
         return "headOfHousehold"
