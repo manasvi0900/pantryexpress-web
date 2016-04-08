@@ -44,7 +44,7 @@ angular.module('pantyexpressApp')
       }
     }
     var viewname = ($routeParams.householdview);
-    // console.log('HouseholdCtrl:' + viewname);
+    console.log('HouseholdCtrl:' + viewname);
     var currentIndex = 0;
 
     // Define various page templates within a templates object map
@@ -111,12 +111,11 @@ angular.module('pantyexpressApp')
       $location.path('views/households/newhousehold.html');
     };
     $scope.editHousehold= function () {
-      $scope.setview('edit');
+      $location.url('/households/edit');
     };
     $scope.editHouseholdMembers= function () {
-      $scope.setview('editmember');
+      $location.url('/households/editmember');
     };
-
 
 
     $scope.setview(viewname);
