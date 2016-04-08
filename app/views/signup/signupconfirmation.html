@@ -44,6 +44,14 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="webSite" class="col-md-5 control-label">Friendly Name:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="webSite" placeholder="Website" type="text" ng-model="req.pantry.website" ng-readonly="isReadOnly">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="physicalAddressLine1" class="col-md-5 control-label">Physical Address:</label>
           <div class="col-md-7">
             <input class="form-control" name="pantryPhysicalAddressL1FormInput" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line1" ng-readonly="isReadOnly">

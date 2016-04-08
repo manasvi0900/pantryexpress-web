@@ -110,6 +110,14 @@ angular.module('pantyexpressApp')
     $scope.newHousehold= function () {
       $location.path('views/households/newhousehold.html');
     };
+    $scope.editHousehold= function () {
+      $scope.setview('edit');
+    };
+    $scope.editHouseholdMembers= function () {
+      $scope.setview('editmember');
+    };
+
+
 
     $scope.setview(viewname);
     $scope.goto = function (targetIndex){

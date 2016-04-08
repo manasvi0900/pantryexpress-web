@@ -18,7 +18,7 @@
         <div class="form-group">
           <label for="pantryWebAddress" class="col-md-5 control-label">Food Pantry WebAddress:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryNameFormInput" id="pantryWebAddress" placeholder="http://www.pantryexpress.org" type="text" >
+            <input class="form-control" name="pantryNameFormInput" id="pantryWebAddress" placeholder="http://www.pantryexpress.org" type="text" ng-model="req.pantry.website">
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
         <div class="form-group">
           <label for="physicalAddressLine2" class="col-md-5 control-label">Physical Address:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryPhysicalAddressL2FormInput" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line2">
+            <input class="form-control" name="pantryPhysicalAddressL2FormInput" id="physicalAddressLine2" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line2">
             <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalAddressL1FormInput.$touched && pantryInformForm.pantryPhysicalAddressL1FormInput.$invalid"></span>
           </div>
         </div>
