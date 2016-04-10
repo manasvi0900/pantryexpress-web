@@ -46,6 +46,6 @@
         <li ng-repeat="item in pantries.items" value="{{ item.id }}"><a href="#/" ng-click="setSelectedPantry(item)">{{ item.name }}</a></li>
       </ul>
     </div>
-       <span ng-if="loggedin">Welcome, {{user.name}}
+       <span ng-if="loggedin" class="nav-header-color">Welcome, {{user.name}}
          <a href=javascript:angular.element(document.getElementById('loginController')).scope().logout()>Logout</a></span>
 </form>

@@ -44,7 +44,7 @@ angular.module('pantyexpressApp')
       }
     }
     var viewname = ($routeParams.householdview);
-    // console.log('HouseholdCtrl:' + viewname);
+    console.log('HouseholdCtrl:' + viewname);
     var currentIndex = 0;
 
     // Define various page templates within a templates object map
@@ -58,7 +58,7 @@ angular.module('pantyexpressApp')
         if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || !$rootScope.selectedHousehold.householdId == "") {
           $location.url('/households/find');
         }
-        
+
         if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
           console.log("Selected Household ID: ", $rootScope.selectedHousehold.householdId);
           getHousehold();
@@ -110,6 +110,13 @@ angular.module('pantyexpressApp')
     $scope.newHousehold= function () {
       $location.path('views/households/newhousehold.html');
     };
+    $scope.editHousehold= function () {
+      $location.url('/households/edit');
+    };
+    $scope.editHouseholdMembers= function () {
+      $location.url('/households/editmember');
+    };
+
 
     $scope.setview(viewname);
     $scope.goto = function (targetIndex){
@@ -132,6 +139,7 @@ angular.module('pantyexpressApp')
       console.log("HouseholdsFilterCriteria: ", $scope.householdsFilter);
       listHouseholds();
     };
+
 
     function getHousehold() {
       // Call get household operation via API service
@@ -158,7 +166,7 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
-    
+
     $scope.setSelectedHousehold = function(household) {
       $rootScope.selectedHousehold = household;
       console.log("Selected Household updated to: ", household.householdId);
@@ -179,7 +187,7 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
-    
+
     var getHouseholdMemberType = function (memberId) {
       if ($rootScope.selectedHousehold.householdId === memberId) {
         return "headOfHousehold"
