@@ -189,7 +189,7 @@
       <tr ng-repeat="member in householdMembers">
         <td>
           <label class="btn-default">
-            <input name="memberSelection" id="memberSelection" value="{{ member }}" class="active" type="radio" ng-model="selectedHouseholdMember" ng-change="setSelectedHouseholdMember(household)">
+            <input name="memberSelection" id="memberSelection" value="{{ member }}" class="active" type="radio" ng-model="selectedHouseholdMember" ng-change="setSelectedHouseholdMember(member)">
           </label>
         <td>{{ member.memberId }}</td>
         <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>

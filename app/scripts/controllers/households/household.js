@@ -89,6 +89,17 @@ angular.module('pantyexpressApp')
       url: 'views/households/householdmemberinfo.html',
       visible: true,
       init: function() {
+        // Check if a member was previously selected; If not, redirect to find page
+        if (!$rootScope.selectedHouseholdMember || !$rootScope.selectedHouseholdMember.memberId || !$rootScope.selectedHouseholdMember.memberId == "") {
+          $location.url('/households/edit');
+        }
+
+        if ($rootScope.selectedHouseholdMember && $rootScope.selectedHouseholdMember.memberId) {
+          console.log("Selected Member ID: ", $rootScope.selectedHouseholdMember.memberId);
+          getSelectedHouseholdMember();
+        } else {
+          console.log("Selected Member ID: Undefined");
+        }
 
       }
     };
@@ -171,10 +182,7 @@ angular.module('pantyexpressApp')
       console.log("Selected Household updated to: ", household.householdId);
     };
 
-    $scope.setSelectedHouseholdMember = function(member){
-      $rootScope.selectedMember = member;
-      console.log("Selected Member updated to: ", member.memberId);
-    };
+
 
     $scope.householdMembers = [];
 
@@ -200,15 +208,20 @@ angular.module('pantyexpressApp')
       }
     };
 
-    $scope.householdMember = [];
+    $scope.setSelectedHouseholdMember = function(member){
+      $rootScope.selectedHouseholdMember = member;
+      console.log("Selected Member updated to: ", member.memberId);
+    };
 
-    function getHouseholdMember(){
-      console.log("HouseholdMember Household ID: ", $rootScope.selectedHousehold.householdId );
-      console.log("HouseholdMember Pantry ID: ", $rootScope.selectedPantry.id  );
-      console.log("HouseholdMember Household ID: ", $rootScope.selectedHousehold.householdId.memberId );
-      api.getPantriesByPantryIdHouseholdsByHouseholdIdMembersByMemberId({ householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id, memberId: $rootScope.selectedHousehold.householdId.memberId}).then(function (data) {
-        $scope.householdMember = data;
-        console.log('HouseholdsGet Response: ', $scope.householdMember);
+    $scope.members = [];
+
+    function getSelectedHouseholdMember(){
+      console.log("HouseholdMemberGet Household ID: ", $rootScope.selectedHousehold.householdId );
+      console.log("HouseholdMemberGet Pantry ID: ", $rootScope.selectedPantry.id  );
+      console.log("HouseholdMemberGet Household ID: ", $rootScope.selectedHouseholdMember.memberId );
+      api.getPantriesByPantryIdHouseholdsByHouseholdIdMembersByMemberId({ householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id, memberId: $rootScope.selectedHouseholdMember.memberId}).then(function (data) {
+        $scope.member = data;
+        console.log('HouseholdMemberGet Response: ', $scope.member);
 
       },function(err){
         console.error('HouseholdMemberGet Error', err);
