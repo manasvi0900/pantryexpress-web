@@ -176,10 +176,11 @@
           <div class="col-md-9">
             <select class="form-control" name="hud" id="hud" ng-model="req.household.hud">
               <option></option>
-              <option value="option1">option1</option>
-              <option value="option2">option2</option>
-              <option value="option3">option3</option>
-              <option value="option4">option4</option>
+              <option value="ELOW">Extremely Low</option>
+              <option value="VLOW">Very Low</option>
+              <option value="LOW">Low</option>
+              <option value="MOD">Moderate</option>
+              <option value="AMOD">Non Low/Moderate Income</option>
             </select>
             <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.hud.$invalid">hud is required.</span>
             <br>
