@@ -169,7 +169,8 @@
   <table class="table table-bordered">
     <theadv class="thread-inverse">
       <tr>
-        <th></th>
+        <th>Selection</th>
+        <th>Member Id</th>
         <th>Name</th>
         <th>Member Type</th>
         <th>Birthday</th>
@@ -186,7 +187,11 @@
     </theadv>
     <tbody>
       <tr ng-repeat="member in householdMembers">
-        <td>input type = "radio"</td>
+        <td>
+          <label class="btn-default">
+            <input name="memberSelection" id="memberSelection" value="{{ member }}" class="active" type="radio" ng-model="selectedHouseholdMember" ng-change="setSelectedHouseholdMember(household)">
+          </label>
+        <td>{{ member.memberId }}</td>
         <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
         <td>{{ member.memberType | householdMemberType }}</td>
         <th>{{ member.birthday | date:'MM/dd/yyyy' }}</th>

@@ -85,7 +85,7 @@
               </p>
             </div>
           </div>
-          <div class="col-sm-offset-9">
+          <div>
             <p>
               <button class="btn-primary" ng-click="findHouseholds()">Search</button>
             </p>
@@ -119,7 +119,7 @@
                           <input name="householdSelection" id="householdSelection" value="{{ household }}" class="active" type="radio" ng-model="selectedHousehold" ng-change="setSelectedHousehold(household)">
                         </label>
                       </td>
-                      <td>input type = "radio"</td>
+                      <!--<td>input type = "radio"</td>-->
                       <td>{{ household.householdId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
                       <td>{{ household.physicalAddress.unit }}</td>

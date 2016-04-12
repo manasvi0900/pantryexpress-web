@@ -140,7 +140,6 @@ angular.module('pantyexpressApp')
       listHouseholds();
     };
 
-
     function getHousehold() {
       // Call get household operation via API service
       console.log("HouseholdsGet Household ID: ", $rootScope.selectedHousehold.householdId );
@@ -172,6 +171,11 @@ angular.module('pantyexpressApp')
       console.log("Selected Household updated to: ", household.householdId);
     };
 
+    $scope.setSelectedHouseholdMember = function(member){
+      $rootScope.selectedMember = member;
+      console.log("Selected Member updated to: ", member.memberId);
+    };
+
     $scope.householdMembers = [];
 
     function getHouseholdMembers() {
@@ -195,5 +199,21 @@ angular.module('pantyexpressApp')
         return "householdMember"
       }
     };
+
+    $scope.householdMember = [];
+
+    function getHouseholdMember(){
+      console.log("HouseholdMember Household ID: ", $rootScope.selectedHousehold.householdId );
+      console.log("HouseholdMember Pantry ID: ", $rootScope.selectedPantry.id  );
+      console.log("HouseholdMember Household ID: ", $rootScope.selectedHousehold.householdId.memberId );
+      api.getPantriesByPantryIdHouseholdsByHouseholdIdMembersByMemberId({ householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id, memberId: $rootScope.selectedHousehold.householdId.memberId}).then(function (data) {
+        $scope.householdMember = data;
+        console.log('HouseholdsGet Response: ', $scope.household);
+
+      },function(err){
+        console.error('HouseholdMemberGet Error', err);
+        // TODO: Add error handling here
+      });
+    }
 
   });
