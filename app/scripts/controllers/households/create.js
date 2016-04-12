@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdsCreateCtrl', function ($scope, $rootScope, $location, api, householdMemberTypeFilter) {
+  .controller('HouseholdsCreateCtrl', function ($scope, $rootScope, $location, householdMemberTypeFilter) {
 
     $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
     $scope.datePattern = /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]((?:19|20)\d\d)/;
@@ -148,4 +148,6 @@ angular.module('pantyexpressApp')
       });
     }
 
-  });
+});
+
+
