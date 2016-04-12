@@ -55,7 +55,7 @@ angular.module('pantyexpressApp')
       visible: true,
       init: function() {
         // Check if a household was previously selected; If not, redirect to find page
-        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || !$rootScope.selectedHousehold.householdId == "") {
+        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || $rootScope.selectedHousehold.householdId == "") {
           $location.url('/households/find');
         }
 
