@@ -7,6 +7,14 @@
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="householdId" class="col-md-5 control-label">Household ID:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="householdId" placeholder="" type="text" ng-model="member.memberId" ng-readonly="isReadOnly">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="firstName" class="col-md-5 control-label">First Name:</label>
           <div class="col-md-7">
             <input class="form-control" name="memberFirstNameFormInput" id="firstName" placeholder="" type="text" ng-model="tempMember.firstName" ng-required="CheckMemberExists(householdMemberInfoForm)">

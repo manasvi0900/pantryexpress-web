@@ -208,7 +208,7 @@ angular.module('pantyexpressApp')
       console.log("HouseholdMember Household ID: ", $rootScope.selectedHousehold.householdId.memberId );
       api.getPantriesByPantryIdHouseholdsByHouseholdIdMembersByMemberId({ householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id, memberId: $rootScope.selectedHousehold.householdId.memberId}).then(function (data) {
         $scope.householdMember = data;
-        console.log('HouseholdsGet Response: ', $scope.household);
+        console.log('HouseholdsGet Response: ', $scope.householdMember);
 
       },function(err){
         console.error('HouseholdMemberGet Error', err);
