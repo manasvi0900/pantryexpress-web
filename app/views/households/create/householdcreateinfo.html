@@ -159,11 +159,11 @@
         <div class="form-group">
           <label for="transportation" class="col-md-5 control-label">Transportation:</label>
           <div class="col-md-9">
-            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportation">
+            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportationType">
               <option></option>
-              <option value="option1">Car</option>
-              <option value="option2">Walk</option>
-              <option value="option3">Bicycle</option>
+              <option value="By Bus">By Bus</option>
+              <option value="By Car">By Car</option>
+              <option value="On Foot">On Foot</option>
              </select>
             <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.validationType.$invalid">Validation Type is required.</span>
           </div>
@@ -173,13 +173,12 @@
         <div class="form-group">
           <label for="hud" class="col-md-5 control-label">Hud:</label>
           <div class="col-md-9">
-            <select class="form-control" name="hud" id="hud" ng-model="req.household.hud">
+            <select class="form-control" name="hud" id="hud" ng-model="req.household.hudCategory">
               <option></option>
-              <option value="ELOW">Extremely Low</option>
-              <option value="VLOW">Very Low</option>
-              <option value="LOW">Low</option>
-              <option value="MOD">Moderate</option>
-              <option value="AMOD">Non Low/Moderate Income</option>
+              <option value="Extremely Low">Extremely Low</option>
+              <option value="Very Low">Very Low</option>
+              <option value="Low">Low</option>
+              <option value="Moderate">Moderate</option>
             </select>
             <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.hud.$invalid">hud is required.</span>
             </div>
@@ -187,12 +186,14 @@
       </div>
         <div class="col-sm-offset-3 col-lg-12">
           <div class="form-group">
-            <input type="checkbox" name="homeless" id="homeless">
-            <label for="homeless">Homeless</label>
-            <input type="checkbox" name="noCommodities" id="noCommodities">
-            <label for="homeless">No Commodities</label>
-            <input type="checkbox" name="singleParentHousehold" id="singleParentHousehold">
-            <label for="homeless">Single Parent Household</label>
+            <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
+            <label for="isInCityLimits">In City Limits</label>
+            <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
+            <label for="isHomeless">Homeless</label>
+            <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
+            <label for="isCommoditiesEligible">Commodities Eligible</label>
+            <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
+            <label for="isSingleParentHousehold">Single Parent Household</label>
             </div>
           </div>
   </form>
