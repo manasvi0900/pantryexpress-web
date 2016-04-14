@@ -21,13 +21,13 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Address Unit:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" required>
             <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput.$touched && householdCreateForm.householdAddressFormInput.$invalid">Address is required.</span>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-6">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
           <div class="col-md-9">
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
           <div class="col-md-9">
@@ -122,7 +122,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-4">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
           <div class="col-md-9">
@@ -134,7 +134,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="validationDate" id="addressValidationDate" placeholder="" type="date" ng-model="req.household.validationDate" required>
             <span class="form-validation-error" ng-show="householdCreateForm.validationDate.$touched && householdCreateForm.validationDate.$invalid">Validation Date is required.</span>
           </div>
@@ -143,7 +143,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="addressValidationType" class="col-md-5 control-label">Validation Type:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <select class="form-control" name="validationType" id="addressValidationType" ng-model="req.household.validationType">
               <option></option>
               <option value="Driving License">Driving license</option>
@@ -157,14 +157,13 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="ValidationType" class="col-md-5 control-label">Transportation:</label>
+          <label for="transportation" class="col-md-5 control-label">Transportation:</label>
           <div class="col-md-9">
-            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportation">
+            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportationType">
               <option></option>
-              <option value="option1">option1</option>
-              <option value="option2">option2</option>
-              <option value="option3">option3</option>
-              <option value="option4">option4</option>
+              <option value="By Bus">By Bus</option>
+              <option value="By Car">By Car</option>
+              <option value="On Foot">On Foot</option>
              </select>
             <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.validationType.$invalid">Validation Type is required.</span>
           </div>
@@ -172,29 +171,32 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="ValidationType" class="col-md-5 control-label">Hud:</label>
+          <label for="hud" class="col-md-5 control-label">Hud:</label>
           <div class="col-md-9">
-            <select class="form-control" name="hud" id="hud" ng-model="req.household.hud">
+            <select class="form-control" name="hud" id="hud" ng-model="req.household.hudCategory">
               <option></option>
-              <option value="option1">option1</option>
-              <option value="option2">option2</option>
-              <option value="option3">option3</option>
-              <option value="option4">option4</option>
+              <option value="Extremely Low">Extremely Low</option>
+              <option value="Very Low">Very Low</option>
+              <option value="Low">Low</option>
+              <option value="Moderate">Moderate</option>
             </select>
             <span class="form-validation-error" ng-show="householdCreateForm.validationType.$touched && householdCreateForm.hud.$invalid">hud is required.</span>
-            <br>
-            <input type="checkbox" name="homeless" id="homeless">
-            <label for="homeless">Homeless</label>
-            <input type="checkbox" name="noCommodities" id="noCommodities">
-            <label for="homeless">No Commodities</label>
-            <input type="checkbox" name="singleParentHousehold" id="singleParentHousehold">
-            <label for="homeless">Single Parent Household</label>
-            <input type="checkbox" name="inCityLimits" id="inCityLimits">
-            <label for="homeless">In City Limits</label>
-          </div>
+            </div>
         </div>
       </div>
-    <button class="btn btn-primary btn-sm" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
+        <div class="col-sm-offset-3 col-lg-12">
+          <div class="form-group">
+            <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
+            <label for="isInCityLimits">In City Limits</label>
+            <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
+            <label for="isHomeless">Homeless</label>
+            <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
+            <label for="isCommoditiesEligible">Commodities Eligible</label>
+            <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
+            <label for="isSingleParentHousehold">Single Parent Household</label>
+            </div>
+          </div>
   </form>
+  <button class="btn btn-primary btn-sm" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
 </div>
 

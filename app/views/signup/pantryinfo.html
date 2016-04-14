@@ -18,7 +18,8 @@
         <div class="form-group">
           <label for="pantryWebAddress" class="col-md-5 control-label">Food Pantry WebAddress:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryNameFormInput" id="pantryWebAddress" placeholder="http://www.pantryexpress.org" type="text" ng-model="req.pantry.website">
+            <input class="form-control" name="pantryWebAddressFormInput" id="pantryWebAddress" placeholder="http://www.pantryexpress.org" type="text" ng-model="req.pantry.website" ng-pattern="websiteAddressPattern">
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryWebAddressFormInput.$touched && pantryInformForm.pantryWebAddressFormInput.$invalid">If Web Addres is provided, need to be in format http://MyAddress.org.</span>
           </div>
         </div>
       </div>
@@ -151,7 +152,7 @@
             <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalZipFormInput.$touched && pantryInformForm.pantryPhysicalZipFormInput.$invalid">Zipcode is required.</span>
           </div>
         </div>
-      </div>  
+      </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="email" class="col-md-5 control-label">Email Address:</label>
@@ -186,7 +187,7 @@
         <div class="form-group">
           <label for="mailingAddressLine2" class="col-md-5 control-label">Mailing Address:</label>
           <div class="col-md-7">
-            <input class="form-control" name="pantryMailingAddressLine1FormInput" id="mailingAddressLine1" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line2">
+            <input class="form-control" name="pantryMailingAddressLine1FormInput" id="mailingAddressLine2" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line2">
             <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingAddressLine1FormInput.$touched && pantryInformForm.pantryMailingAddressLine2FormInput.$invalid"></span>
           </div>
         </div>
