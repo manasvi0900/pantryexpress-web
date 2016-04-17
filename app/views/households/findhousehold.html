@@ -109,6 +109,10 @@
                       <th>City</th>
                       <th>State</th>
                       <th>Zip Code</th>
+                      <th>Validation Date</th>
+                      <th>Validation Type</th>
+                      <th>Transportation</th>
+                      <th>Hud</th>
                       <th>Created At</th>
                       <th>Last Updated At</th>
                     </tr>
@@ -127,6 +131,10 @@
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
+                      <td>{{ household.validationDate | date:'MM/dd/yyyy' }}</td>
+                      <td>{{ household.validationType }}</td>
+                      <td>{{ household.transportationType}}</td>
+                      <td>{{ household.hudCategory}}</td>
                       <td>{{ household.createdAt | date:'MM/dd/yyyy'  }}</td>
                       <td>{{ household.updatedAt | date:'MM/dd/yyyy'  }}</td>
                     </tr>

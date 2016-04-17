@@ -70,6 +70,14 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="userProvidedId" class="col-md-5 control-label">User Provided ID:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="userProvidedId" placeholder="" type="text" ng-model="tempMember.userProvidedId" ng-readonly="isReadOnly">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="email" class="col-md-5 control-label">Email:</label>
           <div class="col-md-7">
             <input class="form-control" name="memberEmailFormInput" id="email" placeholder="" type="email" ng-model="tempMember.email" >

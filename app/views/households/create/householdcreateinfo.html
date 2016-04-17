@@ -157,9 +157,9 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="transportation" class="col-md-5 control-label">Transportation:</label>
+          <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
           <div class="col-md-9">
-            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportationType">
+            <select class="form-control" name="transportationType" id="transportationType" ng-model="req.household.transportationType" required>
               <option></option>
               <option value="By Bus">By Bus</option>
               <option value="By Car">By Car</option>
@@ -171,9 +171,9 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="hud" class="col-md-5 control-label">Hud:</label>
+          <label for="hudCategory" class="col-md-5 control-label">Hud:</label>
           <div class="col-md-9">
-            <select class="form-control" name="hud" id="hud" ng-model="req.household.hudCategory">
+            <select class="form-control" name="hudCategory" id="hudCategory" ng-model="req.household.hudCategory" required>
               <option></option>
               <option value="Extremely Low">Extremely Low</option>
               <option value="Very Low">Very Low</option>
