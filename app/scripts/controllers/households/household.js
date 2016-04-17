@@ -151,6 +151,16 @@ angular.module('pantyexpressApp')
       listHouseholds();
     };
 
+    $scope.editHousehold = function (){
+      getHousehold();
+      $location.url( '/households/edit' )
+    };
+
+    $scope.editHouseholdMembers = function (){
+      getSelectedHouseholdMember();
+      $location.url( '/households/editmember' )
+    };
+
     function getHousehold() {
       // Call get household operation via API service
       console.log("HouseholdsGet Household ID: ", $rootScope.selectedHousehold.householdId );

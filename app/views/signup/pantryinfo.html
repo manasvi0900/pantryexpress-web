@@ -4,7 +4,7 @@
 </div>
   <form class="form-horizontal" role="form" name="pantryInformForm">
     <div ng-init="AddFormToScope(pantryInformForm);"></div>
-    <div class="row">
+    <form class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="pantryName" class="col-md-5 control-label">Food Pantry Name:</label>
@@ -60,7 +60,7 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
+            <label for="physicalAddressLine2" class="col-md-5 control-label">Unit:</label>
           <div class="col-md-7">
             <input class="form-control" name="pantryPhysicalAddressL2FormInput" id="physicalAddressLine2" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line2">
             <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalAddressL2FormInput.$touched && pantryInformForm.pantryPhysicalAddressL1FormInput.$invalid"></span>
@@ -185,7 +185,7 @@
       </div>
        <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="mailingAddressLine1" class="col-md-5 control-label"></label>
+          <label for="mailingAddressLine1" class="col-md-5 control-label">Unit:</label>
           <div class="col-md-7">
             <input class="form-control" name="pantryMailingAddressLine1FormInput" id="mailingAddressLine2" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line2">
             <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingAddressLine2FormInput.$touched && pantryInformForm.pantryMailingAddressLine2FormInput.$invalid"></span>
@@ -296,6 +296,6 @@
           </div>
         </div>
       </div>
-    </div>
     <button class="btn btn-primary btn-sm" data-ng-click="next(pantryInformForm)" ng-show="currentIndex < pages.length-1">Next</button>
+   </form>
   </form>

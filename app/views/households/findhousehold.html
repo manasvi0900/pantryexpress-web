@@ -1,7 +1,8 @@
  <div class="text-center">
         <h1>Find Household</h1>
  </div>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" name = "findHouseholdForm">
+        <div ng-init="AddFormToScope(findHouseholdForm);"></div>
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
@@ -92,8 +93,8 @@
           </div>
           <div>
               <p>
-                <button class="btn-primary">New Service</button>
                 <button class="btn-primary" id="editHouseholdBtn" ng-click="editHousehold()" ng-disabled="findHouseholdsEditHouseholdBtnDisabled">Edit Household</button>
+                <button class="btn-primary" ng-show="selectedHousehold">New Service</button>
               </p>
           </div>
           <div class="col-sm-6 col-lg-12" ng-show="households.length > 0">
@@ -108,6 +109,10 @@
                       <th>City</th>
                       <th>State</th>
                       <th>Zip Code</th>
+                      <th>Validation Date</th>
+                      <th>Validation Type</th>
+                      <th>Transportation</th>
+                      <th>Hud</th>
                       <th>Created At</th>
                       <th>Last Updated At</th>
                     </tr>
@@ -126,6 +131,10 @@
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
+                      <td>{{ household.validationDate | date:'MM/dd/yyyy' }}</td>
+                      <td>{{ household.validationType }}</td>
+                      <td>{{ household.transportationType}}</td>
+                      <td>{{ household.hudCategory}}</td>
                       <td>{{ household.createdAt | date:'MM/dd/yyyy'  }}</td>
                       <td>{{ household.updatedAt | date:'MM/dd/yyyy'  }}</td>
                     </tr>
