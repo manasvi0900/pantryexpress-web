@@ -36,6 +36,7 @@ angular.module('pantyexpressApp')
       isSpecialNeeds: false
     };
 
+
     // Create blank request object for household create request parameters
     $scope.req = {
       members: []
@@ -44,6 +45,11 @@ angular.module('pantyexpressApp')
     $scope.isReadOnly = function() {
     $scope.req.pantry = "isReadOnly";
     };
+
+    //default to today's date
+    $scope.validationDate = new Date();
+    $scope.tempMember.validationDate = new Date();
+    //$scope.household.validationDate = new Date();
 
     $scope.getFullName = function () {
           alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);

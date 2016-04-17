@@ -1,7 +1,8 @@
  <div class="text-center">
         <h1>Find Household</h1>
  </div>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" name = "findHouseholdForm">
+        <div ng-init="AddFormToScope(findHouseholdForm);"></div>
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
@@ -92,8 +93,8 @@
           </div>
           <div>
               <p>
-                <button class="btn-primary">New Service</button>
                 <button class="btn-primary" id="editHouseholdBtn" ng-click="editHousehold()" ng-disabled="findHouseholdsEditHouseholdBtnDisabled">Edit Household</button>
+                <button class="btn-primary" ng-show="selectedHousehold">New Service</button>
               </p>
           </div>
           <div class="col-sm-6 col-lg-12" ng-show="households.length > 0">

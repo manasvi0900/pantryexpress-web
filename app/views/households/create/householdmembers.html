@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-10 content">
+<div class="col-xs-4 col-sm-10 content">
   <div class="text-left">
     <h1>New Household Members</h1>
   </div>
@@ -9,9 +9,13 @@
         <th>First Name</th>
         <th>Middle Name</th>
         <th>Last Name</th>
-        <th>Member Type</th>
+        <th>Email</th>
+        <th>User Provided ID</th>
         <th>Birthday</th>
+        <th>Phone Number</th>
         <th>Gender</th>
+        <th>Race</th>
+        <th>Member Type</th>
         <th>Validation Date</th>
         <th>Validation Type</th>
 
@@ -22,9 +26,13 @@
         <td>{{ member.firstName }}</td>
         <td>{{ member.middleName }}</td>
         <td>{{ member.lastName }}</td>
-        <td>{{ member.memberType | householdMemberType }}</td>
+        <td>{{ member.email }}</td>
+        <td>{{ member.providedId }}</td>
         <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
+        <td>{{ member.phone }}</td>
         <td>{{ member.gender }}</td>
+        <td>{{ member.race}}</td>
+        <td>{{ member.memberType | householdMemberType }}</td>
         <td>{{ member.validationDate | date:'MM/dd/yyyy' }}</td>
         <td>{{ member.validationType }}</td>
       </tr>
@@ -38,7 +46,7 @@
         <div class="form-group">
           <label for="firstName" class="col-md-5 control-label">First Name:</label>
           <div class="col-md-7">
-            <input class="form-control" name="memberFirstNameFormInput" id="firstName" placeholder="" type="text" ng-model="tempMember.firstName" ng-required="CheckMemberExists(householdMemberForm)">
+            <input class="form-control" name="memberFirstNameFormInput" id="firstName" placeholder="" type="text"  ng-model="tempMember.firstName" ng-required="CheckMemberExists(householdMemberForm)">
             <span class="form-validation-error" ng-show="householdMemberForm.memberFirstNameFormInput.$touched && householdMemberForm.memberFirstNameFormInput.$invalid">First name is required.</span>
           </div>
         </div>
@@ -115,11 +123,11 @@
            <div class="col-md-7">
              <select class="form-control" name="race" id="race" ng-model="tempMember.race">
                <option></option>
-               <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
-               <option value="Asian">Asian</option>
-               <option value="Black or African American">Black or African American</option>
-               <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Pacific Islander</option>
-               <option value="White">White</option>
+               <option value="Extremely Low">Extremely Low</option>
+               <option value="Very Low">Very Low</option>
+               <option value="Low">Low</option>
+               <option value="Moderate">Moderate</option>
+             </select>
              </select>
            </div>
          </div>
