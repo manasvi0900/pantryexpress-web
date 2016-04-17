@@ -150,6 +150,41 @@
         </div>
       </div>
     </div>
+    <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="transportation" class="col-md-5 control-label">Transportation:</label>
+          <div class="col-md-7">
+            <select class="form-control" name="transportation" id="transportation" ng-model="req.household.transportationType">
+              <option></option>
+              <option value="By Bus">By Bus</option>
+              <option value="By Car">By Car</option>
+              <option value="On Foot">On Foot</option>
+             </select>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="hud" class="col-md-5 control-label">Hud:</label>
+          <div class="col-md-7">
+            <select class="form-control" name="hud" id="hud" ng-model="req.household.hudCategory">
+              <option></option>
+              <option value="Extremely Low">Extremely Low</option>
+              <option value="Very Low">Very Low</option>
+              <option value="Low">Low</option>
+              <option value="Moderate">Moderate</option>
+            </select>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-6 col-lg-12">
+      <div class="form-group">
+        <label for="Etcetera" class="col-md-5 control-label">Etcetera:</label>
+        <div class="col-md-7">
+          <input class="form-control" id="Etcetera" placeholder="" type="text" ng-model="household.etcetera">
+        </div>
+      </div>
+    </div>
   </form>
  </form>
 <div class="text-center">
