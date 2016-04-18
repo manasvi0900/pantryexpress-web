@@ -12,13 +12,13 @@
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="friendlyId" class="col-md-5 control-label">Friendly ID:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="friendlyId" placeholder="" type="text" ng-model="household.householdNumber" ng-readonly="isReadOnly">
+        <div class="form-group">
+          <label for="providedId" class="col-md-5 control-label">User Provided ID:</label>
+          <div class="col-md-7">
+            <input class="form-control" name="providedId" id="providedId" placeholder="" type="text" ng-model="household.providedId">
+          </div>
         </div>
       </div>
-    </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
@@ -134,6 +134,35 @@
           <input class="form-control" id="physicalAddressZip" placeholder="" type="number" ng-model="household.physicalAddress.zip">
         </div>
       </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="gender" class="col-md-5 control-label">Gender:</label>
+          <div class="col-md-7">
+            <select class="form-control" name="memberGenderFormInput" id="gender" ng-model="member.gender">
+              <option></option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+           <label for="race" class="col-md-5 control-label">Race:</label>
+           <div class="col-md-7">
+             <select class="form-control" name="race" id="race" ng-model="member.race">
+               <option></option>
+               <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+               <option value="Asian">Asian</option>
+               <option value="Black or African American">Black or African American</option>
+               <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                <option value="White">White</option>
+             </select>
+             </select>
+           </div>
+        </div>
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
