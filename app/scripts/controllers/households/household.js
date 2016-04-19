@@ -147,8 +147,17 @@ angular.module('pantyexpressApp')
     $scope.households = [];
 
     $scope.findHouseholds = function (){
-      console.log("HouseholdsFilterCriteria: ", $scope.householdsFilter);
-      listHouseholds();
+      listFilteredHouseholds();
+    };
+
+    $scope.editHousehold = function (){
+      getHousehold();
+      $location.url( '/households/edit' )
+    };
+
+    $scope.editHouseholdMembers = function (){
+      getSelectedHouseholdMember();
+      $location.url( '/households/editmember' )
     };
 
     function getHousehold() {
@@ -169,6 +178,24 @@ angular.module('pantyexpressApp')
       // Call list households operation via API service
       console.log("HouseholdsList Pantry ID: ", $rootScope.selectedPantry.id );
       api.getPantriesByPantryIdHouseholds({ pantryId: $rootScope.selectedPantry.id }).then(function (data){
+        $scope.households = data.items;
+        console.log('HouseholdsList Response: ', $scope.households);
+      }, function(err){
+        console.error('HouseholdsList Error', err);
+        // TODO: Add error handling here
+      });
+    }
+
+    function listFilteredHouseholds() {
+      // Build filter object
+      var filterCriteria = { pantryId: $rootScope.selectedPantry.id };
+      console.log("HouseholdsFilter Object", $scope.householdsFilter);
+      for (var filter in $scope.householdsFilter) {
+        filterCriteria[filter] = $scope.householdsFilter[filter];
+      }
+      console.log("HouseholdsList Filter", filterCriteria);
+      // Call list households operation via API service using filter criteria
+      api.getPantriesByPantryIdHouseholds(filterCriteria).then(function (data){
         $scope.households = data.items;
         console.log('HouseholdsList Response: ', $scope.households);
       }, function(err){

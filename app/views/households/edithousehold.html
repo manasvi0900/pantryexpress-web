@@ -1,19 +1,19 @@
 <div class="text-center">
   <h1>Edit Household</h1>
 </div>
-<form class="form-horizontal" role="form">
+<div class="form-horizontal" role="form">
   <form class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="householdId" class="col-md-5 control-label">Household ID:</label>
+        <label for="householdId" class="col-md-5 control-label">Household Number:</label>
         <div class="col-md-7">
-          <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdId" ng-readonly="isReadOnly">
+          <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdNumber" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
+        <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
         <div class="col-md-7">
           <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
         </div>
@@ -21,10 +21,9 @@
     </div>
     <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
+          <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Unit:</label>
           <div class="col-md-7">
-            <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" required>
-            <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput.$touched && householdCreateForm.householdAddressFormInput.$invalid">Address is required.</span>
+            <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="household.physicalAddress.line2">
           </div>
         </div>
       </div>
@@ -129,6 +128,35 @@
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="gender" class="col-md-5 control-label">Gender:</label>
+          <div class="col-md-7">
+            <select class="form-control" name="memberGenderFormInput" id="gender" ng-model="member.gender">
+              <option></option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+           <label for="race" class="col-md-5 control-label">Race:</label>
+           <div class="col-md-7">
+             <select class="form-control" name="race" id="race" ng-model="member.race">
+               <option></option>
+               <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+               <option value="Asian">Asian</option>
+               <option value="Black or African American">Black or African American</option>
+               <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                <option value="White">White</option>
+             </select>
+             </select>
+           </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-7">
@@ -150,8 +178,56 @@
         </div>
       </div>
     </div>
-  </form>
- </form>
+    <div class="col-sm-6 col-lg-12">
+      <div class="form-group">
+        <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
+        <div class="col-md-7">
+          <select class="form-control" name="transportationType" id="transportationType" ng-model="household.transportationType">
+            <option></option>
+            <option value="option1">Car</option>
+            <option value="option2">Walk</option>
+            <option value="option3">Bicycle</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-12">
+      <div class="form-group">
+        <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
+        <div class="col-md-7">
+          <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
+            <option></option>
+            <option value="ELOW">Extremely Low</option>
+            <option value="VLOW">Very Low</option>
+            <option value="LOW">Low</option>
+            <option value="MOD">Moderate</option>
+            <option value="AMOD">Non Low/Moderate Income</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-offset-3 col-lg-12">
+      <div class="form-group">
+        <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
+        <label for="isInCityLimits">In City Limits</label>
+        <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
+        <label for="isHomeless">Homeless</label>
+        <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
+        <label for="isCommoditiesEligible">Commodities Eligible</label>
+      </div>
+    </div>
+    <div class="col-sm-offset-3 col-lg-12">
+      <div class="form-group">
+        <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
+        <label for="isSingleParentHousehold">Single Parent Household</label>
+        <input type="checkbox" name="isArchived" id="isArchived" ng-model="req.household.isArchived">
+        <label for="isArchived">Archived</label>
+        <input type="checkbox" name="isActive" id="isActive" ng-model="req.household.isActive">
+        <label for="isActive">Active</label>
+      </div>
+    </div>
+    </form>
+  </div>
 <div class="text-center">
   <h2>Household Member Info</h2>
 </div>
@@ -160,7 +236,7 @@
     <p>
       <button class="btn-primary">Save Household</button>
       <button class="btn-primary">New Service</button>
-      <button class="btn-primary" id="updateHouseholdMembersBtn" ng-click="editHouseholdMembers()" >Update Member Info</button>
+      <button class="btn-primary" id="updateHouseholdMembersBtn" ng-click="editHouseholdMembers()">Update Member Info</button>
       <button class="btn-primary">Make Head of Household</button>
     </p>
     </div>
@@ -208,5 +284,3 @@
     </tbody>
   </table>
 </div>
-
-
