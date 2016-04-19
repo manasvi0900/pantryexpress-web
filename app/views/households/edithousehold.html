@@ -5,23 +5,15 @@
   <form class="row">
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="householdId" class="col-md-5 control-label">Household ID:</label>
+        <label for="householdId" class="col-md-5 control-label">Household Number:</label>
         <div class="col-md-7">
-          <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdId" ng-readonly="isReadOnly">
+          <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdNumber" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="providedId" class="col-md-5 control-label">User Provided ID:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="providedId" id="providedId" placeholder="" type="text" ng-model="household.providedId">
-          </div>
-        </div>
-      </div>
-    <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
+        <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
         <div class="col-md-7">
           <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
         </div>
@@ -29,7 +21,7 @@
     </div>
     <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
+          <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Unit:</label>
           <div class="col-md-7">
             <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="household.physicalAddress.line2">
           </div>
@@ -201,7 +193,7 @@
     </div>
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
-        <label for="hudCategory" class="col-md-5 control-label">Hud:</label>
+        <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
         <div class="col-md-7">
           <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
             <option></option>
@@ -216,14 +208,24 @@
     </div>
     <div class="col-sm-offset-3 col-lg-12">
       <div class="form-group">
-        <input type="checkbox" name="homeless" id="homeless">
-        <label for="homeless">Homeless</label>
-        <input type="checkbox" name="noCommodities" id="noCommodities">
-        <label for="homeless">No Commodities</label>
-        <input type="checkbox" name="singleParentHousehold" id="singleParentHousehold">
-        <label for="homeless">Single Parent Household</label>
+        <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
+        <label for="isInCityLimits">In City Limits</label>
+        <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
+        <label for="isHomeless">Homeless</label>
+        <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
+        <label for="isCommoditiesEligible">Commodities Eligible</label>
       </div>
-     </div>
+    </div>
+    <div class="col-sm-offset-3 col-lg-12">
+      <div class="form-group">
+        <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
+        <label for="isSingleParentHousehold">Single Parent Household</label>
+        <input type="checkbox" name="isArchived" id="isArchived" ng-model="req.household.isArchived">
+        <label for="isArchived">Archived</label>
+        <input type="checkbox" name="isActive" id="isActive" ng-model="req.household.isActive">
+        <label for="isActive">Active</label>
+      </div>
+    </div>
     </form>
   </div>
 <div class="text-center">
@@ -282,5 +284,3 @@
     </tbody>
   </table>
 </div>
-
-

@@ -187,6 +187,14 @@ angular.module('pantyexpressApp')
       });
     }
 
+    function listFilteredHouseholds() {
+      // Build filter object
+      var householdsFilterCriteria = { pantryId: $rootScope.selectedPantry.id };
+
+      // Call list households operation via API service using filter criteria
+
+    }
+
     $scope.setSelectedHousehold = function(household) {
       $rootScope.selectedHousehold = household;
       console.log("Selected Household updated to: ", household.householdId);

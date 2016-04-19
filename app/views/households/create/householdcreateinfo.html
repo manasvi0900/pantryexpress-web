@@ -170,7 +170,7 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="hudCategory" class="col-md-5 control-label">Hud:</label>
+          <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
           <div class="col-md-9">
             <select class="form-control" name="hudCategory" id="hudCategory" ng-model="req.household.hudCategory" required>
               <option></option>
@@ -183,26 +183,26 @@
             </div>
         </div>
       </div>
-        <div class="col-sm-offset-3 col-lg-12">
-          <div class="form-group">
-            <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
-            <label for="isInCityLimits">In City Limits</label>
-            <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
-            <label for="isHomeless">Homeless</label>
-            <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
-            <label for="isCommoditiesEligible">Commodities Eligible</label>
-
-            </div>
-          </div>
+    <div class="col-sm-offset-3 col-lg-12">
+      <div class="form-group">
+        <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
+        <label for="isInCityLimits">In City Limits</label>
+        <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
+        <label for="isHomeless">Homeless</label>
+        <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
+        <label for="isCommoditiesEligible">Commodities Eligible</label>
+      </div>
+    </div>
     <div class="col-sm-offset-3 col-lg-12">
       <div class="form-group">
         <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
         <label for="isSingleParentHousehold">Single Parent Household</label>
-        <input type="checkbox" name="eligibleForBabyService" id="eligibleForBabyService" ng-model="req.household.eligibleForBabyService">
-        <label for="eligibleForBabyService">Eligible for baby services</label>
+        <input type="checkbox" name="isArchived" id="isArchived" ng-model="req.household.isArchived">
+        <label for="isArchived">Archived</label>
+        <input type="checkbox" name="isActive" id="isActive" ng-model="req.household.isActive">
+        <label for="isActive">Active</label>
       </div>
     </div>
   </form>
   <button class="btn btn-primary btn-sm" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
 </div>
-

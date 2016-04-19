@@ -6,84 +6,199 @@
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="firstname" class="col-md-5 control-label">First Name:</label>
+              <label for="householdId" class="col-md-5 control-label">Household Number:</label>
               <div class="col-md-7">
-                <input class="form-control" id="firstname" placeholder="Head of Household First Name" type="text" ng-model="householdsFilter.firstname">
+                <input class="form-control" id="householdId" placeholder="" type="number" ng-model="householdsFilter.householdNumber">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="lastname" class="col-md-5 control-label">Last Name:</label>
+              <label for="firstname" class="col-md-5 control-label">Head of Household First Name:</label>
               <div class="col-md-7">
-                <input class="form-control" id="lastname" placeholder="Head of Household Last Name" type="text" ng-model="householdsFilter.lastname">
+                <input class="form-control" id="firstname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold.firstName">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="householdId" class="col-md-5 control-label">Household ID:</label>
+              <label for="lastname" class="col-md-5 control-label">Head of Household Last Name:</label>
               <div class="col-md-7">
-                <input class="form-control" id="householdId" placeholder="" type="text" ng-model="householdsFilter.householdId">
+                <input class="form-control" id="lastname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold.lastName">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-12">
+            <div class="form-group">
+              <label for="headOfHouseholdId" class="col-md-5 control-label">Head of Household Provided ID:</label>
+              <div class="col-md-7">
+                <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold.providedId">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="headOfHouseholdId" class="col-md-5 control-label">Head of Household ID:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHouseholdId">
+              <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
+              <div class="col-md-9">
+                <input class="form-control" name="householdAddressFormInput" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
-              <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
+              <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Address Unit:</label>
+              <div class="col-md-9">
+                <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
+            <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
+                <div class="col-md-9">
+                  <input class="form-control" name="householdCityFormInput" id="physicalAddressCity" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.city">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="city" class="col-md-5 control-label">City:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="city" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.city">
+            <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
+                <div class="col-md-9">
+                  <select class="form-control" name="householdStateFormInput" id="physicalAddressState" ng-model="householdsFilter.physicalAddress.state">
+                    <option></option>
+                    <option value="AK">AK</option>
+                    <option value="AL">AL</option>
+                    <option value="AR">AR</option>
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>
+                    <option value="ND">ND</option>
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VA">VA</option>
+                    <option value="VT">VT</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                    <option value="AS">AS</option>
+                    <option value="FM">FM</option>
+                    <option value="GU">GU</option>
+                    <option value="MH">MH</option>
+                    <option value="MP">MP</option>
+                    <option value="PR">PR</option>
+                    <option value="PW">PW</option>
+                    <option value="VI">VI</option>
+                    <option value="AA">AA</option>
+                    <option value="AE">AE</option>
+                    <option value="AP">AP</option>
+                    <option value="AB">AB</option>
+                    <option value="BC">BC</option>
+                    <option value="MB">MB</option>
+                    <option value="NB">NB</option>
+                    <option value="NL">NL</option>
+                    <option value="NS">NS</option>
+                    <option value="NT">NT</option>
+                    <option value="NU">NU</option>
+                    <option value="ON">ON</option>
+                    <option value="PE">PE</option>
+                    <option value="QC">QC</option>
+                    <option value="SK">SK</option>
+                    <option value="YT">YT</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="state" class="col-md-5 control-label">State:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="state" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.state">
+            <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
+                <div class="col-md-9">
+                  <input class="form-control" name="householdZipFormInput" id="physicalAddressZip" placeholder="" type="number" ng-model="householdsFilter.physicalAddress.zip">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-12">
-            <div class="form-group">
-              <label for="zip" class="col-md-5 control-label">Zip Code:</label>
-              <div class="col-md-7">
-                <input class="form-control" id="zip" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.zip">
+            <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
+                <div class="col-md-9">
+                  <select class="form-control" name="transportationType" id="transportationType" ng-model="householdsFilter.transportationType">
+                    <option></option>
+                    <option value="By Bus">By Bus</option>
+                    <option value="By Car">By Car</option>
+                    <option value="On Foot">On Foot</option>
+                   </select>
+                </div>
               </div>
+            </div>
+            <div class="col-sm-6 col-lg-12">
+              <div class="form-group">
+                <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
+                <div class="col-md-9">
+                  <select class="form-control" name="hudCategory" id="hudCategory" ng-model="householdsFilter.hudCategory">
+                    <option></option>
+                    <option value="Extremely Low">Extremely Low</option>
+                    <option value="Very Low">Very Low</option>
+                    <option value="Low">Low</option>
+                    <option value="Moderate">Moderate</option>
+                  </select>
+                  </div>
+              </div>
+            </div>
+          <div class="col-sm-offset-3 col-lg-12">
+            <div class="form-group">
+              <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="householdsFilter.isInCityLimits">
+              <label for="isInCityLimits">In City Limits</label>
+              <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="householdsFilter.isHomeless">
+              <label for="isHomeless">Homeless</label>
+              <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="householdsFilter.isCommoditiesEligible">
+              <label for="isCommoditiesEligible">Commodities Eligible</label>
             </div>
           </div>
           <div class="col-sm-offset-3 col-lg-12">
             <div class="form-group">
-              <p>
-                <input type="checkbox" name="includeInactive" id="includeInactive" value="value">
-                <label for="includeInactive">Include Inactive</label>
-                <input type="checkbox" name="includeArchived" id="includeArchived" value="value">
-                <label for="includeArchived">Include Archived</label>
-              </p>
+              <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="householdsFilter.isSingleParentHousehold">
+              <label for="isSingleParentHousehold">Single Parent Household</label>
+              <input type="checkbox" name="isArchived" id="isArchived" ng-model="householdsFilter.isArchived">
+              <label for="isArchived">Archived</label>
+              <input type="checkbox" name="isActive" id="isActive" ng-model="householdsFilter.isActive">
+              <label for="isActive">Active</label>
             </div>
           </div>
           <div>

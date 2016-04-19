@@ -5,37 +5,36 @@
   <div>
     <table class="table table-bordered" ng-show="req.members.length > 0">
       <thead class="thread-inverse">
-      <tr>
-        <th>First Name</th>
-        <th>Middle Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>User Provided ID</th>
-        <th>Birthday</th>
-        <th>Phone Number</th>
-        <th>Gender</th>
-        <th>Race</th>
-        <th>Member Type</th>
-        <th>Validation Date</th>
-        <th>Validation Type</th>
-
-      </tr>
+        <tr>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>User Provided ID</th>
+          <th>Birthday</th>
+          <th>Phone Number</th>
+          <th>Gender</th>
+          <th>Race</th>
+          <th>Member Type</th>
+          <th>Validation Date</th>
+          <th>Validation Type</th>
+        </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="member in req.members">
-        <td>{{ member.firstName }}</td>
-        <td>{{ member.middleName }}</td>
-        <td>{{ member.lastName }}</td>
-        <td>{{ member.email }}</td>
-        <td>{{ member.providedId }}</td>
-        <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
-        <td>{{ member.phone }}</td>
-        <td>{{ member.gender }}</td>
-        <td>{{ member.race}}</td>
-        <td>{{ member.memberType | householdMemberType }}</td>
-        <td>{{ member.validationDate | date:'MM/dd/yyyy' }}</td>
-        <td>{{ member.validationType }}</td>
-      </tr>
+        <tr ng-repeat="member in req.members">
+          <td>{{ member.firstName }}</td>
+          <td>{{ member.middleName }}</td>
+          <td>{{ member.lastName }}</td>
+          <td>{{ member.email }}</td>
+          <td>{{ member.providedId }}</td>
+          <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
+          <td>{{ member.phone }}</td>
+          <td>{{ member.gender }}</td>
+          <td>{{ member.race}}</td>
+          <td>{{ member.memberType | householdMemberType }}</td>
+          <td>{{ member.validationDate | date:'MM/dd/yyyy' }}</td>
+          <td>{{ member.validationType }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -72,7 +71,7 @@
         <div class="form-group">
           <label for="userProvidedId" class="col-md-5 control-label">User Provided ID:</label>
           <div class="col-md-7">
-            <input class="form-control" id="userProvidedId" placeholder="" type="text" ng-model="tempMember.userProvidedId" ng-readonly="isReadOnly">
+            <input class="form-control" id="userProvidedId" placeholder="" type="text" ng-model="tempMember.providedId">
           </div>
         </div>
       </div>
@@ -188,4 +187,3 @@
     </div>
   </form>
 </div>
-
