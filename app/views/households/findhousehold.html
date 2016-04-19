@@ -1,13 +1,14 @@
- <div class="text-center">
+  <div class="col-xs-12 text-left">
+    <div class="text-center">
         <h1>Find Household</h1>
- </div>
+    </div>
       <form class="form-horizontal" role="form" name = "findHouseholdForm">
         <div ng-init="AddFormToScope(findHouseholdForm);"></div>
         <div class="row">
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="firstname" class="col-md-5 control-label">First Name:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="firstname" placeholder="Head of Household First Name" type="text" ng-model="householdsFilter.firstname">
               </div>
             </div>
@@ -15,7 +16,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="lastname" class="col-md-5 control-label">Last Name:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="lastname" placeholder="Head of Household Last Name" type="text" ng-model="householdsFilter.lastname">
               </div>
             </div>
@@ -23,7 +24,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="householdId" class="col-md-5 control-label">Household ID:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="householdId" placeholder="" type="text" ng-model="householdsFilter.householdId">
               </div>
             </div>
@@ -31,7 +32,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="headOfHouseholdId" class="col-md-5 control-label">Head of Household ID:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHouseholdId">
               </div>
             </div>
@@ -39,7 +40,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="physicalAddress" class="col-md-5 control-label">Address:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
             </div>
@@ -47,7 +48,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
             </div>
@@ -55,7 +56,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="city" class="col-md-5 control-label">City:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="city" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.city">
               </div>
             </div>
@@ -63,7 +64,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="state" class="col-md-5 control-label">State:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="state" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.state">
               </div>
             </div>
@@ -71,7 +72,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="zip" class="col-md-5 control-label">Zip Code:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="zip" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.zip">
               </div>
             </div>
@@ -144,3 +145,5 @@
           </div>
         </div>
       </form>
+      
+  </div>
