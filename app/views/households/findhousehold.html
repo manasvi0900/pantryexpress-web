@@ -16,7 +16,7 @@
             <div class="form-group">
               <label for="firstname" class="col-md-5 control-label">Head of Household First Name:</label>
               <div class="col-md-7">
-                <input class="form-control" id="firstname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold.firstName">
+                <input class="form-control" id="firstname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold_firstName">
               </div>
             </div>
           </div>
@@ -24,7 +24,7 @@
             <div class="form-group">
               <label for="lastname" class="col-md-5 control-label">Head of Household Last Name:</label>
               <div class="col-md-7">
-                <input class="form-control" id="lastname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold.lastName">
+                <input class="form-control" id="lastname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold_lastName">
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <div class="form-group">
               <label for="headOfHouseholdId" class="col-md-5 control-label">Head of Household Provided ID:</label>
               <div class="col-md-7">
-                <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold.providedId">
+                <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold_providedId">
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
             <div class="form-group">
               <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
               <div class="col-md-9">
-                <input class="form-control" name="householdAddressFormInput" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
+                <input class="form-control" name="householdAddressFormInput" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress_line1">
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
             <div class="form-group">
               <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Address Unit:</label>
               <div class="col-md-9">
-                <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
+                <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress_line2">
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
               <div class="form-group">
                 <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
                 <div class="col-md-9">
-                  <input class="form-control" name="householdCityFormInput" id="physicalAddressCity" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.city">
+                  <input class="form-control" name="householdCityFormInput" id="physicalAddressCity" placeholder="" type="text" ng-model="householdsFilter.physicalAddress_city">
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
               <div class="form-group">
                 <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
                 <div class="col-md-9">
-                  <select class="form-control" name="householdStateFormInput" id="physicalAddressState" ng-model="householdsFilter.physicalAddress.state">
+                  <select class="form-control" name="householdStateFormInput" id="physicalAddressState" ng-model="householdsFilter.physicalAddress_state">
                     <option></option>
                     <option value="AK">AK</option>
                     <option value="AL">AL</option>
@@ -150,7 +150,7 @@
               <div class="form-group">
                 <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
                 <div class="col-md-9">
-                  <input class="form-control" name="householdZipFormInput" id="physicalAddressZip" placeholder="" type="number" ng-model="householdsFilter.physicalAddress.zip">
+                  <input class="form-control" name="householdZipFormInput" id="physicalAddressZip" placeholder="" type="number" ng-model="householdsFilter.physicalAddress_zip">
                 </div>
               </div>
             </div>
@@ -212,13 +212,16 @@
                 <button class="btn-primary" ng-show="selectedHousehold">New Service</button>
               </p>
           </div>
-          <div class="col-sm-6 col-lg-12" ng-show="households.length > 0">
+          <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                 <table class="table table-bordered">
                   <thead class="thread-inverse">
                     <tr>
                       <th>Selection</th>
-                      <th>Household ID</th>
+                      <th>Household Number</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Head of Household ID</th>
                       <th>Address</th>
                       <th>Address Unit</th>
                       <th>City</th>
@@ -233,14 +236,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="household in households | filter: householdsFilter ">
+                    <tr ng-repeat="household in households">
                       <td>
                         <label class="btn-default">
                           <input name="householdSelection" id="householdSelection" value="{{ household }}" class="active" type="radio" ng-model="selectedHousehold" ng-change="setSelectedHousehold(household)">
                         </label>
                       </td>
                       <!--<td>input type = "radio"</td>-->
-                      <td>{{ household.householdId }}</td>
+                      <td>{{ household.householdNumber }}</td>
+                      <td>{{ household.headOfHousehold.firstName }}</td>
+                      <td>{{ household.headOfHousehold.lastName }}</td>
+                      <td>{{ household.headOfHousehold.providedId }}</td>
                       <td>{{ household.physicalAddress.line1 }}</td>
                       <td>{{ household.physicalAddress.unit }}</td>
                       <td>{{ household.physicalAddress.city }}</td>
