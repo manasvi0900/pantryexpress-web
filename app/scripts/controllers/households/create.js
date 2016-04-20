@@ -50,6 +50,7 @@ angular.module('pantyexpressApp')
     $scope.validationDate = new Date();
     $scope.tempMember.validationDate = new Date();
     //$scope.household.validationDate = new Date();
+    
 
     $scope.getFullName = function () {
           alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);
