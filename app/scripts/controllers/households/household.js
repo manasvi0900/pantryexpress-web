@@ -101,6 +101,10 @@ angular.module('pantyexpressApp')
           console.log("Selected Member ID: Undefined");
         }
 
+        if ($rootScope.selectedHouseholdMember && $rootScope.selectedHouseholdMember.memberId) {
+          getSelectedHouseholdMember();
+        }
+
       }
     };
     $scope.templates['newservice'] = {
@@ -145,6 +149,7 @@ angular.module('pantyexpressApp')
     $scope.householdsFilter = {};
     $scope.household = {};
     $scope.households = [];
+    $scope.members = [];
 
     $scope.findHouseholds = function (){
       listFilteredHouseholds();
@@ -240,7 +245,7 @@ angular.module('pantyexpressApp')
       console.log("Selected Member updated to: ", member.memberId);
     };
 
-    $scope.members = [];
+
 
     function getSelectedHouseholdMember(){
       console.log("HouseholdMemberGet Household ID: ", $rootScope.selectedHousehold.householdId );
