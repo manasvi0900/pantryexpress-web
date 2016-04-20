@@ -1,23 +1,25 @@
-<div class="text-center">
+<div class="col-xs-12 text-left"> 
+  <div class="text-center">
   <h1>Edit Household</h1>
-</div>
-<div class="form-horizontal" role="form">
-  <form class="row">
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="householdId" class="col-md-5 control-label">Household Number:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdNumber" ng-readonly="isReadOnly">
+  </div>
+  <div class="form-horizontal" role="form">
+      <form class="row">
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+           <label for="householdId" class="col-md-5 control-label">Household Number:</label>
+           <div class="col-md-9">
+            <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdNumber" ng-readonly="isReadOnly">
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
+      </div>  
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
+          <div class="col-md-9">
+            <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
+          </div>
         </div>
-      </div>
+      </div>  
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
@@ -27,13 +29,13 @@
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
-        <div class="col-md-9">
-          <input class="form-control" id="physicalAddressCity" placeholder="" type="text" ng-model="household.physicalAddress.city">
+        <div class="form-group">
+          <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
+            <div class="col-md-9">
+              <input class="form-control" id="physicalAddressCity" placeholder="" type="text" ng-model="household.physicalAddress.city">
+            </div>
         </div>
       </div>
-    </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
@@ -119,13 +121,13 @@
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
-        <div class="col-md-9">
-          <input class="form-control" id="physicalAddressZip" placeholder="" type="number" ng-model="household.physicalAddress.zip">
-        </div>
+        <div class="form-group">
+           <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
+              <div class="col-md-9">
+                 <input class="form-control" id="physicalAddressZip" placeholder="" type="number" ng-model="household.physicalAddress.zip">
+              </div>
+           </div>
       </div>
-    </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="gender" class="col-md-5 control-label">Gender:</label>
@@ -138,7 +140,7 @@
             </select>
           </div>
         </div>
-    </div>
+      </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
            <label for="race" class="col-md-5 control-label">Race:</label>
@@ -154,20 +156,20 @@
              </select>
            </div>
         </div>
-    </div>
+      </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
-          <div class="col-md-9">
-            <input class="form-control" name="addressValidationDate" id="addressValidationDate" placeholder="" type="text" ng-model="household.validationDate">
+          <div class="form-group">
+             <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
+                <div class="col-md-9">
+                  <input class="form-control" name="addressValidationDate" id="addressValidationDate" placeholder="" type="text" ng-model="household.validationDate">
+                </div>
           </div>
       </div>
-    </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="addressValidationType" class="col-md-5 control-label">Validation Type</label>
-        <div class="col-md-9">
-          <select class="form-control" name="memberValidationTypeFormInput" ng-model="household.validationType" id="addressValidationType">
+          <div class="form-group">
+              <label for="addressValidationType" class="col-md-5 control-label">Validation Type</label>
+                 <div class="col-md-9">
+                 <select class="form-control" name="memberValidationTypeFormInput" ng-model="household.validationType" id="addressValidationType">
             <option></option>
             <option value="Driving License">Driving License </option>
             <option value="Physical mail">Physical mail  </option>
@@ -175,48 +177,45 @@
             <option value="Utility bill">Utility bill</option>
           </select>
         </div>
+          </div>
       </div>
-    </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
-        <div class="col-md-9">
-          <select class="form-control" name="transportationType" id="transportationType" ng-model="household.transportationType">
+          <div class="form-group">
+            <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
+               <div class="col-md-9">
+               <select class="form-control" name="transportationType" id="transportationType" ng-model="household.transportationType">
             <option></option>
             <option value="option1">Car</option>
             <option value="option2">Walk</option>
             <option value="option3">Bicycle</option>
           </select>
         </div>
+          </div>
       </div>
-    </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
-        <div class="col-md-9">
-          <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
+        <div class="form-group">
+          <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
+             <div class="col-md-9">
+            <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
             <option></option>
             <option value="ELOW">Extremely Low</option>
             <option value="VLOW">Very Low</option>
             <option value="LOW">Low</option>
             <option value="MOD">Moderate</option>
             <option value="AMOD">Non Low/Moderate Income</option>
-          </select>
+            </select>
+             </div>
         </div>
       </div>
-    </div>
-      <div class="col-sm-offset-3 col-lg-12">
-      <div class="form-group">
+      <div class="col-sm-offset-1 col-lg-12">
+           <div class="form-group">
         <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
         <label for="isInCityLimits">In City Limits</label>
         <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
         <label for="isHomeless">Homeless</label>
         <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
         <label for="isCommoditiesEligible">Commodities Eligible</label>
-      </div>
-    </div>
-    <div class="col-sm-offset-3 col-lg-12">
-      <div class="form-group">
+     
         <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
         <label for="isSingleParentHousehold">Single Parent Household</label>
         <input type="checkbox" name="isArchived" id="isArchived" ng-model="req.household.isArchived">
@@ -224,13 +223,11 @@
         <input type="checkbox" name="isActive" id="isActive" ng-model="req.household.isActive">
         <label for="isActive">Active</label>
       </div>
-    </div>
-    </form>
-  </div>
-  <div class="text-center">
+      </div>
+      <div class="text-center">
   <h2>Household Member Info</h2>
-</div>
-  <div class="col-sm-6 col-lg-12">
+  </div>
+      <div class="col-sm-6 col-lg-12">
   <div class="form-group">
     <p>
       <button class="btn-primary">Save Household</button>
@@ -240,8 +237,7 @@
     </p>
     </div>
   </div>
-  <div>
-  <table class="table table-bordered">
+      <table class="table table-bordered">
     <theadv class="thread-inverse">
       <tr>
         <th>Selection</th>
@@ -282,4 +278,6 @@
       </tr>
     </tbody>
   </table>
+  </form>
+  </div>
 </div>
