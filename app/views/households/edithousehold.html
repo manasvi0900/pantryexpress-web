@@ -18,27 +18,26 @@
           <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
         </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Unit:</label>
-          <div class="col-md-7">
+          <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
+          <div class="col-md-9">
             <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="household.physicalAddress.line2">
           </div>
         </div>
       </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input class="form-control" id="physicalAddressCity" placeholder="" type="text" ng-model="household.physicalAddress.city">
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <select class="form-control" name="householdStateFormInput" id="physicalAddressState" ng-model="household.physicalAddress.state" required>
               <option value="AK">AK</option>
               <option value="AL">AL</option>
@@ -119,18 +118,18 @@
           </div>
         </div>
       </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input class="form-control" id="physicalAddressZip" placeholder="" type="number" ng-model="household.physicalAddress.zip">
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="gender" class="col-md-5 control-label">Gender:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <select class="form-control" name="memberGenderFormInput" id="gender" ng-model="member.gender">
               <option></option>
               <option value="Male">Male</option>
@@ -140,10 +139,10 @@
           </div>
         </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
            <label for="race" class="col-md-5 control-label">Race:</label>
-           <div class="col-md-7">
+           <div class="col-md-9">
              <select class="form-control" name="race" id="race" ng-model="member.race">
                <option></option>
                <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
@@ -156,18 +155,18 @@
            </div>
         </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="addressValidationDate" id="addressValidationDate" placeholder="" type="text" ng-model="household.validationDate">
           </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="addressValidationType" class="col-md-5 control-label">Validation Type</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <select class="form-control" name="memberValidationTypeFormInput" ng-model="household.validationType" id="addressValidationType">
             <option></option>
             <option value="Driving License">Driving License </option>
@@ -178,10 +177,10 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <select class="form-control" name="transportationType" id="transportationType" ng-model="household.transportationType">
             <option></option>
             <option value="option1">Car</option>
@@ -191,10 +190,10 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
             <option></option>
             <option value="ELOW">Extremely Low</option>
@@ -206,7 +205,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-offset-3 col-lg-12">
+      <div class="col-sm-offset-3 col-lg-12">
       <div class="form-group">
         <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
         <label for="isInCityLimits">In City Limits</label>
@@ -228,10 +227,10 @@
     </div>
     </form>
   </div>
-<div class="text-center">
+  <div class="text-center">
   <h2>Household Member Info</h2>
 </div>
-<div class="col-sm-6 col-lg-12">
+  <div class="col-sm-6 col-lg-12">
   <div class="form-group">
     <p>
       <button class="btn-primary">Save Household</button>
@@ -241,7 +240,7 @@
     </p>
     </div>
   </div>
-<div>
+  <div>
   <table class="table table-bordered">
     <theadv class="thread-inverse">
       <tr>
