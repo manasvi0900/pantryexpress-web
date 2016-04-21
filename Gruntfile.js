@@ -17,7 +17,8 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    protractor: 'grunt-contrib-connect'
   });
 
   // Configurable paths for the application
@@ -136,6 +137,32 @@ module.exports = function (grunt) {
           jshintrc: 'test/.jshintrc'
         },
         src: ['test/spec/{,*/}*.js']
+      }
+    },
+    protractor: {
+      options: {
+        // Location of your protractor config file
+        configFile: "test/protractor-conf.js",
+
+        // Do you want the output to use fun colors?
+        noColor: false,
+
+        // Set to true if you would like to use the Protractor command line debugging tool
+        // debug: true,
+
+        // Additional arguments that are passed to the webdriver command
+        args: { }
+      },
+      e2e: {
+        options: {
+          // Stops Grunt process if a test fails
+          keepAlive: false
+        }
+      },
+      continuous: {
+        options: {
+          keepAlive: true
+        }
       }
     },
 
@@ -430,6 +457,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -451,6 +479,7 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
+  /*
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
@@ -460,6 +489,14 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('test:unit', [
+    'clean:server',
+    'coffee',
+    'compass',
+    'connect:test',
+    'karma:unit'
+  ]);
+*/
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
@@ -482,10 +519,11 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
-    'test',
+    // 'test',
+    'protractor:e2e',
     'build'
   ]);
-  
+
   grunt.registerTask('update_sdk_hostname', 'This task updates the PantryExpress API SDK script reference hostname to use hostname defined by SDK_HOSTNAME env variable.', function() {
     // Replace index.html's script reference with updated hostname if "SDK_HOSTNAME" environment variable is defined
     var sdkDefaultHostname = "sdk-alpha.pantryexpress.org";
