@@ -1,4 +1,4 @@
-<div class="col-xs-12 text-left"> 
+<div class="col-xs-12 text-left">
   <div class="text-center">
   <h1>Edit Household</h1>
   </div>
@@ -11,7 +11,7 @@
             <input class="form-control" id="householdId" placeholder="" type="text" ng-model="household.householdNumber" ng-readonly="isReadOnly">
             </div>
         </div>
-      </div>  
+      </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
@@ -19,7 +19,7 @@
             <input class="form-control" id="physicalAddress" placeholder="" type="text" ng-model="household.physicalAddress.line1">
           </div>
         </div>
-      </div>  
+      </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressUnit" class="col-md-5 control-label">Address Unit:</label>
@@ -129,35 +129,6 @@
            </div>
       </div>
       <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="gender" class="col-md-5 control-label">Gender:</label>
-          <div class="col-md-9">
-            <select class="form-control" name="memberGenderFormInput" id="gender" ng-model="member.gender">
-              <option></option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-           <label for="race" class="col-md-5 control-label">Race:</label>
-           <div class="col-md-9">
-             <select class="form-control" name="race" id="race" ng-model="member.race">
-               <option></option>
-               <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
-               <option value="Asian">Asian</option>
-               <option value="Black or African American">Black or African American</option>
-               <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
-                <option value="White">White</option>
-             </select>
-             </select>
-           </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
           <div class="form-group">
              <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
                 <div class="col-md-9">
@@ -183,11 +154,11 @@
           <div class="form-group">
             <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
                <div class="col-md-9">
-               <select class="form-control" name="transportationType" id="transportationType" ng-model="household.transportationType">
+               <select class="form-control" name="transportationType" ng-model="household.transportationType" id="transportationType">
             <option></option>
-            <option value="option1">Car</option>
-            <option value="option2">Walk</option>
-            <option value="option3">Bicycle</option>
+            <option value="option1">By Bus</option>
+            <option value="option2">By Car</option>
+            <option value="option3">On Foot</option>
           </select>
         </div>
           </div>
@@ -196,7 +167,7 @@
         <div class="form-group">
           <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
              <div class="col-md-9">
-            <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
+              <select class="form-control" name="hudCategory" id="hudCategory" ng-model="household.hudCategory">
             <option></option>
             <option value="ELOW">Extremely Low</option>
             <option value="VLOW">Very Low</option>
@@ -209,18 +180,18 @@
       </div>
       <div class="col-sm-offset-1 col-lg-12">
            <div class="form-group">
-        <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits">
+        <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="household.isInCityLimits">
         <label for="isInCityLimits">In City Limits</label>
-        <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless">
+        <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="household.isHomeless">
         <label for="isHomeless">Homeless</label>
-        <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible">
+        <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="household.isCommoditiesEligible">
         <label for="isCommoditiesEligible">Commodities Eligible</label>
-     
-        <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold">
+
+        <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="household.isSingleParentHousehold">
         <label for="isSingleParentHousehold">Single Parent Household</label>
-        <input type="checkbox" name="isArchived" id="isArchived" ng-model="req.household.isArchived">
+        <input type="checkbox" name="isArchived" id="isArchived" ng-model="household.isArchived">
         <label for="isArchived">Archived</label>
-        <input type="checkbox" name="isActive" id="isActive" ng-model="req.household.isActive">
+        <input type="checkbox" name="isActive" id="isActive" ng-model="household.isActive">
         <label for="isActive">Active</label>
       </div>
       </div>

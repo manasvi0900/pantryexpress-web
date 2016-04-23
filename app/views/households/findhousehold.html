@@ -8,7 +8,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="householdId" class="col-md-5 control-label">Household Number:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="householdId" placeholder="" type="number" ng-model="householdsFilter.householdNumber">
               </div>
             </div>
@@ -16,7 +16,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="firstname" class="col-md-5 control-label">Head of Household First Name:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="firstname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold_firstName">
               </div>
             </div>
@@ -24,7 +24,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="lastname" class="col-md-5 control-label">Head of Household Last Name:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="lastname" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold_lastName">
               </div>
             </div>
@@ -33,7 +33,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="headOfHouseholdId" class="col-md-5 control-label">Head of Household Provided ID:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" id="headOfHouseholdId" placeholder="" type="text" ng-model="householdsFilter.headOfHousehold_providedId">
               </div>
             </div>
@@ -41,7 +41,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="physicalAddress" class="col-md-5 control-label">Physical Address:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" name="householdAddressFormInput" id="physicalAddress" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line1">
               </div>
             </div>
@@ -49,7 +49,7 @@
           <div class="col-sm-6 col-lg-12">
             <div class="form-group">
               <label for="physicalAddressUnit" class="col-md-5 control-label">Physical Address Unit:</label>
-              <div class="col-md-7">
+              <div class="col-md-9">
                 <input class="form-control" name="householdAddressFormInput" id="physicalAddressUnit" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
               </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                 <label for="physicalAddressCity" class="col-md-5 control-label">City:</label>
-                <div class="col-md-7">
+                <div class="col-md-9">
                   <input class="form-control" name="householdCityFormInput" id="physicalAddressCity" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.city">
                 </div>
               </div>
@@ -65,7 +65,7 @@
             <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                 <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
-                <div class="col-md-7">
+                <div class="col-md-9">
                   <select class="form-control" name="householdStateFormInput" id="physicalAddressState" ng-model="householdsFilter.physicalAddress.state">
                     <option></option>
                     <option value="AK">AK</option>
@@ -150,7 +150,7 @@
             <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                 <label for="physicalAddressZip" class="col-md-5 control-label">Zip Code:</label>
-                <div class="col-md-7">
+                <div class="col-md-9">
                   <input class="form-control" name="householdZipFormInput" id="physicalAddressZip" placeholder="" type="number" ng-model="householdsFilter.physicalAddress.zip">
                 </div>
               </div>
@@ -158,7 +158,7 @@
             <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                 <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
-                <div class="col-md-7">
+                <div class="col-md-9">
                   <select class="form-control" name="transportationType" id="transportationType" ng-model="householdsFilter.transportationType">
                     <option></option>
                     <option value="By Bus">By Bus</option>
@@ -171,7 +171,7 @@
             <div class="col-sm-6 col-lg-12">
               <div class="form-group">
                 <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
-                <div class="col-md-7">
+                <div class="col-md-9">
                   <select class="form-control" name="hudCategory" id="hudCategory" ng-model="householdsFilter.hudCategory">
                     <option></option>
                     <option value="Extremely Low">Extremely Low</option>
@@ -249,7 +249,7 @@
                       <td>{{ household.physicalAddress.city }}</td>
                       <td>{{ household.physicalAddress.state }}</td>
                       <td>{{ household.physicalAddress.zip }}</td>
-                      <td>{{ household.validationDate | date:'MM/dd/yyyy' }}</td>
+                      <td>{{ household.validationDate | date:'MM/dd/yyyy'}}</td>
                       <td>{{ household.validationType }}</td>
                       <td>{{ household.transportationType}}</td>
                       <td>{{ household.hudCategory}}</td>
