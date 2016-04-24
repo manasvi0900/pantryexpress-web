@@ -90,7 +90,7 @@ angular.module('pantyexpressApp')
       visible: true,
       init: function() {
         // Check if a member was previously selected; If not, redirect to find page
-        if (!$rootScope.selectedHouseholdMember || !$rootScope.selectedHouseholdMember.memberId || !$rootScope.selectedHouseholdMember.memberId == "") {
+        if (!$rootScope.selectedHouseholdMember || !$rootScope.selectedHouseholdMember.memberId || !$rootScope.selectedHouseholdMember.memberId === "") {
           $location.url('/households/edit');
         }
 
@@ -145,6 +145,9 @@ angular.module('pantyexpressApp')
       $scope.template.init();
     }
 
+    $scope.isReadOnly = function() {
+      $scope.household = "isReadOnly";
+    };
 
     $scope.householdsFilter = {};
     $scope.household = {};

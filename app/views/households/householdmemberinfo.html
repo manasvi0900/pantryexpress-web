@@ -6,9 +6,9 @@
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="memberId" class="col-md-5 control-label">Member ID:</label>
+          <label for="memberId" class="col-md-5 control-label">User Provided ID:</label>
           <div class="col-md-9">
-            <input class="form-control" id="memberId" placeholder="" type="text" ng-model="member.memberId" ng-readonly="isReadOnly">
+            <input class="form-control" id="memberId" placeholder="" type="text" ng-model="member.providedId" ng-readonly="isReadOnly">
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
         <div class="form-group">
           <label for="memberType" class="col-md-5 control-label">Member Type:</label>
           <div class="col-md-9">
-            <select class="form-control" name="memberTypeFormInput" id="memberType" ng-model="member.memberType" ng-required="CheckMemberExists(householdMemberInfoForm)">
+            <select class="form-control" name="memberTypeFormInput" id="memberType" ng-model="household.member.householdMemberType" ng-required="CheckMemberExists(householdMemberInfoForm)">
               <option></option>
               <option value="headOfHousehold">Head of Household</option>
               <option value="householdMember">Household Member</option>
