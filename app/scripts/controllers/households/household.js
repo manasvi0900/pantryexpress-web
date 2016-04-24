@@ -145,6 +145,9 @@ angular.module('pantyexpressApp')
       $scope.template.init();
     }
 
+    $scope.isReadOnly = function() {
+      $scope.household = "isReadOnly";
+    };
 
     $scope.householdsFilter = {};
     $scope.household = {};

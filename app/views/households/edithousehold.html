@@ -195,24 +195,29 @@
         <label for="isActive">Active</label>
       </div>
       </div>
+        <div>
+          <p>
+            <button class="btn-primary">Save Household</button>
+            <button class="btn-primary">Cancel</button>
+          </p>
+        </div>
       <div class="text-center">
-  <h2>Household Member Info</h2>
-  </div>
+        <h2>Household Member Info</h2>
+      </div>
       <div class="col-sm-6 col-lg-12">
-  <div class="form-group">
-    <p>
-      <button class="btn-primary">Save Household</button>
-      <button class="btn-primary">New Service</button>
-      <button class="btn-primary" id="updateHouseholdMembersBtn" ng-click="editHouseholdMembers()">Update Member Info</button>
-      <button class="btn-primary">Make Head of Household</button>
-    </p>
-    </div>
-  </div>
+        <div class="form-group">
+          <p>
+            <button class="btn-primary" ng-show="selectedHouseholdMember">New Service</button>
+            <button class="btn-primary" ng-show="selectedHouseholdMember" id="updateHouseholdMembersBtn" ng-click="editHouseholdMembers()">Update Member Info</button>
+            <button class="btn-primary" ng-show="selectedHouseholdMember">Make Head of Household</button>
+          </p>
+        </div>
+      </div>
       <table class="table table-bordered">
     <theadv class="thread-inverse">
       <tr>
         <th>Selection</th>
-        <th>Member Id</th>
+        <th>User Provided Id</th>
         <th>Name</th>
         <th>Member Type</th>
         <th>Birthday</th>
@@ -223,7 +228,7 @@
         <th>Hispanic</th>
         <th>Special Needs</th>
         <th>Archived</th>
-        <th>Inactive</th>
+        <th>Active</th>
         <th>Created At</th>
       </tr>
     </theadv>
@@ -233,9 +238,9 @@
           <label class="btn-default">
             <input name="memberSelection" id="memberSelection" value="{{ member }}" class="active" type="radio" ng-model="selectedHouseholdMember" ng-change="setSelectedHouseholdMember(member)">
           </label>
-        <td>{{ member.memberId }}</td>
+        <td>{{ member.providedId }}</td>
         <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
-        <td>{{ member.memberType | householdMemberType }}</td>
+        <td>{{ member.memberType}}</td>
         <th>{{ member.birthday | date:'MM/dd/yyyy' }}</th>
         <th>{{ member.gender }}</th>
         <th>{{ member.validationDate | date:'MM/dd/yyyy' }}</th>
