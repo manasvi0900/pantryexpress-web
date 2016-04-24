@@ -4,7 +4,7 @@
 </div>
   <form class="form-horizontal" role="form" name="pantryInformForm">
     <div ng-init="AddFormToScope(pantryInformForm);"></div>
-    <div class="row">
+    <form class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="pantryName" class="col-md-5 control-label">Food Pantry Name:</label>
@@ -33,6 +33,24 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="email" class="col-md-5 control-label">Email Address:</label>
+          <div class="col-md-7">
+            <input class="form-control" name="pantryEmailFormInput" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email" ng-pattern="emailPattern" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryEmailFormInput.$touched && pantryInformForm.pantryEmailFormInput.$invalid">Email is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
+          <div class="col-md-7">
+            <input class="form-control" name="pantryOfficeNumberFormInput" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone" required>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryOfficeNumberFormInput.$touched && pantryInformForm.pantryOfficeNumberFormInput.$invalid">Office number is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="physicalAddressLine1" class="col-md-5 control-label">Physical Address:</label>
           <div class="col-md-7">
             <input class="form-control" name="pantryPhysicalAddressL1FormInput" id="physicalAddressLine1" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line1" required>
@@ -42,10 +60,10 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="physicalAddressLine2" class="col-md-5 control-label">Physical Address:</label>
+            <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
           <div class="col-md-7">
             <input class="form-control" name="pantryPhysicalAddressL2FormInput" id="physicalAddressLine2" placeholder="Physical Address" type="text" ng-model="req.pantry.physicalAddress.line2">
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalAddressL1FormInput.$touched && pantryInformForm.pantryPhysicalAddressL2FormInput.$invalid"></span>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalAddressL2FormInput.$touched && pantryInformForm.pantryPhysicalAddressL1FormInput.$invalid"></span>
           </div>
         </div>
       </div>
@@ -150,24 +168,6 @@
           <div class="col-md-7">
             <input class="form-control" name="pantryPhysicalZipFormInput" id="physicalAddressZip" placeholder="Physical Address Zip Code" type="number" ng-model="req.pantry.physicalAddress.zip" required>
             <span class="form-validation-error" ng-show="pantryInformForm.pantryPhysicalZipFormInput.$touched && pantryInformForm.pantryPhysicalZipFormInput.$invalid">Zipcode is required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="email" class="col-md-5 control-label">Email Address:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="pantryEmailFormInput" id="email" placeholder="Email Address" type="Email" ng-model="req.pantry.email" ng-pattern="emailPattern" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryEmailFormInput.$touched && pantryInformForm.pantryEmailFormInput.$invalid">Email is required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="officePhone" class="col-md-5 control-label">Phone Number:</label>
-          <div class="col-md-7">
-            <input class="form-control" name="pantryOfficeNumberFormInput" id="officePhone" placeholder="Phone Number" type="number" ng-model="req.pantry.officePhone" required>
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryOfficeNumberFormInput.$touched && pantryInformForm.pantryOfficeNumberFormInput.$invalid">Office number is required.</span>
             <br>
             <input type="checkbox" name="physicalAddressSame" id="physicalAddressSame" ng-click="matchMailingToPhysicalAddress()">
             <label for="physicalAddressSame">Physical address same as mailing address</label>
@@ -185,10 +185,10 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="mailingAddressLine2" class="col-md-5 control-label">Mailing Address:</label>
+          <label for="mailingAddressLine1" class="col-md-5 control-label"></label>
           <div class="col-md-7">
             <input class="form-control" name="pantryMailingAddressLine1FormInput" id="mailingAddressLine2" placeholder="Mailing Address" type="text" ng-model="req.pantry.mailingAddress.line2">
-            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingAddressLine1FormInput.$touched && pantryInformForm.pantryMailingAddressLine2FormInput.$invalid"></span>
+            <span class="form-validation-error" ng-show="pantryInformForm.pantryMailingAddressLine2FormInput.$touched && pantryInformForm.pantryMailingAddressLine2FormInput.$invalid"></span>
           </div>
         </div>
       </div>
@@ -296,6 +296,6 @@
           </div>
         </div>
       </div>
-    </div>
     <button class="btn btn-primary btn-sm" id="nextButtonId" data-ng-click="next(pantryInformForm)" ng-show="currentIndex < pages.length-1">Next</button>
+  </form>
   </form>

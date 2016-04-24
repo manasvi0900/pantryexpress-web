@@ -1,64 +1,64 @@
-<div class="text-center">
+<div class="col-xs-12 text-left">
+  <div class="text-center">
   <h1>Household Creation Confirmation</h1>
-</div>
-<div class="text-center">
+  </div>
+  <div class="text-center">
   <h2>{{yourName}} Household Information</h2>
-</div>
-<div class="form-horizontal" role="form" name="householdCreateForm">
-  <div class="row">
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="PhysicalAddress" class="col-md-5 control-label">Physical Address:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="PhysicalAddress" placeholder="Address" type="text" ng-model="req.household.physicalAddress.line1" ng-readonly="isReadOnly" >
+  </div>
+  <div class="form-horizontal" role="form" name="householdCreateForm">
+    <div class="row">
+      <div class="col-sm-6 col-lg-12">
+         <div class="form-group">
+            <label for="PhysicalAddress" class="col-md-5 control-label">Physical Address:</label>
+            <div class="col-md-9">
+                <input class="form-control" id="PhysicalAddress" placeholder="Address" type="text" ng-model="req.household.physicalAddress.line1" ng-readonly="isReadOnly" >
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="physicalAddressLine2" class="col-md-5 control-label"></label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" name="householdAddressFormInput2" id="physicalAddressLine2" placeholder="" type="text" ng-model="req.household.physicalAddress.line2" ng-readonly="isReadOnly">
-            <span class="form-validation-error" ng-show="householdCreateForm.householdAddressFormInput2.$touched && householdCreateForm.householdAddressFormInput2.$invalid">Address is required.</span>
           </div>
         </div>
       </div>
-    <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="City" class="col-md-5 control-label">City:</label>
-        <div class="col-md-7">
-          <input class="form-control" id="City" placeholder="City" type="text" ng-model="req.household.physicalAddress.city" ng-readonly="isReadOnly">
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+            <label for="City" class="col-md-5 control-label">City:</label>
+            <div class="col-md-9">
+                <input class="form-control" id="City" placeholder="City" type="text" ng-model="req.household.physicalAddress.city" ng-readonly="isReadOnly">
+            </div>
         </div>
       </div>
-    </div>
-     <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="physicalAddressState" class="col-md-5 control-label">State:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input class="form-control" id="physicalAddressState" placeholder="State" type="text" ng-model="req.household.physicalAddress.state" ng-readonly="isReadOnly" >
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="physicalAddressZip" class="col-md-5 control-label">Zip code:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input class="form-control" id="physicalAddressZip" placeholder="Zip code" type="text" ng-model="req.household.physicalAddress.zip" ng-readonly="isReadOnly" >
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="ValidationDate" class="col-md-5 control-label">Validation Date:</label>
-        <div class="col-md-7">
-          <input class="form-control" name="validationDate" id="ValidationDate" placeholder="" type="date" ng-model="req.household.validationDate" ng-readonly="isReadOnly">
+        <div class="col-md-9">
+          <input class="form-control" name="validationDate" id="ValidationDate" placeholder="" type="date" ng-model="validationDate" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+      <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType" ng-readonly=isReadOnly>
             <option></option>
             <option value="Driving License">Driving license</option>
@@ -69,14 +69,56 @@
         </div>
       </div>
     </div>
-    <div>
-    <table class="table table-bordered" ng-show="req.members.length > 0" ng-readonly="isReadOnly">
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
+          <div class="col-md-9">
+            <select class="form-control" name="transportationType" id="transportationType" ng-model="req.household.transportationType" ng-readonly="isReadOnly">
+              <option></option>
+              <option value="By Bus">By Bus</option>
+              <option value="By Car">By Car</option>
+              <option value="On Foot">On Foot</option>
+             </select>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
+          <div class="col-md-9">
+            <select class="form-control" name="hudCategory" id="hudCategory" ng-model="req.household.hudCategory" ng-readonly="isReadOnly">
+              <option></option>
+              <option value="Extremely Low">Extremely Low</option>
+              <option value="Very Low">Very Low</option>
+              <option value="Low">Low</option>
+              <option value="Moderate">Moderate</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-offset-2 col-lg-12">
+          <div class="form-group">
+              <input type="checkbox" name="isInCityLimits" id="isInCityLimits" ng-model="req.household.isInCityLimits" ng-readonly="isReadOnly">
+              <label for="isInCityLimits">In City Limits</label>
+              <input type="checkbox" name="isHomeless" id="isHomeless" ng-model="req.household.isHomeless" ng-readonly="isReadOnly">
+              <label for="isHomeless">Homeless</label>
+              <input type="checkbox" name="isCommoditiesEligible" id="isCommoditiesEligible" ng-model="req.household.isCommoditiesEligible" ng-readonly="isReadOnly">
+              <label for="isCommoditiesEligible">Commodities Eligible</label>
+              <input type="checkbox" name="isSingleParentHousehold" id="isSingleParentHousehold" ng-model="req.household.isSingleParentHousehold" ng-readonly="isReadOnly">
+              <label for="isSingleParentHousehold">Single Parent Household</label>
+          </div>
+      </div>
+      <div>
+      <table class="table table-bordered" ng-show="req.members.length > 0" ng-readonly="isReadOnly">
       <thead class="thread-inverse">
       <tr>
         <th>First Name</th>
         <th>Middle Name</th>
         <th>Last Name</th>
+        <th>User provided ID</th>
+        <th>Email</th>
         <th>Member Type</th>
+        <th>Race</th>
         <th>Birthday</th>
         <th>Gender</th>
         <th>Validation Date</th>
@@ -89,7 +131,10 @@
         <td>{{ member.firstName }}</td>
         <td>{{ member.middleName }}</td>
         <td>{{ member.lastName }}</td>
+        <td>{{ member.memberId }}</td>
+        <td>{{ member.email }}</td>
         <td>{{ member.memberType | householdMemberType }}</td>
+        <td>{{ member.race }}</td>
         <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
         <td>{{ member.gender }}</td>
         <td>{{ member.validationDate | date:'MM/dd/yyyy' }}</td>
@@ -97,10 +142,11 @@
       </tr>
       </tbody>
     </table>
-    <div class="btn-group">
+      <div class="btn-group">
       <button ng-click="createHousehold()" class="btn-primary">Sign Up</button>
       <button class="btn-primary">Cancel</button>
     </div>
+    </div>
   </div>
+</div>  
 </div>
-

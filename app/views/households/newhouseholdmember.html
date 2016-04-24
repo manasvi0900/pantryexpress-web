@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-9 content">
+<div class="col-xs-12 text-left">
   <div class="text-left">
     <h1>New Household</h1>
   </div>
@@ -7,7 +7,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="Member First Name" class="col-md-5 control-label">First Name:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" id="Member First Name" placeholder="" type="text" ng-model="req.householdmember.first.name">
           </div>
         </div>
@@ -15,7 +15,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="Member Middle Name" class="col-md-5 control-label">Middle Name:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" id="Member Middle Name" placeholder="" type="text" ng-model="req.householdmember.middle.name">
           </div>
         </div>
@@ -23,15 +23,23 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="Member Last Name" class="col-md-5 control-label">Last Name:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" id="Member Last Name" placeholder="" type="text" ng-model="req.householdmember.last.name">
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="providedId" class="col-md-5 control-label">User Provided ID:</label>
+          <div class="col-md-9">
+            <input class="form-control" name="providedId" id="providedId" placeholder="" type="text" ng-model="req.householdmember.providedId">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="Member Email" class="col-md-5 control-label">Email:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" id="Member Email" placeholder="" type="email" ng-model="req.householdmember.email">
           </div>
         </div>
@@ -39,7 +47,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="Member Phone Number" class="col-md-5 control-label">Phone Number:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" id="Member Phone Number" placeholder="" type="number" ng-model="req.householdmember.number">
           </div>
         </div>
@@ -47,7 +55,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="Member Birthday" class="col-md-5 control-label">Birthday:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <input class="form-control" id="Member Birthday" placeholder="" type="date" ng-model="req.householdmember.date">
           </div>
         </div>
@@ -55,19 +63,36 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="Gender" class="col-md-5 control-label">Gender:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <select class="form-control" id="Gender" ng-model="req.householdmember.gender">
               <option></option>
               <option value="1">Male</option>
               <option value="2">Female</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+           <label for="race" class="col-md-5 control-label">Race:</label>
+           <div class="col-md-9">
+             <select class="form-control" name="race" id="race" ng-model="req.householdmember.race">
+               <option></option>
+               <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+               <option value="Asian">Asian</option>
+               <option value="Black or African American">Black or African American</option>
+               <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                <option value="White">White</option>
+             </select>
+             </select>
+           </div>
+        </div>
+    </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="Member Type" class="col-md-5 control-label">Member Type:</label>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <select class="form-control" id="Member Type" ng-model="req.householdmember.type">
               <option></option>
               <option value="1">Head of Household</option>
@@ -79,13 +104,13 @@
       <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <label for="Validation Date" class="col-md-5 control-label">Validation Date:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input class="form-control" id="Validation Date" placeholder="" type="date">
         </div>
       </div>
       <div class="form-group">
         <label for="Validation Type" class="col-md-5 control-label">Validation Date:</label>
-        <div class="col-md-7">
+        <div class="col-md-9">
           <input class="form-control" id="Validation Type" placeholder="" type="text">
         </div>
       </div>

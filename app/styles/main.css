@@ -65,7 +65,12 @@ body {
     max-width: 730px;
   }
 
+
   @media (min-width: 992px) {
+    .col-xs-12 {
+    width: 80%;
+  }
+    
     .col-md-5 {
       width: 22%;
     }
