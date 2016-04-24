@@ -17,6 +17,25 @@ Run `bower install` for installing bower specific packages.
 
 ## Testing
 
+sudo apt-get install xvfb
+// from: http://blog.maduma.com/post/120096144533/protractor-e2e-testing-on-cloud9
+install last chrome
+
+$ wget -q -O - \
+  https://dl-ssl.google.com/linux/linux_signing_key.pub \
+  | sudo apt-key add - 
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main"  \
+  >> /etc/apt/sources.list.d/google-chrome.list'
+$ sudo apt-get update 
+$ sudo apt-get install -y google-chrome-stable
+install protractor
+
+$ npm install -g protractor
+update webdriver
+
+$ webdriver-manager update
+
+npm install -g protractor
 run `webdriver-manager update` this gets the latest webdriver
 
 When you want to run tests you will need to have a seperate terminal open that is running a protractor/selenium server
