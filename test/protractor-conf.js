@@ -12,11 +12,6 @@
  * selenium.example.com to run tests against a web application hosted
  * on testapp.example.com.
  */
-if (process.env.SNAP_CI) {
-  exports.config.chromeDriver = '/usr/local/bin/chromedriver';
-  process.env.CHROMEDRIVER_VERSION = '2.19';
-}
-else {
   exports.config = {
 
     // -----------------------------------------------------------------
@@ -145,5 +140,7 @@ else {
       defaultTimeoutInterval: 30000
     }
   };
+if (process.env.SNAP_CI) {
+  exports.config.chromeDriver = '/usr/local/bin/chromedriver';
 }
 
