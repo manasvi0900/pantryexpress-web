@@ -73,10 +73,7 @@
      },
      */
     capabilities: {
-      browserName: 'chrome',
-      'chromeOptions': {
-        args: ['--no-sandbox']
-      }
+      'browserName': 'chrome'
     },
 
     // -----------------------------------------------------------------
