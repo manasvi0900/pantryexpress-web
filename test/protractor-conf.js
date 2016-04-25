@@ -73,7 +73,10 @@
      },
      */
     capabilities: {
-      'browserName': 'chrome'
+      browserName: 'chrome',
+      'chromeOptions': {
+        args: ['--no-sandbox']
+      }
     },
 
     // -----------------------------------------------------------------
@@ -94,11 +97,11 @@
 
     // A base URL for your application under test. Calls to browser.get()
     // with relative paths will be prepended with this.
-    baseUrl: 'http://localhost:8080/#/',
+    // baseUrl: 'http://localhost:8080/#/',
 
     // Selector for the element housing the angular app - this defaults to
     // body, but is necessary if ng-app is on a descendant of
-    rootElement: 'body',
+    // rootElement: 'body',
 
     // -----------------------------------------------------------------
     // Other configuration.
@@ -106,7 +109,7 @@
 
     // The timeout for each script run on the browser. This should be longer
     // than the maximum time your application needs to stabilize between tasks.
-    allScriptsTimeout: 11000,
+    // allScriptsTimeout: 11000,
 
     /**
      * A callback function called once protractor is ready and available,
@@ -115,16 +118,17 @@
      * You can specify a file containing code to run by setting onPrepare to
      * the filename string.
      */
+    /*
     onPrepare: function () {
       // At this point, global 'protractor' object will be set up, and
       // jasmine will be available.
     },
-
+*/
     // ----- Options to be passed to minijasminenode -----
-    jasmineNodeOpts: {
+    // jasmineNodeOpts: {
       /**
        * onComplete will be called just before the driver quits.
-       */
+
       onComplete: function () {
       },
       // If true, display spec names.
@@ -135,7 +139,7 @@
       includeStackTrace: true,
       // Default time to wait in ms before a test fails.
       defaultTimeoutInterval: 30000
-    }
+    }*/
   };
 if (process.env.SNAP_CI) {
   exports.config.chromeDriver = '/usr/local/bin/chromedriver';

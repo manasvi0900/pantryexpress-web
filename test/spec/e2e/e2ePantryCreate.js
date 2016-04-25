@@ -17,7 +17,7 @@ describe('Example:', function () {
 
   beforeEach(function () {
     // Load up a view and wait for it to be done with its rendering and epicycles.
-    browser.get('#/signup');
+    browser.get('http://localhost:8080/#/signup');
     browser.waitForAngular();
   });
 
