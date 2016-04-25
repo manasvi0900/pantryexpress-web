@@ -25,7 +25,7 @@ describe('Example:', function () {
     // Initial Pantry Info
     var EC = protractor.ExpectedConditions;
 
-    browser.wait(EC.presenceOf(element(by.id('pantryName'))), 5000);
+    browser.wait(EC.presenceOf(element(by.id('pantryName'))), 10000);
     var elements = browser.findElement(by.id('pantryName'));
     elements.sendKeys('TestPantryAutomation');
 
@@ -54,7 +54,7 @@ describe('Example:', function () {
     elements.click();
 
     // wait for element to load
-    browser.wait(EC.presenceOf(element(by.id('firstName'))), 5000);
+    browser.wait(EC.presenceOf(element(by.id('firstName'))), 10000);
 
     // Administrator info
     elements = browser.findElement(by.id('firstName'));
@@ -78,7 +78,7 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('nextButtonId'));
     elements.click();
 
-    browser.wait(EC.presenceOf(element(by.id('pantrysignupButtonId'))), 5000);
+    browser.wait(EC.presenceOf(element(by.id('pantrysignupButtonId'))), 10000);
     // SignUp
     elements = browser.findElement(by.id('pantrysignupButtonId'));
     elements.click();
