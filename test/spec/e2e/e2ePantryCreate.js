@@ -7,7 +7,9 @@
  browser: false,
  by: false,
  describe: false,
- it: false
+ it: false,
+ protractor: false,
+ element: false
  */
 
 describe('Example:', function () {
@@ -21,58 +23,65 @@ describe('Example:', function () {
 
   it('SignUp New Pantry', function () {
     // Initial Pantry Info
-    var element = browser.findElement(by.id('pantryName'));
-    element.sendKeys('TestPantryAutomation');
+    var EC = protractor.ExpectedConditions;
 
-    element = browser.findElement(by.id('physicalAddressLine1'));
-    element.sendKeys('TestPantryAutomationPhysicalAddressLine1');
+    browser.wait(EC.presenceOf(element(by.id('pantryName'))), 5000);
+    var elements = browser.findElement(by.id('pantryName'));
+    elements.sendKeys('TestPantryAutomation');
 
-    element = browser.findElement(by.id('physicalAddressCity'));
-    element.sendKeys('TestPantryAutomationPhysicalAddressCity');
+    elements = browser.findElement(by.id('physicalAddressLine1'));
+    elements.sendKeys('TestPantryAutomationPhysicalAddressLine1');
 
-    element = browser.findElement(by.id('physicalAddressState'));
-    element.sendKeys('WA');
+    elements = browser.findElement(by.id('physicalAddressCity'));
+    elements.sendKeys('TestPantryAutomationPhysicalAddressCity');
 
-    element = browser.findElement(by.id('physicalAddressZip'));
-    element.sendKeys('98312');
+    elements = browser.findElement(by.id('physicalAddressState'));
+    elements.sendKeys('WA');
 
-    element = browser.findElement(by.id('email'));
-    element.sendKeys('test@test.com');
+    elements = browser.findElement(by.id('physicalAddressZip'));
+    elements.sendKeys('98312');
 
-    element = browser.findElement(by.id('officePhone'));
-    element.sendKeys('5551212');
+    elements = browser.findElement(by.id('email'));
+    elements.sendKeys('test@test.com');
 
-    element = browser.findElement(by.id('physicalAddressSame'));
-    element.click();
+    elements = browser.findElement(by.id('officePhone'));
+    elements.sendKeys('5551212');
 
-    element = browser.findElement(by.id('nextButtonId'));
-    element.click();
+    elements = browser.findElement(by.id('physicalAddressSame'));
+    elements.click();
+
+    elements = browser.findElement(by.id('nextButtonId'));
+    elements.click();
+
+    // wait for element to load
+    browser.wait(EC.presenceOf(element(by.id('firstName'))), 5000);
 
     // Administrator info
-    element = browser.findElement(by.id('firstName'));
-    element.sendKeys('TestAdmininfoFirstName');
+    elements = browser.findElement(by.id('firstName'));
+    elements.sendKeys('TestAdmininfoFirstName');
 
-    element = browser.findElement(by.id('lastName'));
-    element.sendKeys('TestAdmininfoLastName');
+    elements = browser.findElement(by.id('lastName'));
+    elements.sendKeys('TestAdmininfoLastName');
 
-    element = browser.findElement(by.id('jobTitle'));
-    element.sendKeys('TestAdmininfoJobTitle');
+    elements = browser.findElement(by.id('jobTitle'));
+    elements.sendKeys('TestAdmininfoJobTitle');
 
-    element = browser.findElement(by.id('phone'));
-    element.sendKeys('5551212');
+    elements = browser.findElement(by.id('phone'));
+    elements.sendKeys('5551212');
 
-    element = browser.findElement(by.id('email'));
-    element.sendKeys('test@test.com');
+    elements = browser.findElement(by.id('email'));
+    elements.sendKeys('test@test.com');
 
-    element = browser.findElement(by.id('addDirectorButtonId'));
-    element.click();
+    elements = browser.findElement(by.id('addDirectorButtonId'));
+    elements.click();
 
-    element = browser.findElement(by.id('nextButtonId'));
-    element.click();
+    elements = browser.findElement(by.id('nextButtonId'));
+    elements.click();
 
+    browser.wait(EC.presenceOf(element(by.id('pantrysignupButtonId'))), 5000);
     // SignUp
-    element = browser.findElement(by.id('pantrysignupButtonId'));
-    element.click();
+    elements = browser.findElement(by.id('pantrysignupButtonId'));
+    elements.click();
     browser.waitForAngular();
 
   });
