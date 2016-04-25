@@ -460,7 +460,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-protractor-runner');
 
   if (process.env.SNAP_CI) {
-    exports.protractor.chromeDriver = "/usr/local/bin/chromedriver";
+    exports.protractor.options.chromeDriver = "/usr/local/bin/chromedriver";
   }
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
