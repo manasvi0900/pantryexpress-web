@@ -46,6 +46,7 @@ angular.module('pantyexpressApp')
     $scope.req.pantry = "isReadOnly";
     };
 
+
     //default to today's date
     $scope.validationDate = new Date();
     $scope.tempMember.validationDate = new Date();
