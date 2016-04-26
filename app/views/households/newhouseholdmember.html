@@ -102,16 +102,25 @@
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
-      <div class="form-group">
-        <label for="Validation Date" class="col-md-5 control-label">Validation Date:</label>
-        <div class="col-md-9">
-          <input class="form-control" id="Validation Date" placeholder="" type="date">
+        <div class="form-group">
+          <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
+          <div class="col-md-9">
+            <input class="form-control" name="validationDate" id="addressValidationDate" placeholder="" type="date" ng-model="validationDate">
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="Validation Type" class="col-md-5 control-label">Validation Date:</label>
-        <div class="col-md-9">
-          <input class="form-control" id="Validation Type" placeholder="" type="text">
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="addressValidationType" class="col-md-5 control-label">Validation Type:</label>
+          <div class="col-md-9">
+            <select class="form-control" name="validationType" id="addressValidationType" ng-model="req.household.validationType">
+              <option></option>
+              <option value="Driving License">Driving license</option>
+              <option value="Physical mail">Physical mail </option>
+              <option value="Rental agreement">Rental agreement </option>
+              <option value="Utility bill">Utility bill</option>
+            </select>
+            </div>
         </div>
       </div>
         <div class="btn-group2">
