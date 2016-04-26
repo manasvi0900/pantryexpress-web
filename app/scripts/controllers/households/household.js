@@ -22,6 +22,11 @@ angular.module('pantyexpressApp')
         $scope.template = $scope.templates['find'];
         $scope.template.init();
       }
+      if(name === 'new')
+      {
+        $scope.template = $scope.templates['new'];
+        $scope.template.init();
+      }
       if(name === 'move')
       {
         $scope.template = $scope.templates['move'];
@@ -70,6 +75,15 @@ angular.module('pantyexpressApp')
         }
       }
     };
+
+    $scope.templates['new'] = {
+      name: 'New Household',
+      url: 'views/households/create/householdcreateinfo.html',
+      visible: true,
+      init: function() {
+
+      }
+    };
     $scope.templates['find'] = {
       name: 'Find Household',
       url: 'views/households/findhousehold.html',
@@ -116,8 +130,9 @@ angular.module('pantyexpressApp')
 
     $scope.pages = [
         $scope.templates['find'],
-        $scope.templates['edit'],
-        $scope.templates['editmember']
+        $scope.templates['new']
+        //$scope.templates['edit'],
+       // $scope.templates['editmember']
     ];
 
     $scope.template = $scope.pages[currentIndex];
@@ -131,7 +146,6 @@ angular.module('pantyexpressApp')
     $scope.editHouseholdMembers= function () {
       $location.url('/households/editmember');
     };
-
 
     $scope.setview(viewname);
     $scope.goto = function (targetIndex){
