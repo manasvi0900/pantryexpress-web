@@ -30,11 +30,11 @@ describe('Example:', function () {
     elements.click();
 
     browser.wait(EC.presenceOf(element(by.id('clientServiceDropDoenToggleId'))), 10000);
-    var elements = browser.findElement(by.id('clientServiceDropDoenToggleId'));
+    elements = browser.findElement(by.id('clientServiceDropDoenToggleId'));
     elements.click();
 
     browser.wait(EC.presenceOf(element(by.id('newhouseholdLinkId'))), 10000);
-    var elements = browser.findElement(by.id('newhouseholdLinkId'));
+    elements = browser.findElement(by.id('newhouseholdLinkId'));
     elements.click();
 
 
