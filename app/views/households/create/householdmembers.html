@@ -179,10 +179,10 @@
             <label for="isSpecialNeeds">Special needs</label>
           </div>
         </div>
-      </div>  
+      </div>
     <div class="col-md-9">
-      <button class="btn btn-primary btn-sm" ng-click="addHouseholdMember(householdMemberForm)">Add Member</button>
-      <button class="btn btn-primary btn-sm" data-ng-click="next(householdMemberForm)" ng-show="currentIndex < pages.length-1">Next</button>
+      <button class="btn btn-primary btn-sm" id="addhouseholdMemberButtonId" ng-click="addHouseholdMember(householdMemberForm)">Add Member</button>
+      <button class="btn btn-primary btn-sm" id="nextButtonId" data-ng-click="next(householdMemberForm)" ng-show="currentIndex < pages.length-1">Next</button>
       <button class="btn btn-primary btn-sm" ng-click="previous()" ng-show="currentIndex < pages.length+1">Back</button>
     </div>
   </form>

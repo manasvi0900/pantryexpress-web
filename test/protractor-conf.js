@@ -12,135 +12,135 @@
  * selenium.example.com to run tests against a web application hosted
  * on testapp.example.com.
  */
-  exports.config = {
 
-    // -----------------------------------------------------------------
-    // Selenium Setup: An existing Selenium standalone server.
-    // -----------------------------------------------------------------
+exports.config = {
 
-    // The address of an existing selenium server that Protractor will use.
-    //
-    // Note that this server must have chromedriver in its path for Chromium
-    // tests to work.
-    // seleniumAddress: 'http://selenium.example.com:4444/wd/hub',
+  // -----------------------------------------------------------------
+  // Selenium Setup: An existing Selenium standalone server.
+  // -----------------------------------------------------------------
 
-    //  seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
-    // -----------------------------------------------------------------
-    // Specify the test code that will run.
-    // -----------------------------------------------------------------
+  // The address of an existing selenium server that Protractor will use.
+  //
+  // Note that this server must have chromedriver in its path for Chromium
+  // tests to work.
+  // seleniumAddress: 'http://selenium.example.com:4444/wd/hub',
 
-    // Spec patterns are relative to the location of this config.
-    specs: [
-      "../test/spec/e2e/*.js"
-    ],
+  seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+  // -----------------------------------------------------------------
+  // Specify the test code that will run.
+  // -----------------------------------------------------------------
 
-    // -----------------------------------------------------------------
-    // Browser and Capabilities
-    // -----------------------------------------------------------------
+  // Spec patterns are relative to the location of this config.
+  specs: [
+    "../test/spec/e2e/*.js"
+  ],
 
-    // For a full list of available capabilities, see
-    //
-    // https://code.google.com/p/selenium/wiki/DesiredCapabilities
+  // -----------------------------------------------------------------
+  // Browser and Capabilities
+  // -----------------------------------------------------------------
 
-    // -----------------------------------------------------------------
-    // Browser and Capabilities: PhantomJS
-    // -----------------------------------------------------------------
+  // For a full list of available capabilities, see
+  //
+  // https://code.google.com/p/selenium/wiki/DesiredCapabilities
 
-    // Blocking issues prevent most uses of PhantomJS and Protractor as of
-    // Q4 2013. See, for example:
-    //
-    // https://github.com/angular/protractor/issues/85
-    //
-    // It is also hard to pass through needed command line parameters.
+  // -----------------------------------------------------------------
+  // Browser and Capabilities: PhantomJS
+  // -----------------------------------------------------------------
 
-    /*
-     capabilities: {
-     browserName: 'phantomjs',
-     version: '',
-     platform: 'ANY',
-     'phantomjs.binary.path': 'node_modules/phantomjs/bin/phantomjs'
-     },
+  // Blocking issues prevent most uses of PhantomJS and Protractor as of
+  // Q4 2013. See, for example:
+  //
+  // https://github.com/angular/protractor/issues/85
+  //
+  // It is also hard to pass through needed command line parameters.
 
-     */
-    // -----------------------------------------------------------------
-    // Browser and Capabilities: Chrome
-    // -----------------------------------------------------------------
-    /*
-     capabilities: {
-     browserName: 'chrome',
-     version: '',
-     platform: 'ANY'
-     },
-     */
-    capabilities: {
-      browserName: 'chrome',
-      'chromeOptions': {
-        args: ['--no-sandbox']
-      }
-    },
+  /*
+   capabilities: {
+   browserName: 'phantomjs',
+   version: '',
+   platform: 'ANY',
+   'phantomjs.binary.path': 'node_modules/phantomjs/bin/phantomjs'
+   },
 
-    // -----------------------------------------------------------------
-    // Browser and Capabilities: Firefox
-    // -----------------------------------------------------------------
+   */
+  // -----------------------------------------------------------------
+  // Browser and Capabilities: Chrome
+  // -----------------------------------------------------------------
+/*
+   capabilities: {
+   browserName: 'chrome',
+   version: '',
+   platform: 'ANY'
+   },
+  */
+  capabilities: {
+    browserName: 'chrome',
+    'chromeOptions': {
+      args: ['--no-sandbox']
+    }
+  },
 
-    /*
-     capabilities: {
-     browserName: 'firefox',
-     version: '',
-     platform: 'ANY'
-     },
-     */
+  // -----------------------------------------------------------------
+  // Browser and Capabilities: Firefox
+  // -----------------------------------------------------------------
 
-    // -----------------------------------------------------------------
-    // Application configuration.
-    // -----------------------------------------------------------------
+  /*
+   capabilities: {
+   browserName: 'firefox',
+   version: '',
+   platform: 'ANY'
+   },
+   */
 
-    // A base URL for your application under test. Calls to browser.get()
-    // with relative paths will be prepended with this.
-    // baseUrl: 'http://localhost:8080/#/',
+  // -----------------------------------------------------------------
+  // Application configuration.
+  // -----------------------------------------------------------------
 
-    // Selector for the element housing the angular app - this defaults to
-    // body, but is necessary if ng-app is on a descendant of
-    // rootElement: 'body',
+  // A base URL for your application under test. Calls to browser.get()
+  // with relative paths will be prepended with this.
+  baseUrl: 'http://localhost:8080/#/',
 
-    // -----------------------------------------------------------------
-    // Other configuration.
-    // -----------------------------------------------------------------
+  // Selector for the element housing the angular app - this defaults to
+  // body, but is necessary if ng-app is on a descendant of
+  rootElement: 'body',
 
-    // The timeout for each script run on the browser. This should be longer
-    // than the maximum time your application needs to stabilize between tasks.
-    // allScriptsTimeout: 11000,
+  // -----------------------------------------------------------------
+  // Other configuration.
+  // -----------------------------------------------------------------
 
+  // The timeout for each script run on the browser. This should be longer
+  // than the maximum time your application needs to stabilize between tasks.
+  allScriptsTimeout: 11000,
+
+  /**
+   * A callback function called once protractor is ready and available,
+   * and before the specs are executed.
+   *
+   * You can specify a file containing code to run by setting onPrepare to
+   * the filename string.
+   */
+  onPrepare: function() {
+    // At this point, global 'protractor' object will be set up, and
+    // jasmine will be available.
+  },
+
+  // ----- Options to be passed to minijasminenode -----
+  jasmineNodeOpts: {
     /**
-     * A callback function called once protractor is ready and available,
-     * and before the specs are executed.
-     *
-     * You can specify a file containing code to run by setting onPrepare to
-     * the filename string.
+     * onComplete will be called just before the driver quits.
      */
-    /*
-    onPrepare: function () {
-      // At this point, global 'protractor' object will be set up, and
-      // jasmine will be available.
-    },
-*/
-    // ----- Options to be passed to minijasminenode -----
-    // jasmineNodeOpts: {
-      /**
-       * onComplete will be called just before the driver quits.
+    onComplete: function () {},
+    // If true, display spec names.
+    isVerbose: true,
+    // If true, print colors to the terminal.
+    showColors: true,
+    // If true, include stack traces in failures.
+    includeStackTrace: true,
+    // Default time to wait in ms before a test fails.
+    defaultTimeoutInterval: 30000
+  }
+};
 
-      onComplete: function () {
-      },
-      // If true, display spec names.
-      isVerbose: true,
-      // If true, print colors to the terminal.
-      showColors: true,
-      // If true, include stack traces in failures.
-      includeStackTrace: true,
-      // Default time to wait in ms before a test fails.
-      defaultTimeoutInterval: 30000
-    }*/
-  };
 if (process.env.SNAP_CI) {
   exports.config.chromeDriver = '/usr/local/bin/chromedriver';
 }

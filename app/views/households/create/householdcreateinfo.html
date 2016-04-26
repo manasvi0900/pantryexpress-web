@@ -134,7 +134,7 @@
         <div class="form-group">
           <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
           <div class="col-md-9">
-            <input class="form-control" name="validationDate" id="addressValidationDate" placeholder="" type="date" ng-model="validationDate" required>
+            <input class="form-control" name="addressValidation" id="addressValidationDateId" placeholder="" type="date" ng-model="validationDate" required>
             <span class="form-validation-error" ng-show="householdCreateForm.validationDate.$touched && householdCreateForm.validationDate.$invalid">Validation Date is required.</span>
           </div>
         </div>
@@ -196,5 +196,5 @@
       </div>
     </div>
   </form>
-  <button class="btn btn-primary btn-sm" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
+  <button class="btn btn-primary btn-sm" id="nextButtonId" data-ng-click="next(householdCreateForm)" ng-show="currentIndex < pages.length-1">Next</button>
 </div>

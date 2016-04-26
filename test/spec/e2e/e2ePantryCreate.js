@@ -26,15 +26,18 @@ describe('Example:', function () {
     var EC = protractor.ExpectedConditions;
 
     browser.wait(EC.presenceOf(element(by.id('pantryName'))), 10000);
+    browser.waitForAngular();
     var elements = browser.findElement(by.id('pantryName'));
     elements.sendKeys('TestPantryAutomation');
 
+    browser.wait(EC.presenceOf(element(by.id('physicalAddressLine1'))), 10000);
     elements = browser.findElement(by.id('physicalAddressLine1'));
     elements.sendKeys('TestPantryAutomationPhysicalAddressLine1');
 
     elements = browser.findElement(by.id('physicalAddressCity'));
     elements.sendKeys('TestPantryAutomationPhysicalAddressCity');
 
+    browser.wait(EC.presenceOf(element(by.id('physicalAddressState'))), 10000);
     elements = browser.findElement(by.id('physicalAddressState'));
     elements.sendKeys('WA');
 
@@ -55,6 +58,7 @@ describe('Example:', function () {
 
     // wait for element to load
     browser.wait(EC.presenceOf(element(by.id('firstName'))), 10000);
+    browser.waitForAngular();
 
     // Administrator info
     elements = browser.findElement(by.id('firstName'));
@@ -79,6 +83,7 @@ describe('Example:', function () {
     elements.click();
 
     browser.wait(EC.presenceOf(element(by.id('pantrysignupButtonId'))), 10000);
+    browser.waitForAngular();
     // SignUp
     elements = browser.findElement(by.id('pantrysignupButtonId'));
     elements.click();
