@@ -146,7 +146,7 @@ angular.module('pantyexpressApp')
     }
 
     $scope.isReadOnly = function() {
-      $scope.household = "isReadOnly";
+      $scope.req.pantry = "isReadOnly";
     };
 
     $scope.householdsFilter = {};
@@ -168,6 +168,10 @@ angular.module('pantyexpressApp')
       $location.url( '/households/editmember' )
     };
 
+    $scope.saveHousehold = function (){
+      putHousehold();
+    };
+
     function getHousehold() {
       // Call get household operation via API service
       console.log("HouseholdsGet Household ID: ", $rootScope.selectedHousehold.householdId );
@@ -180,6 +184,19 @@ angular.module('pantyexpressApp')
         console.error('HouseholdsGet Error', err);
         // TODO: Add error handling here
       });
+    }
+
+    function putHousehold(){
+      console.log("HouseholdsPut Household ID: ", $rootScope.selectedHousehold.householdId );
+      console.log("HouseholdsPut Pantry ID: ", $rootScope.selectedPantry.id  );
+      api.putPantriesByPantryIdHouseholdsByHouseholdId({ householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id, Household: $rootScope.selectedHousehold }).then(function (data){
+        $rootScope.household = data;
+        console.log('HouseholdsPut Response: ', $scope.household, data);
+      },function(err){
+        console.error('HouseholdsPut Error', err);
+        // TODO: Add error handling here
+      });
+
     }
 
     function listHouseholds() {
