@@ -43,7 +43,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" id="pantrySelected" ng-model="pantrySelected">
-        <li ng-repeat="item in pantries.items" value="{{ item.id }}"><a href="#/" ng-click="setSelectedPantry(item)">{{ item.name }}</a></li>
+        <li ng-repeat="item in pantries.items| orderBy:'name'" value="{{ item.id }}"><a href="#/" ng-click="setSelectedPantry(item)">{{ item.name }}</a></li>
       </ul>
     </div>
        <span ng-if="loggedin" class="nav-header-color">Welcome, {{user.name}}
