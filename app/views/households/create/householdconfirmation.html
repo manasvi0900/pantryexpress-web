@@ -59,13 +59,7 @@
       <div class="form-group">
         <label for="ValidationType" class="col-md-5 control-label">Validation Type:</label>
         <div class="col-md-9">
-          <select class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType" ng-readonly=isReadOnly>
-            <option></option>
-            <option value="Driving License">Driving license</option>
-            <option value="Physical mail">Physical mail </option>
-            <option value="Rental agreement">Rental agreement </option>
-            <option value="Utility bill">Utility bill</option>
-          </select>
+          <input class="form-control" name="validationType" id="ValidationType" ng-model="req.household.validationType" ng-readonly="isReadOnly">
         </div>
       </div>
     </div>
@@ -73,26 +67,15 @@
         <div class="form-group">
           <label for="transportationType" class="col-md-5 control-label">Transportation:</label>
           <div class="col-md-9">
-            <select class="form-control" name="transportationType" id="transportationType" ng-model="req.household.transportationType" ng-readonly="isReadOnly">
-              <option></option>
-              <option value="By Bus">By Bus</option>
-              <option value="By Car">By Car</option>
-              <option value="On Foot">On Foot</option>
-             </select>
-            </div>
+            <input class="form-control" name="transportationType" id="transportationType" ng-model="req.household.transportationType" ng-readonly="isReadOnly" ng-disabled="req.household.transportationType">
+          </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="hudCategory" class="col-md-5 control-label">Hud Category:</label>
           <div class="col-md-9">
-            <select class="form-control" name="hudCategory" id="hudCategory" ng-model="req.household.hudCategory" ng-readonly="isReadOnly">
-              <option></option>
-              <option value="Extremely Low">Extremely Low</option>
-              <option value="Very Low">Very Low</option>
-              <option value="Low">Low</option>
-              <option value="Moderate">Moderate</option>
-            </select>
+            <input class="form-control" name="hudCategory" id="hudCategory" ng-model="req.household.hudCategory" ng-readonly="isReadOnly">
           </div>
         </div>
       </div>
@@ -131,7 +114,7 @@
         <td>{{ member.firstName }}</td>
         <td>{{ member.middleName }}</td>
         <td>{{ member.lastName }}</td>
-        <td>{{ member.memberId }}</td>
+        <td>{{ member.providedId }}</td>
         <td>{{ member.email }}</td>
         <td>{{ member.memberType | householdMemberType }}</td>
         <td>{{ member.race }}</td>
