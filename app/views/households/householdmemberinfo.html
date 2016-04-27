@@ -94,6 +94,30 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
+          <label for="validationDate" class="col-md-5 control-label">Validation Date:</label>
+          <div class="col-md-9">
+            <input class="form-control" name="memberValidationDateFormInput" id="validationDate" placeholder="" type="date" ng-model="member.validationDate" >
+            <span class="form-validation-error" ng-show="householdMemberForm.memberValidationDateFormInput.$touched && householdMemberForm.memberValidationDateFormInput.$invalid">Member validation date is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="validationType" class="col-md-5 control-label">Validation Type</label>
+          <div class="col-md-9">
+            <select class="form-control" name="memberValidationTypeFormInput" id="validationType" ng-model="member.validationType" >
+              <option></option>
+              <option value="Birth certificate">Birth certificate </option>
+              <option value="Driver's license">Driver's license  </option>
+              <option value="Passport">Passport </option>
+              <option value="Utility bill">Utility bill</option>
+            </select>
+            <span class="form-validation-error" ng-show="householdMemberForm.memberValidationTypeFormInput.$touched && householdMemberForm.memberValidationTypeFormInput.$invalid">Member validation type is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
           <label for="race" class="col-md-5 control-label">Race</label>
           <div class="col-md-9">
             <select class="form-control" name="memberValidationTypeFormInput" ng-model="member.race" id="race">
@@ -107,10 +131,26 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-lg-12">
+    <div class="col-sm-offset-4 col-lg-12">
+      <div class="form-group">
+        <input type="checkbox" name="isDisabled" id="isDisabled" value="value" ng-model="tempMember.isDisabled">
+        <label for="isDisabled">Disabled</label>
+        <input type="checkbox" name="isHispanic" id="isHispanic" value="value" ng-model="tempMember.isHispanic">
+        <label for="isHispanic">Hispanic</label>
+        <input type="checkbox" name="isSpecialNeeds" id="isSpecialNeeds" value="value" ng-model="tempMember.isSpecialNeeds">
+        <label for="isSpecialNeeds">Special needs</label>
+        <input type="checkbox" name="isActive" id="isActive" value="value" ng-model="tempMember.isActive">
+        <label for="isActive">Active</label>
+        <input type="checkbox" name="isArchived" id="isArchived" value="value" ng-model="tempMember.isArchived">
+        <label for="isArchived">Archived</label>
+
+      </div>
+    </div>
+</div>
+<div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <p>
-          <button class="btn-primary">Update Household Member</button>
+          <button class="btn-primary">Save Household Member</button>
           <button class="btn-primary">Cancel</button>
         </p>
       </div>
