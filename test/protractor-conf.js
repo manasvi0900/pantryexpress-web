@@ -25,7 +25,7 @@ exports.config = {
   // tests to work.
   // seleniumAddress: 'http://selenium.example.com:4444/wd/hub',
 
-  seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+  // seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
   // -----------------------------------------------------------------
   // Specify the test code that will run.
   // -----------------------------------------------------------------
