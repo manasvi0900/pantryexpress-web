@@ -520,7 +520,7 @@ module.exports = function (grunt) {
     'newer:jshint',
     'newer:jscs',
     // 'test',
-    // 'protractor:e2e',
+    'protractor:e2e',
     'build'
   ]);
 
