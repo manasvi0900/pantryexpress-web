@@ -75,6 +75,7 @@ exports.config = {
   */
   capabilities: {
     browserName: 'chrome',
+    chromeDriver: 'node_modules/grunt-protractor-runner/node_modules/protractor/selenium/chromedriver',
     'chromeOptions': {
       args: ['--no-sandbox']
     }
