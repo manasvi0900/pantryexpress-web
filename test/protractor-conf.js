@@ -98,7 +98,7 @@ exports.config = {
 
   // A base URL for your application under test. Calls to browser.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:8080/#/',
+  baseUrl: 'http://localhost:3456/#/',
 
   // Selector for the element housing the angular app - this defaults to
   // body, but is necessary if ng-app is on a descendant of
