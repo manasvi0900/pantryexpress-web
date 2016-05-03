@@ -25,7 +25,7 @@ exports.config = {
   // tests to work.
   // seleniumAddress: 'http://selenium.example.com:4444/wd/hub',
 
-   seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+  // seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
   // -----------------------------------------------------------------
   // Specify the test code that will run.
   // -----------------------------------------------------------------
@@ -34,7 +34,6 @@ exports.config = {
   specs: [
     "../test/spec/e2e/*.js"
   ],
-  verbose: "true",
 
   // -----------------------------------------------------------------
   // Browser and Capabilities
@@ -75,11 +74,10 @@ exports.config = {
    },
   */
   capabilities: {
-    browserName: 'chrome',
-    'chromeOptions': {
-      args: ['--no-sandbox']
-    },
-    verbose: 'true'
+    browserName: 'chrome' // ,
+   // 'chromeOptions': {
+   //   args: ['--no-sandbox']
+   // },
   },
 
   // -----------------------------------------------------------------
@@ -104,7 +102,7 @@ exports.config = {
 
   // Selector for the element housing the angular app - this defaults to
   // body, but is necessary if ng-app is on a descendant of
-  rootElement: 'body',
+  // rootElement: 'body',
 
   // -----------------------------------------------------------------
   // Other configuration.
@@ -121,26 +119,26 @@ exports.config = {
    * You can specify a file containing code to run by setting onPrepare to
    * the filename string.
    */
-  onPrepare: function() {
+  // onPrepare: function() {
     // At this point, global 'protractor' object will be set up, and
     // jasmine will be available.
-  },
+  // },
 
   // ----- Options to be passed to minijasminenode -----
-  jasmineNodeOpts: {
+  // jasmineNodeOpts: {
     /**
      * onComplete will be called just before the driver quits.
      */
     // onComplete: function () {},
     // If true, display spec names.
-    isVerbose: false,
+  //  isVerbose: false,
     // If true, print colors to the terminal.
-    showColors: true,
+  //  showColors: true,
     // If true, include stack traces in failures.
-    includeStackTrace: true,
+  //  includeStackTrace: true,
     // Default time to wait in ms before a test fails.
-    defaultTimeoutInterval: 30000
-  }
+  //  defaultTimeoutInterval: 30000
+ // }
 };
 
 if (process.env.SNAP_CI) {
