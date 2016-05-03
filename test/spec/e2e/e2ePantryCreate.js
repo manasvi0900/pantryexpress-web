@@ -91,3 +91,5 @@ describe('Example:', function () {
 
   });
 });
+
+// "postinstall": "sed -i.bak 's/\"selenium\": \"[0-9\\.]*\"/\"selenium\": \"2.19\"/' node_modules/protractor/config.json"

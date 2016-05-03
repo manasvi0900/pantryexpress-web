@@ -41,6 +41,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "postinstall": "sed -i.bak 's/\"selenium\": \"[0-9\\.]*\"/\"selenium\": \"2.19\"/' node_modules/protractor/config.json"
+    "test": "node_modules/.bin/protractor test/conf-selenium.js"
   }
 }
