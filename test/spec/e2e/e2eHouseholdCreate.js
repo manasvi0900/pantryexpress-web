@@ -18,8 +18,8 @@ describe('Example:', function () {
   beforeEach(function () {
     console.log("Starting Signup New Household");
     // Load up a view and wait for it to be done with its rendering and epicycles.
-    browser.get('http://0.0.0.0:8081/#/households');
-    // browser.();
+    browser.get('http://localhost:8080/#/households');
+    //browser.waitForAngular();
   });
 
   it('SignUp NewHousehold', function () {

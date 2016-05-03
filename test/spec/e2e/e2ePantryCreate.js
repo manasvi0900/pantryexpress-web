@@ -19,8 +19,8 @@ describe('Example:', function () {
     console.log("Starting Signup New Pantry");
 
     // Load up a view and wait for it to be done with its rendering and epicycles.
-    browser.get('http://0.0.0.0:8081/#/signup');
-    browser.waitForAngular();
+    browser.get('http://localhost:8080/#/signup');
+    // browser.waitForAngular();
   });
 
   it('SignUp New Pantry', function () {

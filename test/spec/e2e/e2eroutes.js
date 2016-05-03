@@ -17,8 +17,8 @@ describe('Example:', function () {
   beforeEach(function () {
     console.log("Testing Homepage");
     // Load up a view and wait for it to be done with its rendering and epicycles.
-    browser.get('http://0.0.0.0:8081/#/');
-    browser.waitForAngular();
+    browser.get('http://localhost:8080/#/');
+    // browser.waitForAngular();
   });
 
   it('view Main Page', function () {
