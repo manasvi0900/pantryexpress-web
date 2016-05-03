@@ -25,7 +25,7 @@ exports.config = {
   // tests to work.
   // seleniumAddress: 'http://selenium.example.com:4444/wd/hub',
 
-  // seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+  seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
   // -----------------------------------------------------------------
   // Specify the test code that will run.
   // -----------------------------------------------------------------
@@ -34,6 +34,7 @@ exports.config = {
   specs: [
     "../test/spec/e2e/*.js"
   ],
+  verbose: "true",
 
   // -----------------------------------------------------------------
   // Browser and Capabilities
@@ -78,7 +79,8 @@ exports.config = {
     chromeDriver: '/usr/local/bin/chromedriver',
     'chromeOptions': {
       args: ['--no-sandbox']
-    }
+    },
+    verbose: 'true'
   },
 
   // -----------------------------------------------------------------
@@ -130,9 +132,9 @@ exports.config = {
     /**
      * onComplete will be called just before the driver quits.
      */
-    onComplete: function () {},
+    // onComplete: function () {},
     // If true, display spec names.
-    isVerbose: true,
+    isVerbose: false,
     // If true, print colors to the terminal.
     showColors: true,
     // If true, include stack traces in failures.
@@ -145,4 +147,6 @@ exports.config = {
 if (process.env.SNAP_CI) {
   exports.config.chromeDriver = '/usr/local/bin/chromedriver';
 }
+
+console.log('chrome drive: ' + exports.config.chromeDriver);
 

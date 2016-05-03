@@ -142,8 +142,8 @@ module.exports = function (grunt) {
     protractor: {
       options: {
         // Location of your protractor config file
-        // configFile: "test/protractor-conf.js",
-        configFile: "test/conf-selenium.js",
+        configFile: "test/protractor-conf.js",
+        // configFile: "test/conf-selenium.js",
 
         // Do you want the output to use fun colors?
         noColor: false,
@@ -153,11 +153,12 @@ module.exports = function (grunt) {
 
         // Additional arguments that are passed to the webdriver command
         args: { }
-      },
+        },
       e2e: {
         options: {
           // Stops Grunt process if a test fails
-          keepAlive: false
+          keepAlive: false,
+          verbose: true
         }
       },
       continuous: {

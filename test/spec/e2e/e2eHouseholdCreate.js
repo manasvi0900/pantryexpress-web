@@ -16,6 +16,7 @@ describe('Example:', function () {
   'use strict';
 
   beforeEach(function () {
+    console.log("Starting Signup New Household");
     // Load up a view and wait for it to be done with its rendering and epicycles.
     browser.get('http://localhost:8080/#/households');
     browser.waitForAngular();
