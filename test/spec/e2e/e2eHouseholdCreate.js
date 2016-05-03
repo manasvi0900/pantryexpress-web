@@ -107,7 +107,7 @@ describe('Example:', function () {
     // SignUp
     elements = browser.findElement(by.id('householdSignupButtonId'));
     elements.click();
-    browser.waitForAngular();
+    // browser.waitForAngular();
 
   });
 });
