@@ -35,12 +35,12 @@
     "karma-jasmine": "0.3.7",
     "karma-ng-scenario": "^0.1.0",
     "time-grunt": "1.0.0",
-    "protractor": "2.5.1"
+    "protractor": "3.2.2"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/protractor test/protractor-conf.js"
+    "webdriver:version": "sed -i.bak 's/\"chromedriver\": \"[0-9\\.]*\"/\"chromedriver\": \"2.19\"/' node_modules/protractor/config.json",
   }
 }
