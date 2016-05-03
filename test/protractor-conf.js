@@ -75,6 +75,7 @@ exports.config = {
   */
   capabilities: {
     browserName: 'chrome',
+    CHROMEDRIVER_VERSION: '',
     chromeDriver: '/usr/local/bin/chromedriver',
     'chromeOptions': {
       args: ['--no-sandbox']
