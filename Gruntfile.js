@@ -142,7 +142,8 @@ module.exports = function (grunt) {
     protractor: {
       options: {
         // Location of your protractor config file
-        configFile: "test/protractor-conf.js",
+        // configFile: "test/protractor-conf.js",
+        configFile: "test/conf-selenium.js",
 
         // Do you want the output to use fun colors?
         noColor: false,
