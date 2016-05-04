@@ -1,6 +1,8 @@
 // Generated on 2016-01-07 using generator-angular 0.15.0
 'use strict';
 var fs = require('fs');
+var spawn = require('child_process').spawn;
+
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -20,6 +22,77 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn',
     protractor: 'grunt-contrib-connect'
   });
+
+
+  function execute(cmd, args, options) {
+    // logger.info(cmd, args);
+    return function (cb) {
+      var ls;
+      if (process.platform === "win32") {
+        // Windows needs some help running commands.
+        ls = spawn('cmd', ['/c', cmd].concat(args));
+      } else {
+        ls = spawn(cmd, args, options);
+      }
+      var err = '';
+      var res = '';
+      ls.stdout.on('data', function (data) {
+        res += data;
+      });
+      ls.stderr.on('data', function (data) {
+        err += data;
+      });
+      ls.on('close', function (code) {
+        if (code) {
+          if (err) {
+            console.log('Error: ', err);
+          }
+          cb('Process ' + cmd + ' with args ' + JSON.stringify(args) + ' exited with code ' + code);
+          return;
+        }
+        if (err) {
+          cb(err);
+          return;
+        }
+        // logger.info(res);
+        cb(null, 'All good');
+      });
+    }
+  }
+
+  function execSyncRetry(func, done, retryCount) {
+    function run() {
+      try {
+        func(function(err, res) {
+          if (err) {
+            retryCount--;
+            if (retryCount) {
+              // logger.error(err);
+              setTimeout(function(){
+                run();
+              }, 2000);
+              return;
+            }
+            // logger.error(err);
+            grunt.fail.fatal('Task Failed');
+          }
+          if (res) {
+            grunt.log.writeln(res);
+          }
+          done();
+        });
+      } catch (e) {
+        console.error(e);
+        done();
+      }
+    }
+    run();
+    // Time out any grunt task after 15 minutes of execution
+    setTimeout(function() {
+      grunt.log.writeln("Grunt task timed out!");
+      done();
+    }, 60 * 1000 * 15);
+  }
 
   // Configurable paths for the application
   var appConfig = {
@@ -522,9 +595,23 @@ module.exports = function (grunt) {
     'newer:jshint',
     'newer:jscs',
     // 'test',
+    'test_grunt_serve',
     'protractor:e2e',
     'build'
   ]);
+
+  grunt.registerTask('test_grunt_serve', 'SLS deploy endpoint', function() {
+    var done = this.async();
+    execSyncRetry(execute('grunt', ['serve'], {
+      cwd: process.cwd() + '/'
+    }), this.async(), 3);
+    grunt.log.writeln('Processing task...');
+    // And some async stuff.
+    setTimeout(function() {
+      grunt.log.writeln('All done!');
+      done();
+    }, 1000);
+  });
 
   grunt.registerTask('update_sdk_hostname', 'This task updates the PantryExpress API SDK script reference hostname to use hostname defined by SDK_HOSTNAME env variable.', function() {
     // Replace index.html's script reference with updated hostname if "SDK_HOSTNAME" environment variable is defined
@@ -539,3 +626,4 @@ module.exports = function (grunt) {
     }
   });
 };
+
