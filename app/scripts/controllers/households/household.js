@@ -42,6 +42,16 @@ angular.module('pantyexpressApp')
         $scope.template = $scope.templates['newservice'];
         $scope.template.init();
       }
+      if(name === 'newser2')
+      {
+        $scope.template = $scope.templates['newser2'];
+        $scope.template.init();
+      }
+      if(name === 'MainNewService')
+      {
+        $scope.template = $scope.templates['MainNewService'];
+        $scope.template.init();
+      }
       if(name === null)
       {
         $scope.template = $scope.templates['find'];
@@ -127,12 +137,28 @@ angular.module('pantyexpressApp')
       visible: true,
       init: function() {}
     };
+    $scope.templates['newser2'] = {
+      name: 'New Service2',
+      url: 'views/households/newser2.html',
+      visible: true,
+      init: function() {}
+    };
+    $scope.templates['MainNewService'] = {
+      name: 'Main New Service',
+      url: 'views/households/MainNewService.html',
+      visible: true,
+      init: function() {}
+    };
 
     $scope.pages = [
         $scope.templates['find'],
         $scope.templates['new']
         //$scope.templates['edit'],
        // $scope.templates['editmember']
+    ];
+    $scope.newServicePages = [
+        $scope.templates['newservice'],
+        $scope.templates['newser2']
     ];
 
     $scope.template = $scope.pages[currentIndex];
