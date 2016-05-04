@@ -88,8 +88,9 @@
         <div class="form-group">
           <label for="phone" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-9">
-            <input class="form-control" name="memberPhoneNumberFormInput" id="phone" placeholder="" type="number" ng-model="tempMember.phone" >
+            <input class="form-control" name="memberPhoneNumberFormInput" ng-minlength="10" ng-maxlength="10" id="phone" placeholder="" type="number" ng-model="tempMember.phone" >
             <span class="form-validation-error" ng-show="householdMemberForm.memberPhoneNumberFormInput.$touched && householdMemberForm.memberPhoneNumberFormInput.$invalid">Phone Number is required.</span>
+            <span class="form-validation-error" ng-show="((householdMemberForm.memberPhoneNumberFormInput.$error.minlength || householdMemberForm.memberPhoneNumberFormInput.$error.maxlength) && registration.phone.$dirty) ">phone number should be 10 digits</span>
           </div>
         </div>
       </div>
