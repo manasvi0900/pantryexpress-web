@@ -74,9 +74,9 @@ exports.config = {
    },
   */
   capabilities: {
-    browserName: 'chrome' // ,
-   // 'chromeOptions': {
-   //   args: ['--no-sandbox']
+    browserName: 'chrome'  //,
+    //'chromeOptions': {
+    //  args: ['--no-sandbox']
    // },
   },
   directConnect: true,
@@ -146,7 +146,7 @@ if (process.env.SNAP_CI) {
   exports.config.chromeDriver = '/usr/local/bin/chromedriver';
 }
 else {
-  exports.config.seleniumAddress = 'http://127.0.0.1:4444/wd/hub'
+   exports.config.seleniumAddress = 'http://127.0.0.1:4444/wd/hub'
 }
 
 console.log('chrome drive: ' + exports.config.chromeDriver);
