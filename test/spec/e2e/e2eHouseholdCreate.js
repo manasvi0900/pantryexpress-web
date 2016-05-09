@@ -65,6 +65,9 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('hudCategory'));
     elements.sendKeys('Extremely Low');
 
+    elements = browser.findElement(by.id('race'));
+    elements.sendKeys('Asian');
+
     elements = browser.findElement(by.id('nextButtonId'));
     elements.click();
 
@@ -93,6 +96,9 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('birthday'));
     elements.sendKeys('04261965');
 
+    elements = browser.findElement(by.id('race'));
+    elements.sendKeys('Asian');
+
 
 
 
@@ -108,6 +114,11 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('householdSignupButtonId'));
     elements.click();
     // browser.waitForAngular();
+    browser.wait(EC.presenceOf(element(by.id('householdId'))), 10000);
+    elements = browser.findElement(by.id('householdId'));
+    expect(elements.isDisplayed()).toBe(true);
+//    expect(element.getText()).toBe('Splendid!');
+
 
   });
 });
