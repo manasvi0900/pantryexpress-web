@@ -91,6 +91,10 @@ describe('Example:', function () {
     elements.click();
     browser.waitForAngular();
 
+    // Check to make sure we load the login page, this is indirect that we did create the pantry
+    elements = browser.findElement(by.id('logginButtonId'));
+    expect(elements.isDisplayed()).toBe(true);
+
   });
 });
 

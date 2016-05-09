@@ -65,8 +65,8 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('hudCategory'));
     elements.sendKeys('Extremely Low');
 
-    elements = browser.findElement(by.id('race'));
-    elements.sendKeys('Asian');
+    //elements = browser.findElement(by.id('race'));
+    //elements.sendKeys('Asian');
 
     elements = browser.findElement(by.id('nextButtonId'));
     elements.click();
@@ -85,7 +85,7 @@ describe('Example:', function () {
     elements.sendKeys('test@test.com');
 
     elements = browser.findElement(by.id('phone'));
-    elements.sendKeys('5551212');
+    elements.sendKeys('5551212123');
 
     elements = browser.findElement(by.id('birthday'));
     elements.sendKeys('04261965');
