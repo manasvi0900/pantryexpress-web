@@ -1,52 +1,31 @@
-<html>
-<head>
-  <title>New Service<html>
-  </head>
 
-  <frameset rows="18%,82%">
 
-    <frame src="bannerfile.html" name="banner">
+<div class="col-xs-0">
+  <div class="text-left">
+    <div ng-include="'/views/households/newservice.html'"></div>
+  </div>
+</div>
+<div class="col-xs-2">
+  <div class="text-center">
+    <div ng-include="'/views/households/newser2.html'"></div>
+  </div>
+</div>
 
-    <frameset cols="25%,75%">
+</div>
 
-      <frame src="navigationfile.html"
-             name="nav">
 
-      <frame src="contentfile.html"
-             name="content">
+<!--<div class="span">
+    <div class="col-xs-2">
+      <div> ng-class = "{active: template.name === page.name}" ng-repeat="page in newServicePages"><a>{{ newServicePages.name }}</a> </div>
+    </div>
+  </div>
 
-    </frameset>
-
-    <noframes>Netscape Navigator 2 or higher and Microsoft Internet Explorer
-      3 or higher is
-
-      required to view frames.</noframes>
-
-  </frameset>
-
-  </html></title>
-
-</head>
-
-<frameset rows="18%,82%">
-
-  <frame src="bannerfile.html" name="banner">
-
-  <frameset cols="25%,75%">
-
-    <frame src="navigationfile.html"
-           name="nav">
-
-    <frame src="contentfile.html"
-           name="content">
-
-  </frameset>
-
-  <noframes>Netscape Navigator 2 or higher and Microsoft Internet Explorer
-    3 or higher is
-
-    required to view frames.</noframes>
-
-</frameset>
-
-</html>
+    <div class="col-lg-8 col-sm-offset-1">
+      <div ng-include="template.url"></div>
+      <div class="col-sm-8 col-lg-9">
+        <div class="form-group">
+          <br>
+          <div class="col-md-7"></div>
+        </div>
+      </div>
+    </div>-->

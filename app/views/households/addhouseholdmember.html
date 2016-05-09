@@ -51,8 +51,10 @@
         <div class="form-group">
           <label for="phone" class="col-md-5 control-label">Phone Number:</label>
           <div class="col-md-9">
-            <input class="form-control" name="memberPhoneNumberFormInput" id="phone" placeholder="" type="number" ng-model="member.phone" >
+            <input class="form-control" name="memberPhoneNumberFormInput" ng-minlength="10" ng-maxlength="10" id="phone" placeholder="" type="number" ng-model="member.phone" >
             <span class="form-validation-error" ng-show="householdMemberInfoForm.memberPhoneNumberFormInput.$touched && householdMemberInfoForm.memberPhoneNumberFormInput.$invalid">Phone Number is required.</span>
+             <span class="form-validation-error" ng-show="((householdMemberInfoForm.memberPhoneNumberFormInput.$error.minlength || householdMemberForm.memberPhoneNumberFormInput.$error.maxlength) && registration.phone.$dirty) ">phone number should be 10 digits</span>
+          </div>
           </div>
         </div>
       </div>
@@ -150,7 +152,7 @@
 <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <p>
-          <button class="btn-primary">Save Household Member</button>
+          <button class="btn-primary" ng-show="selectedHouseholdMember" id="updateHouseholdMembersBtn" ng-click="addHouseholdMember()">Update Member Info</button>
           <button class="btn-primary">Cancel</button>
         </p>
       </div>

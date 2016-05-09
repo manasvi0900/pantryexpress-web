@@ -42,6 +42,16 @@ angular.module('pantyexpressApp')
         $scope.template = $scope.templates['newservice'];
         $scope.template.init();
       }
+      if(name === 'newser2')
+      {
+        $scope.template = $scope.templates['newser2'];
+        $scope.template.init();
+      }
+      if(name === 'MainNewService')
+      {
+        $scope.template = $scope.templates['MainNewService'];
+        $scope.template.init();
+      }
       if(name === null)
       {
         $scope.template = $scope.templates['find'];
@@ -127,13 +137,38 @@ angular.module('pantyexpressApp')
       visible: true,
       init: function() {}
     };
+    $scope.templates['newser2'] = {
+      name: 'New Service2',
+      url: 'views/households/newser2.html',
+      visible: true,
+      init: function() {}
+    };
+    $scope.templates['MainNewService'] = {
+      name: 'Main New Service',
+      url: 'views/households/MainNewService.html',
+      visible: true,
+      init: function() {
+        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || $rootScope.selectedHousehold.householdId == "") {
+          $location.url('/households/find');
+        }
+
+        if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
+          console.log("Selected Household ID: ", $rootScope.selectedHousehold.householdId);
+          getHousehold();
+        } else {
+          console.log("Selected Household ID: Undefined");
+        }
+        if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
+          getHouseholdMembers();
+        }
+      }
+    };
 
     $scope.pages = [
         $scope.templates['find'],
         $scope.templates['new']
-        //$scope.templates['edit'],
-       // $scope.templates['editmember']
     ];
+
 
     $scope.template = $scope.pages[currentIndex];
 
@@ -142,6 +177,9 @@ angular.module('pantyexpressApp')
     };
     $scope.editHousehold= function () {
       $location.url('/households/edit');
+    };
+    $scope.newService= function () {
+      $location.url('/households/MainNewService');
     };
     $scope.editHouseholdMembers= function () {
       $location.url('/households/editmember');
