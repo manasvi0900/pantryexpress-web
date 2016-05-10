@@ -19,8 +19,8 @@ describe('Example:', function () {
     console.log("Starting Signup New Pantry");
 
     // Load up a view and wait for it to be done with its rendering and epicycles.
-    browser.get('http://localhost:8080/#/signup');
-    // browser.waitForAngular();
+    browser.get('#/signup');
+    browser.waitForAngular();
   });
 
   it('SignUp New Pantry', function () {
@@ -36,6 +36,7 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('physicalAddressLine1'));
     elements.sendKeys('TestPantryAutomationPhysicalAddressLine1');
 
+    browser.wait(EC.presenceOf(element(by.id('physicalAddressCity'))), 10000);
     elements = browser.findElement(by.id('physicalAddressCity'));
     elements.sendKeys('TestPantryAutomationPhysicalAddressCity');
 
@@ -43,18 +44,23 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('physicalAddressState'));
     elements.sendKeys('WA');
 
+    browser.wait(EC.presenceOf(element(by.id('physicalAddressZip'))), 10000);
     elements = browser.findElement(by.id('physicalAddressZip'));
     elements.sendKeys('98312');
 
+    browser.wait(EC.presenceOf(element(by.id('email'))), 10000);
     elements = browser.findElement(by.id('email'));
     elements.sendKeys('test@test.com');
 
+    browser.wait(EC.presenceOf(element(by.id('officePhone'))), 10000);
     elements = browser.findElement(by.id('officePhone'));
     elements.sendKeys('5551212');
 
+    browser.wait(EC.presenceOf(element(by.id('physicalAddressSame'))), 10000);
     elements = browser.findElement(by.id('physicalAddressSame'));
     elements.click();
 
+    browser.wait(EC.presenceOf(element(by.id('nextButtonId'))), 10000);
     elements = browser.findElement(by.id('nextButtonId'));
     elements.click();
 
@@ -66,21 +72,27 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('firstName'));
     elements.sendKeys('TestAdmininfoFirstName');
 
+    browser.wait(EC.presenceOf(element(by.id('lastName'))), 10000);
     elements = browser.findElement(by.id('lastName'));
     elements.sendKeys('TestAdmininfoLastName');
 
+    browser.wait(EC.presenceOf(element(by.id('jobTitle'))), 10000);
     elements = browser.findElement(by.id('jobTitle'));
     elements.sendKeys('TestAdmininfoJobTitle');
 
+    browser.wait(EC.presenceOf(element(by.id('phone'))), 10000);
     elements = browser.findElement(by.id('phone'));
     elements.sendKeys('5551212');
 
+    browser.wait(EC.presenceOf(element(by.id('email'))), 10000);
     elements = browser.findElement(by.id('email'));
     elements.sendKeys('test@test.com');
 
+    browser.wait(EC.presenceOf(element(by.id('addDirectorButtonId'))), 10000);
     elements = browser.findElement(by.id('addDirectorButtonId'));
     elements.click();
 
+    browser.wait(EC.presenceOf(element(by.id('nextButtonId'))), 10000);
     elements = browser.findElement(by.id('nextButtonId'));
     elements.click();
 
@@ -92,6 +104,7 @@ describe('Example:', function () {
     browser.waitForAngular();
 
     // Check to make sure we load the login page, this is indirect that we did create the pantry
+    browser.wait(EC.presenceOf(element(by.id('logginButtonId'))), 100000);
     elements = browser.findElement(by.id('logginButtonId'));
     expect(elements.isDisplayed()).toBe(true);
 

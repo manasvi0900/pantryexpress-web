@@ -74,10 +74,11 @@ exports.config = {
    },
   */
   capabilities: {
-    browserName: 'chrome'  //,
-    //'chromeOptions': {
-    //  args: ['--no-sandbox']
-   // },
+    browserName: 'chrome'  ,
+    'chromeOptions': {
+      args: ['--no-sandbox']
+    },
+    platform: 'ANY'
   },
   directConnect: true,
   // -----------------------------------------------------------------
@@ -98,7 +99,7 @@ exports.config = {
 
   // A base URL for your application under test. Calls to browser.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:3456/#/',
+  baseUrl: 'http://localhost:8080/#/',
   framework: 'jasmine2',
 
   // Selector for the element housing the angular app - this defaults to
@@ -146,7 +147,7 @@ if (process.env.SNAP_CI) {
   exports.config.chromeDriver = '/usr/local/bin/chromedriver';
 }
 else {
-   exports.config.seleniumAddress = 'http://127.0.0.1:4444/wd/hub'
+   // exports.config.seleniumAddress = 'http://127.0.0.1:4444/wd/hub'
 }
 
 console.log('chrome drive: ' + exports.config.chromeDriver);

@@ -606,7 +606,7 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTask('test_grunt_serve', 'SLS deploy endpoint', function() {
+  grunt.registerTask('test_grunt_serve', 'Starting grunt serve', function() {
     var done = this.async();
     execSyncRetry(execute('grunt', ['serve'], {
       cwd: process.cwd() + '/'
