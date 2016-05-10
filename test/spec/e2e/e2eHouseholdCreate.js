@@ -100,9 +100,6 @@ describe('Example:', function () {
     elements.sendKeys('Asian');
 
 
-
-
-
     elements = browser.findElement(by.id('addhouseholdMemberButtonId'));
     elements.click();
 
