@@ -8,7 +8,7 @@
         <div class="form-group">
           <label for="memberId" class="col-md-5 control-label">User Provided ID:</label>
           <div class="col-md-9">
-            <input class="form-control" id="memberId" placeholder="" type="text" ng-model="member.providedId" ng-readonly="isReadOnly">
+            <input class="form-control" id="memberId" placeholder="" type="text" ng-model="member.providedId">
           </div>
         </div>
       </div>
@@ -133,7 +133,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-offset-4 col-lg-12">
+    <div class="col-sm-offset-3 col-lg-12">
       <div class="form-group">
         <input type="checkbox" name="isDisabled" id="isDisabled" value="value" ng-model="tempMember.isDisabled">
         <label for="isDisabled">Disabled</label>
@@ -152,7 +152,7 @@
 <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <p>
-          <button class="btn-primary" ng-show="selectedHouseholdMember" id="updateHouseholdMembersBtn" ng-click="addHouseholdMember()">Update Member Info</button>
+          <button class="btn-primary" id="updateHouseholdMembersBtn">Update Member Info</button>
           <button class="btn-primary">Cancel</button>
         </p>
       </div>
