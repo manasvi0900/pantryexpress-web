@@ -15,6 +15,36 @@ Run `npm install ` for installing repository-specific npm modules.
 
 Run `bower install` for installing bower specific packages.
 
+## Testing
+
+sudo apt-get install xvfb
+// from: http://blog.maduma.com/post/120096144533/protractor-e2e-testing-on-cloud9
+install last chrome
+
+$ wget -q -O - \
+  https://dl-ssl.google.com/linux/linux_signing_key.pub \
+  | sudo apt-key add - 
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main"  \
+  >> /etc/apt/sources.list.d/google-chrome.list'
+$ sudo apt-get update 
+$ sudo apt-get install -y google-chrome-stable
+install protractor
+
+$ npm install -g protractor
+update webdriver
+
+$ webdriver-manager update
+
+npm install -g protractor
+run `webdriver-manager update` this gets the latest webdriver
+
+When you want to run tests you will need to have a seperate terminal open that is running a protractor/selenium server
+for c9/mac this is `xvfb-run webdriver-manager start`
+for windows this is `webdriver-manager start`
+(please note, that you will also need to have grunt serve running)
+
+to run only e2e tests `grunt protractor:e2e`
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for live preview.
