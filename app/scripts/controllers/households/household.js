@@ -191,11 +191,6 @@ angular.module('pantyexpressApp')
     $scope.newHousehold= function () {
       $location.path('views/households/newhousehold.html');
     };
-<<<<<<< HEAD
-    $scope.editHousehold = function (){
-      getHousehold();
-      $location.url( '/households/edit' )
-=======
     $scope.editHousehold= function () {
       $location.url('/households/edit');
     };
@@ -204,7 +199,6 @@ angular.module('pantyexpressApp')
     };
     $scope.editHouseholdMembers= function () {
       $location.url('/households/editmember');
->>>>>>> 5ee4359b56341eea113276116d49be9f032282e6
     };
 
     $scope.setview(viewname);
