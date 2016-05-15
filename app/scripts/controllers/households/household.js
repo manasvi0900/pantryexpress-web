@@ -365,4 +365,8 @@ angular.module('pantyexpressApp')
       });
     }
 
+    $scope.ScrollBarsProvider = function(){
+      
+    }
+
   });

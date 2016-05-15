@@ -3,7 +3,7 @@
     <h1>Household Information</h1>
   </div>
   <table class="table table-bordered">
-    <theadv class="thread-inverse">
+    <thead class="thread-inverse">
       <tr>
         <th>User Provided Id</th>
         <th>Name</th>
@@ -12,7 +12,7 @@
         <th>Gender</th>
         <th>Disabled</th>
         <th>Special Needs</th>
-    </theadv>
+    </thead>
     <tbody>
     <tr ng-repeat="member in householdMembers">
       <td>{{ member.providedId }}</td>
@@ -25,81 +25,6 @@
     </tr>
     </tbody>
   </table>
-  <!--<table class="table table-bordered">
-    <thead class="thread-inverse">
-    <tr>
-      <th>Inactive</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Age Group</th>
-      <th>Birthday</th>
-      <th>Gender</th>
-      <th>Special Diet</th>
-      <th>Disabled</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="household in households">
-      <td>
-        <label class="btn-default">
-          <input name="householdSelection" id="householdSelection" value="{{ household }}" class="active" type="radio" ng-model="selectedHousehold" ng-change="setSelectedHousehold(household)">
-        </label>
-      </td>
-      <!--<td>input type = "radio"</td>
-      <td>{{ household.householdNumber }}</td>
-      <td>{{ household.headOfHousehold.firstName }}</td>
-      <td>{{ household.headOfHousehold.lastName }}</td>
-    </tr>
-    <!--<tr>
-      <th><input type="checkbox" class="form-control checkbox"> </th>
-      <th>{{household.headOfHousehold.firstName}}</th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-    </tr>
-    <tr>
-      <th><input type="checkbox" class="form-control checkbox"> </th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-    </tr>
-    <tr>
-      <th><input type="checkbox" class="form-control checkbox"> </th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-    </tr>
-    <tr>
-      <th><input type="checkbox" class="form-control checkbox"> </th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-    </tr>
-    <tr>
-      <th><input type="checkbox" class="form-control checkbox"> </th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th></th>
-      <th></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-      <th><input type="checkbox" class="form-control checkbox"></th>
-    </tr>-->
     </tbody>
   </table>
   <form class="form-horizontal" role="form" name="newService1">
