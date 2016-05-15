@@ -2,8 +2,9 @@
   <div class="text-center">
     <h1>Household Information</h1>
   </div>
-  <table class="table table-bordered">
-    <thead class="thread-inverse">
+  <div class = "row">
+    <table class="table table-bordered">
+      <thead class="thread-inverse">
       <tr>
         <th>User Provided Id</th>
         <th>Name</th>
@@ -12,40 +13,43 @@
         <th>Gender</th>
         <th>Disabled</th>
         <th>Special Needs</th>
-    </thead>
-    <tbody>
-    <tr ng-repeat="member in householdMembers">
-      <td>{{ member.providedId }}</td>
-      <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
-      <td>{{ member.memberType}}</td>
-      <th>{{ member.birthday | date:'MM/dd/yyyy' }}</th>
-      <th>{{ member.gender }}</th>
-      <th>{{ member.isDisabled }}</th>
-      <th>{{ member.isSpecialNeeds }}</th>
-    </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="member in householdMembers">
+        <td>{{ member.providedId }}</td>
+        <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
+        <td>{{ member.memberType}}</td>
+        <th>{{ member.birthday | date:'MM/dd/yyyy' }}</th>
+        <th>{{ member.gender }}</th>
+        <th>{{ member.isDisabled }}</th>
+        <th>{{ member.isSpecialNeeds }}</th>
+      </tr>
+      </tbody>
+    </table>
     </tbody>
-  </table>
-    </tbody>
-  </table>
-  <form class="form-horizontal" role="form" name="newService1">
-    <div class="col-sm-2 col-lg-12">
-      <div class="form-group">
-        <label for="serviceRecieved" class="col-md-4 control-label">Service received by</label>
-          <div class="col-md-8">
+    </table>
+  </div>
+  <div class = "row">
+    <form class="form-horizontal" role="form" name="newService1">
+      <div class="col-sm-2 col-lg-12">
+        <div class="form-group">
+          <label for="serviceRecieved" class="col-sm-0 col-lg-12">Service received by</label>
             <select class="form-control" name="memberValidationTypeFormInput" id="serviceRecieved">
               <option></option>
               <option value="Option1">Option1</option>
               <option value="Option2">Option2  </option>
             </select>
-          </div>
         </div>
       </div>
-  </form>
-  <div class="col-md-9">
-    <button class="btn btn-primary btn-sm" >Recalculate</button>
-    <button class="btn btn-primary btn-sm" >Add Member</button>
-    <button class="btn btn-primary btn-sm" >Save</button>
-    <button class="btn btn-primary btn-sm" >Cancel</button>
+    </form>
+  </div>
+  <div class = "row">
+    <div class="col-md-9">
+      <button class="btn btn-primary btn-sm" >Recalculate</button>
+      <button class="btn btn-primary btn-sm" >Add Member</button>
+      <button class="btn btn-primary btn-sm" >Save</button>
+      <button class="btn btn-primary btn-sm" >Cancel</button>
+    </div>
   </div>
 </div>
 
