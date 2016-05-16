@@ -164,8 +164,8 @@ angular.module('pantyexpressApp')
       url: 'views/households/MainNewService.html',
       visible: true,
       init: function() {
-        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || $rootScope.selectedHousehold.householdId == "") {
-          $location.url('/households/find');
+        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || $rootScope.selectedHousehold.householdId === "") {
+          $location.url('/households/MainNewService');
         }
 
         if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
@@ -230,7 +230,7 @@ angular.module('pantyexpressApp')
       getSelectedHouseholdMember();
       $location.url( '/households/editmember' )
     };
-    
+
     $scope.addHouseholdMember = function (){
       console.log("here");
       // getSelectedHouseholdMember();
@@ -320,7 +320,7 @@ angular.module('pantyexpressApp')
         // TODO: Add error handling here
       });
     }
-    
+
     function putHouseholdMembers() {
       //call put householdMember operation via API service
       console.log("HouseholdMembersList Household ID: ", $rootScope.selectedHousehold.householdId );
