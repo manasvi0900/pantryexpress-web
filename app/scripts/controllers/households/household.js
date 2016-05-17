@@ -147,7 +147,7 @@ angular.module('pantyexpressApp')
       visible: true,
       init: function() {}
     };
-    
+
     $scope.templates['MainNewService'] = {
       name: 'Main New Service',
       url: 'views/households/MainNewService.html',
