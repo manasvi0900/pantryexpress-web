@@ -9,7 +9,7 @@
         <th>User Provided Id</th>
         <th>Name</th>
         <th>Member Type</th>
-        <th>Birthday</th>
+        <th>Age</th>
         <th>Gender</th>
         <th>Disabled</th>
         <th>Special Needs</th>
@@ -19,10 +19,20 @@
         <td>{{ member.providedId }}</td>
         <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
         <td>{{ member.memberType}}</td>
-        <th>{{ member.birthday | date:'MM/dd/yyyy' }}</th>
-        <th>{{ member.gender }}</th>
-        <th>{{ member.isDisabled }}</th>
-        <th>{{ member.isSpecialNeeds }}</th>
+        <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
+        <td>{{ member.gender }}</td>
+        <td>
+          <label class="btn-default">
+            <input name="householdSelection" id="isDisabled" value="{{ member }}" class="active" type="checkbox" ng-model="selectedHouseholdMember.isDisabled">
+          </label>
+        </td>
+        <td>
+          <label class="btn-default">
+            <input name="householdSelection" id="isSpecialNeeds" value="{{ member }}" class="active" type="checkbox" ng-model="selectedHouseholdMember.isSpecialNeeds">
+          </label>
+        </td>
+        <!--<td>{{ member.isDisabled }}</td>
+        <td>{{ member.isSpecialNeeds }}</td>-->
       </tr>
       </tbody>
     </table>
@@ -31,20 +41,18 @@
   </div>
   <div class = "row">
     <form class="form-horizontal" role="form" name="newService1">
-      <div class="col-sm-2 col-lg-12">
-        <div class="form-group">
-          <label for="serviceRecieved" class="col-sm-0 col-lg-12">Service received by</label>
-            <select class="form-control" name="memberValidationTypeFormInput" id="serviceRecieved">
-              <option></option>
-              <option value="Option1">Option1</option>
-              <option value="Option2">Option2  </option>
-            </select>
+    <div class="col-sm-2 col-lg-12">
+      <div class="form-group">
+        <label for="serviceRecieved" class="col-md-3 control-label">Service received by:</label>
+        <div class="col-md-4">
+          <input class="form-control" name="serviceRecieved" id="serviceRecieved" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
         </div>
       </div>
+    </div>
     </form>
   </div>
   <div class = "row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <button class="btn btn-primary btn-sm" >Recalculate</button>
       <button class="btn btn-primary btn-sm" >Add Member</button>
       <button class="btn btn-primary btn-sm" >Save</button>
