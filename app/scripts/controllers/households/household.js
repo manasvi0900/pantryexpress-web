@@ -164,7 +164,9 @@ angular.module('pantyexpressApp')
       url: 'views/households/MainNewService.html',
       visible: true,
       init: function() {
-        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId || $rootScope.selectedHousehold.householdId === "") {
+        console.log("StartMainServiceInit");
+        if (!$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId) {
+          console.log("Inside: !$rootScope.selectedHousehold || !$rootScope.selectedHousehold.householdId");
           $location.url('/households/MainNewService');
         }
 
@@ -175,8 +177,10 @@ angular.module('pantyexpressApp')
           console.log("Selected Household ID: Undefined");
         }
         if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
+          console.log("Inside: $rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId");
           getHouseholdMembers();
         }
+        console.log("EndMainServiceInit");
       }
     };
 
