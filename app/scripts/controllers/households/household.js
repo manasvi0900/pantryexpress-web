@@ -147,18 +147,7 @@ angular.module('pantyexpressApp')
       visible: true,
       init: function() {}
     };
-    $scope.templates['newservice'] = {
-      name: 'New Service',
-      url: 'views/households/newservice.html',
-      visible: true,
-      init: function() {}
-    };
-    $scope.templates['newser2'] = {
-      name: 'New Service2',
-      url: 'views/households/newser2.html',
-      visible: true,
-      init: function() {}
-    };
+    
     $scope.templates['MainNewService'] = {
       name: 'Main New Service',
       url: 'views/households/MainNewService.html',
