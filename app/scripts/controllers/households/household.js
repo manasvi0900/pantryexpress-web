@@ -224,6 +224,10 @@ angular.module('pantyexpressApp')
       $scope.member = "isReadOnly";
     };
 
+    $scope.clearSearch = function () {
+      $scope.searchAll = "";
+    };
+
     //default to today's date
     $scope.todayDate = new Date();
 

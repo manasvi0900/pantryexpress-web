@@ -70,7 +70,7 @@ body {
     .col-xs-12 {
     width: 80%;
   }
-    
+
     .col-md-5 {
       width: 22%;
     }
@@ -164,6 +164,21 @@ body {
 
   .nav-header-color {
     color: #fff;
+  }
+
+  .TwoColumns
+  {
+    -webkit-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 0px;
+    column-gap: 0px;
+    min-width: 1600px;
+  }
+
+  .Column
+  {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
   }
 
   }
