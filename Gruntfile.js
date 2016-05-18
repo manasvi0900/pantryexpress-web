@@ -392,17 +392,7 @@ module.exports = function (grunt) {
          }
        }
      },
-    // replace the font file path
-    replace: {
-      dist: {
-        src: ['<%= yeoman.dist %>/styles//*.css'],
-        overwrite: true,                 // overwrite matched source files
-        replacements: [{
-          from: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/',
-          to: '../fonts/'
-        }]
-      }
-    },
+
 
     uglify: {
       options: {
@@ -506,7 +496,16 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
-        }, {
+        },
+          // add this rule to copy the fonts:
+          {
+            expand: true,
+            flatten: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>/fonts',
+            src: ['bower_components/sass-bootstrap/fonts/*.*']
+          },
+          {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
@@ -606,15 +605,14 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin',
-    'update_sdk_hostname',
-    'replace:dist'
+    'update_sdk_hostname'
   ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
     // 'test',
-    'test_grunt_serve',
+    //'test_grunt_serve',
     'protractor:e2e',
     'build'
   ]);
