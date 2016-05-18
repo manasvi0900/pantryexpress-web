@@ -221,7 +221,11 @@ angular.module('pantyexpressApp')
 
     $scope.isReadOnly = function() {
       $scope.req.pantry = "isReadOnly";
+      $scope.member = "isReadOnly";
     };
+
+    //default to today's date
+    $scope.todayDate = new Date();
 
     $scope.householdsFilter = {};
     $scope.household = {};
@@ -371,8 +375,6 @@ angular.module('pantyexpressApp')
       });
     }
 
-    $scope.ScrollBarsProvider = function(){
 
-    }
 
   });
