@@ -392,6 +392,18 @@ module.exports = function (grunt) {
          }
        }
      },
+    // replace the font file path
+    replace: {
+      dist: {
+        src: ['<%= yeoman.dist %>/styles//*.css'],
+        overwrite: true,                 // overwrite matched source files
+        replacements: [{
+          from: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/',
+          to: '../fonts/'
+        }]
+      }
+    },
+
     uglify: {
       options: {
         beautify: true
@@ -594,7 +606,8 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin',
-    'update_sdk_hostname'
+    'update_sdk_hostname',
+    'replace:dist'
   ]);
 
   grunt.registerTask('default', [
