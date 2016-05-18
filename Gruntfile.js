@@ -384,6 +384,9 @@ module.exports = function (grunt) {
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
      cssmin: {
+       options: {
+         rebase: false
+       },
        dist: {
          files: {
            '<%= yeoman.dist %>/styles/main.css': [
