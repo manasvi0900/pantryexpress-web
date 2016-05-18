@@ -175,10 +175,13 @@ body {
     min-width: 1600px;
   }
 
-  .Column
-  {
+  .Column {
     -webkit-column-break-inside: avoid;
     break-inside: avoid;
+  }
+
+  .minwidth-control {
+    min-width: 1000px;
   }
 
   }
