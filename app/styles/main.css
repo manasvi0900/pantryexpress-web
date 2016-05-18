@@ -166,6 +166,20 @@ body {
     color: #fff;
   }
 
+  .TwoColumns
+  {
+    -webkit-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 0px;
+    column-gap: 0px;
+    min-width: 1600px;
+  }
+
+  .Column {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+  }
+
   .minwidth-control {
     min-width: 1000px;
   }
