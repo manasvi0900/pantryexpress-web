@@ -5,11 +5,9 @@
   <div class = "row">
     <table class="table table-bordered">
       <thead class="thread-inverse">
-      <tr>
-        <th>Select</th>
-        <th>User Provided Id</th>
-        <th>Name</th>
-        <th>Member Type</th>
+        <th>Selection</th>
+        <th>Member Name</th>
+        <th>User Provided ID</th>
         <th>Age</th>
         <th>Gender</th>
         <th>Disabled</th>
@@ -17,28 +15,13 @@
       </thead>
       <tbody>
       <tr ng-repeat="member in householdMembers">
-        <td>
-          <label class="btn-default">
-            <input name="householdSelection" id="check" type = "checkbox">
-          </label>
-        </td>
+        <td><input type="checkbox" id="householdMembersSelection" ng-model="householdMembersSelected[member.memberId]"></td>
+        <td>{{ member.firstName + " " + member.lastName}}</td>
         <td>{{ member.providedId }}</td>
-        <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
-        <td>{{ member.memberType}}</td>
-        <td>{{ member.birthday | date:'MM/dd/yyyy' }}</td>
+        <td>{{ member.age }}</td>
         <td>{{ member.gender }}</td>
-        <td>
-          <label class="btn-default">
-            <input name="householdSelection" id="isDisabled" value="{{ member }}" class="active" type="checkbox" ng-model="member.isDisabled" ng-readonly="isReadOnly">
-          </label>
-        </td>
-        <td>
-          <label class="btn-default">
-            <input name="householdSelection" id="isSpecialNeeds" value="{{ member }}" class="active" type="checkbox" ng-model="member.isSpecialNeeds" ng-readonly="isReadOnly">
-          </label>
-        </td>
-        <!--<td>{{ member.isDisabled }}</td>
-        <td>{{ member.isSpecialNeeds }}</td>-->
+        <td><input type="checkbox" ng-model="member.isDisabled" ng-disabled="true"></td>
+        <td><input type="checkbox" ng-model="member.isSpecialNeeds" ng-disabled="true"></td>
       </tr>
       </tbody>
     </table>
@@ -51,7 +34,7 @@
       <div class="form-group">
         <label for="serviceRecieved" class="col-md-6 control-label">Service received by:</label>
         <div class="col-md-6">
-          <input class="form-control" name="serviceRecieved" id="serviceRecieved" placeholder="" type="text" ng-model="householdsFilter.physicalAddress.line2">
+          <input class="form-control" name="serviceRecieved" id="serviceRecieved" placeholder="" type="text" ng-model="servicesCreateRequest.personPresentFirstName">
         </div>
       </div>
     </div>
@@ -59,7 +42,7 @@
   </div>
   <div class = "row">
     <div class="col-md-12">
-      <button class="btn btn-primary btn-sm" >Recalculate</button>
+      <button class="btn btn-primary btn-sm" ng-click="createService()">Recalculate</button>
       <button class="btn btn-primary btn-sm" >Add Member</button>
       <button class="btn btn-primary btn-sm" >Save</button>
       <button class="btn btn-primary btn-sm" >Cancel</button>
