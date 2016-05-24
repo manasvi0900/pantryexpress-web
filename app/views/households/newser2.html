@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="service in servicesEligibility | orderBy: 'serviceName'">
-          <td><input type="checkbox" ng-model="servicesSelected[service.serviceConfigId]" ng-true-value="{selected: true}" ng-false-value="{selected: false}"></td>
+          <td><input type="checkbox" ng-model="servicesSelected[service.serviceConfigId]" ng-true-value="{selected: true}" ng-false-value="{selected: false}" ng-change="calculateServicePounds()"></td>
           <td>{{ service.serviceName }}</td>
           <td>{{ service.serviceType }}</td>
           <td>{{ service.occurrencesThisWeek }}</td>

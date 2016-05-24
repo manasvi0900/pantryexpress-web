@@ -1,0 +1,39 @@
+<form>
+<div class="col-xs-8 col-md-6">
+  <div class="text-center">
+    <h1>Service History</h1>
+  </div>
+  <div>
+    <table class="table table-bordered">
+      <thead class="thread-inverse">
+        <tr>
+          <th>Service Date</th>
+          <th>Person Present</th>
+          <th>Members Served</th>
+          <th>Services Rendered</th>
+          <th>Full Service Pounds</th>
+          <th>Supplemental Pounds</th>
+          <th>EFAP Pounds</th>
+          <th>Non-food Pounds</th>
+          <th>Baby Pounds</th>
+          <th>Other Pounds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="service in servicesList | orderBy:'-timeOfService'">
+          <td>{{ service.timeOfService | date: "yyyy-MM-dd" }}</td>
+          <td>{{ service.personPresentFirstName }}</td>
+          <td>{{ service.householdMembersServed.items.length }}</td>
+          <td>{{ service.servicesRendered.items.length }}</td>
+          <td>{{ service.numberPoundsFullService }}</td>
+          <td>{{ service.numberPoundsSupplemental }}</td>
+          <td>{{ service.numberPoundsEFAP }}</td>
+          <td>{{ service.numberPoundsNonFood }}</td>
+          <td>{{ service.numberPoundsBaby }}</td>
+          <td>{{ service.numberPoundsOther }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</form>

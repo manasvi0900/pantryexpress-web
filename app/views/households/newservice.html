@@ -15,7 +15,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="member in householdMembers">
-        <td><input type="checkbox" id="householdMembersSelection" ng-model="householdMembersSelected[member.memberId]"></td>
+        <td><input type="checkbox" id="householdMembersSelection" ng-model="householdMembersSelected[member.memberId]" ng-change="calculateServicePounds()"></td>
         <td>{{ member.firstName + " " + member.lastName}}</td>
         <td>{{ member.providedId }}</td>
         <td>{{ member.age }}</td>
@@ -42,10 +42,9 @@
   </div>
   <div class = "row">
     <div class="col-md-12">
-      <button class="btn btn-primary btn-sm" ng-click="createService()">Recalculate</button>
-      <button class="btn btn-primary btn-sm" >Add Member</button>
-      <button class="btn btn-primary btn-sm" >Save</button>
-      <button class="btn btn-primary btn-sm" >Cancel</button>
+      <button class="btn btn-primary btn-sm" ng-click="createService()">Create Service</button>
+      <button class="btn btn-primary btn-sm"ng-click="findHousehold()" >Cancel Service</button>
+      <button class="btn btn-primary btn-sm"ng-click="resetCreateServicePage()" >Reset</button>
     </div>
   </div>
 </div>

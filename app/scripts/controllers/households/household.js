@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdCtrl', function ($scope, $rootScope, $location, $routeParams, api) {
+  .controller('HouseholdCtrl', function ($scope, $rootScope, $location, $routeParams, api, ngDialog) {
 
     $scope.setview = function(name)
     {
@@ -105,6 +105,7 @@ angular.module('pantyexpressApp')
     $scope.members = [];
     $scope.householdMembers = [];
     $scope.servicesEligibility = [];
+    $scope.servicesList = [];
     $scope.servicesSelected = {};
     $scope.householdMembersSelected = {};
     $scope.servicesCreateRequest = {};
@@ -112,8 +113,8 @@ angular.module('pantyexpressApp')
     $scope.servicesCreateRequest.householdMembersServed.items = [];
     $scope.servicesCreateRequest.servicesRendered = {};
     $scope.servicesCreateRequest.servicesRendered.items = [];
-    $scope.timeOfService = new Date();
-    $scope.timeOfServiceISOFormat = $scope.timeOfService.toISOString();
+    $scope.dateSelected = { time: new Date() };
+    $scope.timeOfServiceISOFormat = $scope.dateSelected.time;
 
     $scope.templates['new'] = {
       name: 'New Household',
@@ -194,22 +195,28 @@ angular.module('pantyexpressApp')
         if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
           console.log("Selected Household ID: ", $rootScope.selectedHousehold.householdId);
           setTimeOfService();
-          getServicesEligibility();
-          getHousehold();
-          getHouseholdMembers();
-          $scope.servicesSelected = {};
-          $scope.householdMembersSelected = {};
-          $scope.servicesCreateRequest = {};
-          $scope.servicesCreateRequest.householdMembersServed = {};
-          $scope.servicesCreateRequest.householdMembersServed.items = [];
-          $scope.servicesCreateRequest.servicesRendered = {};
-          $scope.servicesCreateRequest.servicesRendered.items = [];
+          initializeCreateServicePage();
         } else {
           console.log("Selected Household ID: Undefined");
           console.log("Service page initialization failed");
         }
         console.log("EndMainServiceInit");
       }
+    };
+    
+    function initializeCreateServicePage() {
+      $scope.servicesSelected = {};
+      $scope.householdMembersSelected = {};
+      $scope.servicesList = [];
+      $scope.servicesCreateRequest = {};
+      $scope.servicesCreateRequest.householdMembersServed = {};
+      $scope.servicesCreateRequest.householdMembersServed.items = [];
+      $scope.servicesCreateRequest.servicesRendered = {};
+      $scope.servicesCreateRequest.servicesRendered.items = [];
+      getServicesEligibility();
+      getHousehold();
+      getHouseholdMembers();
+      listServices();
     };
 
     $scope.pages = [
@@ -226,6 +233,9 @@ angular.module('pantyexpressApp')
     $scope.editHousehold= function () {
       $location.url('/households/edit');
     };
+    $scope.findHousehold = function() {
+      $location.url('/households/find');
+    }
     $scope.newService= function () {
       $location.url('/households/MainNewService');
     };
@@ -399,14 +409,19 @@ angular.module('pantyexpressApp')
       });
     }
     
-    function resetServiceSelections() {
-      $scope.timeOfService = new Date();
-      $scope.timeOfServiceISOFormat = $scope.timeOfService.toISOString();
-      console.log("timeOfService set to: ", $scope.timeOfServiceISOFormat);
+    $scope.resetCreateServicePage = function() {
+      $scope.dateSelected.time = new Date();
+      setTimeOfService();
+      initializeCreateServicePage();
+    };
+    
+    $scope.resetServiceSelections = function() {
+      setTimeOfService();
+      initializeCreateServicePage();
     };
     
     function setTimeOfService() {
-      $scope.timeOfServiceISOFormat = $scope.timeOfService.toISOString();
+      $scope.timeOfServiceISOFormat = $scope.dateSelected.time.toISOString();
       console.log("timeOfService set to: ", $scope.timeOfServiceISOFormat);
     };
     
@@ -427,6 +442,56 @@ angular.module('pantyexpressApp')
     }
     
     $scope.servicesCreateError = null;
+    
+    $scope.calculateServicePounds = function() {
+      // Count number of selected household members
+      var familySize = 0;
+      for (var selection in $scope.householdMembersSelected) {
+        if ($scope.householdMembersSelected.hasOwnProperty(selection)) {
+          if ($scope.householdMembersSelected[selection] === true) {
+            familySize++;
+          }
+        }
+      }
+      
+      // Calculate pounds for every selected service
+      for (var selection in $scope.servicesSelected) {
+        if ($scope.servicesSelected.hasOwnProperty(selection)) {
+          var numberPounds = 0;
+          if ($scope.servicesSelected[selection].selected === true) {
+            for (var svc in $scope.servicesEligibility) {
+              if ($scope.servicesEligibility.hasOwnProperty(svc)) {
+                var service = $scope.servicesEligibility[svc];
+                if (service.serviceConfigId === selection) {
+                  // Add number of pounds for up to first 10 family members
+                  if (familySize >= 1 && familySize <= 10) {
+                    var familySizePoundsKey = "numberPoundsFamilySize" + familySize.toString();
+                    numberPounds += service[familySizePoundsKey];
+                  }
+                  if (familySize > 10) {
+                    // Calculate pounds for first 10 members
+                    var familySizePoundsKey = "numberPoundsFamilySize10";
+                    numberPounds += service[familySizePoundsKey];
+                    
+                    // Calculate subsequent pounds for additional family members
+                    var deltaSize = familySize - 10;
+                    var deltaPounds = deltaSize * service.numberPoundsFamilySizeDelta;
+                    numberPounds += deltaPounds;
+                  }
+                
+                  // Set number of pounds to service attribute
+                  $scope.servicesSelected[selection].servicePounds = numberPounds;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      console.log("Services Selected: ", $scope.servicesSelected);
+      console.log("Household Members Selected: ", $scope.householdMembersSelected);
+      console.log("Services Eligibility Object" , $scope.servicesEligibility);
+    }
     
     $scope.createService = function() {
       console.log("householdMembersSelected: ", $scope.householdMembersSelected);
@@ -575,8 +640,31 @@ angular.module('pantyexpressApp')
         Service: $scope.servicesCreateRequest
       }).then(function (data) {
         console.log("ServicesCreate Response: ", data);
+        ngDialog.open({
+          template:'\
+                  <p>Service Successfully Created</p>\
+                  <div class="ngdialog-buttons">\
+                      <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()">OK</button>\
+                  </div>',
+          plain: true,
+          showClose: false,
+          closeByEscape: false
+        });
+        listServices();
+        //$scope.findHousehold();
+        
       }, function (err) {
         console.log("ServicesCreate Error: ", err);
       });
     };
+    
+    function listServices() {
+      api.getPantriesByPantryIdHouseholdsByHouseholdIdServices({householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id}).then(function (data) {
+        $scope.servicesList = data.items;
+        console.log("ServicesList Response: ", $scope.servicesList);
+      }, function (err) {
+        console.log("ServicesList Error: ", err);
+      });
+    };
+    
   });
