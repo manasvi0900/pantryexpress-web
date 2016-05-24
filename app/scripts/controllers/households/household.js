@@ -8,7 +8,7 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('HouseholdCtrl', function ($scope, $rootScope, $location, $routeParams, api) {
+  .controller('HouseholdCtrl', function ($scope, $rootScope, $location, $routeParams, api, ngDialog) {
 
     $scope.setview = function(name)
     {
@@ -226,6 +226,9 @@ angular.module('pantyexpressApp')
     $scope.editHousehold= function () {
       $location.url('/households/edit');
     };
+    $scope.findHousehold = function() {
+      $location.url('/households/find');
+    }
     $scope.newService= function () {
       $location.url('/households/MainNewService');
     };
@@ -625,6 +628,18 @@ angular.module('pantyexpressApp')
         Service: $scope.servicesCreateRequest
       }).then(function (data) {
         console.log("ServicesCreate Response: ", data);
+        ngDialog.open({
+          template:'\
+                  <p>Service Successfully Created</p>\
+                  <div class="ngdialog-buttons">\
+                      <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()">OK</button>\
+                  </div>',
+          plain: true,
+          showClose: false,
+          closeByEscape: false
+        });
+        $scope.findHousehold();
+        
       }, function (err) {
         console.log("ServicesCreate Error: ", err);
       });
