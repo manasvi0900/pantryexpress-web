@@ -15,7 +15,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="member in householdMembers">
-        <td><input type="checkbox" id="householdMembersSelection" ng-model="householdMembersSelected[member.memberId]"></td>
+        <td><input type="checkbox" id="householdMembersSelection" ng-model="householdMembersSelected[member.memberId]" ng-change="calculateServicePounds()"></td>
         <td>{{ member.firstName + " " + member.lastName}}</td>
         <td>{{ member.providedId }}</td>
         <td>{{ member.age }}</td>

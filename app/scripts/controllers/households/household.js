@@ -428,6 +428,56 @@ angular.module('pantyexpressApp')
     
     $scope.servicesCreateError = null;
     
+    $scope.calculateServicePounds = function() {
+      // Count number of selected household members
+      var familySize = 0;
+      for (var selection in $scope.householdMembersSelected) {
+        if ($scope.householdMembersSelected.hasOwnProperty(selection)) {
+          if ($scope.householdMembersSelected[selection] === true) {
+            familySize++;
+          }
+        }
+      }
+      
+      // Calculate pounds for every selected service
+      for (var selection in $scope.servicesSelected) {
+        if ($scope.servicesSelected.hasOwnProperty(selection)) {
+          var numberPounds = 0;
+          if ($scope.servicesSelected[selection].selected === true) {
+            for (var svc in $scope.servicesEligibility) {
+              if ($scope.servicesEligibility.hasOwnProperty(svc)) {
+                var service = $scope.servicesEligibility[svc];
+                if (service.serviceConfigId === selection) {
+                  // Add number of pounds for up to first 10 family members
+                  if (familySize >= 1 && familySize <= 10) {
+                    var familySizePoundsKey = "numberPoundsFamilySize" + familySize.toString();
+                    numberPounds += service[familySizePoundsKey];
+                  }
+                  if (familySize > 10) {
+                    // Calculate pounds for first 10 members
+                    var familySizePoundsKey = "numberPoundsFamilySize10";
+                    numberPounds += service[familySizePoundsKey];
+                    
+                    // Calculate subsequent pounds for additional family members
+                    var deltaSize = familySize - 10;
+                    var deltaPounds = deltaSize * service.numberPoundsFamilySizeDelta;
+                    numberPounds += deltaPounds;
+                  }
+                
+                  // Set number of pounds to service attribute
+                  $scope.servicesSelected[selection].servicePounds = numberPounds;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      console.log("Services Selected: ", $scope.servicesSelected);
+      console.log("Household Members Selected: ", $scope.householdMembersSelected);
+      console.log("Services Eligibility Object" , $scope.servicesEligibility);
+    }
+    
     $scope.createService = function() {
       console.log("householdMembersSelected: ", $scope.householdMembersSelected);
       console.log("servicesSelected: ", $scope.servicesSelected);
