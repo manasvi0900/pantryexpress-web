@@ -105,6 +105,7 @@ angular.module('pantyexpressApp')
     $scope.members = [];
     $scope.householdMembers = [];
     $scope.servicesEligibility = [];
+    $scope.servicesList = [];
     $scope.servicesSelected = {};
     $scope.householdMembersSelected = {};
     $scope.servicesCreateRequest = {};
@@ -112,8 +113,8 @@ angular.module('pantyexpressApp')
     $scope.servicesCreateRequest.householdMembersServed.items = [];
     $scope.servicesCreateRequest.servicesRendered = {};
     $scope.servicesCreateRequest.servicesRendered.items = [];
-    $scope.timeOfService = new Date();
-    $scope.timeOfServiceISOFormat = $scope.timeOfService.toISOString();
+    $scope.dateSelected = { time: new Date() };
+    $scope.timeOfServiceISOFormat = $scope.dateSelected.time;
 
     $scope.templates['new'] = {
       name: 'New Household',
@@ -194,22 +195,28 @@ angular.module('pantyexpressApp')
         if ($rootScope.selectedHousehold && $rootScope.selectedHousehold.householdId) {
           console.log("Selected Household ID: ", $rootScope.selectedHousehold.householdId);
           setTimeOfService();
-          getServicesEligibility();
-          getHousehold();
-          getHouseholdMembers();
-          $scope.servicesSelected = {};
-          $scope.householdMembersSelected = {};
-          $scope.servicesCreateRequest = {};
-          $scope.servicesCreateRequest.householdMembersServed = {};
-          $scope.servicesCreateRequest.householdMembersServed.items = [];
-          $scope.servicesCreateRequest.servicesRendered = {};
-          $scope.servicesCreateRequest.servicesRendered.items = [];
+          initializeCreateServicePage();
         } else {
           console.log("Selected Household ID: Undefined");
           console.log("Service page initialization failed");
         }
         console.log("EndMainServiceInit");
       }
+    };
+    
+    function initializeCreateServicePage() {
+      $scope.servicesSelected = {};
+      $scope.householdMembersSelected = {};
+      $scope.servicesList = [];
+      $scope.servicesCreateRequest = {};
+      $scope.servicesCreateRequest.householdMembersServed = {};
+      $scope.servicesCreateRequest.householdMembersServed.items = [];
+      $scope.servicesCreateRequest.servicesRendered = {};
+      $scope.servicesCreateRequest.servicesRendered.items = [];
+      getServicesEligibility();
+      getHousehold();
+      getHouseholdMembers();
+      listServices();
     };
 
     $scope.pages = [
@@ -402,14 +409,19 @@ angular.module('pantyexpressApp')
       });
     }
     
-    function resetServiceSelections() {
-      $scope.timeOfService = new Date();
-      $scope.timeOfServiceISOFormat = $scope.timeOfService.toISOString();
-      console.log("timeOfService set to: ", $scope.timeOfServiceISOFormat);
+    $scope.resetCreateServicePage = function() {
+      $scope.dateSelected.time = new Date();
+      setTimeOfService();
+      initializeCreateServicePage();
+    };
+    
+    $scope.resetServiceSelections = function() {
+      setTimeOfService();
+      initializeCreateServicePage();
     };
     
     function setTimeOfService() {
-      $scope.timeOfServiceISOFormat = $scope.timeOfService.toISOString();
+      $scope.timeOfServiceISOFormat = $scope.dateSelected.time.toISOString();
       console.log("timeOfService set to: ", $scope.timeOfServiceISOFormat);
     };
     
@@ -638,10 +650,21 @@ angular.module('pantyexpressApp')
           showClose: false,
           closeByEscape: false
         });
-        $scope.findHousehold();
+        listServices();
+        //$scope.findHousehold();
         
       }, function (err) {
         console.log("ServicesCreate Error: ", err);
       });
     };
+    
+    function listServices() {
+      api.getPantriesByPantryIdHouseholdsByHouseholdIdServices({householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id}).then(function (data) {
+        $scope.servicesList = data.items;
+        console.log("ServicesList Response: ", $scope.servicesList);
+      }, function (err) {
+        console.log("ServicesList Error: ", err);
+      });
+    };
+    
   });
