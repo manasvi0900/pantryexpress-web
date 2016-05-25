@@ -1,6 +1,9 @@
 <div class = "row">
   <div class = "col-sm-6 col-lg-12">
-    Date of Service: <input type="date" placeholder="" name="ValidationDate" ng-model="todayDate"><br>
+    <br>Date of Service: <input type="date" name="dateOfService" ng-model="dateSelected.time" ng-change="resetServiceSelections()"><br>
+  </div>
+    <div class = "col-sm-6 col-lg-12" ng-show="servicesCreateError!=null">
+      <br>Error Encountered: {{servicesCreateError}}<br>
   </div>
 </div>
 
@@ -16,21 +19,8 @@
   </div>
 </div>
 
-
-
-
-<!--<div class="span">
-    <div class="col-xs-2">
-      <div> ng-class = "{active: template.name === page.name}" ng-repeat="page in newServicePages"><a>{{ newServicePages.name }}</a> </div>
-    </div>
+<div class = "row">
+  <div>
+    <div ng-include="'views/households/servicehistory.html'"></div>
   </div>
-
-    <div class="col-lg-8 col-sm-offset-1">
-      <div ng-include="template.url"></div>
-      <div class="col-sm-8 col-lg-9">
-        <div class="form-group">
-          <br>
-          <div class="col-md-7"></div>
-        </div>
-      </div>
-    </div>-->
+</div>

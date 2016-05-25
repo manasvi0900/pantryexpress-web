@@ -1,59 +1,41 @@
+<<<<<<< HEAD
 <div class="col-xs-2 col-md-6">
+=======
+<form>
+<div class="col-xs-8 col-md-6">
+>>>>>>> 7b433a80a065be6ee4377c489eb5b5ac0182c8d7
   <div class="text-center">
     <h1>New Service</h1>
   </div>
   <div >
     <table class="table table-bordered">
       <thead class="thread-inverse">
-      <tr>
-        <th>Selection</th>
-        <th>Service Name</th>
-        <th>Occurrences this Week</th>
-        <th>Occurrences this Month</th>
-        <th>Eligible</th>
-        <th>Total No. of Ponds</th>
-      </tr>
+        <tr>
+          <th>Selection</th>
+          <th>Service Name</th>
+          <th>Service Type</th>
+          <th>Services This Week</th>
+          <th>Services This Month</th>
+          <th>Homeless Only</th>
+          <th>Commodities Eligible Only</th>
+          <th>Household Eligible</th>
+          <th>Total No. of Pounds</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <th><input type="checkbox" ></th>
-        <td>Full Service</td>
-        <td></td>
-        <td></td>
-        <th><input type="checkbox" ></th>
-        <td><input type='text'/></td>
-      </tr>
-      <tr>
-        <th><input type="checkbox" ></th>
-        <td>No Cook</td>
-        <td></td>
-        <td></td>
-        <th><input type="checkbox" ></th>
-        <td><input type='text'/></td>
-      </tr>
-      <tr>
-        <th><input type="checkbox" ></th>
-        <td>Baby Services</td>
-        <td></td>
-        <td></td>
-        <th><input type="checkbox" ></th>
-        <td><input type='text'/></td>
-      </tr>
+        <tr ng-repeat="service in servicesEligibility | orderBy: 'serviceName'">
+          <td><input type="checkbox" ng-model="servicesSelected[service.serviceConfigId]" ng-true-value="{selected: true}" ng-false-value="{selected: false}" ng-change="calculateServicePounds()"></td>
+          <td>{{ service.serviceName }}</td>
+          <td>{{ service.serviceType }}</td>
+          <td>{{ service.occurrencesThisWeek }}</td>
+          <td>{{ service.occurrencesThisMonth }}</td>
+          <td><input type="checkbox" ng-model="service.isHomelessRequired" ng-disabled="true"></td>
+          <td><input type="checkbox" ng-model="service.isCommoditiesEligibleRequired" ng-disabled="true"></td>
+          <td><input type="checkbox" ng-model="service.isHouseholdEligible" ng-disabled="true"></td>
+          <td><input type="text" ng-model="servicesSelected[service.serviceConfigId].servicePounds"></td>
+        </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-<!--<form class="form-horizontal" role="form" name="newService">
-  <div class="col-sm-12">
-    <button class="btn btn-primary btn-sm" >Recalculate</button>
-    <button class="btn btn-primary btn-sm" >Add Member</button>
-    <button class="btn btn-primary btn-sm" >Save</button>
-    <button class="btn btn-primary btn-sm" >Cancel</button>
-  </div>-->
-  <!--<div class="btn-group">
-      <button class="btn-primary">Edit</button>
-      <button class="btn-primary">Cancel</button>
-      <button class="btn-primary">New household</button>
-     </div>-->
 </form>
