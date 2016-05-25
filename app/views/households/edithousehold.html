@@ -195,7 +195,7 @@
           <p>
             <button class="btn-primary" id="saveHouseholdButtonId" ng-click="saveHousehold()">Save Household</button>
             <button class="btn-primary" ng-click="addHouseholdMember()">Add Household Member</button>
-            <button class="btn-primary">Cancel</button>
+            <button class="btn-primary" ng-click = "cancel()">Cancel</button>
           </p>
         </div>
       <div class="text-center">
@@ -204,7 +204,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <p>
-            <button class="btn-primary" ng-show="selectedHouseholdMember">New Service</button>
+            <button class="btn-primary" ng-show="selectedHouseholdMember" ng-click="newService()">New Service</button>
             <button class="btn-primary" ng-show="selectedHouseholdMember" id="updateHouseholdMembersBtn" ng-click="editHouseholdMembers()">Update Member Info</button>
             <button class="btn-primary" ng-show="selectedHouseholdMember">Make Head of Household</button>
           </p>

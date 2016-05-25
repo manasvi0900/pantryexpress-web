@@ -242,6 +242,12 @@ angular.module('pantyexpressApp')
     $scope.editHouseholdMembers= function () {
       $location.url('/households/editmember');
     };
+    $scope.cancel = function(){
+      $location.url('/households/find')
+    }
+    $scope.cancelUpdtaeMember = function(){
+      $location.url('/households/edit')
+    }
 
     $scope.setview(viewname);
     $scope.goto = function (targetIndex){
