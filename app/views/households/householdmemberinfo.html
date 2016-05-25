@@ -133,8 +133,12 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-offset-4 col-lg-12">
+        <div class="col-sm-offset-3 col-lg-12">
           <div class="form-group">
+            <input type="checkbox" name="isActive" id="isActive" value="value" ng-model="member.isActive">
+            <label for="isActive">Active</label>
+            <input type="checkbox" name="isArchived" id="isArchived" value="value" ng-model="member.isArchived">
+            <label for="isArchived">Archived</label>
             <input type="checkbox" name="isDisabled" id="isDisabled" value="value" ng-model="member.isDisabled">
             <label for="isDisabled">Disabled</label>
             <input type="checkbox" name="isHispanic" id="isHispanic" value="value" ng-model="member.isHispanic">
@@ -148,7 +152,7 @@
       <div class="form-group">
         <p>
           <button class="btn-primary" id="saveHouseHoldMemberButtonId">Save Household Member</button>
-          <button class="btn-primary">Cancel</button>
+          <button class="btn-primary" ng-click="cancelUpdtaeMember()">Cancel</button>
         </p>
       </div>
     </div>
