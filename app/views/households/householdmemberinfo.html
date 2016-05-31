@@ -59,7 +59,7 @@
       </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
-          <label for="birthday" class="col-md-5 control-label">Birthday/Age:</label>
+          <label for="birthday" class="col-md-5 control-label">Birthday:</label>
           <div class="col-md-9">
             <input class="form-control" name="memberBirthdayFormInput" id="birthday" placeholder="" type="date" ng-model="member.birthday" ng-required="CheckMemberExists(householdMemberForm)">
             <span class="form-validation-error" ng-show="householdMemberForm.memberBirthdayFormInput.$touched && householdMemberForm.memberBirthdayFormInput.$invalid">Birthday is required.</span>
@@ -96,19 +96,6 @@
            </div>
         </div>
     </div>
-       <div class="col-sm-6 col-lg-12">
-        <div class="form-group">
-          <label for="memberType" class="col-md-5 control-label">Member Type:</label>
-          <div class="col-md-9">
-            <select class="form-control" name="memberTypeFormInput" id="memberType" ng-model="member.memberType" ng-required="CheckMemberExists(householdMemberForm)" ng-init="SetHHType();">
-              <option></option>
-              <option value="headOfHousehold">Head of Household</option>
-              <option value="householdMember">Household Member</option>
-            </select>
-            <span class="form-validation-error" ng-show="householdMemberForm.memberTypeFormInput.$touched && householdMemberForm.memberTypeFormInput.$invalid">Member type is required.</span>
-          </div>
-        </div>
-      </div>
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <label for="validationDate" class="col-md-5 control-label">Validation Date:</label>
@@ -151,7 +138,7 @@
     <div class="col-sm-6 col-lg-12">
       <div class="form-group">
         <p>
-          <button class="btn-primary" id="saveHouseHoldMemberButtonId">Save Household Member</button>
+          <button class="btn-primary" id="saveHouseHoldMemberButtonId" ng-click="saveExistingHouseholdMember()">Save Household Member</button>
           <button class="btn-primary" ng-click="cancelUpdtaeMember()">Cancel</button>
         </p>
       </div>

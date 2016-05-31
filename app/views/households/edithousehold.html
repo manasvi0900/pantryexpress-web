@@ -132,7 +132,7 @@
           <div class="form-group">
              <label for="addressValidationDate" class="col-md-5 control-label">Validation Date:</label>
                 <div class="col-md-9">
-                  <input class="form-control" name="addressValidationDate" id="addressValidationDate" placeholder="" type="date" ng-model="validationDate">
+                  <input class="form-control" name="addressValidationDate" id="addressValidationDate" placeholder="" type="date" ng-model="household.validationDate">
                 </div>
           </div>
       </div>
@@ -194,6 +194,7 @@
         <div>
           <p>
             <button class="btn-primary" id="saveHouseholdButtonId" ng-click="saveHousehold()">Save Household</button>
+            <button class="btn-primary" ng-click="newService()">New Service</button>
             <button class="btn-primary" ng-click="addHouseholdMember()">Add Household Member</button>
             <button class="btn-primary" ng-click = "cancel()">Cancel</button>
           </p>
@@ -204,9 +205,7 @@
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
           <p>
-            <button class="btn-primary" ng-show="selectedHouseholdMember" ng-click="newService()">New Service</button>
-            <button class="btn-primary" ng-show="selectedHouseholdMember" id="updateHouseholdMembersBtn" ng-click="editHouseholdMembers()">Update Member Info</button>
-            <button class="btn-primary" ng-show="selectedHouseholdMember">Make Head of Household</button>
+            <button class="btn-primary" ng-show="selectedHouseholdMember" id="updateHouseholdMembersBtn" ng-click="editHouseholdMember()">Update Member Info</button>
           </p>
         </div>
       </div>
@@ -216,7 +215,6 @@
         <th>Selection</th>
         <th>User Provided Id</th>
         <th>Name</th>
-        <th>Member Type</th>
         <th>Birthday</th>
         <th>Gender</th>
         <th>Validation Date</th>
@@ -233,20 +231,19 @@
       <tr ng-repeat="member in householdMembers">
         <td>
           <label class="btn-default">
-            <input name="memberSelection" id="memberSelection" value="{{ member }}" class="active" type="radio" ng-model="selectedHouseholdMember" ng-change="setSelectedHouseholdMember(member)">
+            <input name="memberSelection" id="memberSelection" value="{{ member.memberId }}" class="active" type="radio" ng-model="selectedHouseholdMember" ng-change="setSelectedHouseholdMember(member)">
           </label>
         <td>{{ member.providedId }}</td>
         <td>{{ member.firstName + " " + member.middleName + " " + member.lastName}}</td>
-        <td>{{ member.memberType}}</td>
         <th>{{ member.birthday | date:'MM/dd/yyyy' }}</th>
         <th>{{ member.gender }}</th>
         <th>{{ member.validationDate | date:'MM/dd/yyyy' }}</th>
         <th>{{ member.validationType }}</th>
-        <th>{{ member.isDisabled }}</th>
-        <th>{{ member.isHispanic }}</th>
-        <th>{{ member.isSpecialNeeds }}</th>
-        <th>{{ member.isArchived }}</th>
-        <th>{{ member.isInactive }}</th>
+        <th><input type="checkbox" ng-model="member.isDisabled" ng-disabled="true"></th>
+        <th><input type="checkbox" ng-model="member.isHispanic" ng-disabled="true"></th>
+        <th><input type="checkbox" ng-model="member.isSpecialNeeds" ng-disabled="true"></th>
+        <th><input type="checkbox" ng-model="member.isArchived" ng-disabled="true"></th>
+        <th><input type="checkbox" ng-model="member.isActive" ng-disabled="true"></th>
         <th>{{ member.createdAt | date:'MM/dd/yyyy' }}</th>
       </tr>
     </tbody>

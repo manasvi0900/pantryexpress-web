@@ -33,25 +33,26 @@ angular.module('pantyexpressApp')
     $scope.tempMember = {
       isDisabled: false,
       isHispanic: false,
-      isSpecialNeeds: false
+      isSpecialNeeds: false,
+      validationDate: new Date()
     };
 
 
     // Create blank request object for household create request parameters
     $scope.req = {
+      household: {
+        isInCityLimits: true,
+        isHomeless: false,
+        isCommoditiesEligible: true,
+        isSingleParentHousehold: false,
+        validationDate: new Date()
+      },
       members: []
     };
 
     $scope.isReadOnly = function() {
     $scope.req.pantry = "isReadOnly";
     };
-
-
-    //default to today's date
-    $scope.validationDate = new Date();
-    $scope.tempMember.validationDate = new Date();
-    //$scope.household.validationDate = new Date();
-
 
     $scope.getFullName = function () {
           alert($scope.req.household.firstName + " " + $scope.req.household.middleName + " " + $scope.req.household.lastName);
@@ -61,6 +62,8 @@ angular.module('pantyexpressApp')
         if($scope.req.members.length === 0)
         {
           $scope.tempMember.memberType = "headOfHousehold";
+        } else {
+          $scope.tempMember.memberType = "householdMember";
         }
      }
     $scope.AddFormToScope = function(form)
@@ -133,7 +136,8 @@ angular.module('pantyexpressApp')
         isDisabled: false,
         isHispanic: false,
         isSpecialNeeds: false,
-        memberType: 'householdMember'
+        memberType: 'householdMember',
+        validationDate: new Date()
       };
     };
 
@@ -157,5 +161,3 @@ angular.module('pantyexpressApp')
     }
 
 });
-
-
