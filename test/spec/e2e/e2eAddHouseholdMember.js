@@ -74,10 +74,6 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('phone'));
     elements.sendKeys('5551212123');
 
-    browser.wait(EC.presenceOf(element(by.id('birthday'))), 10000);
-    elements = browser.findElement(by.id('birthday'));
-    elements.sendKeys('04261965');
-
     browser.wait(EC.presenceOf(element(by.id('gender'))), 10000);
     elements = browser.findElement(by.id('gender'));
     elements.sendKeys('Female');
@@ -90,8 +86,8 @@ describe('Example:', function () {
     elements = browser.findElement(by.id('race'));
     elements.sendKeys('Asian');
 
-    browser.wait(EC.presenceOf(element(by.id('saveHouseholdButtonId'))), 10000);
-    elements = browser.findElement(by.id('saveHouseholdButtonId'));
+    browser.wait(EC.presenceOf(element(by.id('saveNewHouseholdMember'))), 10000);
+    elements = browser.findElement(by.id('saveNewHouseholdMember'));
     elements.click();
 
     // TODO Need to add final check once test is complete
