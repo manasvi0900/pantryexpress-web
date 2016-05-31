@@ -215,7 +215,7 @@ module.exports = function (grunt) {
     protractor: {
       options: {
         // Location of your protractor config file
-        configFile: "test/protractor-conf.js",
+
         // configFile: "test/conf-selenium.js",
 
         // Do you want the output to use fun colors?
@@ -229,6 +229,23 @@ module.exports = function (grunt) {
         },
       e2e: {
         options: {
+          configFile: "test/protractor-conf.js",
+          // Stops Grunt process if a test fails
+          keepAlive: false,
+          verbose: true
+        }
+      },
+      createpantry: {
+        options: {
+          configFile: "test/protractor-createpantry.js",
+          // Stops Grunt process if a test fails
+          keepAlive: false,
+          verbose: true
+        }
+      },
+      createhousehold: {
+        options: {
+          configFile: "test/protractor-createhousehold.js",
           // Stops Grunt process if a test fails
           keepAlive: false,
           verbose: true
@@ -236,10 +253,12 @@ module.exports = function (grunt) {
       },
       continuous: {
         options: {
+          configFile: "test/protractor-conf.js",
           keepAlive: true
         }
       }
     },
+
 
     // Make sure code styles are up to par
     jscs: {
