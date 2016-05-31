@@ -10,6 +10,7 @@
         <th>Age</th>
         <th>Gender</th>
         <th>Disabled</th>
+        <th>Hispanic</th>
         <th>Special Needs</th>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@
         <td>{{ member.age }}</td>
         <td>{{ member.gender }}</td>
         <td><input type="checkbox" ng-model="member.isDisabled" ng-disabled="true"></td>
+        <td><input type="checkbox" ng-model="member.isHispanic" ng-disabled="true"></td>
         <td><input type="checkbox" ng-model="member.isSpecialNeeds" ng-disabled="true"></td>
       </tr>
       </tbody>
@@ -42,9 +44,7 @@
   <div class = "row">
     <div class="col-md-12">
       <button class="btn btn-primary btn-sm" ng-click="createService()">Create Service</button>
-      <button class="btn btn-primary btn-sm"ng-click="findHousehold()" >Cancel Service</button>
+      <button class="btn btn-primary btn-sm"ng-click="editHousehold()" >Cancel Service</button>
       <button class="btn btn-primary btn-sm"ng-click="resetCreateServicePage()" >Reset</button>
     </div>
   </div>
-
-
