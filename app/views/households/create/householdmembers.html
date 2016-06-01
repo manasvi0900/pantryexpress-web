@@ -121,7 +121,7 @@
         <div class="form-group">
            <label for="race" class="col-md-5 control-label">Race:</label>
            <div class="col-md-9">
-             <select class="form-control" name="race" id="race" ng-model="tempMember.race">
+             <select class="form-control" name="race" id="race" ng-model="tempMember.race" ng-required="CheckMemberExists(householdMemberForm)">
                <option></option>
                <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
                <option value="Asian">Asian</option>
@@ -129,7 +129,7 @@
                <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
                <option value="White">White</option>
              </select>
-             </select>
+             <span class="form-validation-error" ng-show="householdMemberForm.race.$touched && householdMemberForm.race.$invalid">Race is required.</span>
            </div>
         </div>
     </div>
