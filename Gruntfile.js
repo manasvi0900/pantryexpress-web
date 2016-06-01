@@ -391,7 +391,7 @@ module.exports = function (grunt) {
           // used for the glyph fonts
           css: [
             [/(\/bower_components\/bootstrap\/dist\/fonts)/g, 'https://github.com/yeoman/generator-angular/issues/665', function(match) {
-              return match.replace('/bower_components/bootstrap/dist/fonts', '/fonts');
+              return match.replace('../fonts', '/bower_components/bootstrap/dist/fonts');
             }]
           ]
         }
