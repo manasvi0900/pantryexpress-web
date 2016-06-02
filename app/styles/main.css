@@ -65,7 +65,12 @@ body {
     max-width: 730px;
   }
 
+
   @media (min-width: 992px) {
+    .col-xs-12 {
+    width: 80%;
+  }
+
     .col-md-5 {
       width: 22%;
     }
@@ -155,6 +160,28 @@ body {
 
   .form-validation-error {
     color: #990000;
+  }
+
+  .nav-header-color {
+    color: #fff;
+  }
+
+  .TwoColumns
+  {
+    -webkit-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 0px;
+    column-gap: 0px;
+    min-width: 1600px;
+  }
+
+  .Column {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .minwidth-control {
+    min-width: 1000px;
   }
 
   }

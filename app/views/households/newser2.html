@@ -1,0 +1,36 @@
+<div class="col-xs-11 col-md-11">
+  <div class="text-left">
+    <h1>New Service</h1>
+  </div>
+  <div >
+    <table class="table table-bordered">
+      <thead class="thread-inverse">
+        <tr>
+          <th>Selection</th>
+          <th>Service Name</th>
+          <th>Service Type</th>
+          <th>Services This Week</th>
+          <th>Services This Month</th>
+          <th>Homeless Only</th>
+          <th>Commodities Eligible Only</th>
+          <th>Household Eligible</th>
+          <th>Total No. of Pounds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="service in servicesEligibility | orderBy: 'serviceName'">
+          <td><input type="checkbox" ng-model="servicesSelected[service.serviceConfigId]" ng-true-value="{selected: true}" ng-false-value="{selected: false}" ng-change="calculateServicePounds()"></td>
+          <td>{{ service.serviceName }}</td>
+          <td>{{ service.serviceType }}</td>
+          <td>{{ service.occurrencesThisWeek }}</td>
+          <td>{{ service.occurrencesThisMonth }}</td>
+          <td><input type="checkbox" ng-model="service.isHomelessRequired" ng-disabled="true"></td>
+          <td><input type="checkbox" ng-model="service.isCommoditiesEligibleRequired" ng-disabled="true"></td>
+          <td><input type="checkbox" ng-model="service.isHouseholdEligible" ng-disabled="true"></td>
+          <td><input type="text" ng-model="servicesSelected[service.serviceConfigId].servicePounds"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

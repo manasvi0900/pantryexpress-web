@@ -78,7 +78,10 @@
               <div class="form-group">
                   <label for="password1" class="col-md-5 control-label">Desired Password:</label>
                   <div class="col-md-7">
-                      <input class="form-control" id="password1" placeholder="Desired Password" type="text">
+                    <input ng-show="showpassword1" id="password1" placeholder="Desired Password" type="text" ng-model="password1">
+                    <input ng-hide="showpassword1" placeholder="Desired Password" type="password" ng-model="password1">
+                    <input type="checkbox" id="showpassword1" ng-model="showpassword1" ng-checked="false">
+                    <label for="showpassword1">Show Password</label>
                   </div>
               </div>
           </div>
@@ -86,14 +89,17 @@
               <div class="form-group">
                   <label for="password2" class="col-md-5 control-label">Re-Enter Password:</label>
                   <div class="col-md-7">
-                      <input class="form-control" id="password2" placeholder="Re-Enter Password" type="text">
+                    <input ng-show="showpassword2" id="password2" placeholder="Re-Enter Password" type="text" ng-model="password2">
+                    <input ng-hide="showpassword2" placeholder="Desired Password" type="password" ng-model="password2">
+                    <input type="checkbox" id="showpassword2" ng-model="showpassword2" ng-checked="false">
+                    <label for="showpassword2">Show Password</label>
                   </div>
               </div>
           </div>
       </div>
 
     <div class="col-md-7">
-      <button class="btn btn-primary btn-sm" ng-click="addDirector(pantryAdministrationForm)">Add Director</button>
-      <button class="btn btn-primary btn-sm" ng-click="next(pantryAdministrationForm)" ng-show="currentIndex < pages.length-1">Next</button>
+      <button class="btn btn-primary btn-sm" id="addDirectorButtonId" ng-click="addDirector(pantryAdministrationForm)">Add Director</button>
+      <button class="btn btn-primary btn-sm" id="nextButtonId" ng-click="next(pantryAdministrationForm)" ng-show="currentIndex < pages.length-1">Next</button>
     </div>
   </form>

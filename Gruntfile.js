@@ -1,6 +1,8 @@
 // Generated on 2016-01-07 using generator-angular 0.15.0
 'use strict';
 var fs = require('fs');
+var spawn = require('child_process').spawn;
+
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -17,8 +19,80 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    protractor: 'grunt-contrib-connect'
   });
+
+
+  function execute(cmd, args, options) {
+    // logger.info(cmd, args);
+    return function (cb) {
+      var ls;
+      if (process.platform === "win32") {
+        // Windows needs some help running commands.
+        ls = spawn('cmd', ['/c', cmd].concat(args));
+      } else {
+        ls = spawn(cmd, args, options);
+      }
+      var err = '';
+      var res = '';
+      ls.stdout.on('data', function (data) {
+        res += data;
+      });
+      ls.stderr.on('data', function (data) {
+        err += data;
+      });
+      ls.on('close', function (code) {
+        if (code) {
+          if (err) {
+            console.log('Error: ', err);
+          }
+          cb('Process ' + cmd + ' with args ' + JSON.stringify(args) + ' exited with code ' + code);
+          return;
+        }
+        if (err) {
+          cb(err);
+          return;
+        }
+        // logger.info(res);
+        cb(null, 'All good');
+      });
+    }
+  }
+
+  function execSyncRetry(func, done, retryCount) {
+    function run() {
+      try {
+        func(function(err, res) {
+          if (err) {
+            retryCount--;
+            if (retryCount) {
+              // logger.error(err);
+              setTimeout(function(){
+                run();
+              }, 2000);
+              return;
+            }
+            // logger.error(err);
+            grunt.fail.fatal('Task Failed');
+          }
+          if (res) {
+            grunt.log.writeln(res);
+          }
+          done();
+        });
+      } catch (e) {
+        console.error(e);
+        done();
+      }
+    }
+    run();
+    // Time out any grunt task after 15 minutes of execution
+    setTimeout(function() {
+      grunt.log.writeln("Grunt task timed out!");
+      done();
+    }, 60 * 1000 * 15);
+  }
 
   // Configurable paths for the application
   var appConfig = {
@@ -138,6 +212,53 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
+    protractor: {
+      options: {
+        // Location of your protractor config file
+
+        // configFile: "test/conf-selenium.js",
+
+        // Do you want the output to use fun colors?
+        noColor: false,
+
+        // Set to true if you would like to use the Protractor command line debugging tool
+        // debug: true,
+
+        // Additional arguments that are passed to the webdriver command
+        args: { }
+        },
+      e2e: {
+        options: {
+          configFile: "test/protractor-conf.js",
+          // Stops Grunt process if a test fails
+          keepAlive: false,
+          verbose: true
+        }
+      },
+      createpantry: {
+        options: {
+          configFile: "test/protractor-createpantry.js",
+          // Stops Grunt process if a test fails
+          keepAlive: false,
+          verbose: true
+        }
+      },
+      createhousehold: {
+        options: {
+          configFile: "test/protractor-createhousehold.js",
+          // Stops Grunt process if a test fails
+          keepAlive: false,
+          verbose: true
+        }
+      },
+      continuous: {
+        options: {
+          configFile: "test/protractor-conf.js",
+          keepAlive: true
+        }
+      }
+    },
+
 
     // Make sure code styles are up to par
     jscs: {
@@ -230,7 +351,7 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
+          '<%= yeoman.dist %>/fonts/*'
         ]
       }
     },
@@ -266,7 +387,18 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/styles'
         ],
         patterns: {
-          js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
+          js: [
+            [/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images'],
+            [/(bower_components\/bootstrap\/dist\/fonts)/g, 'https://github.com/yeoman/generator-angular/issues/665', function(match) {
+              return match.replace('bower_components/bootstrap/dist/fonts', '../fonts');
+            }]
+          ],
+          // used for the glyph fonts
+          css: [
+            [/(bower_components\/bootstrap\/dist\/fonts)/g, 'https://github.com/yeoman/generator-angular/issues/665', function(match) {
+              return match.replace('bower_components/bootstrap/dist/fonts', '../fonts');
+            }]
+          ]
         }
       }
     },
@@ -275,15 +407,17 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
+     cssmin: {
+       dist: {
+         files: {
+           '<%= yeoman.dist %>/styles/main.css': [
+             '.tmp/styles/{,*/}*.css'
+           ]
+         }
+       }
+     },
+
+
     uglify: {
       options: {
         beautify: true
@@ -386,7 +520,16 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
-        }, {
+        },
+          // add this rule to copy the fonts:
+          {
+            expand: true,
+            flatten: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>/fonts',
+            src: ['bower_components/sass-bootstrap/fonts/*.*']
+          },
+          {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
@@ -430,6 +573,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -451,6 +595,7 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
+  /*
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
@@ -460,6 +605,14 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('test:unit', [
+    'clean:server',
+    'coffee',
+    'compass',
+    'connect:test',
+    'karma:unit'
+  ]);
+*/
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
@@ -482,10 +635,25 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
-    'test',
+    // 'test',
+    'test_grunt_serve',
+    'protractor:e2e',
     'build'
   ]);
-  
+
+  grunt.registerTask('test_grunt_serve', 'Starting grunt serve', function() {
+    var done = this.async();
+    execSyncRetry(execute('grunt', ['serve'], {
+      cwd: process.cwd() + '/'
+    }), this.async(), 3);
+    grunt.log.writeln('Processing task...');
+    // And some async stuff.
+    setTimeout(function() {
+      grunt.log.writeln('All done!');
+      done();
+    }, 1000);
+  });
+
   grunt.registerTask('update_sdk_hostname', 'This task updates the PantryExpress API SDK script reference hostname to use hostname defined by SDK_HOSTNAME env variable.', function() {
     // Replace index.html's script reference with updated hostname if "SDK_HOSTNAME" environment variable is defined
     var sdkDefaultHostname = "sdk-alpha.pantryexpress.org";

@@ -17,7 +17,7 @@
     "angular-mocks": "^1.4.0"
   },
   "resolutions": {
-    "angular": "~1.4.x"
+    "angular": "^1.4.0"
   },
   "appPath": "app",
   "moduleName": "pantyexpressApp",

@@ -2,9 +2,9 @@
     <h1>Sign Up Confirmation</h1>
     <h2>Selected Service Plan</h2>
 </div>
-     <table class="table table-bordered" ng-readonly="isReadOnly">
-        <thead class="thread-inverse">
-      <tr>
+    <table class="table table-bordered" ng-readonly="isReadOnly">
+      <thead class="thread-inverse">
+        <tr>
           <th>Plan</th>
           <th>Number of Locations</th>
           <th>Number of users</th>
@@ -19,14 +19,11 @@
           <th>$0.00</th>
         </tr>
       </tbody>
-      </table>
-  <div class="btn-group">
-    <button class="btn-primary">Edit</button>
-  </div>
+    </table>
 <div class="text-center">
     <h1>Food Pantry Signup</h1>
 </div>
-  </form class="form-horizontal" role="form" name="pantryInformForm">
+  <form class="form-horizontal" role="form" name="pantryInformForm">
     <div class="row">
       <div class="col-sm-6 col-lg-12">
         <div class="form-group">
@@ -42,6 +39,14 @@
           <label for="friendlyName" class="col-md-5 control-label">Friendly Name:</label>
           <div class="col-md-7">
             <input class="form-control" id="friendlyName" placeholder="Friendly Name" type="text" ng-model="req.pantry.friendlyName" ng-readonly="isReadOnly">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <div class="form-group">
+          <label for="webSite" class="col-md-5 control-label">Food Pantry WebAddress:</label>
+          <div class="col-md-7">
+            <input class="form-control" id="webSite" placeholder="Website" type="text" ng-model="req.pantry.website" ng-readonly="isReadOnly">
           </div>
         </div>
       </div>
@@ -151,10 +156,9 @@
           </div>
         </div>
       </div>
-    </div>
       <div class="btn-group">
-        <button ng-click="createPantry()" class="btn-primary">Sign Up</button>
+        <button ng-click="createPantry()" id="pantrysignupButtonId" class="btn-primary">Sign Up</button>
         <button ng-click="editPantry()" class="btn-primary">Cancel</button>
+      </div>
     </div>
-    </div>
-  </div>
+  </form>

@@ -8,10 +8,13 @@
  * Controller of the pantyexpressApp
  */
 angular.module('pantyexpressApp')
-  .controller('SignupCtrl', function ($scope,$rootScope, api, ngDialog) {
+  .controller('SignupCtrl', function ($scope,$rootScope, api, $location) {
 
     //Regex pattern for email, need @.something for schema validation
     $scope.emailPattern = /^([a-zA-Z0-9])+([a-zA-Z0-9._%+-])+@([a-zA-Z0-9_.-])+\.(([a-zA-Z]){2,6})$/;
+
+    $scope.websiteAddressPattern = /^$|[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+
     $scope.currentIndex = 0;
     $scope.pages = [
       {
@@ -156,14 +159,8 @@ angular.module('pantyexpressApp')
       api.postPantries({ PantriesCreateRequest: $scope.req }).then(function (data){
         console.log('Pantry: ', data);
         //notify();
-        ngDialog.openConfirm({
-          template:
-                '<p>Pantry created with ID: ' + data.pantry.id + '!</p>' +
-                '<div class="ngdialog-buttons">' +
-                '<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">OK</button>' +
-                '</div>',
-          plain: true
-        });
+        $rootScope.selectedPantry = data.pantry;
+        $location.url('/login');
       },function(err){
         console.error('postPantries Error', err);
         // TODO: Add error handling here
