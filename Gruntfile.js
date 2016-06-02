@@ -387,11 +387,16 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/styles'
         ],
         patterns: {
-          js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']],
+          js: [
+            [/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images'],
+            [/(\/bower_components\/bootstrap\/dist\/fonts)/g, 'https://github.com/yeoman/generator-angular/issues/665', function(match) {
+              return match.replace('/bower_components/bootstrap/dist/fonts', '../fonts');
+            }]
+          ],
           // used for the glyph fonts
           css: [
             [/(\/bower_components\/bootstrap\/dist\/fonts)/g, 'https://github.com/yeoman/generator-angular/issues/665', function(match) {
-              return match.replace('../fonts', '/bower_components/bootstrap/dist/fonts');
+              return match.replace('/bower_components/bootstrap/dist/fonts', '../fonts');
             }]
           ]
         }

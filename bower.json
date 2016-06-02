@@ -20,5 +20,14 @@
     "angular": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "pantyexpressApp"
+  "moduleName": "pantyexpressApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
 }
