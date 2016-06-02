@@ -98,7 +98,6 @@ angular.module('pantyexpressApp')
 
     //default to today's date
     $scope.todayDate = new Date();
-
     $scope.householdsFilter = {};
     $scope.household = {};
     $scope.households = [];
@@ -136,6 +135,7 @@ angular.module('pantyexpressApp')
       url: 'views/households/findhousehold.html',
       visible: true,
       init: function() {
+        $scope.householdsSearchExecuted = false;
         $location.url('/households/find');
       }
     };
@@ -314,6 +314,16 @@ angular.module('pantyexpressApp')
       api.putPantriesByPantryIdHouseholdsByHouseholdId({ householdId: $rootScope.selectedHousehold.householdId, pantryId: $rootScope.selectedPantry.id, Household: $rootScope.selectedHousehold }).then(function (data){
         $rootScope.household = data;
         console.log('HouseholdsPut Response: ', $scope.household, data);
+        ngDialog.open({
+          template:'\
+                  <p>Household Updates Saved!</p>\
+                  <div class="ngdialog-buttons">\
+                      <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="closeThisDialog()">OK</button>\
+                  </div>',
+          plain: true,
+          showClose: false,
+          closeByEscape: false
+        });
       },function(err){
         console.error('HouseholdsPut Error', err);
         // TODO: Add error handling here
@@ -344,7 +354,8 @@ angular.module('pantyexpressApp')
       // Call list households operation via API service using filter criteria
       api.getPantriesByPantryIdHouseholds(filterCriteria).then(function (data){
         $scope.households = data.items;
-        console.log('HouseholdsList Response: ', $scope.households);
+        $scope.householdsSearchExecuted = true;
+        console.log('HouseholdsList Filtered Response: ', $scope.households);
       }, function(err){
         console.error('HouseholdsList Error', err);
         // TODO: Add error handling here

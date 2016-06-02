@@ -3,7 +3,7 @@
     <h1>Service History</h1>
   </div>
   <div>
-    <table class="table table-bordered">
+    <table class="table table-bordered" ng-show="servicesList.length > 0">
       <thead class="thread-inverse">
         <tr>
           <th>Service Date</th>
@@ -33,6 +33,6 @@
         </tr>
       </tbody>
     </table>
+    <center><h4 ng-show="servicesList.length == 0">Household has no prior service history.</h4></center>
   </div>
 </div>
-
