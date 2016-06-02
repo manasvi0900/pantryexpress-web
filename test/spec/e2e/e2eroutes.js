@@ -24,8 +24,6 @@ describe('Example:', function () {
   it('view Main Page', function () {
     var element = browser.findElement(by.id('spendedId'));
     expect(element.isDisplayed()).toBe(true);
-    expect(element.getText()).toBe('Splendid!');
+    expect(element.getText()).toBe('Sign up now');
   });
 });
-
-
